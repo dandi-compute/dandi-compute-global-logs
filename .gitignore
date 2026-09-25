@@ -1,0 +1,3 @@
+# Local-only files on the cluster checkout: raw SLURM and runner output, and records that could
+# not be delivered yet (record.sh commits those on its next successful run).
+untracked/
