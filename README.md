@@ -17,12 +17,12 @@ it.
 
 ```
 logs/{YYYYMMDDTHHMMSS}-{action}/     one scheduled task or workflow step
-monitor/{YYYYMMDDTHHMMSS}-squeue/    a squeue snapshot, every 5 minutes
-monitor/LATEST                       the name of the newest snapshot's directory
+monitor/{HH}/{YYYYMMDDTHHMMSS}-squeue/   a squeue snapshot, every 5 minutes, grouped by hour
+monitor/LATEST                          the newest snapshot's path relative to monitor/
 ```
 
 To read the latest snapshot without listing `monitor/`, read `monitor/LATEST` on the day's
-branch and then `monitor/{that name}/stdout`.
+branch (e.g. `18/20260928T185500-squeue`) and then `monitor/{that path}/stdout`.
 
 Each record directory holds:
 
