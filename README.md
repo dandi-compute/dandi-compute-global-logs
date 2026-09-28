@@ -26,7 +26,7 @@ Each record directory holds:
 |---|---|
 | `stdout`, `stderr` | The command's output. |
 | `exit_status` | The command's exit status. |
-| `info.json`, `usage.jsonl` | [duct](https://github.com/con/duct)'s summary and resource samples, when duct is available. |
+| `.duct/info.json`, `.duct/usage.jsonl` | [duct](https://github.com/con/duct)'s summary and resource samples, when duct is available. |
 | `record.log` | Anything that went wrong while recording or delivering this record. |
 | `step.sh` | For a GitHub Actions step, the script the step ran. |
 
