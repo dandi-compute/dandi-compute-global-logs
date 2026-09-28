@@ -6,9 +6,12 @@ they stay with each capsule and are uploaded to DANDI with it.
 
 ## Layout
 
-Each day's records live on their own branch, named for the date (`YYYY-MM-DD`). `main` holds
-nothing but this README and the dataset configuration, so old days can be deleted as branches
-without touching its history.
+Each day's records live on their own branches, one per kind of record and named for it and the
+date: `logs/YYYY-MM-DD` for tasks and workflow steps, `monitor/YYYY-MM-DD` for squeue snapshots.
+The frequent snapshots and the tasks thus update independently, never rebasing onto each other.
+Records from before this split are on undivided `YYYY-MM-DD` branches. `main` holds nothing but
+this README and the dataset configuration, so old days can be deleted as branches without
+touching its history.
 
 Every branch is a [DataLad](https://www.datalad.org/) dataset (without git-annex, since
 everything recorded is small text). Each record is a `datalad run` commit, so its message holds
@@ -16,13 +19,13 @@ the exact command, the directory it ran in and its exit status, and `datalad rer
 it.
 
 ```
-logs/{YYYYMMDDTHHMMSS}-{action}/     one scheduled task or workflow step
-monitor/{HH}/{YYYYMMDDTHHMMSS}-squeue/   a squeue snapshot, every 5 minutes, grouped by hour
-monitor/LATEST                          the newest snapshot's path relative to monitor/
+logs/{YYYYMMDDTHHMMSS}-{action}/         on logs/YYYY-MM-DD: one scheduled task or workflow step
+monitor/{HH}/{YYYYMMDDTHHMMSS}-squeue/   on monitor/YYYY-MM-DD: a squeue snapshot, every 5 minutes, grouped by hour
+monitor/LATEST                           on monitor/YYYY-MM-DD: the newest snapshot's path relative to monitor/
 ```
 
 To read the latest snapshot without listing `monitor/`, read `monitor/LATEST` on the day's
-branch (e.g. `18/20260928T185500-squeue`) and then `monitor/{that path}/stdout`.
+`monitor/YYYY-MM-DD` branch (e.g. `18/20260928T185500-squeue`) and then `monitor/{that path}/stdout`.
 
 Each record directory holds:
 
@@ -45,7 +48,7 @@ record.sh logs dispatch -- bash .../launcher/tasks/dispatch.sh
 ```
 
 It runs the command under `datalad run` (inside duct) in a throwaway clone. It then moves that
-commit onto the day's branch in the shared checkout at
+commit onto the day's branch for its kind in the shared checkout at
 `/orcd/data/dandi/001/dandi-compute/dandi-compute-global-logs` and pushes it here. The shared
 checkout is locked only for that last step, so a long task never holds up the others.
 
