@@ -1,0 +1,6 @@
+Pulling ./dandi-compute-core/
+HEAD is now at 60e5ebd Lowered the nwb_ecephys CPU request to 4 in a new v5 config (#354)
+Pulling ./dandi-compute-runner/
+HEAD is now at 5cca64f Deliver each kind of record through its own worktree and lock
+Pulling ./aind-ephys-pipeline/
+HEAD is now at 80b38fe Docs improvement: added reminder to include input format (#130)
