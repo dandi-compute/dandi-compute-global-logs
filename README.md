@@ -49,8 +49,10 @@ record.sh logs dispatch -- bash .../launcher/tasks/dispatch.sh
 
 It runs the command under `datalad run` (inside duct) in a throwaway clone. It then moves that
 commit onto the day's branch for its kind in the shared checkout at
-`/orcd/data/dandi/001/dandi-compute/dandi-compute-global-logs` and pushes it here. The shared
-checkout is locked only for that last step, so a long task never holds up the others.
+`/orcd/data/dandi/001/dandi-compute/dandi-compute-global-logs`, through that checkout's worktree
+for the kind (`untracked/worktrees/logs` or `untracked/worktrees/monitor`), and pushes it here.
+Each worktree is locked only for that last step, and each kind has its own, so a long task never
+holds up the others and the snapshots never wait on the tasks.
 
 Recording is built never to lose a record and never to stop the work it records:
 
