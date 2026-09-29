@@ -1,0 +1,32 @@
+INFO:dandi_compute_code.dandiset._write_dandiset_file:Writing derivatives/jobs.tsv into Dandiset 001697 in /orcd/data/dandi/001/dandi-compute/processing/write-dandiset-file-5maeegyk
+INFO:dandi_compute_code.dandiset._write_dandiset_file:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001697/
+INFO:dandi_compute_code.dandiset._write_dandiset_file:dandi upload returned code 0 for dandi://dandi/001697/
+INFO:dandi_compute_code.dandiset._write_dandiset_file:Writing derivatives/jobs.json into Dandiset 001697 in /orcd/data/dandi/001/dandi-compute/processing/write-dandiset-file-m3y_0ndp
+INFO:dandi_compute_code.dandiset._write_dandiset_file:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001697/
+INFO:dandi_compute_code.dandiset._write_dandiset_file:dandi upload returned code 0 for dandi://dandi/001697/
+INFO:dandi_compute_code.dandiset._write_dandiset_file:Writing derivatives/paths.tsv into Dandiset 001697 in /orcd/data/dandi/001/dandi-compute/processing/write-dandiset-file-agfnv0gh
+INFO:dandi_compute_code.dandiset._write_dandiset_file:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001697/
+INFO:dandi_compute_code.dandiset._write_dandiset_file:dandi upload returned code 0 for dandi://dandi/001697/
+INFO:dandi_compute_code.dandiset._write_dandiset_file:Writing derivatives/paths.json into Dandiset 001697 in /orcd/data/dandi/001/dandi-compute/processing/write-dandiset-file-zgm5drut
+INFO:dandi_compute_code.dandiset._write_dandiset_file:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001697/
+INFO:dandi_compute_code.dandiset._write_dandiset_file:dandi upload returned code 0 for dandi://dandi/001697/
+WARNING:dandi_compute_code.queue._queue_utils:Source asset not found in upstream dandiset 001765 for within_dandiset_path=sub-NP06/sub-NP06_ecephys.nwb; emitting record with null content_id/asset_size_bytes
+WARNING:dandi_compute_code.queue._queue_utils:Source asset not found in upstream dandiset 001765 for within_dandiset_path=sub-NP06/sub-NP06_ecephys.nwb; emitting record with null content_id/asset_size_bytes
+WARNING:dandi_compute_code.queue._queue_utils:Source asset not found in upstream dandiset 001765 for within_dandiset_path=sub-NP06/sub-NP06_ecephys.nwb; emitting record with null content_id/asset_size_bytes
+WARNING:dandi_compute_code.queue._queue_utils:Source asset not found in upstream dandiset 001765 for within_dandiset_path=sub-NP06/sub-NP06_ecephys.nwb; emitting record with null content_id/asset_size_bytes
+WARNING:dandi_compute_code.queue._queue_utils:Source asset not found in upstream dandiset 001765 for within_dandiset_path=sub-NP06/sub-NP06_ecephys.nwb; emitting record with null content_id/asset_size_bytes
+WARNING:dandi_compute_code.queue._queue_utils:Source asset not found in upstream dandiset 001765 for within_dandiset_path=sub-NP06/sub-NP06_ecephys.nwb; emitting record with null content_id/asset_size_bytes
+WARNING:dandi_compute_code.queue._queue_utils:Source asset not found in upstream dandiset 001765 for within_dandiset_path=sub-NP06/sub-NP06_ecephys.nwb; emitting record with null content_id/asset_size_bytes
+WARNING:dandi_compute_code.queue._queue_utils:Unable to read a text asset from https://dandiarchive.s3.amazonaws.com/blobs/337/396/3373961c-f0c3-4cbd-a08a-53dfb8dad94e: <urlopen error [Errno 104] Connection reset by peer>
+INFO:dandi_compute_code.dandiset._write_dandiset_file:Writing derivatives/jobs.tsv into Dandiset 001873 in /orcd/data/dandi/001/dandi-compute/processing/write-dandiset-file-bq1gvi9z
+INFO:dandi_compute_code.dandiset._write_dandiset_file:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._write_dandiset_file:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._write_dandiset_file:Writing derivatives/jobs.json into Dandiset 001873 in /orcd/data/dandi/001/dandi-compute/processing/write-dandiset-file-jix7ies6
+INFO:dandi_compute_code.dandiset._write_dandiset_file:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._write_dandiset_file:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._write_dandiset_file:Writing derivatives/paths.tsv into Dandiset 001873 in /orcd/data/dandi/001/dandi-compute/processing/write-dandiset-file-acebhodk
+INFO:dandi_compute_code.dandiset._write_dandiset_file:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._write_dandiset_file:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._write_dandiset_file:Writing derivatives/paths.json into Dandiset 001873 in /orcd/data/dandi/001/dandi-compute/processing/write-dandiset-file-4fu0001p
+INFO:dandi_compute_code.dandiset._write_dandiset_file:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._write_dandiset_file:dandi upload returned code 0 for dandi://dandi/001873/
