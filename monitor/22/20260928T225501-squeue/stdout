@@ -1,0 +1,3 @@
+     JOBID PARTITION       NAME                                     USER       ST       TIME  NODES CP MIN_MEMORY NODELIST(REASON)              
+  24076454 mit_preemptable DANDI-Compute-Monitor                    cb239       R 1-21:27:05      1  1       100M node1462                      
+  24239829 mit_preemptable DANDI-Compute-Submitter                  cb239       R      12:47      1  1         1G node1399                      
