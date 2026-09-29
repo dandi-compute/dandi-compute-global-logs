@@ -1,0 +1,12 @@
+remote: Internal Server Error        
+remote: Request ID 89D6:30029E:5BD1D8:7DD51E:6ABBD14A        
+remote: Time 2026-09-29T14:55:06Z
+To https://github.com/dandi-compute/dandi-compute-global-logs.git
+ ! [remote rejected] monitor/2026-09-29 -> monitor/2026-09-29 (Internal Server Error)
+error: failed to push some refs to 'https://github.com/dandi-compute/dandi-compute-global-logs.git'
+remote: Internal Server Error        
+remote: Request ID ACEE:3DA25E:57958C:7895D1:6ABBD151        
+remote: Time 2026-09-29T14:55:13Z
+To https://github.com/dandi-compute/dandi-compute-global-logs.git
+ ! [remote rejected] monitor/2026-09-29 -> monitor/2026-09-29 (Internal Server Error)
+error: failed to push some refs to 'https://github.com/dandi-compute/dandi-compute-global-logs.git'
