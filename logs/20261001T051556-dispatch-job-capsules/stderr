@@ -1,0 +1,8 @@
+INFO:dandi_compute_code.queue._pipeline_queue:Sleeping 2.52 seconds (jitter) before dispatching jobs
+INFO:dandi_compute_code.queue._pipeline_queue:Found 10 pending queue entries
+INFO:dandi_compute_code.queue._dispatch:Dispatching 5 capsule(s) for pipeline aind+ephys as array dandicompute-dispatch-aind-ephys requesting 1GB / 1 CPU / mit_preemptable / 48:00:00 (at most 2 at a time)
+INFO:dandi_compute_code.queue._dispatch:sbatch returned code 0; stdout: Submitted batch job 24530592
+
+INFO:dandi_compute_code.queue._dispatch:Dispatching 5 capsule(s) for pipeline lfp as array dandicompute-dispatch-lfp requesting 16GB / 1 CPU / mit_preemptable / 48:00:00 (at most 2 at a time)
+INFO:dandi_compute_code.queue._dispatch:sbatch returned code 0; stdout: Submitted batch job 24530593
+
