@@ -1,0 +1,49 @@
+INFO:dandi_compute_code.queue._pipeline_queue:Sleeping 24.09 seconds (jitter) before dispatching jobs
+INFO:dandi_compute_code.queue._pipeline_queue:Found 2 pending queue entries
+Traceback (most recent call last):
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/bin/dandicompute", line 7, in <module>
+    sys.exit(_dandicompute_group())
+             ~~~~~~~~~~~~~~~~~~~^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1569, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1490, in main
+    rv = self.invoke(ctx)
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1970, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1970, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1353, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 907, in invoke
+    return callback(*args, **kwargs)
+  File "/orcd/data/dandi/001/dandi-compute/dandi-compute-core/src/dandi_compute_code/_cli/_dandicompute_group.py", line 550, in _jobs_dispatch_command
+    results = PipelineQueue.dispatch_jobs(
+        base_directory=base_directory,
+    ...<3 lines>...
+        test=test,
+    )
+  File "<@beartype(dandi_compute_code.queue._pipeline_queue.PipelineQueue.dispatch_jobs) at 0x14e4e5bf0400>", line 111, in dispatch_jobs
+  File "/orcd/data/dandi/001/dandi-compute/dandi-compute-core/src/dandi_compute_code/queue/_pipeline_queue.py", line 723, in dispatch_jobs
+    results[pipeline_name] = dispatch_pipeline_jobs(
+                             ~~~~~~~~~~~~~~~~~~~~~~^
+        pipeline=pipeline_name,
+        ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        test=test,
+        ^^^^^^^^^^
+    )
+    ^
+  File "<@beartype(dandi_compute_code.queue._dispatch.dispatch_pipeline_jobs) at 0x14e4e5bc6ac0>", line 148, in dispatch_pipeline_jobs
+  File "/orcd/data/dandi/001/dandi-compute/dandi-compute-core/src/dandi_compute_code/queue/_dispatch.py", line 376, in dispatch_pipeline_jobs
+    active_job_ids = _active_dispatcher_job_ids(job_name)
+  File "<@beartype(dandi_compute_code.queue._dispatch._active_dispatcher_job_ids) at 0x14e4e5bc6840>", line 30, in _active_dispatcher_job_ids
+  File "/orcd/data/dandi/001/dandi-compute/dandi-compute-core/src/dandi_compute_code/queue/_dispatch.py", line 266, in _active_dispatcher_job_ids
+    raise RuntimeError(message)
+RuntimeError: command: ['squeue', '--me', '--noheader', '--name', 'dandicompute-dispatch-aind-ephys', '--states', 'PENDING,RUNNING,SUSPENDED,COMPLETING,CONFIGURING,RESIZING,REQUEUED', '--format=%i']
+stdout: 
+stderr: slurm_load_jobs error: Unable to contact slurm controller (connect failure)
+
