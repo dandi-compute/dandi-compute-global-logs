@@ -1,0 +1,7 @@
+     JOBID PARTITION       NAME                                     USER       ST       TIME  NODES CP MIN_MEMORY NODELIST(REASON)              
+  24681867 mit_normal      nf-curation_(curation)                   cb239      PD       0:00      1  4        32G (Priority)                    
+  24569702 mit_normal      nf-preprocessing_(preprocessing)         cb239      PD       0:00      1 16       256G (Priority)                    
+  24690746 mit_preemptable backup_nonblobs_deployment.sh            cb239      PD       0:00      1  1       100M (Priority)                    
+24530592_2 mit_preemptable dandicompute-dispatch-aind-ephys         cb239       R    3:02:41      1  1         1G node5101                      
+  24665377 mit_preemptable DANDI-Compute-Submitter                  cb239       R    3:02:41      1  1         1G node5002                      
+24530592_1 mit_preemptable dandicompute-dispatch-aind-ephys         cb239       R 1-02:54:44      1  1         1G node2012                      
