@@ -1,0 +1,16 @@
+     JOBID PARTITION       NAME                                     USER       ST       TIME  NODES CP MIN_MEMORY NODELIST(REASON)              
+  24732668 mit_normal      nf-preprocessing_(preprocessing)         cb239      PD       0:00      1 16       256G (QOSMaxMemoryPerUser)         
+  24732667 mit_normal      nf-preprocessing_(preprocessing)         cb239      PD       0:00      1 16       256G (QOSMaxMemoryPerUser)         
+  24732666 mit_normal      nf-preprocessing_(preprocessing)         cb239      PD       0:00      1 16       256G (QOSMaxMemoryPerUser)         
+  24732665 mit_normal      nf-preprocessing_(preprocessing)         cb239      PD       0:00      1 16       256G (QOSMaxMemoryPerUser)         
+  24732664 mit_normal      nf-preprocessing_(preprocessing)         cb239      PD       0:00      1 16       256G (QOSMaxMemoryPerUser)         
+  24732663 mit_normal      nf-preprocessing_(preprocessing)         cb239      PD       0:00      1 16       256G (QOSMaxMemoryPerUser)         
+  24732662 mit_normal      nf-preprocessing_(preprocessing)         cb239      PD       0:00      1 16       256G (QOSMaxMemoryPerUser)         
+  24732661 mit_normal      nf-preprocessing_(preprocessing)         cb239      PD       0:00      1 16       256G (QOSMaxMemoryPerUser)         
+  24732660 mit_normal      nf-nwb_ecephys_(nwb-ecephys)             cb239      PD       0:00      1  4       256G (QOSMaxMemoryPerUser)         
+  24732622 mit_normal      nf-nwb_ecephys_(nwb-ecephys)             cb239       R    1:38:35      1  4       256G node3109                      
+  24750078 mit_normal      nf-postprocessing_(postprocessing)       cb239       R       3:41      1 16        64G node1609                      
+24732508_[ mit_preemptable dandicompute-dispatch-aind-ephys         cb239      PD       0:00      1  1         1G (JobArrayTaskLimit)           
+  24721015 mit_preemptable DANDI-Compute-Submitter                  cb239       R   10:46:23      1  1         1G node1459                      
+24732508_3 mit_preemptable dandicompute-dispatch-aind-ephys         cb239       R    6:27:19      1  1         1G node2418                      
+24732508_2 mit_preemptable dandicompute-dispatch-aind-ephys         cb239       R    6:29:18      1  1         1G node5203                      
