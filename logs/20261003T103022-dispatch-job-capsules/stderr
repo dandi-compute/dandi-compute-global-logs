@@ -1,0 +1,4 @@
+INFO:dandi_compute_code.queue._pipeline_queue:Sleeping 11.10 seconds (jitter) before dispatching jobs
+INFO:dandi_compute_code.queue._pipeline_queue:Found 3 pending queue entries
+INFO:dandi_compute_code.queue._dispatch:Dispatcher dandicompute-dispatch-aind-ephys is still active as job(s) 24732508_[4-6%2], 24732508_3, 24732508_2; leaving its array to be exhausted
+INFO:dandi_compute_code.queue._dispatch:No pending capsules for pipeline lfp
