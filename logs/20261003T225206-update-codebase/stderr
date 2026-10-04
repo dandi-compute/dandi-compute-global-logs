@@ -1,0 +1,12 @@
+From https://github.com/dandi-compute/dandi-compute-core
+   60e5ebd..a67a632  main       -> origin/main
+From https://github.com/dandi-compute/dandi-compute-runner
+   7b1438f..8a89879  main       -> origin/main
+From https://github.com/AllenNeuralDynamics/aind-ephys-pipeline
+   591a996..e732096  co-main                 -> origin/co-main
+   05e427e..c750b25  dev                     -> origin/dev
+ * [new branch]      fix-local-installations -> origin/fix-local-installations
+   80b38fe..e600e08  main                    -> origin/main
+ * [new tag]         1.4.0                   -> 1.4.0
+ * [new tag]         si-0.100.7              -> si-0.100.7
+ * [new tag]         si-0.101.2              -> si-0.101.2

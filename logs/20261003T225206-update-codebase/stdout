@@ -1,0 +1,6 @@
+Pulling ./dandi-compute-core/
+HEAD is now at a67a632 Added v1.4.0 default AIND parameters with online DREDge batching (#361)
+Pulling ./dandi-compute-runner/
+HEAD is now at 8a89879 Disabled Dependabot rebases (#85)
+Pulling ./aind-ephys-pipeline/
+./aind-ephys-pipeline/ is on a detached HEAD; fetched new tags without resetting.
