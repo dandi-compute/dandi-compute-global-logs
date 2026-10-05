@@ -1,0 +1,6 @@
+Pulling ./dandi-compute-core/
+HEAD is now at a67a632 Added v1.4.0 default AIND parameters with online DREDge batching (#361)
+Pulling ./dandi-compute-runner/
+HEAD is now at 67bc12c Read the container tag from AIND ephys pipeline 1.4.0 and later (#86)
+Pulling ./aind-ephys-pipeline/
+./aind-ephys-pipeline/ is on a detached HEAD; fetched new tags without resetting.
