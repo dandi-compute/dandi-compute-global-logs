@@ -1,0 +1,5 @@
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for aind+ephys/1.4.0/default/1521914e-c9be-4abe-b8e4-74342bb01efb.
+INFO:dandi_compute_code.aind_ephys_pipeline._prepare_job:Writing job files to /orcd/data/dandi/001/dandi-compute/aind-ephys-pipeline/pipeline
+INFO:dandi:Found 7 files to consider
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for aind+ephys/1.4.0/default/2bdd5a4f-5f30-4742-a286-2d54f8671133.
+/orcd/data/dandi/001/dandi-compute/runners/submitter/actions-runner/_work/_temp/f95060e6-ee2c-4069-843a-21d987151c05.sh: line 3: 4135822 Killed                  dandicompute jobs create --base /orcd/data/dandi/001/dandi-compute --pipeline "$pipeline" --limit 5
