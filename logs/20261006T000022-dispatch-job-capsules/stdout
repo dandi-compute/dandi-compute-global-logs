@@ -1,0 +1,7 @@
+Running: dandicompute jobs dispatch --base /orcd/data/dandi/001/dandi-compute
+
+aind+ephys: the dispatcher is already running; its array has not been exhausted yet.
+
+lfp: dispatched 1 capsule as array job 25006124.
+  array 25006124: 1 capsule requesting 16GB / 1 CPU / mit_preemptable / 48:00:00, at most 2 at a time
+  logs, manifests and scripts: /orcd/data/dandi/001/dandi-compute/processing/derivatives/logs/dandicompute-dispatch-lfp
