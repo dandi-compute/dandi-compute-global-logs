@@ -1,0 +1,8 @@
+     JOBID PARTITION       NAME                                     USER       ST       TIME  NODES CP MIN_MEMORY NODELIST(REASON)              
+  25017206 mit_normal      nf-preprocessing_(preprocessing)         cb239      PD       0:00      1 16       256G (QOSMaxMemoryPerUser)         
+  25017207 mit_normal      nf-nwb_ecephys_(nwb-ecephys)             cb239       R       2:37      1  4       256G node1622                      
+  25019071 mit_normal_gpu  nf-spikesort_kilosort4_(spikesort-kiloso cb239       R      31:18      1 16        64G node3502                      
+25004973_3 mit_preemptable dandicompute-dispatch-aind-ephys         cb239      PD       0:00      1  1         1G (JobArrayTaskLimit)           
+25004973_5 mit_preemptable dandicompute-dispatch-aind-ephys         cb239       R    1:29:22      1  1         1G node2644                      
+25004973_1 mit_preemptable dandicompute-dispatch-aind-ephys         cb239       R    3:09:26      1  1         1G node4701                      
+  24929248 mit_preemptable DANDI-Compute-Submitter                  cb239       R   11:21:47      1  1         1G node1380                      
