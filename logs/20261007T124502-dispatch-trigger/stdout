@@ -1,0 +1,10 @@
+[2026-10-07 12:45:03] [dispatch] === dispatch run starting (pid 2784782) ===
+[2026-10-07 12:45:03] [dispatch] Sourcing /home/cb239/.dandi_env
+[2026-10-07 12:45:43] slurm_load_jobs error: Unable to contact slurm controller (connect failure)
+[2026-10-07 12:45:43] [dispatch] Maintenance-held pending jobs: 0 (threshold 5)
+[2026-10-07 12:45:43] [dispatch] Loading modules and activating conda environment
+[2026-10-07 12:45:44] [dispatch] Checking GitHub API reachability
+[2026-10-07 12:45:44] [dispatch] api.github.com reachable (HTTP 200)
+[2026-10-07 12:45:44] [dispatch] Checking for pending queue entries
+[2026-10-07 12:46:00] INFO:dandi_compute_code.queue._pipeline_queue:Found 0 pending queue entries
+[2026-10-07 12:46:00] [dispatch] No pending queue entries; skipping dispatch.
