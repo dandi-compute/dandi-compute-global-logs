@@ -1,0 +1,19 @@
+remote: Internal Server Error        
+remote: Request ID B0A2:36EFE8:FD91DE:14CC611:6AC67969        
+remote: Time 2026-10-07T16:55:06Z
+To https://github.com/dandi-compute/dandi-compute-global-logs.git
+ ! [remote rejected]   monitor/2026-10-07 -> monitor/2026-10-07 (Internal Server Error)
+error: failed to push some refs to 'https://github.com/dandi-compute/dandi-compute-global-logs.git'
+remote: Internal Server Error        
+remote: Request ID 88D0:133FF9:FDC2A4:14D39BE:6AC6796F        
+remote: Time 2026-10-07T16:55:13Z
+To https://github.com/dandi-compute/dandi-compute-global-logs.git
+ ! [remote rejected]   monitor/2026-10-07 -> monitor/2026-10-07 (Internal Server Error)
+error: failed to push some refs to 'https://github.com/dandi-compute/dandi-compute-global-logs.git'
+remote: Internal Server Error        
+remote: Request ID 8B1A:209BFA:EE434C:139CBE5:6AC6797C        
+remote: Time 2026-10-07T16:55:24Z
+To https://github.com/dandi-compute/dandi-compute-global-logs.git
+ ! [remote rejected]   monitor/2026-10-07 -> monitor/2026-10-07 (Internal Server Error)
+error: failed to push some refs to 'https://github.com/dandi-compute/dandi-compute-global-logs.git'
+2026-10-07 12:55:40 could not push monitor/2026-10-07 from the shared checkout; it stays there for the next push
