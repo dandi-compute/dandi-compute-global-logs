@@ -1,0 +1,64 @@
+Traceback (most recent call last):
+  File "/orcd/data/dandi/001/dandi-compute/dandi-compute-core/src/dandi_compute_code/dandiset/_load_content_id_to_usage_dandiset_path.py", line 24, in _load_content_id_to_usage_dandiset_path
+    with urllib.request.urlopen(url=_CONTENT_ID_TO_USAGE_DANDISET_PATH_URL) as response:
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/urllib/request.py", line 189, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/urllib/request.py", line 495, in open
+    response = meth(req, response)
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/urllib/request.py", line 604, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/urllib/request.py", line 533, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/urllib/request.py", line 466, in _call_chain
+    result = func(*args)
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/urllib/request.py", line 613, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/bin/dandicompute", line 7, in <module>
+    sys.exit(_dandicompute_group())
+             ~~~~~~~~~~~~~~~~~~~^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1569, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1490, in main
+    rv = self.invoke(ctx)
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1970, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1970, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1353, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 907, in invoke
+    return callback(*args, **kwargs)
+  File "/orcd/data/dandi/001/dandi-compute/dandi-compute-core/src/dandi_compute_code/_cli/_dandicompute_group.py", line 376, in _jobs_create_command
+    created_count = PipelineQueue.create_job_capsules(
+        config_key=config_key,
+    ...<3 lines>...
+        base_directory=base_directory,
+    )
+  File "<@beartype(dandi_compute_code.queue._pipeline_queue.PipelineQueue.create_job_capsules) at 0x15334ade0680>", line 126, in create_job_capsules
+  File "/orcd/data/dandi/001/dandi-compute/dandi-compute-core/src/dandi_compute_code/queue/_pipeline_queue.py", line 857, in create_job_capsules
+    content_ids if content_ids is not None else cls._qualifying_content_ids(pipeline_name)
+                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<@beartype(dandi_compute_code.queue._pipeline_queue.PipelineQueue._qualifying_content_ids) at 0x15334ade05e0>", line 30, in _qualifying_content_ids
+  File "/orcd/data/dandi/001/dandi-compute/dandi-compute-core/src/dandi_compute_code/queue/_pipeline_queue.py", line 784, in _qualifying_content_ids
+    ordered_content_ids = _order_content_ids_for_uniform_dandiset_sampling(
+        content_ids=queue_class._fetch_qualifying_content_ids()
+    )
+  File "<@beartype(dandi_compute_code.queue._queue_utils._order_content_ids_for_uniform_dandiset_sampling) at 0x15334fc4df80>", line 37, in _order_content_ids_for_uniform_dandiset_sampling
+  File "/orcd/data/dandi/001/dandi-compute/dandi-compute-core/src/dandi_compute_code/queue/_queue_utils.py", line 456, in _order_content_ids_for_uniform_dandiset_sampling
+    content_id_to_dandiset_path = _load_content_id_to_usage_dandiset_path()
+  File "/orcd/data/dandi/001/dandi-compute/dandi-compute-core/src/dandi_compute_code/dandiset/_load_content_id_to_usage_dandiset_path.py", line 36, in _load_content_id_to_usage_dandiset_path
+    raise RuntimeError(message) from exception
+RuntimeError: Unable to load content-id-to-usage-dandiset-path mapping from https://raw.githubusercontent.com/dandi-cache/content-id-to-usage-dandiset-path/derivatives/derivatives/content_id_to_usage_dandiset_path.jsonl
