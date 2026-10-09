@@ -1,0 +1,11 @@
+[2026-10-09 10:45:04] [dispatch] === dispatch run starting (pid 355793) ===
+[2026-10-09 10:45:04] [dispatch] Sourcing /home/cb239/.dandi_env
+[2026-10-09 10:45:04] [dispatch] Maintenance-held pending jobs: 0 (threshold 5)
+[2026-10-09 10:45:04] [dispatch] Loading modules and activating conda environment
+[2026-10-09 10:45:04] [dispatch] Checking GitHub API reachability
+[2026-10-09 10:45:05] [dispatch] api.github.com reachable (HTTP 200)
+[2026-10-09 10:45:05] [dispatch] Checking for pending queue entries
+[2026-10-09 10:45:07] INFO:dandi_compute_code.queue._pipeline_queue:Found 16 pending queue entries
+[2026-10-09 10:45:07] [dispatch] Pending work found; dispatching workflow
+[2026-10-09 10:45:09] [dispatch] workflow_dispatch accepted (HTTP 204); run should appear in Actions.
+[2026-10-09 10:45:09] [dispatch] === dispatch run complete ===
