@@ -1,0 +1,6 @@
+Pulling ./dandi-compute-core/
+HEAD is now at f21904b Read the content-id-to-usage-dandiset-path cache from its dist branch (#363)
+Pulling ./dandi-compute-runner/
+HEAD is now at 702c676 Report an offline runner as such instead of as a workflow failure (#88)
+Pulling ./aind-ephys-pipeline/
+./aind-ephys-pipeline/ is on a detached HEAD; fetched new tags without resetting.
