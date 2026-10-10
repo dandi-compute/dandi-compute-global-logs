@@ -1,0 +1,6 @@
+     JOBID PARTITION       NAME                                     USER       ST       TIME  NODES CP MIN_MEMORY NODELIST(REASON)              
+  25464148 mit_normal      nf-visualization_(visualization)         cb239      PD       0:00      1  4        32G (Priority)                    
+25351330_[ mit_preemptable dandicompute-dispatch-aind-ephys         cb239      PD       0:00      1  1         1G (JobArrayTaskLimit)           
+  25438141 mit_preemptable DANDI-Compute-Submitter                  cb239       R    5:44:11      1  1         1G node4010                      
+25351330_8 mit_preemptable dandicompute-dispatch-aind-ephys         cb239       R      57:07      1  1         1G node1621                      
+25351330_7 mit_preemptable dandicompute-dispatch-aind-ephys         cb239       R    2:09:12      1  1         1G node1620                      
