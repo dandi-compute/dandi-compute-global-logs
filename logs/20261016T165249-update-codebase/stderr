@@ -1,0 +1,15 @@
+From https://github.com/dandi-compute/dandi-compute-core
+   f21904b..3077b4f  main       -> origin/main
+   671e747..d9ef535  claude/bold-faraday-gtyuiq -> origin/claude/bold-faraday-gtyuiq
+From https://github.com/dandi-compute/dandi-compute-runner
+   702c676..4f872ae  main       -> origin/main
+   922b1be..9150c0c  claude/bold-faraday-gtyuiq -> origin/claude/bold-faraday-gtyuiq
+From https://github.com/AllenNeuralDynamics/aind-ephys-pipeline
+ * [new branch]      ci-orchestration -> origin/ci-orchestration
+   2ca8f9a..b632726  co-main          -> origin/co-main
+   c750b25..09a15bc  dev              -> origin/dev
+ * [new branch]      feat/per-stream-staging-co -> origin/feat/per-stream-staging-co
+ * [new branch]      finalize-notes   -> origin/finalize-notes
+   e600e08..d0de4fa  main             -> origin/main
+ * [new branch]      prepare-1.4.1    -> origin/prepare-1.4.1
+ * [new tag]         1.4.1            -> 1.4.1
