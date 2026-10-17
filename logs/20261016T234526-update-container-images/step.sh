@@ -1,0 +1,82 @@
+PIPELINE_DIRECTORY=aind-ephys-pipeline
+CACHE_DIRECTORY="$PWD/work/apptainer_cache"
+LOG_DIRECTORY=processing/derivatives/logs/dandicompute-images
+
+# The latest local tag is what new job capsules are formed against. Its files are read
+# with `git show`, since the shared checkout is on whatever tag the last capsule used.
+TAG="${VERSION:-$(python -c "from dandi_compute_code.queue import PipelineQueue; print(PipelineQueue.resolve_latest_pipeline_version(pipeline='aind+ephys'))")}"
+# Releases from 1.4.0 name the image tag in pipeline/pipeline_version.txt (1.4.0 also as
+# CONTAINER_TAG in pipeline/capsule_versions.env, which 1.4.1 renamed). Earlier ones tag
+# the images by the SpikeInterface version in pipeline/capsule_versions.env.
+# `|| true` since a file or key the release lacks makes git or grep fail, which under
+# pipefail would end the step silently.
+CONTAINER_TAG=$(git -C "$PIPELINE_DIRECTORY" show "${TAG}:pipeline/pipeline_version.txt" 2> /dev/null | tr -d "[:space:]" || true)
+if [ -z "$CONTAINER_TAG" ]; then
+  VERSIONS=$(git -C "$PIPELINE_DIRECTORY" show "${TAG}:pipeline/capsule_versions.env" 2> /dev/null || true)
+  capsule_version() { grep -E "^$1=" <<< "$VERSIONS" | cut -d= -f2 | tr -d "[:space:]\"'" || true; }
+  CONTAINER_TAG=$(capsule_version CONTAINER_TAG)
+  if [ -z "$CONTAINER_TAG" ]; then
+    SPIKEINTERFACE_VERSION=$(capsule_version SPIKEINTERFACE_VERSION)
+    if [ -z "$SPIKEINTERFACE_VERSION" ]; then
+      echo "Pipeline ${TAG} names no image tag: no pipeline/pipeline_version.txt, and no CONTAINER_TAG or SPIKEINTERFACE_VERSION in pipeline/capsule_versions.env."
+      exit 1
+    fi
+    CONTAINER_TAG="si-${SPIKEINTERFACE_VERSION}"
+  fi
+fi
+echo "Pipeline ${TAG} uses image tag ${CONTAINER_TAG}"
+
+# The images upstream's pull_pipeline_images.sh pulls by default (--sorter kilosort4),
+# under the file names Nextflow looks for.
+missing=()
+for repository in aind-ephys-pipeline-base aind-ephys-pipeline-nwb aind-ephys-spikesort-kilosort4; do
+  file_name="ghcr.io-allenneuraldynamics-${repository}-${CONTAINER_TAG}.img"
+  [ -f "${CACHE_DIRECTORY}/${file_name}" ] || missing+=("$file_name")
+done
+if [ "${#missing[@]}" -eq 0 ]; then
+  echo "Every image is already cached."
+  exit 0
+fi
+printf 'Not cached yet: %s\n' "${missing[@]}"
+
+# The whole release is extracted (under 1 MB), since from 1.4.1 the script reads the image
+# names from environment/images.json beside it. Releases from 1.4.0 keep the script under
+# scripts/, earlier ones at the top level.
+RELEASE_DIRECTORY="$PWD/processing/aind-ephys-pipeline-${TAG}-${GITHUB_RUN_ID}"
+mkdir -p "$RELEASE_DIRECTORY"
+git -C "$PIPELINE_DIRECTORY" archive "$TAG" | tar -x -C "$RELEASE_DIRECTORY"
+SCRIPT_FILE_PATH="${RELEASE_DIRECTORY}/scripts/pull_pipeline_images.sh"
+[ -f "$SCRIPT_FILE_PATH" ] || SCRIPT_FILE_PATH="${RELEASE_DIRECTORY}/pull_pipeline_images.sh"
+if [ ! -f "$SCRIPT_FILE_PATH" ]; then
+  rm -rf "$RELEASE_DIRECTORY"
+  echo "The pipeline has no pull_pipeline_images.sh at ${TAG}."
+  exit 1
+fi
+mkdir -p "$LOG_DIRECTORY"
+
+# sbatch rather than srun or salloc: this runner lives inside its own SLURM job, where
+# srun would start a step in that 1 GB allocation instead of requesting a new one.
+# --wait blocks until the job ends, like srun would.
+set +e
+job_id=$(sbatch --wait --parsable \
+  --job-name=DANDI-Compute-Image-Cache \
+  --mem=32GB --cpus-per-task=8 --partition=mit_normal --time=04:00:00 \
+  --output="${LOG_DIRECTORY}/job-%j_slurm.log" \
+  --wrap "source /etc/profile.d/modules.sh && module load apptainer && bash '${SCRIPT_FILE_PATH}' --cache '${CACHE_DIRECTORY}' --tag '${CONTAINER_TAG}'")
+set -e
+rm -rf "$RELEASE_DIRECTORY"
+
+job_id="${job_id%%;*}"
+echo "=== Log of job ${job_id} ==="
+cat "${LOG_DIRECTORY}/job-${job_id}_slurm.log" || echo "No log found for job ${job_id}."
+
+# The upstream script ignores a failed pull (`|| true`), so success is judged by the
+# images actually being in place.
+still_missing=0
+for file_name in "${missing[@]}"; do
+  if [ ! -f "${CACHE_DIRECTORY}/${file_name}" ]; then
+    echo "Still not cached: ${file_name}"
+    still_missing=1
+  fi
+done
+exit "$still_missing"
