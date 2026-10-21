@@ -1,0 +1,2 @@
+squeue: error: Parse error in file /etc/slurm/slurm.conf line 85: " sec"
+squeue: fatal: Unable to process configuration file
