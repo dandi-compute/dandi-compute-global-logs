@@ -1,0 +1,11 @@
+[2026-10-21 19:15:03] [dispatch] === dispatch run starting (pid 3812143) ===
+[2026-10-21 19:15:03] [dispatch] Sourcing /home/cb239/.dandi_env
+[2026-10-21 19:15:03] squeue: error: Parse error in file /etc/slurm/slurm.conf line 85: " sec"
+[2026-10-21 19:15:03] squeue: fatal: Unable to process configuration file
+[2026-10-21 19:15:03] [dispatch] Maintenance-held pending jobs: 0 (threshold 5)
+[2026-10-21 19:15:03] [dispatch] Loading modules and activating conda environment
+[2026-10-21 19:15:04] [dispatch] Checking GitHub API reachability
+[2026-10-21 19:15:04] [dispatch] api.github.com reachable (HTTP 200)
+[2026-10-21 19:15:04] [dispatch] Checking for work: dandicompute jobs pending --silent
+[2026-10-21 19:15:06] INFO:dandi_compute_code.queue._pipeline_queue:Found 0 pending queue entries
+[2026-10-21 19:15:07] [dispatch] No work; not starting process-queue.yml.
