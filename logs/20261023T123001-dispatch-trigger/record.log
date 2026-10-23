@@ -1,0 +1,6 @@
+remote: Internal Server Error        
+remote: Request ID EB86:208BEA:C4F483:114DFF2:6ADB8B90        
+remote: Time 2026-10-23T16:30:13Z
+To https://github.com/dandi-compute/dandi-compute-global-logs.git
+ ! [remote rejected]     logs/2026-10-23 -> logs/2026-10-23 (Internal Server Error)
+error: failed to push some refs to 'https://github.com/dandi-compute/dandi-compute-global-logs.git'
