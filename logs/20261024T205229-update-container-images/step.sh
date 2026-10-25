@@ -1,0 +1,76 @@
+PIPELINE_DIRECTORY=aind-ephys-pipeline
+CACHE_DIRECTORY="$PWD/work/apptainer_cache"
+LOG_DIRECTORY=processing/derivatives/logs/dandicompute-images
+
+# The latest local tag is what new job capsules are formed against. Its files are read
+# with `git show`, since the shared checkout is on whatever tag the last capsule used.
+TAG="${VERSION:-$(python -c "from dandi_compute_code.queue import PipelineQueue; print(PipelineQueue.resolve_latest_pipeline_version(pipeline='aind+ephys'))")}"
+if ! VERSIONS=$(git -C "$PIPELINE_DIRECTORY" show "${TAG}:pipeline/capsule_versions.env"); then
+  echo "The pipeline has no pipeline/capsule_versions.env at ${TAG}."
+  exit 1
+fi
+# `|| true` since a key the release lacks makes grep fail, which under pipefail would
+# end the step silently.
+capsule_version() { grep -E "^$1=" <<< "$VERSIONS" | cut -d= -f2 | tr -d "[:space:]\"'" || true; }
+# Releases from 1.4.0 name the image tag outright. Earlier ones tag the images by
+# SpikeInterface version.
+CONTAINER_TAG=$(capsule_version CONTAINER_TAG)
+if [ -z "$CONTAINER_TAG" ]; then
+  SPIKEINTERFACE_VERSION=$(capsule_version SPIKEINTERFACE_VERSION)
+  if [ -z "$SPIKEINTERFACE_VERSION" ]; then
+    echo "Neither CONTAINER_TAG nor SPIKEINTERFACE_VERSION in pipeline/capsule_versions.env at ${TAG}."
+    exit 1
+  fi
+  CONTAINER_TAG="si-${SPIKEINTERFACE_VERSION}"
+fi
+echo "Pipeline ${TAG} uses image tag ${CONTAINER_TAG}"
+
+# The images upstream's pull_pipeline_images.sh pulls by default (--sorter kilosort4),
+# under the file names Nextflow looks for.
+missing=()
+for repository in aind-ephys-pipeline-base aind-ephys-pipeline-nwb aind-ephys-spikesort-kilosort4; do
+  file_name="ghcr.io-allenneuraldynamics-${repository}-${CONTAINER_TAG}.img"
+  [ -f "${CACHE_DIRECTORY}/${file_name}" ] || missing+=("$file_name")
+done
+if [ "${#missing[@]}" -eq 0 ]; then
+  echo "Every image is already cached."
+  exit 0
+fi
+printf 'Not cached yet: %s\n' "${missing[@]}"
+
+SCRIPT_FILE_PATH="$PWD/processing/pull_pipeline_images-${GITHUB_RUN_ID}.sh"
+# Releases from 1.4.0 keep the script under scripts/.
+if ! git -C "$PIPELINE_DIRECTORY" show "${TAG}:scripts/pull_pipeline_images.sh" > "$SCRIPT_FILE_PATH" 2> /dev/null \
+  && ! git -C "$PIPELINE_DIRECTORY" show "${TAG}:pull_pipeline_images.sh" > "$SCRIPT_FILE_PATH" 2> /dev/null; then
+  rm -f "$SCRIPT_FILE_PATH"
+  echo "The pipeline has no pull_pipeline_images.sh at ${TAG}."
+  exit 1
+fi
+mkdir -p "$LOG_DIRECTORY"
+
+# sbatch rather than srun or salloc: this runner lives inside its own SLURM job, where
+# srun would start a step in that 1 GB allocation instead of requesting a new one.
+# --wait blocks until the job ends, like srun would.
+set +e
+job_id=$(sbatch --wait --parsable \
+  --job-name=DANDI-Compute-Image-Cache \
+  --mem=32GB --cpus-per-task=8 --partition=mit_normal --time=04:00:00 \
+  --output="${LOG_DIRECTORY}/job-%j_slurm.log" \
+  --wrap "source /etc/profile.d/modules.sh && module load apptainer && bash '${SCRIPT_FILE_PATH}' --cache '${CACHE_DIRECTORY}' --tag '${CONTAINER_TAG}'")
+set -e
+rm -f "$SCRIPT_FILE_PATH"
+
+job_id="${job_id%%;*}"
+echo "=== Log of job ${job_id} ==="
+cat "${LOG_DIRECTORY}/job-${job_id}_slurm.log" || echo "No log found for job ${job_id}."
+
+# The upstream script ignores a failed pull (`|| true`), so success is judged by the
+# images actually being in place.
+still_missing=0
+for file_name in "${missing[@]}"; do
+  if [ ! -f "${CACHE_DIRECTORY}/${file_name}" ]; then
+    echo "Still not cached: ${file_name}"
+    still_missing=1
+  fi
+done
+exit "$still_missing"
