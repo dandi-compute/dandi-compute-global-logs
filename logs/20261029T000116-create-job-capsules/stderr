@@ -1,0 +1,70 @@
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for aind+ephys/1.4.1/default/7c2238f8-b429-4fdf-ba61-238244a11cc2.
+Traceback (most recent call last):
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/bin/dandicompute", line 7, in <module>
+    sys.exit(_dandicompute_group())
+             ~~~~~~~~~~~~~~~~~~~^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1569, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1490, in main
+    rv = self.invoke(ctx)
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1970, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1970, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1353, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 907, in invoke
+    return callback(*args, **kwargs)
+  File "/orcd/data/dandi/001/dandi-compute/dandi-compute-core/src/dandi_compute_code/_cli/_dandicompute_group.py", line 376, in _jobs_create_command
+    created_count = PipelineQueue.create_job_capsules(
+        config_key=config_key,
+    ...<3 lines>...
+        base_directory=base_directory,
+    )
+  File "<@beartype(dandi_compute_code.queue._pipeline_queue.PipelineQueue.create_job_capsules) at 0x148a0d388fe0>", line 126, in create_job_capsules
+  File "/orcd/data/dandi/001/dandi-compute/dandi-compute-core/src/dandi_compute_code/queue/_pipeline_queue.py", line 944, in create_job_capsules
+    script_file_path = cls.for_pipeline(pipeline_name)._prepare_job(
+        content_id=content_id,
+    ...<4 lines>...
+        force_new_capsule=force_latest_versions,
+    )
+  File "<@beartype(dandi_compute_code.queue._aind_ephys_pipeline_queue.AindEphysPipelineQueue._prepare_job) at 0x148a0d38bd80>", line 103, in _prepare_job
+  File "/orcd/data/dandi/001/dandi-compute/dandi-compute-core/src/dandi_compute_code/queue/_aind_ephys_pipeline_queue.py", line 82, in _prepare_job
+    script_file_path = prepare_aind_ephys_job(
+        content_id=content_id,
+    ...<5 lines>...
+        silent=True,
+    )
+  File "<@beartype(dandi_compute_code.aind_ephys_pipeline._prepare_job.prepare_aind_ephys_job) at 0x148a12a20d60>", line 187, in prepare_aind_ephys_job
+  File "/orcd/data/dandi/001/dandi-compute/dandi-compute-core/src/dandi_compute_code/aind_ephys_pipeline/_prepare_job.py", line 213, in prepare_aind_ephys_job
+    validate_aind_ephys_parameters(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        parameters=parameters,
+        ^^^^^^^^^^^^^^^^^^^^^^
+        pipeline_version=pipeline_version,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        parameters_file_name=parameters_file_path.name,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "<@beartype(dandi_compute_code.aind_ephys_pipeline._validate_parameters.validate_aind_ephys_parameters) at 0x148a129f9c60>", line 57, in validate_aind_ephys_parameters
+  File "/orcd/data/dandi/001/dandi-compute/dandi-compute-core/src/dandi_compute_code/aind_ephys_pipeline/_validate_parameters.py", line 116, in validate_aind_ephys_parameters
+    raise InvalidParametersError(message)
+dandi_compute_code.aind_ephys_pipeline._validate_parameters.InvalidParametersError: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INVALID AIND EPHYS PARAMETERS. NO JOB CAPSULE WAS CREATED.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Parameters file 'name-default_version-1+4+0.json' does not conform to the parameters schema for pipeline version '1.4.1'.
+Schema: https://raw.githubusercontent.com/AllenNeuralDynamics/aind-ephys-pipeline/1.4.1/pipeline/default_params_schema.json
+Found 3 problem(s).
+
+  1. At '$.pipeline_version': '1.4.0' does not match '^1\\.4\\.[1-9]+$'
+  2. At '$.postprocessing.extensions.quality_metrics.metric_params.sd_ratio': Additional properties are not allowed ('peak_sign' was unexpected)
+  3. At '$.postprocessing.extensions.quality_metrics.metric_params.snr': Additional properties are not allowed ('peak_mode', 'peak_sign' were unexpected)
+
+Write a parameters file for this pipeline version and register it under a new key in `registries/registered_params.json`, or pick a parameters key written for this pipeline version.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
