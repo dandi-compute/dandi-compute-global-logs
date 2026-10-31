@@ -1,0 +1,1 @@
+{"timestamp": "2026-10-31T15:25:04.512596-04:00", "num_samples": 1, "processes": {"2678767": {"pcpu": 0.0, "pmem": 0.0, "rss": 0, "vsz": 0, "timestamp": "2026-10-31T15:25:04.512596-04:00", "etime": "00:00", "stat": {"R": 1}, "cmd": "[bash]"}}, "totals": {"pmem": 0.0, "pcpu": 0.0, "rss": 0, "vsz": 0}, "averages": {"rss": 0, "vsz": 0, "pmem": 0.0, "pcpu": 0.0, "num_samples": 1}}
