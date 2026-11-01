@@ -1,0 +1,1 @@
+dandicompute clean --base /orcd/data/dandi/001/dandi-compute --work
