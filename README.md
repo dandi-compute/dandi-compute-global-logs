@@ -10,8 +10,8 @@ Each day's records live on their own branches, one per kind of record and named 
 date: `logs/YYYY-MM-DD` for tasks and workflow steps, `monitor/YYYY-MM-DD` for squeue snapshots.
 The frequent snapshots and the tasks thus update independently, never rebasing onto each other.
 Records from before this split are on undivided `YYYY-MM-DD` branches. `main` holds nothing but
-this README, the dataset configuration and the workflow that keeps `monitor/latest` current, so
-old days can be deleted as branches without touching its history.
+this README and the dataset configuration, so old days can be deleted as branches without
+touching its history.
 
 Every day's branch is a [DataLad](https://www.datalad.org/) dataset (without git-annex, since
 everything recorded is small text). Each record is a `datalad run` commit, so its message holds
@@ -31,8 +31,8 @@ Days are named by the cluster's clock (US Eastern). When today has no branch, ju
 or while the monitor is down, read `LATEST` on the persistent `monitor/latest` branch first (e.g.
 `monitor/2026-11-02`) to learn which day's branch holds the newest snapshot. Unlike the day
 branches, `monitor/latest` is never deleted and is not a DataLad dataset: it holds only that one
-file, kept current by [`.github/workflows/monitor-latest.yml`](.github/workflows/monitor-latest.yml)
-whenever a branch is created, and every hour in case a creation went unnoticed.
+file, which each squeue snapshot points at its own day as soon as that day's branch is pushed (see
+`record.sh` below), never moving it back to an earlier day.
 
 Each record directory holds:
 
