@@ -1,0 +1,6 @@
+Pulling ./dandi-compute-core/
+HEAD is now at f76065e Supported AIND ephys pipeline 1.5.0 (#372)
+Pulling ./dandi-compute-runner/
+HEAD is now at 2c6aa15 Provisioned a Nextflow 25.10 environment for AIND ephys pipeline 1.5.0 (#96)
+Pulling ./aind-ephys-pipeline/
+./aind-ephys-pipeline/ is on a detached HEAD; fetched new tags without resetting.
