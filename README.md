@@ -13,7 +13,7 @@ Records from before this split are on undivided `YYYY-MM-DD` branches. `main` ho
 this README and the dataset configuration, so old days can be deleted as branches without
 touching its history.
 
-Every branch is a [DataLad](https://www.datalad.org/) dataset (without git-annex, since
+Every day's branch is a [DataLad](https://www.datalad.org/) dataset (without git-annex, since
 everything recorded is small text). Each record is a `datalad run` commit, so its message holds
 the exact command, the directory it ran in and its exit status, and `datalad rerun` can repeat
 it.
@@ -22,10 +22,17 @@ it.
 logs/{YYYYMMDDTHHMMSS}-{action}/         on logs/YYYY-MM-DD: one scheduled task or workflow step
 monitor/{HH}/{YYYYMMDDTHHMMSS}-squeue/   on monitor/YYYY-MM-DD: a squeue snapshot, every 5 minutes, grouped by hour
 monitor/LATEST                           on monitor/YYYY-MM-DD: the newest snapshot's path relative to monitor/
+LATEST                                   on monitor/latest: the newest monitor/YYYY-MM-DD branch's name
 ```
 
 To read the latest snapshot without listing `monitor/`, read `monitor/LATEST` on the day's
 `monitor/YYYY-MM-DD` branch (e.g. `18/20260928T185500-squeue`) and then `monitor/{that path}/stdout`.
+Days are named by the cluster's clock (US Eastern). When today has no branch, just after midnight
+or while the monitor is down, read `LATEST` on the persistent `monitor/latest` branch first (e.g.
+`monitor/2026-11-02`) to learn which day's branch holds the newest snapshot. Unlike the day
+branches, `monitor/latest` is never deleted and is not a DataLad dataset: it holds only that one
+file, which each squeue snapshot points at its own day as soon as that day's branch is pushed (see
+`record.sh` below), never moving it back to an earlier day.
 
 Each record directory holds:
 
