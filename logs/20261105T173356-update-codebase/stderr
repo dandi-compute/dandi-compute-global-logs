@@ -1,0 +1,380 @@
+WARNING conda.conda_pypi.main:notify_externally_managed_future(156): 
+  Did you know? You can install many PyPI packages with conda
+  using the conda-pypi beta. Get started:
+    https://docs.conda.io/projects/conda/en/stable/new-features.html
+
+  error: subprocess-exited-with-error
+  
+  × Building wheel for h5py (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [78 lines of output]
+      running bdist_wheel
+      running build
+      running build_py
+      creating build/lib.linux-x86_64-cpython-315/h5py
+      copying h5py/__init__.py -> build/lib.linux-x86_64-cpython-315/h5py
+      copying h5py/h5py_warnings.py -> build/lib.linux-x86_64-cpython-315/h5py
+      copying h5py/ipy_completer.py -> build/lib.linux-x86_64-cpython-315/h5py
+      copying h5py/version.py -> build/lib.linux-x86_64-cpython-315/h5py
+      creating build/lib.linux-x86_64-cpython-315/h5py/_hl
+      copying h5py/_hl/__init__.py -> build/lib.linux-x86_64-cpython-315/h5py/_hl
+      copying h5py/_hl/attrs.py -> build/lib.linux-x86_64-cpython-315/h5py/_hl
+      copying h5py/_hl/base.py -> build/lib.linux-x86_64-cpython-315/h5py/_hl
+      copying h5py/_hl/compat.py -> build/lib.linux-x86_64-cpython-315/h5py/_hl
+      copying h5py/_hl/dataset.py -> build/lib.linux-x86_64-cpython-315/h5py/_hl
+      copying h5py/_hl/datatype.py -> build/lib.linux-x86_64-cpython-315/h5py/_hl
+      copying h5py/_hl/dims.py -> build/lib.linux-x86_64-cpython-315/h5py/_hl
+      copying h5py/_hl/files.py -> build/lib.linux-x86_64-cpython-315/h5py/_hl
+      copying h5py/_hl/filters.py -> build/lib.linux-x86_64-cpython-315/h5py/_hl
+      copying h5py/_hl/group.py -> build/lib.linux-x86_64-cpython-315/h5py/_hl
+      copying h5py/_hl/selections.py -> build/lib.linux-x86_64-cpython-315/h5py/_hl
+      copying h5py/_hl/selections2.py -> build/lib.linux-x86_64-cpython-315/h5py/_hl
+      copying h5py/_hl/vds.py -> build/lib.linux-x86_64-cpython-315/h5py/_hl
+      creating build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/__init__.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/common.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/conftest.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_attribute_create.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_attrs.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_attrs_data.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_base.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_big_endian_file.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_completions.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_dataset.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_dataset_getitem.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_dataset_swmr.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_datatype.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_dimension_scales.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_dims_dimensionproxy.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_dtype.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_errors.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_file.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_file2.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_file_alignment.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_file_image.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_filters.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_group.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_h5.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_h5d_direct_chunk.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_h5f.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_h5o.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_h5p.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_h5pl.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_h5s.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_h5t.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_h5z.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_native_complex.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_npystrings.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_objects.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_ros3.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_selections.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      copying h5py/tests/test_slicing.py -> build/lib.linux-x86_64-cpython-315/h5py/tests
+      creating build/lib.linux-x86_64-cpython-315/h5py/tests/data_files
+      copying h5py/tests/data_files/__init__.py -> build/lib.linux-x86_64-cpython-315/h5py/tests/data_files
+      creating build/lib.linux-x86_64-cpython-315/h5py/tests/test_vds
+      copying h5py/tests/test_vds/__init__.py -> build/lib.linux-x86_64-cpython-315/h5py/tests/test_vds
+      copying h5py/tests/test_vds/test_highlevel_vds.py -> build/lib.linux-x86_64-cpython-315/h5py/tests/test_vds
+      copying h5py/tests/test_vds/test_lowlevel_vds.py -> build/lib.linux-x86_64-cpython-315/h5py/tests/test_vds
+      copying h5py/tests/test_vds/test_virtual_source.py -> build/lib.linux-x86_64-cpython-315/h5py/tests/test_vds
+      copying h5py/tests/data_files/compound-dtype-complex.h5 -> build/lib.linux-x86_64-cpython-315/h5py/tests/data_files
+      copying h5py/tests/data_files/vlen_string_dset.h5 -> build/lib.linux-x86_64-cpython-315/h5py/tests/data_files
+      copying h5py/tests/data_files/vlen_string_dset_utc.h5 -> build/lib.linux-x86_64-cpython-315/h5py/tests/data_files
+      copying h5py/tests/data_files/vlen_string_s390x.h5 -> build/lib.linux-x86_64-cpython-315/h5py/tests/data_files
+      running build_ext
+      Loading library to get build settings and version: libhdf5.so
+      error: Unable to load dependency HDF5, make sure HDF5 is installed properly
+      on sys.platform='linux' with platform.machine()='x86_64'
+      Library dirs checked: []
+      error: libhdf5.so: cannot open shared object file: No such file or directory
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for h5py
+  error: subprocess-exited-with-error
+  
+  × Building wheel for tensorstore (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [275 lines of output]
+      running bdist_wheel
+      running build
+      running build_py
+      creating /tmp/tmpsj4mtfd3/lib.linux-x86_64-cpython-315/tensorstore
+      copying python/tensorstore/__init__.py -> /tmp/tmpsj4mtfd3/lib.linux-x86_64-cpython-315/tensorstore
+      running egg_info
+      creating python/tensorstore.egg-info
+      writing python/tensorstore.egg-info/PKG-INFO
+      writing dependency_links to python/tensorstore.egg-info/dependency_links.txt
+      writing requirements to python/tensorstore.egg-info/requires.txt
+      writing top-level names to python/tensorstore.egg-info/top_level.txt
+      writing manifest file 'python/tensorstore.egg-info/SOURCES.txt'
+      reading manifest file 'python/tensorstore.egg-info/SOURCES.txt'
+      adding license file 'LICENSE'
+      adding license file 'AUTHORS'
+      writing manifest file 'python/tensorstore.egg-info/SOURCES.txt'
+      copying python/tensorstore/__init__.pyi -> /tmp/tmpsj4mtfd3/lib.linux-x86_64-cpython-315/tensorstore
+      copying python/tensorstore/ocdbt.pyi -> /tmp/tmpsj4mtfd3/lib.linux-x86_64-cpython-315/tensorstore
+      copying python/tensorstore/py.typed -> /tmp/tmpsj4mtfd3/lib.linux-x86_64-cpython-315/tensorstore
+      running build_ext
+      Downloading https://releases.bazel.build/8.5.1/release/bazel-8.5.1-linux-x86_64...
+      Downloading https://releases.bazel.build/8.5.1/release/bazel-8.5.1-linux-x86_64.sha256...
+      WARNING: Output base '/orcd/home/002/cb239/.cache/bazel/_bazel_cb239/45d08436074040e5bd346e291699fd27' is on NFS. This may lead to surprising failures and undetermined behavior.
+      Extracting Bazel installation...
+      Starting local Bazel server (8.5.1) and connecting to it...
+      Computing main repo mapping:
+      WARNING: WORKSPACE support will be removed in Bazel 9 (late 2025), please migrate to Bzlmod, see https://bazel.build/external/migration.
+      Computing main repo mapping:
+      Computing main repo mapping:
+      Computing main repo mapping:
+      Computing main repo mapping:
+      Computing main repo mapping:
+      Computing main repo mapping:
+      Computing main repo mapping:
+      Computing main repo mapping:
+      Computing main repo mapping:
+      Computing main repo mapping:
+      Computing main repo mapping:
+      Computing main repo mapping:
+      Computing main repo mapping:
+      Computing main repo mapping:
+      Computing main repo mapping:
+      Computing main repo mapping:
+      Computing main repo mapping:
+      Computing main repo mapping:
+      Computing main repo mapping:
+      Computing main repo mapping:
+      Computing main repo mapping:
+      DEBUG: Rule 'com_google_protobuf' indicated that a canonical reproducible form can be obtained by modifying arguments _rule_name = "third_party_http_archive"
+      DEBUG: Repository com_google_protobuf instantiated at:
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/WORKSPACE:7:25: in <toplevel>
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/external.bzl:23:29: in tensorstore_dependencies
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/third_party/third_party.bzl:96:29: in third_party_dependencies
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/third_party/com_google_protobuf/workspace.bzl:25:10: in repo
+        /orcd/home/002/cb239/.cache/bazel/_bazel_cb239/45d08436074040e5bd346e291699fd27/external/bazel_tools/tools/build_defs/repo/utils.bzl:317:18: in maybe
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/bazel/repo_rules/third_party_http_archive.bzl:164:30: in third_party_http_archive
+      Repository rule _third_party_http_archive defined at:
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/bazel/repo_rules/third_party_http_archive.bzl:131:44: in <toplevel>
+      Computing main repo mapping:
+      Computing main repo mapping:
+      Computing main repo mapping:
+      Computing main repo mapping:
+      DEBUG: Rule 'grpc' indicated that a canonical reproducible form can be obtained by modifying arguments _rule_name = "third_party_http_archive"
+      DEBUG: Repository grpc instantiated at:
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/WORKSPACE:7:25: in <toplevel>
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/external.bzl:23:29: in tensorstore_dependencies
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/third_party/third_party.bzl:103:14: in third_party_dependencies
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/third_party/grpc/workspace.bzl:25:10: in repo
+        /orcd/home/002/cb239/.cache/bazel/_bazel_cb239/45d08436074040e5bd346e291699fd27/external/bazel_tools/tools/build_defs/repo/utils.bzl:317:18: in maybe
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/bazel/repo_rules/third_party_http_archive.bzl:164:30: in third_party_http_archive
+      Repository rule _third_party_http_archive defined at:
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/bazel/repo_rules/third_party_http_archive.bzl:131:44: in <toplevel>
+      Loading:
+      Loading: 1 packages loaded
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (2 packages loaded)
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (2 packages loaded)
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (2 packages loaded, 0 targets configured)
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (2 packages loaded, 0 targets configured)
+      
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (2 packages loaded, 0 targets configured)
+      
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (5 packages loaded, 0 targets configured)
+      
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (7 packages loaded, 10 targets configured)
+      
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (14 packages loaded, 14 targets configured)
+      
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (21 packages loaded, 14 targets configured)
+      
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (27 packages loaded, 14 targets configured)
+      
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (33 packages loaded, 14 targets configured)
+      
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (39 packages loaded, 14 targets configured)
+      
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (44 packages loaded, 14 targets configured)
+      
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (45 packages loaded, 14 targets configured)
+      
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (54 packages loaded, 201 targets configured)
+      
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (58 packages loaded, 230 targets configured)
+      
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (63 packages loaded, 345 targets configured)
+      
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (64 packages loaded, 345 targets configured)
+      
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (68 packages loaded, 515 targets configured)
+      
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (68 packages loaded, 515 targets configured)
+      
+      DEBUG: Rule 'com_github_pybind_pybind11' indicated that a canonical reproducible form can be obtained by modifying arguments _rule_name = "third_party_http_archive"
+      DEBUG: Repository com_github_pybind_pybind11 instantiated at:
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/WORKSPACE:7:25: in <toplevel>
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/external.bzl:23:29: in tensorstore_dependencies
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/third_party/third_party.bzl:95:36: in third_party_dependencies
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/third_party/com_github_pybind_pybind11/workspace.bzl:27:10: in repo
+        /orcd/home/002/cb239/.cache/bazel/_bazel_cb239/45d08436074040e5bd346e291699fd27/external/bazel_tools/tools/build_defs/repo/utils.bzl:317:18: in maybe
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/bazel/repo_rules/third_party_http_archive.bzl:164:30: in third_party_http_archive
+      Repository rule _third_party_http_archive defined at:
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/bazel/repo_rules/third_party_http_archive.bzl:131:44: in <toplevel>
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (69 packages loaded, 568 targets configured)
+      
+      DEBUG: Rule 'abseil-cpp' indicated that a canonical reproducible form can be obtained by modifying arguments _rule_name = "third_party_http_archive"
+      DEBUG: Repository abseil-cpp instantiated at:
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/WORKSPACE:7:25: in <toplevel>
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/external.bzl:23:29: in tensorstore_dependencies
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/third_party/third_party.bzl:76:20: in third_party_dependencies
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/third_party/abseil_cpp/workspace.bzl:27:10: in repo
+        /orcd/home/002/cb239/.cache/bazel/_bazel_cb239/45d08436074040e5bd346e291699fd27/external/bazel_tools/tools/build_defs/repo/utils.bzl:317:18: in maybe
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/bazel/repo_rules/third_party_http_archive.bzl:164:30: in third_party_http_archive
+      Repository rule _third_party_http_archive defined at:
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/bazel/repo_rules/third_party_http_archive.bzl:131:44: in <toplevel>
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (69 packages loaded, 568 targets configured)
+      
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (91 packages loaded, 844 targets configured)
+      
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (91 packages loaded, 844 targets configured)
+      
+      DEBUG: Rule 'nlohmann_json' indicated that a canonical reproducible form can be obtained by modifying arguments _rule_name = "third_party_http_archive"
+      DEBUG: Repository nlohmann_json instantiated at:
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/WORKSPACE:7:25: in <toplevel>
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/external.bzl:23:29: in tensorstore_dependencies
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/third_party/third_party.bzl:113:23: in third_party_dependencies
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/third_party/nlohmann_json/workspace.bzl:25:10: in repo
+        /orcd/home/002/cb239/.cache/bazel/_bazel_cb239/45d08436074040e5bd346e291699fd27/external/bazel_tools/tools/build_defs/repo/utils.bzl:317:18: in maybe
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/bazel/repo_rules/third_party_http_archive.bzl:164:30: in third_party_http_archive
+      Repository rule _third_party_http_archive defined at:
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/bazel/repo_rules/third_party_http_archive.bzl:131:44: in <toplevel>
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (91 packages loaded, 844 targets configured)
+      
+      DEBUG: Rule 'net_sourceforge_half' indicated that a canonical reproducible form can be obtained by modifying arguments _rule_name = "third_party_http_archive"
+      DEBUG: Repository net_sourceforge_half instantiated at:
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/WORKSPACE:7:25: in <toplevel>
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/external.bzl:23:29: in tensorstore_dependencies
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/third_party/third_party.bzl:112:30: in third_party_dependencies
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/third_party/net_sourceforge_half/workspace.bzl:25:10: in repo
+        /orcd/home/002/cb239/.cache/bazel/_bazel_cb239/45d08436074040e5bd346e291699fd27/external/bazel_tools/tools/build_defs/repo/utils.bzl:317:18: in maybe
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/bazel/repo_rules/third_party_http_archive.bzl:164:30: in third_party_http_archive
+      Repository rule _third_party_http_archive defined at:
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/bazel/repo_rules/third_party_http_archive.bzl:131:44: in <toplevel>
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (97 packages loaded, 930 targets configured)
+      
+      DEBUG: Rule 'riegeli' indicated that a canonical reproducible form can be obtained by modifying arguments _rule_name = "third_party_http_archive"
+      DEBUG: Repository riegeli instantiated at:
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/WORKSPACE:7:25: in <toplevel>
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/external.bzl:23:29: in tensorstore_dependencies
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/third_party/third_party.bzl:123:17: in third_party_dependencies
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/third_party/riegeli/workspace.bzl:27:10: in repo
+        /orcd/home/002/cb239/.cache/bazel/_bazel_cb239/45d08436074040e5bd346e291699fd27/external/bazel_tools/tools/build_defs/repo/utils.bzl:317:18: in maybe
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/bazel/repo_rules/third_party_http_archive.bzl:164:30: in third_party_http_archive
+      Repository rule _third_party_http_archive defined at:
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/bazel/repo_rules/third_party_http_archive.bzl:131:44: in <toplevel>
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (99 packages loaded, 937 targets configured)
+      
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (99 packages loaded, 937 targets configured)
+      
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (99 packages loaded, 937 targets configured)
+      
+      DEBUG: Rule 'boringssl' indicated that a canonical reproducible form can be obtained by modifying arguments _rule_name = "third_party_http_archive"
+      DEBUG: Repository boringssl instantiated at:
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/WORKSPACE:7:25: in <toplevel>
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/external.bzl:23:29: in tensorstore_dependencies
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/third_party/third_party.bzl:90:19: in third_party_dependencies
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/third_party/boringssl/workspace.bzl:27:10: in repo
+        /orcd/home/002/cb239/.cache/bazel/_bazel_cb239/45d08436074040e5bd346e291699fd27/external/bazel_tools/tools/build_defs/repo/utils.bzl:317:18: in maybe
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/bazel/repo_rules/third_party_http_archive.bzl:164:30: in third_party_http_archive
+      Repository rule _third_party_http_archive defined at:
+        /tmp/pip-install-fw96qy_7/tensorstore_74591c2997cb40f5ae8c9ecc482dd673/bazel/repo_rules/third_party_http_archive.bzl:131:44: in <toplevel>
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (99 packages loaded, 937 targets configured)
+      
+      Analyzing: target //python/tensorstore:_tensorstore__shared_objects (107 packages loaded, 1675 targets configured)
+      
+      
+      Server terminated abruptly (error code: 14, error message: 'Socket closed', log file: '/orcd/home/002/cb239/.cache/bazel/_bazel_cb239/45d08436074040e5bd346e291699fd27/server/jvm.out')
+      
+      Executing /orcd/data/dandi/001/environments/name-nextflow_version-25+10+4_environment/bin/python3.15 -u bazelisk.py build -c opt --copt=-O3 --//tensorstore/internal/version=0.1.86 //python/tensorstore:_tensorstore__shared_objects --verbose_failures '--remote_download_regex=.*/(_tensorstore\.(so|pyd))' --copt=-fvisibility=hidden with env {'HYDRA_LAUNCHER_EXTRA_ARGS': '--external-launcher', 'CONDA_SHLVL': '1', 'DIRECTORIES': 'dandi-compute-core dandi-compute-runner aind-ephys-pipeline', 'CONDA_EXE': '/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/conda', 'SLURM_STEP_ID': '-5', '_ModuleTable017_': 'Y29yZS8wMDEvbW9kdWxlZmlsZXMvb3JjZC1jbWRzLmx1YSIsCmZ1bGxOYW1lID0gIm9yY2QtY21kcyIsCmxvYWRPcmRlciA9IDMsCnByb3BUID0ge30sCnN0YWNrRGVwdGggPSAxLApzdGF0dXMgPSAiYWN0aXZlIiwKdXNlck5hbWUgPSAib3JjZC1jbWRzIiwKd1YgPSAiTS4qemZpbmFsIiwKfSwKfSwKbXBhdGhBID0gewoiL29yY2Qvc29mdHdhcmUvY29tbXVuaXR5LzAwMS9saWNlbnNlZC9tb2R1bGVmaWxlcyIKLCAiL29yY2Qvc29mdHdhcmUvY29tbXVuaXR5LzAwMS9zcGFjay9tb2R1bGVmaWxlcy9nY2MvMTIuMi4wIgosICIvb3JjZC9zb2Z0d2FyZS9jb21tdW5pdHkvMDAxL3NwYWNrL21vZHVsZWZpbGVzL29wZW5tcGkvNC4xLjQtemFocG5tay9nY2MvMTIuMi4wIgosICIv', 'SLURM_NODEID': '0', 'SLURM_TASK_PID': '425022', '__LMOD_REF_COUNT_PATH': '/orcd/software/core/001/pkg/miniforge/26.7.2-0/condabin:1;/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin:1;/orcd/software/core/001/pkg/orcd-cmds/bin:1;/orcd/software/core/001/spack/pkg/gcc/12.2.0/yt6vabm/bin:1;/usr/bin:1;/bin:1;/usr/local/sbin:1;/usr/sbin:1;/home/cb239/.local/bin:1;/home/cb239/bin:1', '_ModuleTable002_': 'XCIsXCIvb3JjZC9zb2Z0d2FyZS9jb21tdW5pdHkvMDAxL21vZHVsZWZpbGVzXCIpIgosICJwcmVwZW5kX3BhdGgoXCJNT0RVTEVQQVRIXCIsXCIvb3JjZC9zb2Z0d2FyZS9jb21tdW5pdHkvMDAxL3NwYWNrL21vZHVsZWZpbGVzL29wZW5tcGkvNC4xLjQtemFocG5tay9nY2MvMTIuMi4wL1wiKSIKLCAicHJlcGVuZF9wYXRoKFwiTU9EVUxFUEFUSFwiLFwiL29yY2Qvc29mdHdhcmUvY29tbXVuaXR5LzAwMS9zcGFjay9tb2R1bGVmaWxlcy9nY2MvMTIuMi4wL1wiKSIsICJwcmVwZW5kX3BhdGgoXCJNT0RVTEVQQVRIXCIsXCIvb3JjZC9zb2Z0d2FyZS9jb21tdW5pdHkvMDAxL2xpY2Vuc2VkL21vZHVsZWZpbGVzXCIpIiwKfSwKZm4gPSAiL29yY2Qvc29mdHdhcmUvY29yZS8wMDEv', 'SLURM_PRIO_PROCESS': '0', 'I_MPI_HYDRA_BOOTSTRAP_EXEC_EXTRA_ARGS': '--external-launcher', 'LANG': 'en_US.UTF-8', 'SLURM_SUBMIT_DIR': '/home/cb239', '_ModuleTable019_': 'bGVmaWxlcy9Db3JlIiwKfQo=', 'HISTCONTROL': 'ignoredups', '_ModuleTable008_': 'SUYwN0lIUm9aVzVjQ2lBZ0lDQWdJQ0FnSUNBZ0lDQWdJQ0J5YlNBdFppQmNJaTl2Y21Oa0wzTnZablIzWVhKbEwyTnZjbVV2TURBeEwzQnJaeTl0YVc1cFptOXlaMlV2TWpZdU55NHlMVEF2WW1sdUwyMWhiV0poTG1KcmRYQmNJanRjQ2lBZ0lDQWdJQ0FnSUNBZ0lHWnBYQW9nSUNBZ0lDQWdJRHM3WEFvZ0lDQWdJQ0FnSUNvcFhBb2dJQ0FnSUNBZ0lDQWdJQ0JmWDIxaGJXSmhYMlY0WlNCY0lpUjdRSDFjSWx3S0lDQWdJQ0FnSUNBN08xd0tJQ0FnSUdWellXTmNDaUlzSWlJcCIKLCAiYzJWMFgzTm9aV3hzWDJaMWJtTjBhVzl1S0NKZlgyMWhiV0poWDNoamRHbDJZWFJsSWl3aUlGd0tJQ0FnSUZ4Y2JHOWpZV3dnWVhOclgyMWhiV0poTzF3S0lDQWdJR0Z6YTE5dFlXMWlZVDFjSWlR', 'OMPI_MCA_plm_slurm_args': '--external-launcher', 'DANDICOMPUTE_OOP_FAILSAFE_LOG': '/orcd/data/dandi/001/dandi-compute/tmp', 'LMOD_FAMILY_COMPILER_VERSION': '12.2.0', 'HOSTNAME': 'node1409', 'GITHUB_REF_NAME': 'main', 'LMOD_SYSTEM_DEFAULT_MODULES': 'StdEnv', 'OLDPWD': '/tmp/dandi-compute-record-ze03vo/logs', 'GITHUB_API_URL': 'https://api.github.com', 'SLURM_CPUS_PER_TASK': '1', 'GITHUB_REPOSITORY_OWNER_ID': '247833372', 'SLURM_STEPID': '-5', 'EDITOR': 'nano', 'NUMBA_CACHE_DIR': '/orcd/data/dandi/001/dandi-compute/work', 'ENVIRONMENT': 'BATCH', 'NF_SCHEMA_PLUGIN': 'nf-schema@2.7.3', 'GITHUB_STEP_SUMMARY': '/orcd/data/dandi/001/dandi-compute/runners/submitter/actions-runner/_work/_temp/_runner_file_commands/step_summary_5db29193-0b09-47d9-ae65-bcae1ece2b7c', 'GITHUB_RUN_ATTEMPT': '1', 'FPATH': '/usr/share/lmod/lmod/init/ksh_funcs', '_ModuleTable007_': 'SUh3Z2RYQm5jbUZrWlNCOElISmxiVzkyWlNCOElIVnVhVzV6ZEdGc2JDbGNDaUFnSUNBZ0lDQWdJQ0FnSUY5ZmJXRnRZbUZmWlhobElGd2lKSHRBZlZ3aUlIeDhJRnhjY21WMGRYSnVPMXdLSUNBZ0lDQWdJQ0FnSUNBZ1gxOXRZVzFpWVY5NFkzUnBkbUYwWlNCeVpXRmpkR2wyWVhSbFhBb2dJQ0FnSUNBZ0lEczdYQW9nSUNBZ0lDQWdJSE5sYkdZdGRYQmtZWFJsS1Z3S0lDQWdJQ0FnSUNBZ0lDQWdYMTl0WVcxaVlWOWxlR1VnWENJa2UwQjlYQ0lnZkh3Z1hGeHlaWFIxY200N1hBb2dJQ0FnSUNBZ0lDQWdJQ0JwWmlCYklDMW1JRndpTDI5eVkyUXZjMjltZEhkaGNtVXZZMjl5WlM4d01ERXZjR3RuTDIxcGJtbG1iM0puWlM4eU5pNDNMakl0TUM5aWFXNHZiV0Z0WW1FdVltdDFjRndp', 'RUNNER_TOOL_CACHE': '/orcd/data/dandi/001/dandi-compute/runners/submitter/actions-runner/_work/_tool', 'CONDA_PREFIX': '/orcd/data/dandi/001/environments/name-dandi+compute_env', 'SLURM_PROCID': '0', 'RUNNER_TRACKING_ID': 'github_e24dbce0-a36f-41b9-b598-49e912c01fc3', 'SLURM_JOB_GID': '100203222', 'I_MPI_HYDRA_BOOTSTRAP': 'slurm', 'RUNNER_ENVIRONMENT': 'self-hosted', 'SLURMD_NODENAME': 'node1409', 'GITHUB_REPOSITORY_OWNER': 'dandi-compute', 'GITHUB_ACTIONS': 'true', '_ModuleTable015_': 'UGlZeU8xd0tJQ0FnSUY5ZlkyOXVaR0ZmWVdOMGFYWmhkR1VnY21WaFkzUnBkbUYwWlZ3S0lpd2lJaWs9IiwgImMyVjBYM05vWld4c1gyWjFibU4wYVc5dUtDSmpiMjVrWVNJc0lpQmNDaUFnSUNCY1hHeHZZMkZzSUdOdFpEMWNJaVI3TVMxZlgyMXBjM05wYm1kZlgzMWNJanRjQ2lBZ0lDQmpZWE5sSUZ3aUpHTnRaRndpSUdsdUlGd0tJQ0FnSUNBZ0lDQmhZM1JwZG1GMFpTQjhJR1JsWVdOMGFYWmhkR1VwWEFvZ0lDQWdJQ0FnSUNBZ0lDQmZYMk52Ym1SaFgyRmpkR2wyWVhSbElGd2lKRUJjSWx3S0lDQWdJQ0FnSUNBN08xd0tJQ0FnSUNBZ0lDQnBibk4wWVd4c0lId2dkWEJrWVhSbElId2dkWEJuY21Ga1pTQjhJSEpsYlc5MlpTQjhJSFZ1YVc1emRHRnNiQ2xjQ2lBZ0lDQWdJQ0Fn', 'SLURM_JOB_END_TIME': '1793951058', '_CONDA_EXE': '/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/conda', 'SLURM_JOB_OVERSUBSCRIBE': 'NO', '_ModuleTable004_': 'cmRlciA9IDEsCnByb3BUID0ge30sCnN0YWNrRGVwdGggPSAxLApzdGF0dXMgPSAiYWN0aXZlIiwKdXNlck5hbWUgPSAiZ2NjLzEyLjIuMCIsCndWID0gIl4wMDAwMDAxMi4wMDAwMDAwMDIuKnpmaW5hbCIsCn0sCm1pbmlmb3JnZSA9IHsKZm4gPSAiL29yY2Qvc29mdHdhcmUvY29yZS8wMDEvbW9kdWxlZmlsZXMvbWluaWZvcmdlLzI2LjcuMi0wLmx1YSIsCmZ1bGxOYW1lID0gIm1pbmlmb3JnZS8yNi43LjItMCIsCmxvYWRPcmRlciA9IDUsCm1jbWRUXzY0ID0gewpMMjl5WTJRdmMyOW1kSGRoY21VdlkyOXlaUzh3TURFdmNHdG5MMjFwYm1sbWIzSm5aUzh5Tmk0M0xqSXRNQzlsZEdNdmNISnZabWxzWlM1a0wyMWhiV0poTG5ObyA9IHsKCiJjMlYwWDNOb1pXeHNYMloxYm1OMGFX', 'SLURM_TASKS_PER_NODE': '1', 'GITHUB_WORKFLOW_REF': 'dandi-compute/dandi-compute-runner/.github/workflows/update-codebase.yml@refs/heads/main', 'GITHUB_ARTIFACTS_LIST': '/orcd/data/dandi/001/dandi-compute/runners/submitter/actions-runner/_work/_temp/_runner_file_commands/artifacts_list_5db29193-0b09-47d9-ae65-bcae1ece2b7c', 'S_COLORS': 'auto', 'PRTE_MCA_plm_slurm_args': '--external-launcher', '_CE_M': '', 'which_declare': 'declare -f', 'CI': 'true', 'CC': '/orcd/software/core/001/spack/pkg/gcc/12.2.0/yt6vabm/bin/gcc', 'NEXTFLOW_ENVIRONMENT': '/orcd/data/dandi/001/environments/name-nextflow_version-25+10+4_environment', 'SLURM_NNODES': '1', 'USER': 'cb239', 'GITHUB_HEAD_REF': '', 'GITHUB_ACTOR': 'CodyCBakerPhD', '_ModuleTable012_': 'Z0lDQlFVekU5WENJa1EwOU9SRUZmVUZNeFgwSkJRMHRWVUZ3aU8xd0tJQ0FnSUNBZ0lDQmNYSFZ1YzJWMElFTlBUa1JCWDFCVE1WOUNRVU5MVlZBN1hBb2dJQ0FnWm1rN1hBb2dJQ0FnWEZ4c2IyTmhiQ0JoYzJ0ZlkyOXVaR0U3WEFvZ0lDQWdZWE5yWDJOdmJtUmhQVndpSkNoUVV6RTlYQ0lrZTFCVE1Ub3RmVndpSUY5ZlkyOXVaR0ZmWlhobElITm9aV3hzTG5CdmMybDRJRndpSkVCY0lpbGNJaUI4ZkNCY1hISmxkSFZ5Ymp0Y0NpQWdJQ0JjWEdWMllXd2dYQ0lrWVhOclgyTnZibVJoWENJN1hBb2dJQ0FnWDE5amIyNWtZVjlvWVhOb2Nsd0tJaXdpSWlrPSIKLCAiYzJWMFgzTm9aV3hzWDJaMWJtTjBhVzl1S0NKZlgyTnZibVJoWDJWNFpTSXNJaUJjQ2lBZ0lDQW9JR2xtSUZzZ0xX', 'GITHUB_ACTION_REF': '', 'GITHUB_ACTION': '__run_3', 'SLURM_JOB_START_TIME': '1793907858', '__LMOD_REF_COUNT_MODULEPATH': '/orcd/software/community/001/licensed/modulefiles:1;/orcd/software/community/001/spack/modulefiles/gcc/12.2.0:1;/orcd/software/community/001/spack/modulefiles/openmpi/4.1.4-zahpnmk/gcc/12.2.0:1;/orcd/software/community/001/modulefiles:1;/orcd/software/core/001/spack/modulefiles/gcc/12.2.0:1;/orcd/software/core/001/modulefiles:1;/usr/share/modulefiles/Linux:1;/usr/share/modulefiles/Core:1;/usr/share/lmod/lmod/modulefiles/Core:1', 'GITHUB_REF_PROTECTED': 'true', 'PWD': '/orcd/data/dandi/001/dandi-compute/runners/submitter/actions-runner/_work/dandi-compute-runner/dandi-compute-runner', 'SLURM_JOB_NODELIST': 'node1409', 'HOME': '/home/cb239', 'SLURM_CLUSTER_NAME': 'eofe7', 'CONDA_PYTHON_EXE': '/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/python', 'GITHUB_STATE': '/orcd/data/dandi/001/dandi-compute/runners/submitter/actions-runner/_work/_temp/_runner_file_commands/save_state_5db29193-0b09-47d9-ae65-bcae1ece2b7c', 'CMAKE_PREFIX_PATH': '/orcd/software/core/001/spack/pkg/gcc/12.2.0/yt6vabm', 'SLURM_NODELIST': 'node1409', 'LMOD_VERSION': '8.7.32', 'GITHUB_ACTION_REPOSITORY': '', 'GITHUB_REF_TYPE': 'branch', 'RUNNER_TEMP': '/orcd/data/dandi/001/dandi-compute/runners/submitter/actions-runner/_work/_temp', 'GITHUB_RETENTION_DAYS': '90', 'F77': '/orcd/software/core/001/spack/pkg/gcc/12.2.0/yt6vabm/bin/gfortran', 'SLURM_JOB_CPUS_PER_NODE': '1', 'BASH_ENV': '/usr/share/lmod/lmod/init/bash', 'XDG_DATA_DIRS': '/home/cb239/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share', 'GITHUB_ENV': '/orcd/data/dandi/001/dandi-compute/runners/submitter/actions-runner/_work/_temp/_runner_file_commands/set_env_5db29193-0b09-47d9-ae65-bcae1ece2b7c', 'SLURM_TOPOLOGY_ADDR': 'node1409', 'RUNNER_WORKSPACE': '/orcd/data/dandi/001/dandi-compute/runners/submitter/actions-runner/_work/dandi-compute-runner', 'GITHUB_REF': 'refs/heads/main', 'GITHUB_SHA': '2c6aa1544d7c0a9287b0f2c41e5a9189f73d5667', '_CE_CONDA': '', 'GITHUB_ARTIFACTS': '/orcd/data/dandi/001/dandi-compute/runners/submitter/actions-runner/_work/_temp/_runner_file_commands/artifacts_5db29193-0b09-47d9-ae65-bcae1ece2b7c', 'GITHUB_REPOSITORY_ID': '1116431180', 'GITHUB_RUN_ID': '42122460337', 'SLURM_JOB_NAME': 'DANDI-Compute-Submitter', 'TMPDIR': '/tmp', 'RUNNER_ARCH': 'X64', '__LMOD_REF_COUNT_CMAKE_PREFIX_PATH': '/orcd/software/core/001/spack/pkg/gcc/12.2.0/yt6vabm:1', 'LMOD_sys': 'Linux', 'NEXTFLOW_VERSION': '25.10.4', '_ModuleTable010_': 'OUZXRVVpTENJdmIzSmpaQzl6YjJaMGQyRnlaUzlqYjNKbEx6QXdNUzl3YTJjdmJXbHVhV1p2Y21kbEx6STJMamN1TWkwd0wySnBiaTlqYjI1a1lTSXAiCiwgImMyVjBaVzUyS0NKRFQwNUVRVjlRV1ZSSVQwNWZSVmhGSWl3aUwyOXlZMlF2YzI5bWRIZGhjbVV2WTI5eVpTOHdNREV2Y0d0bkwyMXBibWxtYjNKblpTOHlOaTQzTGpJdE1DOWlhVzR2Y0hsMGFHOXVJaWs9IgosICJjMlYwWlc1MktDSkRUMDVFUVY5VFNFeFdUQ0lzSWpBaUtRPT0iCiwgImNISmxjR1Z1WkY5d1lYUm9LQ0pRUVZSSUlpd2lMMjl5WTJRdmMyOW1kSGRoY21VdlkyOXlaUzh3TURFdmNHdG5MMjFwYm1sbWIzSm5aUzh5Tmk0M0xqSXRNQzlqYjI1a1lXSnBiaUlwIgosICJjMlYwWlc1MktDSmZRMFZmUTA5T1JF', 'SLURM_JOBID': '28006829', 'GITHUB_SERVER_URL': 'https://github.com', '_ModuleTable001_': 'X01vZHVsZVRhYmxlXyA9IHsKTVR2ZXJzaW9uID0gMywKY19yZWJ1aWxkVGltZSA9IGZhbHNlLApjX3Nob3J0VGltZSA9IGZhbHNlLApkZXB0aFQgPSB7fSwKZmFtaWx5ID0gewpjb21waWxlciA9ICJnY2MiLAp9LAptVCA9IHsKU3RkRW52ID0gewpmbiA9ICIvb3JjZC9zb2Z0d2FyZS9jb3JlLzAwMS9tb2R1bGVmaWxlcy9TdGRFbnYubHVhIiwKZnVsbE5hbWUgPSAiU3RkRW52IiwKbG9hZE9yZGVyID0gNCwKcHJvcFQgPSB7fSwKc3RhY2tEZXB0aCA9IDAsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJTdGRFbnYiLAp3ViA9ICJNLip6ZmluYWwiLAp9LApbImNvbW11bml0eS1tb2R1bGVzIl0gPSB7CmFjdGlvbkEgPSB7CiJwcmVwZW5kX3BhdGgoXCJNT0RVTEVQQVRI', 'GITHUB_ACTOR_ID': '51133164', 'SLURM_CONF': '/etc/slurm/slurm.conf', 'LOADEDMODULES': 'gcc/12.2.0:community-modules:orcd-cmds:StdEnv:miniforge/26.7.2-0', 'FC': '/orcd/software/core/001/spack/pkg/gcc/12.2.0/yt6vabm/bin/gfortran', '_ModuleTable006_': 'Q0FnSUNBZ1pXeHpaVndLSUNBZ0lDQWdJQ0FnSUNBZ1hGeG9ZWE5vSUMxeU8xd0tJQ0FnSUNBZ0lDQm1hVHRjQ2lBZ0lDQm1hVndLSWl3aUlpaz0iCiwgImMyVjBYM05vWld4c1gyWjFibU4wYVc5dUtDSmZYMjFoYldKaFgzZHlZWEFpTENJZ1hBb2dJQ0FnWEZ4c2IyTmhiQ0JqYldROVhDSWtlekV0WDE5dGFYTnphVzVuWDE5OVhDSTdYQW9nSUNBZ1kyRnpaU0JjSWlSN1kyMWtmVndpSUdsdUlGd0tJQ0FnSUNBZ0lDQmhZM1JwZG1GMFpTQjhJSEpsWVdOMGFYWmhkR1VnZkNCa1pXRmpkR2wyWVhSbEtWd0tJQ0FnSUNBZ0lDQWdJQ0FnWDE5dFlXMWlZVjk0WTNScGRtRjBaU0JjSWlSN1FIMWNJbHdLSUNBZ0lDQWdJQ0E3TzF3S0lDQWdJQ0FnSUNCcGJuTjBZV3hzSUh3Z2RYQmtZWFJs', '__LMOD_REF_COUNT_MANPATH': '/orcd/software/core/001/spack/pkg/gcc/12.2.0/yt6vabm/share/man:1;/usr/share/lmod/lmod/share/man:1;:2', 'DANDI_COMPUTE_RECORDED': '1', 'SLURM_JOB_SLUID': 's4DXM6PKQ8GP00', 'GITHUB_EVENT_PATH': '/orcd/data/dandi/001/dandi-compute/runners/submitter/actions-runner/_work/_temp/_github_workflow/event.json', '_ModuleTable003_': 'bW9kdWxlZmlsZXMvY29tbXVuaXR5LW1vZHVsZXMubHVhIiwKZnVsbE5hbWUgPSAiY29tbXVuaXR5LW1vZHVsZXMiLApsb2FkT3JkZXIgPSAyLApwcm9wVCA9IHt9LApzdGFja0RlcHRoID0gMSwKc3RhdHVzID0gImFjdGl2ZSIsCnVzZXJOYW1lID0gImNvbW11bml0eS1tb2R1bGVzIiwKd1YgPSAiTS4qemZpbmFsIiwKfSwKZ2NjID0gewphY3Rpb25BID0gewoicHJlcGVuZF9wYXRoKFwiTU9EVUxFUEFUSFwiLFwiL29yY2Qvc29mdHdhcmUvY29yZS8wMDEvc3BhY2svbW9kdWxlZmlsZXMvZ2NjLzEyLjIuMFwiKSIsCn0sCmZuID0gIi9vcmNkL3NvZnR3YXJlL2NvcmUvMDAxL21vZHVsZWZpbGVzL2djYy8xMi4yLjAubHVhIiwKZnVsbE5hbWUgPSAiZ2NjLzEyLjIuMCIsCmxvYWRP', 'LMOD_ROOT': '/usr/share/lmod', 'SLURM_JOB_QOS': 'normal', 'SLURM_TOPOLOGY_ADDR_PATTERN': 'node', 'CONDA_PROMPT_MODIFIER': '(/orcd/data/dandi/001/environments/name-dandi+compute_env) ', 'GITHUB_GRAPHQL_URL': 'https://api.github.com/graphql', '_ModuleTable013_': 'NGdYQ0lrZTE5RFJWOU5PaXQ0ZlZ3aUlGMGdKaVlnV3lBdGJpQmNJaVI3WDBORlgwTlBUa1JCT2l0NGZWd2lJRjA3SUhSb1pXNWNDaUFnSUNBZ0lDQWdYQ0lrUTA5T1JFRmZSVmhGWENJZ0pGOURSVjlOSUNSZlEwVmZRMDlPUkVFZ1hDSWtRRndpTzF3S0lDQWdJR1ZzYzJWY0NpQWdJQ0FnSUNBZ1hDSWtRMDlPUkVGZlJWaEZYQ0lnWENJa1FGd2lPMXdLSUNBZ0lHWnBJQ2xjQ2lJc0lpSXAiCiwgImMyVjBYM05vWld4c1gyWjFibU4wYVc5dUtDSmZYMk52Ym1SaFgyaGhjMmh5SWl3aUlGd0tJQ0FnSUdsbUlGc2dMVzRnWENJa2UxcFRTRjlXUlZKVFNVOU9PaXQ0ZlZ3aUlGMDdJSFJvWlc1Y0NpQWdJQ0FnSUNBZ1hGeHlaV2hoYzJnN1hBb2dJQ0FnWld4elpWd0tJQ0FnSUNBZ0lDQnBa', 'MAIL': '/var/spool/mail/cb239', 'ACTIONS_ORCHESTRATION_ID': 'a7dc870a-a3b1-45db-bc3a-f181345ac1ba.UpdateCodebase.__default', 'SLURM_CPUS_ON_NODE': '1', '_CONDA_ROOT': '/orcd/software/core/001/pkg/miniforge/26.7.2-0', 'CXX': '/orcd/software/core/001/spack/pkg/gcc/12.2.0/yt6vabm/bin/g++', 'VISUAL': 'nano', 'SLURM_JOB_NUM_NODES': '1', '__Init_Default_Modules': '1', '_ModuleTable016_': 'SUNBZ0lGOWZZMjl1WkdGZlpYaGxJRndpSkVCY0lpQjhmQ0JjWEhKbGRIVnlianRjQ2lBZ0lDQWdJQ0FnSUNBZ0lGOWZZMjl1WkdGZllXTjBhWFpoZEdVZ2NtVmhZM1JwZG1GMFpWd0tJQ0FnSUNBZ0lDQTdPMXdLSUNBZ0lDQWdJQ0FxS1Z3S0lDQWdJQ0FnSUNBZ0lDQWdYMTlqYjI1a1lWOWxlR1VnWENJa1FGd2lYQW9nSUNBZ0lDQWdJRHM3WEFvZ0lDQWdaWE5oWTF3S0lpd2lJaWs9IiwKfSwKfSwKcHJvcFQgPSB7fSwKc3RhY2tEZXB0aCA9IDAsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJtaW5pZm9yZ2UiLAp3ViA9ICIwMDAwMDAwMjYuMDAwMDAwMDA3LjAwMDAwMDAwMi4qemZpbmFsIiwKfSwKWyJvcmNkLWNtZHMiXSA9IHsKZm4gPSAiL29yY2Qvc29mdHdhcmUv', 'SLURM_MEM_PER_NODE': '1024', 'RUNNER_OS': 'Linux', '_ModuleTable009_': 'b1VGTXhQVndpSkh0UVV6RTZMWDFjSWlCZlgyMWhiV0poWDJWNFpTQnphR1ZzYkNCY0lpUjdRSDFjSWlBdExYTm9aV3hzSUdKaGMyZ3BYQ0lnZkh3Z1hGeHlaWFIxY200N1hBb2dJQ0FnWEZ4bGRtRnNJRndpSkh0aGMydGZiV0Z0WW1GOVhDSTdYQW9nSUNBZ1gxOXRZVzFpWVY5b1lYTm9jbHdLSWl3aUlpaz0iLCAiYzJWMFgzTm9aV3hzWDJaMWJtTjBhVzl1S0NKdFlXMWlZU0lzSWlCY0NpQWdJQ0JmWDIxaGJXSmhYM2R5WVhBZ1hDSWtRRndpWEFvaUxDSWlLUT09IiwKfSwKTDI5eVkyUXZjMjltZEhkaGNtVXZZMjl5WlM4d01ERXZjR3RuTDIxcGJtbG1iM0puWlM4eU5pNDNMakl0TUM5bGRHTXZjSEp2Wm1sc1pTNWtMMk52Ym1SaExuTm8gPSB7CgoiYzJWMFpXNTJLQ0pEVDA1RVFW', 'GITHUB_BASE_REF': '', 'SHELL': '/bin/sh', 'MAMBA_ROOT_PREFIX': '/home/cb239/.conda', 'SLURM_JOB_UID': '203222', '_ModuleTable_Sz_': '19', 'SLURM_JOB_PARTITION': 'mit_preemptable', 'LMOD_FAMILY_COMPILER': 'gcc', 'SLURM_SCRIPT_CONTEXT': 'prolog_task', '_ModuleTable018_': 'b3JjZC9zb2Z0d2FyZS9jb21tdW5pdHkvMDAxL21vZHVsZWZpbGVzIgosICIvb3JjZC9zb2Z0d2FyZS9jb3JlLzAwMS9zcGFjay9tb2R1bGVmaWxlcy9nY2MvMTIuMi4wIgosICIvb3JjZC9zb2Z0d2FyZS9jb3JlLzAwMS9tb2R1bGVmaWxlcyIsICIvdXNyL3NoYXJlL21vZHVsZWZpbGVzL0xpbnV4IgosICIvdXNyL3NoYXJlL21vZHVsZWZpbGVzL0NvcmUiLCAiL3Vzci9zaGFyZS9sbW9kL2xtb2QvbW9kdWxlZmlsZXMvQ29yZSIsCn0sCnN5c3RlbUJhc2VNUEFUSCA9ICIvb3JjZC9zb2Z0d2FyZS9jb3JlLzAwMS9tb2R1bGVmaWxlczovdXNyL3NoYXJlL21vZHVsZWZpbGVzL0xpbnV4Oi91c3Ivc2hhcmUvbW9kdWxlZmlsZXMvQ29yZTovdXNyL3NoYXJlL2xtb2QvbG1vZC9tb2R1', 'GITHUB_PATH': '/orcd/data/dandi/001/dandi-compute/runners/submitter/actions-runner/_work/_temp/_runner_file_commands/add_path_5db29193-0b09-47d9-ae65-bcae1ece2b7c', 'GITHUB_JOB': 'UpdateCodebase', 'RUNNER_NAME': 'submitter', 'GITHUB_OUTPUT': '/orcd/data/dandi/001/dandi-compute/runners/submitter/actions-runner/_work/_temp/_runner_file_commands/set_output_5db29193-0b09-47d9-ae65-bcae1ece2b7c', 'SLURM_JOB_USER': 'cb239', 'SHLVL': '11', 'SLURM_SUBMIT_HOST': 'login007', 'SLURM_JOB_ACCOUNT': 'mit_general', 'GITHUB_REPOSITORY': 'dandi-compute/dandi-compute-runner', 'MANPATH': '/orcd/software/core/001/spack/pkg/gcc/12.2.0/yt6vabm/share/man:/usr/share/lmod/lmod/share/man::', 'SLURM_TRES_PER_TASK': 'cpu=1', 'GITHUB_EVENT_NAME': 'workflow_dispatch', 'HYDRA_BOOTSTRAP': 'slurm', 'MODULEPATH': '/orcd/software/community/001/licensed/modulefiles:/orcd/software/community/001/spack/modulefiles/gcc/12.2.0:/orcd/software/community/001/spack/modulefiles/openmpi/4.1.4-zahpnmk/gcc/12.2.0:/orcd/software/community/001/modulefiles:/orcd/software/core/001/spack/modulefiles/gcc/12.2.0:/orcd/software/core/001/modulefiles:/usr/share/modulefiles/Linux:/usr/share/modulefiles/Core:/usr/share/lmod/lmod/modulefiles/Core', 'SLURM_GTIDS': '0', 'LOGNAME': 'cb239', 'MODULEPATH_ROOT': '/usr/share/modulefiles', 'LMOD_PACKAGE_PATH': '/etc/lmod', 'GITHUB_RUN_NUMBER': '53', 'GITHUB_WORKFLOW': 'Update codebase', 'PATH': '/orcd/data/dandi/001/environments/name-dandi+compute_env/bin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/condabin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin:/orcd/software/core/001/pkg/orcd-cmds/bin:/orcd/software/core/001/spack/pkg/gcc/12.2.0/yt6vabm/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/home/cb239/.local/bin:/home/cb239/bin', 'SLURM_JOB_ID': '28006829', '_ModuleTable014_': 'aUJiSUMxdUlGd2lKSHRRVDFOSVgxWkZVbE5KVDA0NkszaDlYQ0lnWFRzZ2RHaGxibHdLSUNBZ0lDQWdJQ0FnSUNBZ09qdGNDaUFnSUNBZ0lDQWdaV3h6WlZ3S0lDQWdJQ0FnSUNBZ0lDQWdYRnhvWVhOb0lDMXlPMXdLSUNBZ0lDQWdJQ0JtYVR0Y0NpQWdJQ0JtYVZ3S0lpd2lJaWs9IgosICJjMlYwWDNOb1pXeHNYMloxYm1OMGFXOXVLQ0pmWDJOdmJtUmhYM0psWVdOMGFYWmhkR1VpTENJZ1hBb2dJQ0FnWldOb2J5QmNJaWRmWDJOdmJtUmhYM0psWVdOMGFYWmhkR1VuSUdseklHUmxjSEpsWTJGMFpXUWdZVzVrSUhkcGJHd2dZbVVnY21WdGIzWmxaQ0JwYmlBeU5TNDVMaUJWYzJVZ0oxOWZZMjl1WkdGZllXTjBhWFpoZEdVZ2NtVmhZM1JwZG1GMFpTY2dhVzV6ZEdWaFpDNWNJaUF4', '_LMFILES_': '/orcd/software/core/001/modulefiles/gcc/12.2.0.lua:/orcd/software/core/001/modulefiles/community-modules.lua:/orcd/software/core/001/modulefiles/orcd-cmds.lua:/orcd/software/core/001/modulefiles/StdEnv.lua:/orcd/software/core/001/modulefiles/miniforge/26.7.2-0.lua', 'GITHUB_WORKFLOW_SHA': '2c6aa1544d7c0a9287b0f2c41e5a9189f73d5667', 'DEBUGINFOD_URLS': 'https://debuginfod.centos.org/ ', 'GITHUB_WORKSPACE': '/orcd/data/dandi/001/dandi-compute/runners/submitter/actions-runner/_work/dandi-compute-runner/dandi-compute-runner', 'MODULESHOME': '/usr/share/lmod/lmod', 'CONDA_DEFAULT_ENV': '/orcd/data/dandi/001/environments/name-dandi+compute_env', 'LMOD_SETTARG_FULL_SUPPORT': 'no', '_ModuleTable011_': 'RWlMQ0lpS1E9PSIsICJjMlYwWlc1MktDSmZRMFZmVFNJc0lpSXAiCiwgImMyVjBaVzUyS0NKZlEwOU9SRUZmUlZoRklpd2lMMjl5WTJRdmMyOW1kSGRoY21VdlkyOXlaUzh3TURFdmNHdG5MMjFwYm1sbWIzSm5aUzh5Tmk0M0xqSXRNQzlpYVc0dlkyOXVaR0VpS1E9PSIKLCAiYzJWMFpXNTJLQ0pmUTA5T1JFRmZVazlQVkNJc0lpOXZjbU5rTDNOdlpuUjNZWEpsTDJOdmNtVXZNREF4TDNCclp5OXRhVzVwWm05eVoyVXZNall1Tnk0eUxUQWlLUT09IgosICJjMlYwWDNOb1pXeHNYMloxYm1OMGFXOXVLQ0pmWDJOdmJtUmhYMkZqZEdsMllYUmxJaXdpSUZ3S0lDQWdJR2xtSUZzZ0xXNGdYQ0lrZTBOUFRrUkJYMUJUTVY5Q1FVTkxWVkE2SzNoOVhDSWdYVHNnZEdobGJsd0tJQ0FnSUNB', 'GITHUB_TRIGGERING_ACTOR': 'CodyCBakerPhD', 'HISTSIZE': '1000', 'SLURM_JOB_EXCLUSIVE': 'NO', 'LMOD_PKG': '/usr/share/lmod/lmod', 'SLURM_OOM_KILL_STEP': '0', '_ModuleTable005_': 'OXVLQ0pmWDIxaGJXSmhYMlY0WlNJc0lpQmNDaUFnSUNBb0lGd2lMMjl5WTJRdmMyOW1kSGRoY21VdlkyOXlaUzh3TURFdmNHdG5MMjFwYm1sbWIzSm5aUzh5Tmk0M0xqSXRNQzlpYVc0dmJXRnRZbUZjSWlCY0lpUjdRSDFjSWlBcFhBb2lMQ0lpS1E9PSIKLCAiYzJWMFgzTm9aV3hzWDJaMWJtTjBhVzl1S0NKZlgyMWhiV0poWDJoaGMyaHlJaXdpSUZ3S0lDQWdJR2xtSUZzZ0xXNGdYQ0lrZTFwVFNGOVdSVkpUU1U5T09pdDRmVndpSUYwN0lIUm9aVzVjQ2lBZ0lDQWdJQ0FnWEZ4eVpXaGhjMmc3WEFvZ0lDQWdaV3h6WlZ3S0lDQWdJQ0FnSUNCcFppQmJJQzF1SUZ3aUpIdFFUMU5JWDFaRlVsTkpUMDQ2SzNoOVhDSWdYVHNnZEdobGJsd0tJQ0FnSUNBZ0lDQWdJQ0FnT2p0Y0NpQWdJ', 'LMOD_CMD': '/usr/share/lmod/lmod/libexec/lmod', 'SLURM_LOCALID': '0', 'LESSOPEN': '||/usr/bin/lesspipe.sh %s', 'LMOD_DIR': '/usr/share/lmod/lmod/libexec', 'BASH_FUNC_which%%': '() {  ( alias;\n eval ${which_declare} ) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@\n}', 'BASH_FUNC_module%%': '() {  if [ -z "${LMOD_SH_DBG_ON+x}" ]; then\n case "$-" in \n *v*x*)\n __lmod_sh_dbg=\'vx\'\n ;;\n *v*)\n __lmod_sh_dbg=\'v\'\n ;;\n *x*)\n __lmod_sh_dbg=\'x\'\n ;;\n esac;\n fi;\n if [ -n "${__lmod_sh_dbg:-}" ]; then\n set +$__lmod_sh_dbg;\n echo "Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod\'s output" 1>&2;\n fi;\n eval "$($LMOD_CMD shell "$@")" && eval "$(${LMOD_SETTARG_CMD:-:} -s sh)";\n __lmod_my_status=$?;\n if [ -n "${__lmod_sh_dbg:-}" ]; then\n echo "Shell debugging restarted" 1>&2;\n set -$__lmod_sh_dbg;\n fi;\n unset __lmod_sh_dbg;\n return $__lmod_my_status\n}', 'BASH_FUNC_ml%%': '() {  eval "$($LMOD_DIR/ml_cmd "$@")"\n}', '_': '/orcd/data/dandi/001/environments/name-nextflow_version-25+10+4_environment/bin/pip', 'PIP_BUILD_TRACKER': '/tmp/pip-build-tracker-dkbkw89o', 'PYTHONNOUSERSITE': '1', 'PYTHONPATH': '/tmp/pip-build-env-3f2aw7el/site', '_PYPROJECT_HOOKS_BUILD_BACKEND': 'setuptools.build_meta', 'PLAT': 'linux-x86_64', 'PYTHON_BIN_PATH': '/orcd/data/dandi/001/environments/name-nextflow_version-25+10+4_environment/bin/python3.15'}
+      Traceback (most recent call last):
+        File "/orcd/data/dandi/001/environments/name-nextflow_version-25+10+4_environment/lib/python3.15/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 389, in <module>
+          main()
+          ~~~~^^
+        File "/orcd/data/dandi/001/environments/name-nextflow_version-25+10+4_environment/lib/python3.15/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 373, in main
+          json_out["return_val"] = hook(**hook_input["kwargs"])
+                                   ~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/orcd/data/dandi/001/environments/name-nextflow_version-25+10+4_environment/lib/python3.15/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 280, in build_wheel
+          return _build_backend().build_wheel(
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+              wheel_directory, config_settings, metadata_directory
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          )
+          ^
+        File "/tmp/pip-build-env-3f2aw7el/overlay/lib/python3.15/site-packages/setuptools/build_meta.py", line 441, in build_wheel
+          return _build(['bdist_wheel', '--dist-info-dir', str(metadata_directory)])
+        File "/tmp/pip-build-env-3f2aw7el/overlay/lib/python3.15/site-packages/setuptools/build_meta.py", line 429, in _build
+          return self._build_with_temp_dir(
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~^
+              cmd,
+              ^^^^
+          ...<3 lines>...
+              self._arbitrary_args(config_settings),
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          )
+          ^
+        File "/tmp/pip-build-env-3f2aw7el/overlay/lib/python3.15/site-packages/setuptools/build_meta.py", line 410, in _build_with_temp_dir
+          self.run_setup()
+          ~~~~~~~~~~~~~~^^
+        File "/tmp/pip-build-env-3f2aw7el/overlay/lib/python3.15/site-packages/setuptools/build_meta.py", line 317, in run_setup
+          exec(code, locals())  # noqa: S102 # exec is intentional here
+          ~~~~^^^^^^^^^^^^^^^^
+        File "<string>", line 404, in <module>
+        File "/tmp/pip-build-env-3f2aw7el/overlay/lib/python3.15/site-packages/setuptools/__init__.py", line 117, in setup
+          return distutils.core.setup(**attrs)  # type: ignore[return-value]
+                 ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+        File "/tmp/pip-build-env-3f2aw7el/overlay/lib/python3.15/site-packages/setuptools/_distutils/core.py", line 168, in setup
+          return run_commands(dist)
+        File "/tmp/pip-build-env-3f2aw7el/overlay/lib/python3.15/site-packages/setuptools/_distutils/core.py", line 184, in run_commands
+          dist.run_commands()
+          ~~~~~~~~~~~~~~~~~^^
+        File "/tmp/pip-build-env-3f2aw7el/overlay/lib/python3.15/site-packages/setuptools/_distutils/dist.py", line 1028, in run_commands
+          self.run_command(cmd)
+          ~~~~~~~~~~~~~~~~^^^^^
+        File "/tmp/pip-build-env-3f2aw7el/overlay/lib/python3.15/site-packages/setuptools/dist.py", line 1106, in run_command
+          super().run_command(command)
+          ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+        File "/tmp/pip-build-env-3f2aw7el/overlay/lib/python3.15/site-packages/setuptools/_distutils/dist.py", line 1047, in run_command
+          cmd_obj.run()
+          ~~~~~~~~~~~^^
+        File "/tmp/pip-build-env-3f2aw7el/overlay/lib/python3.15/site-packages/setuptools/command/bdist_wheel.py", line 454, in run
+          self.run_command("build")
+          ~~~~~~~~~~~~~~~~^^^^^^^^^
+        File "/tmp/pip-build-env-3f2aw7el/overlay/lib/python3.15/site-packages/setuptools/_distutils/cmd.py", line 342, in run_command
+          self.distribution.run_command(command)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+        File "/tmp/pip-build-env-3f2aw7el/overlay/lib/python3.15/site-packages/setuptools/dist.py", line 1106, in run_command
+          super().run_command(command)
+          ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+        File "/tmp/pip-build-env-3f2aw7el/overlay/lib/python3.15/site-packages/setuptools/_distutils/dist.py", line 1047, in run_command
+          cmd_obj.run()
+          ~~~~~~~~~~~^^
+        File "/tmp/pip-build-env-3f2aw7el/overlay/lib/python3.15/site-packages/setuptools/_distutils/command/build.py", line 137, in run
+          self.run_command(cmd_name)
+          ~~~~~~~~~~~~~~~~^^^^^^^^^^
+        File "/tmp/pip-build-env-3f2aw7el/overlay/lib/python3.15/site-packages/setuptools/_distutils/cmd.py", line 342, in run_command
+          self.distribution.run_command(command)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+        File "/tmp/pip-build-env-3f2aw7el/overlay/lib/python3.15/site-packages/setuptools/dist.py", line 1106, in run_command
+          super().run_command(command)
+          ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+        File "/tmp/pip-build-env-3f2aw7el/overlay/lib/python3.15/site-packages/setuptools/_distutils/dist.py", line 1047, in run_command
+          cmd_obj.run()
+          ~~~~~~~~~~~^^
+        File "<string>", line 361, in run
+        File "/orcd/data/dandi/001/environments/name-nextflow_version-25+10+4_environment/lib/python3.15/subprocess.py", line 534, in check_call
+          raise CalledProcessError(retcode, cmd)
+      subprocess.CalledProcessError: Command ['/orcd/data/dandi/001/environments/name-nextflow_version-25+10+4_environment/bin/python3.15', '-u', 'bazelisk.py', 'build', '-c', 'opt', '--copt=-O3', '--//tensorstore/internal/version=0.1.86', '//python/tensorstore:_tensorstore__shared_objects', '--verbose_failures', '--remote_download_regex=.*/(_tensorstore\\.(so|pyd))', '--copt=-fvisibility=hidden'] returned non-zero exit status 37.
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for tensorstore
+error: failed-wheel-build-for-install
+
+× Failed to build installable wheels for some pyproject.toml based projects
+╰─> h5py, tensorstore
