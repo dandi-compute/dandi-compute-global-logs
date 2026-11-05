@@ -1,0 +1,6 @@
+Pulling ./dandi-compute-core/
+HEAD is now at b07318d Read the pinned step versions at the job's release, as process_versions.env from 1.4.1 (#369)
+Pulling ./dandi-compute-runner/
+HEAD is now at d29234b Point monitor/latest at the newest monitor day as snapshots are pushed (#94)
+Pulling ./aind-ephys-pipeline/
+./aind-ephys-pipeline/ is on a detached HEAD; fetched new tags without resetting.

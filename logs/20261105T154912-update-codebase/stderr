@@ -1,0 +1,20 @@
+From https://github.com/dandi-compute/dandi-compute-core
+   3077b4f..b07318d  main       -> origin/main
+ * [new branch]      claude/delete-capsules-by-version -> origin/claude/delete-capsules-by-version
+ * [new branch]      claude/ecstatic-rubin-mov53v -> origin/claude/ecstatic-rubin-mov53v
+From https://github.com/dandi-compute/dandi-compute-runner
+   4f872ae..d29234b  main       -> origin/main
+ * [new branch]      claude/bold-faraday-gtyuiq-pipeline-1.4.1 -> origin/claude/bold-faraday-gtyuiq-pipeline-1.4.1
+ * [new branch]      claude/ecstatic-rubin-mov53v -> origin/claude/ecstatic-rubin-mov53v
+From https://github.com/AllenNeuralDynamics/aind-ephys-pipeline
+   b632726..86cd8b3  co-main       -> origin/co-main
+ * [new branch]      co-release    -> origin/co-release
+   09a15bc..0b368c1  dev           -> origin/dev
+   ae56e05..7ea28fb  feat/per-stream-staging-co -> origin/feat/per-stream-staging-co
+   d0de4fa..0563ab8  main          -> origin/main
+ * [new branch]      stephen-aind  -> origin/stephen-aind
+ * [new branch]      stream-map    -> origin/stream-map
+ * [new branch]      streaming     -> origin/streaming
+ * [new branch]      streaming+map -> origin/streaming+map
+   991d557..6d9859d  v0.1.0        -> origin/v0.1.0
+ * [new tag]         1.5.0         -> 1.5.0
