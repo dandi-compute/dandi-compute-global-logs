@@ -10,10 +10,10 @@ Each day's records live on their own branches, one per kind of record and named 
 date: `logs/YYYY-MM-DD` for tasks and workflow steps, `monitor/YYYY-MM-DD` for squeue snapshots.
 The frequent snapshots and the tasks thus update independently, never rebasing onto each other.
 Records from before this split are on undivided `YYYY-MM-DD` branches. `main` holds nothing but
-this README and the dataset configuration, so old days can be deleted as branches without
-touching its history.
+this README, the dataset configuration and the workflow that keeps `monitor/latest` current, so
+old days can be deleted as branches without touching its history.
 
-Every branch is a [DataLad](https://www.datalad.org/) dataset (without git-annex, since
+Every day's branch is a [DataLad](https://www.datalad.org/) dataset (without git-annex, since
 everything recorded is small text). Each record is a `datalad run` commit, so its message holds
 the exact command, the directory it ran in and its exit status, and `datalad rerun` can repeat
 it.
@@ -22,10 +22,17 @@ it.
 logs/{YYYYMMDDTHHMMSS}-{action}/         on logs/YYYY-MM-DD: one scheduled task or workflow step
 monitor/{HH}/{YYYYMMDDTHHMMSS}-squeue/   on monitor/YYYY-MM-DD: a squeue snapshot, every 5 minutes, grouped by hour
 monitor/LATEST                           on monitor/YYYY-MM-DD: the newest snapshot's path relative to monitor/
+LATEST                                   on monitor/latest: the newest monitor/YYYY-MM-DD branch's name
 ```
 
 To read the latest snapshot without listing `monitor/`, read `monitor/LATEST` on the day's
 `monitor/YYYY-MM-DD` branch (e.g. `18/20260928T185500-squeue`) and then `monitor/{that path}/stdout`.
+Days are named by the cluster's clock (US Eastern). When today has no branch, just after midnight
+or while the monitor is down, read `LATEST` on the persistent `monitor/latest` branch first (e.g.
+`monitor/2026-11-02`) to learn which day's branch holds the newest snapshot. Unlike the day
+branches, `monitor/latest` is never deleted and is not a DataLad dataset: it holds only that one
+file, kept current by [`.github/workflows/monitor-latest.yml`](.github/workflows/monitor-latest.yml)
+whenever a branch is created, and every hour in case a creation went unnoticed.
 
 Each record directory holds:
 
