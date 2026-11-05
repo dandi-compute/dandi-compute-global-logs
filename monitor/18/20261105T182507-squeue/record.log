@@ -1,0 +1,16 @@
+remote: fatal error in commit_refs_rules        
+To https://github.com/dandi-compute/dandi-compute-global-logs.git
+ ! [remote rejected]     monitor/2026-11-05 -> monitor/2026-11-05 (fatal error in commit_refs_rules
+)
+error: failed to push some refs to 'https://github.com/dandi-compute/dandi-compute-global-logs.git'
+remote: fatal error in commit_refs_rules        
+To https://github.com/dandi-compute/dandi-compute-global-logs.git
+ ! [remote rejected]     monitor/2026-11-05 -> monitor/2026-11-05 (fatal error in commit_refs_rules
+)
+error: failed to push some refs to 'https://github.com/dandi-compute/dandi-compute-global-logs.git'
+remote: fatal error in commit_refs_rules        
+To https://github.com/dandi-compute/dandi-compute-global-logs.git
+ ! [remote rejected]     monitor/2026-11-05 -> monitor/2026-11-05 (fatal error in commit_refs_rules
+)
+error: failed to push some refs to 'https://github.com/dandi-compute/dandi-compute-global-logs.git'
+2026-11-05 18:25:43 could not push monitor/2026-11-05 from the shared checkout; it stays there for the next push
