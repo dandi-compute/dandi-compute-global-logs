@@ -1,0 +1,11 @@
+[2026-11-06 00:00:20] [create] === create run starting (pid 2206216) ===
+[2026-11-06 00:00:20] [create] Sourcing /home/cb239/.dandi_env
+[2026-11-06 00:00:20] [create] Maintenance-held pending jobs: 0 (threshold 5)
+[2026-11-06 00:00:20] [create] Loading modules and activating conda environment
+[2026-11-06 00:00:20] [create] Checking GitHub API reachability
+[2026-11-06 00:00:21] [create] api.github.com reachable (HTTP 200)
+[2026-11-06 00:00:21] [create] Checking for work: dandicompute jobs creatable --silent
+[2026-11-06 00:01:54] INFO:dandi_compute_code.queue._pipeline_queue:Found 3160 job capsules to create
+[2026-11-06 00:01:54] [create] Work found; starting prepare-queue.yml
+[2026-11-06 00:01:56] [create] workflow_dispatch accepted (HTTP 204); run should appear in Actions.
+[2026-11-06 00:01:56] [create] === create run complete ===
