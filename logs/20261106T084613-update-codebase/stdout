@@ -1,0 +1,6 @@
+Pulling ./dandi-compute-core/
+HEAD is now at 5f6186d Required a pipeline with --version and added --job to `dandicompute archive delete` (#374)
+Pulling ./dandi-compute-runner/
+HEAD is now at 8b75975 Removed the Prepare AIND job workflow, which had never run (#102)
+Pulling ./aind-ephys-pipeline/
+./aind-ephys-pipeline/ is on a detached HEAD; fetched new tags without resetting.

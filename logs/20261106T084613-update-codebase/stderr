@@ -1,0 +1,11 @@
+From https://github.com/dandi-compute/dandi-compute-core
+   f76065e..5f6186d  main       -> origin/main
+ * [new branch]      claude/awesome-tesla-qmp775 -> origin/claude/awesome-tesla-qmp775
+ * [new branch]      claude/wonderful-faraday-haagyb -> origin/claude/wonderful-faraday-haagyb
+From https://github.com/dandi-compute/dandi-compute-runner
+   2c6aa15..8b75975  main       -> origin/main
+ * [new branch]      claude/awesome-tesla-qmp775 -> origin/claude/awesome-tesla-qmp775
+ * [new branch]      claude/wonderful-faraday-haagyb -> origin/claude/wonderful-faraday-haagyb
+From https://github.com/AllenNeuralDynamics/aind-ephys-pipeline
+ * [new branch]      saturation -> origin/saturation
+   b8c9fb2..27a86ba  streaming  -> origin/streaming
