@@ -1,0 +1,6 @@
+Pulling ./dandi-compute-core/
+HEAD is now at 52eda0c Loaded the content ID mapping once, streamed, when creating job capsules (#375)
+Pulling ./dandi-compute-runner/
+HEAD is now at 6941a2b Gave the submitter runner's Slurm job 4 GB instead of 1 GB (#103)
+Pulling ./aind-ephys-pipeline/
+./aind-ephys-pipeline/ is on a detached HEAD; fetched new tags without resetting.
