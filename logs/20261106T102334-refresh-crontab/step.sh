@@ -1,0 +1,1 @@
+bash /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/install_crontab.sh
