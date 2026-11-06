@@ -1,0 +1,18 @@
+remote: Internal Server Error        
+remote: Request ID E56C:1C994:6B480A:8C3179:6AEE6686        
+remote: Time 2026-11-06T23:45:18Z
+To https://github.com/dandi-compute/dandi-compute-global-logs.git
+ ! [remote rejected]     logs/2026-11-06 -> logs/2026-11-06 (Internal Server Error)
+error: failed to push some refs to 'https://github.com/dandi-compute/dandi-compute-global-logs.git'
+remote: fatal error in commit_refs_rules        
+To https://github.com/dandi-compute/dandi-compute-global-logs.git
+ ! [remote rejected]     logs/2026-11-06 -> logs/2026-11-06 (fatal error in commit_refs_rules
+)
+error: failed to push some refs to 'https://github.com/dandi-compute/dandi-compute-global-logs.git'
+remote: Internal Server Error        
+remote: Request ID DD8C:1298F2:703996:927A37:6AEE66A9        
+remote: Time 2026-11-06T23:45:46Z
+To https://github.com/dandi-compute/dandi-compute-global-logs.git
+ ! [remote rejected]     logs/2026-11-06 -> logs/2026-11-06 (Internal Server Error)
+error: failed to push some refs to 'https://github.com/dandi-compute/dandi-compute-global-logs.git'
+2026-11-06 18:46:02 could not push logs/2026-11-06 from the shared checkout; it stays there for the next push
