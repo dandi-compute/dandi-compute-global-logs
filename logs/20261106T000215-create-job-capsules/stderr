@@ -1,0 +1,2 @@
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for aind+ephys/1.5.0/default/35672f75-dbf8-48dc-a00b-01337110f2b0.
+/orcd/data/dandi/001/dandi-compute/runners/submitter/actions-runner/_work/_temp/85edf330-9558-4ca2-a45a-bf8ec43c4b52.sh: line 3: 531787 Killed                  dandicompute jobs create --base /orcd/data/dandi/001/dandi-compute --pipeline "$pipeline" --limit 5
