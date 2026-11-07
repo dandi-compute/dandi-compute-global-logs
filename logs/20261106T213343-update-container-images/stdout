@@ -1,0 +1,20 @@
+Pipeline 1.5.0 uses image tag 1.5.0
+Not cached yet: ghcr.io-allenneuraldynamics-aind-ephys-spikesort-dartsort-1.5.0.img
+=== Log of job 28159565 ===
+Cache dir : /orcd/data/dandi/001/dandi-compute/work/apptainer_cache
+Tag       : 1.5.0
+Sorter    : kilosort4
+Engine    : singularity
+[pull] ghcr.io/allenneuraldynamics/aind-ephys-pipeline-base:1.5.0 to /orcd/data/dandi/001/dandi-compute/work/apptainer_cache/ghcr.io-allenneuraldynamics-aind-ephys-pipeline-base-1.5.0.img
+FATAL:   Image file already exists: "/orcd/data/dandi/001/dandi-compute/work/apptainer_cache/ghcr.io-allenneuraldynamics-aind-ephys-pipeline-base-1.5.0.img" - will not overwrite
+[pull] ghcr.io/allenneuraldynamics/aind-ephys-pipeline-nwb:1.5.0 to /orcd/data/dandi/001/dandi-compute/work/apptainer_cache/ghcr.io-allenneuraldynamics-aind-ephys-pipeline-nwb-1.5.0.img
+FATAL:   Image file already exists: "/orcd/data/dandi/001/dandi-compute/work/apptainer_cache/ghcr.io-allenneuraldynamics-aind-ephys-pipeline-nwb-1.5.0.img" - will not overwrite
+[pull] ghcr.io/allenneuraldynamics/aind-ephys-spikesort-kilosort4:1.5.0 to /orcd/data/dandi/001/dandi-compute/work/apptainer_cache/ghcr.io-allenneuraldynamics-aind-ephys-spikesort-kilosort4-1.5.0.img
+FATAL:   Image file already exists: "/orcd/data/dandi/001/dandi-compute/work/apptainer_cache/ghcr.io-allenneuraldynamics-aind-ephys-spikesort-kilosort4-1.5.0.img" - will not overwrite
+Done. Images are cached in /orcd/data/dandi/001/dandi-compute/work/apptainer_cache
+INFO:    Converting OCI blobs to SIF format
+INFO:    Starting build...
+INFO:    Fetching OCI image...
+INFO:    Extracting OCI image...
+INFO:    Inserting Apptainer configuration...
+INFO:    Creating SIF file...
