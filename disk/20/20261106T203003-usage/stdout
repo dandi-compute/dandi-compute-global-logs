@@ -1,0 +1,7 @@
+Mounted               Size  Used Avail Use%
+/home                 403T  308T   96T  77%
+/orcd/data/dandi/001  880T  720T  161T  82%
+/orcd/data/dandi/002  620T  379T  242T  62%
+
+Used       Path
+123G       /home/cb239
