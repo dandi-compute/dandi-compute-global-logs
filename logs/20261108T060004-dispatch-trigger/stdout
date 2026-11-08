@@ -1,0 +1,7 @@
+[2026-11-08 06:00:06] [dispatch] === dispatch run starting (pid 1542412) ===
+[2026-11-08 06:00:06] [dispatch] Sourcing /home/cb239/.dandi_env
+[2026-11-08 06:00:06] [dispatch] Maintenance-held pending jobs: 0 (threshold 5)
+[2026-11-08 06:00:06] [dispatch] Loading modules and activating conda environment
+[2026-11-08 06:00:07] [dispatch] Checking GitHub API reachability
+[2026-11-08 06:00:17] [dispatch] ERROR: Cannot reach api.github.com from this environment: curl: (28) Operation timed out after 4695 milliseconds with 0 bytes received
+[2026-11-08 06:00:17] 000
