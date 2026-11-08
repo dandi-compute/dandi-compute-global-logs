@@ -1,0 +1,12 @@
+                         JOBID PARTITION       NAME                                     ST       TIME  NODES CP MIN_MEMORY NODELIST(REASON)              
+                    28342289_5 mit_preemptable dandicompute-dispatch-lfp                PD       0:00      1  1        16G (None)                        
+                    28342289_4 mit_preemptable dandicompute-dispatch-lfp                PD       0:00      1  1        16G (None)                        
+                    28342289_3 mit_preemptable dandicompute-dispatch-lfp                PD       0:00      1  1        16G (None)                        
+                    28342289_2 mit_preemptable dandicompute-dispatch-lfp                PD       0:00      1  1        16G (None)                        
+                    28342288_5 mit_preemptable dandicompute-dispatch-aind-ephys         PD       0:00      1  1         1G (None)                        
+                    28342288_4 mit_preemptable dandicompute-dispatch-aind-ephys         PD       0:00      1  1         1G (None)                        
+                    28342288_3 mit_preemptable dandicompute-dispatch-aind-ephys         PD       0:00      1  1         1G (None)                        
+                    28342288_2 mit_preemptable dandicompute-dispatch-aind-ephys         PD       0:00      1  1         1G (None)                        
+                    28342289_1 mit_preemptable dandicompute-dispatch-lfp                PD       0:00      1  1        16G (None)                        
+                    28342288_1 mit_preemptable dandicompute-dispatch-aind-ephys         PD       0:00      1  1         1G (None)                        
+                      28320847 mit_preemptable DANDI-Compute-Submitter                   R    4:56:09      1  1         4G node1293                      
