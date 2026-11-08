@@ -1,0 +1,9 @@
+From https://github.com/dandi-compute/dandi-compute-core
+   52eda0c..c5f4e02  main       -> origin/main
+From https://github.com/dandi-compute/dandi-compute-runner
+   6941a2b..435fc5e  main       -> origin/main
+ * [new branch]      claude/tender-einstein-3vum05 -> origin/claude/tender-einstein-3vum05
+From https://github.com/AllenNeuralDynamics/aind-ephys-pipeline
+   0b368c1..f9ee871  dev             -> origin/dev
+   595887d..8cbe0f2  stream-map      -> origin/stream-map
+ * [new branch]      update-dartsort -> origin/update-dartsort

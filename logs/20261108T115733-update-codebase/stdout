@@ -1,0 +1,6 @@
+Pulling ./dandi-compute-core/
+HEAD is now at c5f4e02 Added the Lupin and DARTsort spike sorters, each run per asset with a dispatcher of its own for Lupin (#373)
+Pulling ./dandi-compute-runner/
+HEAD is now at 435fc5e Widen the squeue snapshot's JOBID field so array IDs are not clipped (#107)
+Pulling ./aind-ephys-pipeline/
+./aind-ephys-pipeline/ is on a detached HEAD; fetched new tags without resetting.
