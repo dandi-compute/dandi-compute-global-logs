@@ -1,0 +1,75 @@
+WARNING:dandi_compute_code.queue._queue_utils:Unable to read JSON asset from https://dandiarchive.s3.amazonaws.com/blobs/c41/238/c412385f-15dd-4164-a140-96a2c47a37cd: <urlopen error _ssl.c:1015: The handshake operation timed out>
+WARNING:dandi_compute_code.queue._queue_utils:No job provenance for capsule derivatives/dandisets-000/dandiset-000957/sub-ZYE-0040/sub-ZYE-0040_ecephys+image/pipeline-aind+ephys/job-2610112809e9; version, codebase, params and config are left blank
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-000/dandiset-000411/sub-001/sub-001_ecephys/pipeline-lfp/job-2611070700cd from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-h9mx4c9_
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 1 for dandi://dandi/001697/derivatives/dandisets-000/dandiset-000411/sub-001/sub-001_ecephys/pipeline-lfp/job-2611070700cd/
+WARNING:dandi_compute_code.dandiset._move_job_capsule:dandi download stdout: 
+stderr: Traceback (most recent call last):
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/bin/dandi", line 7, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1569, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1490, in main
+    rv = self.invoke(ctx)
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1967, in invoke
+    super().invoke(ctx)
+    ~~~~~~~~~~~~~~^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1353, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 907, in invoke
+    return callback(*args, **kwargs)
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/decorators.py", line 34, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/dandi/cli/command.py", line 106, in main
+    handler = logging.FileHandler(logfile, encoding="utf-8")
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/logging/__init__.py", line 1219, in __init__
+    StreamHandler.__init__(self, self._open())
+                                 ~~~~~~~~~~^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/logging/__init__.py", line 1248, in _open
+    return open_func(self.baseFilename, self.mode,
+                     encoding=self.encoding, errors=self.errors)
+OSError: [Errno 122] Disk quota exceeded: '/home/cb239/.local/state/dandi-cli/log/2026.11.09-17.16.52Z-1384522.log'
+
+Traceback (most recent call last):
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/bin/dandicompute", line 7, in <module>
+    sys.exit(_dandicompute_group())
+             ~~~~~~~~~~~~~~~~~~~^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1569, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1490, in main
+    rv = self.invoke(ctx)
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1970, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1970, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 1353, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 907, in invoke
+    return callback(*args, **kwargs)
+  File "/orcd/data/dandi/001/dandi-compute/dandi-compute-core/src/dandi_compute_code/_cli/_dandicompute_group.py", line 849, in _archive_add_command
+    archived = state.archive_capsules(
+        status=status,
+    ...<4 lines>...
+        test=test,
+    )
+  File "<@beartype(dandi_compute_code.queue._pipeline_queue.PipelineQueue.archive_capsules) at 0x151bbb812480>", line 127, in archive_capsules
+  File "/orcd/data/dandi/001/dandi-compute/dandi-compute-core/src/dandi_compute_code/queue/_pipeline_queue.py", line 750, in archive_capsules
+    move_job_capsule(
+    ~~~~~~~~~~~~~~~~^
+        capsule_path=capsule_path,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        test=test,
+        ^^^^^^^^^^
+    )
+    ^
+  File "<@beartype(dandi_compute_code.dandiset._move_job_capsule.move_job_capsule) at 0x151bc107efc0>", line 88, in move_job_capsule
+  File "/orcd/data/dandi/001/dandi-compute/dandi-compute-core/src/dandi_compute_code/dandiset/_move_job_capsule.py", line 95, in move_job_capsule
+    raise RuntimeError(message)
+RuntimeError: dandi download failed for dandi://dandi/001697/derivatives/dandisets-000/dandiset-000411/sub-001/sub-001_ecephys/pipeline-lfp/job-2611070700cd/
