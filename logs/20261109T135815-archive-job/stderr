@@ -1,0 +1,145 @@
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-000/dandiset-000411/sub-001/sub-001_ecephys/pipeline-lfp/job-2611070700cd from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-f5t7d914
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-000/dandiset-000411/sub-001/sub-001_ecephys/pipeline-lfp/job-2611070700cd/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-000/dandiset-000411/sub-001/sub-001_ecephys/pipeline-lfp/job-2611070700cd/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-000/dandiset-000552/sub-e16-3m1/sub-e16-3m1_ses-e16-3m1-210203-raw_ecephys/pipeline-aind+ephys/job-261108547a6c from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-kdj6n_d2
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-000/dandiset-000552/sub-e16-3m1/sub-e16-3m1_ses-e16-3m1-210203-raw_ecephys/pipeline-aind+ephys/job-261108547a6c/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-000/dandiset-000552/sub-e16-3m1/sub-e16-3m1_ses-e16-3m1-210203-raw_ecephys/pipeline-aind+ephys/job-261108547a6c/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-000/dandiset-000552/sub-e16-3m2/sub-e16-3m2_ses-e16-3m2-211212-raw_ecephys/pipeline-aind+ephys/job-2611094490d3 from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-3c43t65i
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-000/dandiset-000552/sub-e16-3m2/sub-e16-3m2_ses-e16-3m2-211212-raw_ecephys/pipeline-aind+ephys/job-2611094490d3/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-000/dandiset-000552/sub-e16-3m2/sub-e16-3m2_ses-e16-3m2-211212-raw_ecephys/pipeline-aind+ephys/job-2611094490d3/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-000/dandiset-000552/sub-e16-3m2/sub-e16-3m2_ses-e16-3m2-211212-raw_ecephys/pipeline-aind+ephys/job-261109623bcf from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-mjv4ge00
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-000/dandiset-000552/sub-e16-3m2/sub-e16-3m2_ses-e16-3m2-211212-raw_ecephys/pipeline-aind+ephys/job-261109623bcf/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-000/dandiset-000552/sub-e16-3m2/sub-e16-3m2_ses-e16-3m2-211212-raw_ecephys/pipeline-aind+ephys/job-261109623bcf/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-000/dandiset-000620/sub-Elgar/sub-Elgar_ses-2022-09-10_ecephys/pipeline-lfp/job-261109a0726b from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-5y1f13b3
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-000/dandiset-000620/sub-Elgar/sub-Elgar_ses-2022-09-10_ecephys/pipeline-lfp/job-261109a0726b/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-000/dandiset-000620/sub-Elgar/sub-Elgar_ses-2022-09-10_ecephys/pipeline-lfp/job-261109a0726b/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-000/dandiset-000717/sub-mock/sub-mock_ses-ecephys1/pipeline-lfp/job-261106231095 from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-tbnghnnq
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-000/dandiset-000717/sub-mock/sub-mock_ses-ecephys1/pipeline-lfp/job-261106231095/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-000/dandiset-000717/sub-mock/sub-mock_ses-ecephys1/pipeline-lfp/job-261106231095/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-000/dandiset-000947/sub-Gaia/sub-Gaia_ses-pre-MPTP-G-140815-1_ecephys/pipeline-lfp/job-2611069fef8d from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-wbczdjyc
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-000/dandiset-000947/sub-Gaia/sub-Gaia_ses-pre-MPTP-G-140815-1_ecephys/pipeline-lfp/job-2611069fef8d/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-000/dandiset-000947/sub-Gaia/sub-Gaia_ses-pre-MPTP-G-140815-1_ecephys/pipeline-lfp/job-2611069fef8d/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-000/dandiset-000953/sub-MonkeyN-held-in-minival/sub-MonkeyN-held-in-minival_ses-2020-10-27-Run2_behavior+ecephys/pipeline-lfp/job-26110942b927 from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-2ukh5lfh
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-000/dandiset-000953/sub-MonkeyN-held-in-minival/sub-MonkeyN-held-in-minival_ses-2020-10-27-Run2_behavior+ecephys/pipeline-lfp/job-26110942b927/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-000/dandiset-000953/sub-MonkeyN-held-in-minival/sub-MonkeyN-held-in-minival_ses-2020-10-27-Run2_behavior+ecephys/pipeline-lfp/job-26110942b927/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-000/dandiset-000957/sub-ZYE-0057/sub-ZYE-0057_ecephys+image/pipeline-aind+ephys/job-261109693a5f from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-j9ad254s
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-000/dandiset-000957/sub-ZYE-0057/sub-ZYE-0057_ecephys+image/pipeline-aind+ephys/job-261109693a5f/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-000/dandiset-000957/sub-ZYE-0057/sub-ZYE-0057_ecephys+image/pipeline-aind+ephys/job-261109693a5f/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-001/dandiset-001070/sub-Godzilla/sub-Godzilla_ecephys/pipeline-lfp/job-261107d2781c from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-ef4u63y4
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001070/sub-Godzilla/sub-Godzilla_ecephys/pipeline-lfp/job-261107d2781c/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001070/sub-Godzilla/sub-Godzilla_ecephys/pipeline-lfp/job-261107d2781c/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-001/dandiset-001073/sub-Godzilla-0-STD/sub-Godzilla-0-STD_ses-LITMUS-Rat-0-STD_ecephys/pipeline-lfp/job-261107e65de2 from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-j368rm2d
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001073/sub-Godzilla-0-STD/sub-Godzilla-0-STD_ses-LITMUS-Rat-0-STD_ecephys/pipeline-lfp/job-261107e65de2/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001073/sub-Godzilla-0-STD/sub-Godzilla-0-STD_ses-LITMUS-Rat-0-STD_ecephys/pipeline-lfp/job-261107e65de2/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-001/dandiset-001073/sub-Godzilla-2-STD/sub-Godzilla-2-STD_ses-LITMUS-Rat-2-STD_ecephys/pipeline-lfp/job-261108f06461 from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-3pocmpeq
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001073/sub-Godzilla-2-STD/sub-Godzilla-2-STD_ses-LITMUS-Rat-2-STD_ecephys/pipeline-lfp/job-261108f06461/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001073/sub-Godzilla-2-STD/sub-Godzilla-2-STD_ses-LITMUS-Rat-2-STD_ecephys/pipeline-lfp/job-261108f06461/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-001/dandiset-001132/sub-7D-0/sub-7D-0_ses-20240928T165425_ecephys/pipeline-aind+ephys/job-2611092b8838 from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-n7lbl81o
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001132/sub-7D-0/sub-7D-0_ses-20240928T165425_ecephys/pipeline-aind+ephys/job-2611092b8838/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001132/sub-7D-0/sub-7D-0_ses-20240928T165425_ecephys/pipeline-aind+ephys/job-2611092b8838/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-001/dandiset-001132/sub-7D-0/sub-7D-0_ses-20240928T165425_ecephys/pipeline-aind+ephys/job-2611096d68b2 from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-88r24oh9
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001132/sub-7D-0/sub-7D-0_ses-20240928T165425_ecephys/pipeline-aind+ephys/job-2611096d68b2/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001132/sub-7D-0/sub-7D-0_ses-20240928T165425_ecephys/pipeline-aind+ephys/job-2611096d68b2/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-001/dandiset-001177/sub-C3-2/sub-C3-2_ses-PPXopenField-C3-2-day1_ecephys/pipeline-aind+ephys/job-2611093e25bf from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-u0t2gg1s
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001177/sub-C3-2/sub-C3-2_ses-PPXopenField-C3-2-day1_ecephys/pipeline-aind+ephys/job-2611093e25bf/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001177/sub-C3-2/sub-C3-2_ses-PPXopenField-C3-2-day1_ecephys/pipeline-aind+ephys/job-2611093e25bf/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-001/dandiset-001177/sub-C3-2/sub-C3-2_ses-PPXopenField-C3-2-day1_ecephys/pipeline-aind+ephys/job-2611098785db from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-p_76jzbo
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001177/sub-C3-2/sub-C3-2_ses-PPXopenField-C3-2-day1_ecephys/pipeline-aind+ephys/job-2611098785db/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001177/sub-C3-2/sub-C3-2_ses-PPXopenField-C3-2-day1_ecephys/pipeline-aind+ephys/job-2611098785db/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-001/dandiset-001250/sub-biophy-npx-spont-disconnected/sub-biophy-npx-spont-disconnected_ecephys/pipeline-aind+ephys/job-26110936badd from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-o_90z_c0
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001250/sub-biophy-npx-spont-disconnected/sub-biophy-npx-spont-disconnected_ecephys/pipeline-aind+ephys/job-26110936badd/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001250/sub-biophy-npx-spont-disconnected/sub-biophy-npx-spont-disconnected_ecephys/pipeline-aind+ephys/job-26110936badd/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-001/dandiset-001250/sub-demo-npx-bio-evoked/sub-demo-npx-bio-evoked_ecephys/pipeline-lfp/job-26110691ea5b from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-z4i61qng
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001250/sub-demo-npx-bio-evoked/sub-demo-npx-bio-evoked_ecephys/pipeline-lfp/job-26110691ea5b/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001250/sub-demo-npx-bio-evoked/sub-demo-npx-bio-evoked_ecephys/pipeline-lfp/job-26110691ea5b/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-001/dandiset-001428/sub-aged-mouse3/sub-aged-mouse3_ses-before_ecephys/pipeline-lfp/job-261107316165 from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-e5d2jx0h
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001428/sub-aged-mouse3/sub-aged-mouse3_ses-before_ecephys/pipeline-lfp/job-261107316165/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001428/sub-aged-mouse3/sub-aged-mouse3_ses-before_ecephys/pipeline-lfp/job-261107316165/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-001/dandiset-001475/sub-RMBE112m1/sub-RMBE112m1_ses-2b2F8_ephys/pipeline-lfp/job-26110961708a from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-unbhqg4v
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001475/sub-RMBE112m1/sub-RMBE112m1_ses-2b2F8_ephys/pipeline-lfp/job-26110961708a/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001475/sub-RMBE112m1/sub-RMBE112m1_ses-2b2F8_ephys/pipeline-lfp/job-26110961708a/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-001/dandiset-001603/sub-MO12/sub-MO12_ses-20250924T011952_ecephys/pipeline-lfp/job-261108b1eb56 from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-i1y4m_54
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001603/sub-MO12/sub-MO12_ses-20250924T011952_ecephys/pipeline-lfp/job-261108b1eb56/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001603/sub-MO12/sub-MO12_ses-20250924T011952_ecephys/pipeline-lfp/job-261108b1eb56/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-001/dandiset-001940/sub-3-580nm/sub-3-580nm_ses-task3_ecephys/pipeline-lfp/job-261106d9aeb0 from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-s8s740p7
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001940/sub-3-580nm/sub-3-580nm_ses-task3_ecephys/pipeline-lfp/job-261106d9aeb0/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001940/sub-3-580nm/sub-3-580nm_ses-task3_ecephys/pipeline-lfp/job-261106d9aeb0/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-001/dandiset-001940/sub-5-580NM/sub-5-580NM_ses-33_ecephys/pipeline-lfp/job-261109ef20dc from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-r8y6s1f2
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001940/sub-5-580NM/sub-5-580NM_ses-33_ecephys/pipeline-lfp/job-261109ef20dc/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001940/sub-5-580NM/sub-5-580NM_ses-33_ecephys/pipeline-lfp/job-261109ef20dc/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-001/dandiset-001942/sub-chimi/sub-chimi_ses-chimi-20200221_behavior+ecephys+image/pipeline-lfp/job-26110607ee3a from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-ugo8fwk6
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001942/sub-chimi/sub-chimi_ses-chimi-20200221_behavior+ecephys+image/pipeline-lfp/job-26110607ee3a/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001942/sub-chimi/sub-chimi_ses-chimi-20200221_behavior+ecephys+image/pipeline-lfp/job-26110607ee3a/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-001/dandiset-001942/sub-j16/sub-j16_ses-j16-20210711_behavior+ecephys+image/pipeline-lfp/job-2611071211f5 from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-6bihqjzz
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001942/sub-j16/sub-j16_ses-j16-20210711_behavior+ecephys+image/pipeline-lfp/job-2611071211f5/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001942/sub-j16/sub-j16_ses-j16-20210711_behavior+ecephys+image/pipeline-lfp/job-2611071211f5/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-001/dandiset-001951/sub-test1/sub-test1_ses-1-1_ecephys/pipeline-lfp/job-26110886d32e from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-78zx8ewr
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001951/sub-test1/sub-test1_ses-1-1_ecephys/pipeline-lfp/job-26110886d32e/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001951/sub-test1/sub-test1_ses-1-1_ecephys/pipeline-lfp/job-26110886d32e/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-001/dandiset-001955/sub-acute-IV/sub-acute-IV_ses-Acute-IV-2024-03-16-11-36-14-experiment5_ecephys/pipeline-lfp/job-261108c8852c from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-v2y61ww1
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001955/sub-acute-IV/sub-acute-IV_ses-Acute-IV-2024-03-16-11-36-14-experiment5_ecephys/pipeline-lfp/job-261108c8852c/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001955/sub-acute-IV/sub-acute-IV_ses-Acute-IV-2024-03-16-11-36-14-experiment5_ecephys/pipeline-lfp/job-261108c8852c/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-001/dandiset-001955/sub-acute-XI/sub-acute-XI_ses-Acute-XI-2025-03-03-11-42-55-experiment2_ecephys/pipeline-lfp/job-26110905f0c3 from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-g3wqtgsm
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001955/sub-acute-XI/sub-acute-XI_ses-Acute-XI-2025-03-03-11-42-55-experiment2_ecephys/pipeline-lfp/job-26110905f0c3/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001955/sub-acute-XI/sub-acute-XI_ses-Acute-XI-2025-03-03-11-42-55-experiment2_ecephys/pipeline-lfp/job-26110905f0c3/
+INFO:dandi_compute_code.dandiset._move_job_capsule:Moving job capsule derivatives/dandisets-001/dandiset-001961/sub-rat71/sub-rat71_ses-2026-07-29T17-18-23McsRecording_ecephys/pipeline-lfp/job-26110849d059 from 001697 to 001873 in /orcd/data/dandi/001/dandi-compute/processing/move-capsule-pvuhe0a9
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001961/sub-rat71/sub-rat71_ses-2026-07-29T17-18-23McsRecording_ecephys/pipeline-lfp/job-26110849d059/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi download of dandiset.yaml returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi upload returned code 0 for dandi://dandi/001873/
+INFO:dandi_compute_code.dandiset._move_job_capsule:dandi delete returned code 0 for dandi://dandi/001697/derivatives/dandisets-001/dandiset-001961/sub-rat71/sub-rat71_ses-2026-07-29T17-18-23McsRecording_ecephys/pipeline-lfp/job-26110849d059/
