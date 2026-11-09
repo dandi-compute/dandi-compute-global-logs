@@ -1,0 +1,15 @@
+                         JOBID PARTITION       NAME                                     ST       TIME  NODES CP MIN_MEMORY NODELIST(REASON)              
+                    28439367_7 mit_preemptable dandicompute-dispatch-aind-ephys         CG       0:01      1  1         1G                               
+                    28439367_8 mit_preemptable dandicompute-dispatch-aind-ephys         CG       0:01      1  1         1G                               
+                    28439368_7 mit_preemptable dandicompute-dispatch-lfp                CG       0:03      1  1        16G                               
+                    28439368_8 mit_preemptable dandicompute-dispatch-lfp                CG       0:01      1  1        16G                               
+                   28439368_10 mit_preemptable dandicompute-dispatch-lfp                PD       0:00      1  1        16G (JobArrayTaskLimit)           
+                    28439368_9 mit_preemptable dandicompute-dispatch-lfp                PD       0:00      1  1        16G (JobArrayTaskLimit)           
+                   28439367_15 mit_preemptable dandicompute-dispatch-aind-ephys         PD       0:00      1  1         1G (JobArrayTaskLimit)           
+                   28439367_14 mit_preemptable dandicompute-dispatch-aind-ephys         PD       0:00      1  1         1G (JobArrayTaskLimit)           
+                   28439367_13 mit_preemptable dandicompute-dispatch-aind-ephys         PD       0:00      1  1         1G (JobArrayTaskLimit)           
+                   28439367_12 mit_preemptable dandicompute-dispatch-aind-ephys         PD       0:00      1  1         1G (JobArrayTaskLimit)           
+                   28439367_11 mit_preemptable dandicompute-dispatch-aind-ephys         PD       0:00      1  1         1G (JobArrayTaskLimit)           
+                   28439367_10 mit_preemptable dandicompute-dispatch-aind-ephys         PD       0:00      1  1         1G (JobArrayTaskLimit)           
+                    28439367_9 mit_preemptable dandicompute-dispatch-aind-ephys         PD       0:00      1  1         1G (JobArrayTaskLimit)           
+                      28385896 mit_preemptable DANDI-Compute-Submitter                   R    8:38:38      1  1         4G node1396                      
