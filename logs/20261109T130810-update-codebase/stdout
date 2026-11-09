@@ -1,0 +1,6 @@
+Pulling ./dandi-compute-core/
+HEAD is now at c9648c7 Archived capsules by comma-separated job IDs with `dandicompute archive add --job` (#377)
+Pulling ./dandi-compute-runner/
+HEAD is now at efdb4a4 Skipped cluster jobs while the runner is offline, emailing only after 3 days (#108)
+Pulling ./aind-ephys-pipeline/
+./aind-ephys-pipeline/ is on a detached HEAD; fetched new tags without resetting.

@@ -1,0 +1,12 @@
+From https://github.com/dandi-compute/dandi-compute-core
+   4defc40..c9648c7  main       -> origin/main
+ * [new branch]      claude/ecstatic-planck-iogf0f -> origin/claude/ecstatic-planck-iogf0f
+From https://github.com/dandi-compute/dandi-compute-runner
+ * [new branch]      claude/ecstatic-dirac-cvlw56 -> origin/claude/ecstatic-dirac-cvlw56
+ * [new branch]      claude/friendly-noether-terp25 -> origin/claude/friendly-noether-terp25
+From https://github.com/AllenNeuralDynamics/aind-ephys-pipeline
+ * [new branch]      aind-opto-option  -> origin/aind-opto-option
+ * [new branch]      clean-motion-args -> origin/clean-motion-args
+ * [new branch]      dartsort-fixed    -> origin/dartsort-fixed
+   f9ee871..198a448  dev               -> origin/dev
+   a2a9ba5..bb5e2a0  saturation        -> origin/saturation
