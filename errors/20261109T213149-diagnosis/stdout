@@ -1,0 +1,28 @@
+## Diagnosis
+
+### The blob backup
+- Checkout: HEAD c8973dc4b4b2cdad4f5f218c8d6b1bc0fa941c30, GitHub main 02a8df61ca8dbaa7470434d47b6043e0e1a46832, changed files: 0, untracked files: 0
+- Crontab: installed, matches the runner checkout
+- Locks held: none
+- Mirror writable: 001:yes 002:yes
+- Setup steps that failed when replayed in cron's environment:
+    none
+- Reproduction: job 28545285_4: FAILED (exit 1:0) after 70 seconds of watching
+- No known message matched. The end of the reproduced task's log:
+    
+
+### Job capsules
+- Inputs: 1024 capsules on the cluster: 921 with their blob, 6 pointing at the wrong partition, 97 whose blob is not mirrored
+- Nextflow tasks that failed on a missing input: unknown
+- SLURM: 2128 of 2164 jobs and tasks since 2026-11-02 did not complete
+- Most frequent failures:
+    966  dandicompute-dispatch-aind-ephys (FAILED, exit 1:0)
+    838  dandicompute-dispatch-lfp (FAILED, exit 1:0)
+    245  dandicompute-dispatch-aind-ephys-lupin (FAILED, exit 1:0)
+    64  DANDI-Backup-Blobs (FAILED, exit 1:0)
+    9  DANDI-Compute-Submitter (TIMEOUT, exit 0:0)
+    4  dandicompute-dispatch-aind-ephys (OUT_OF_MEMORY, exit 0:125)
+    1  DANDI-Compute-Submitter (CANCELLED, exit 0:0)
+    1  DANDI-Backup-Blobs-Diagnose (FAILED, exit 1:0)
+- Most frequent errors of failed Nextflow tasks:
+    none read
