@@ -1,0 +1,10 @@
+Pulling ./dandi-compute-core/
+HEAD is now at 23066a3 Pointed capsules at the blob mirror partition that holds the blob (#379)
+Pulling ./dandi-compute-runner/
+HEAD is now at 514dbc2 Kept the simple-s3-backup checkout on main through Update codebase (#113)
+Pulling ./aind-ephys-pipeline/
+./aind-ephys-pipeline/ is on a detached HEAD; fetched new tags without resetting.
+Putting /orcd/data/dandi/001/backup/simple-s3-backup on main
+branch 'main' set up to track 'origin/main'.
+Your branch is up to date with 'origin/main'.
+Was on claude/pensive-goodall-moaac0; now on main at 2a152b1 Fixed the blob backup failing on the unset MODULEPATH, and recovered the cluster's unpushed commits (#51).

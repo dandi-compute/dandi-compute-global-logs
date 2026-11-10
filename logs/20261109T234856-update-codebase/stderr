@@ -1,0 +1,7 @@
+From https://github.com/dandi-compute/dandi-compute-runner
+   83dc757..514dbc2  main       -> origin/main
+   84e72c6..ff691a6  claude/jolly-lamport-fk3tx1 -> origin/claude/jolly-lamport-fk3tx1
+From https://github.com/dandi/simple-s3-backup
+ - [deleted]         (none)     -> origin/claude/pensive-goodall-moaac0
+   ccddad4..2a152b1  main       -> origin/main
+Switched to and reset branch 'main'
