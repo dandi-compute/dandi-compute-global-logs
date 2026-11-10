@@ -1,0 +1,10 @@
+/home/cb239/.bazelrc: links to /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/bazelrc
+/home/cb239/.cache/bazel/_bazel_cb239/1ef0b6d9c054078041e6f68fb027ba76: not all deleted, 0 files and directories were
+/home/cb239/.cache/bazel/_bazel_cb239/4bcf28567648b14c004ca43669bac1a7: not all deleted, 0 files and directories were
+/home/cb239/.cache/bazel/_bazel_cb239/985f85b15894ee0afbd26f8f59242ffa: not all deleted, 0 files and directories were
+/home/cb239/.cache/bazel/_bazel_cb239/daf9c5b39a0d77204a01a33c3c8e5d3c: not all deleted, 0 files and directories were
+/home/cb239/.cache/bazel/_bazel_cb239/e150c95285d52b80110b024b12da9ed2: not all deleted, 0 files and directories were
+/orcd/data/dandi/001/dandi-compute/work/bazel/ef22475c680eed10679228ee0efe56ba: the output base of workspace /tmp/pip-install-0utxoegf/tensorstore_4c245990c89345e1aca56b3ec46e4178
+/orcd/data/dandi/001/dandi-compute/work/bazel/ef22475c680eed10679228ee0efe56ba: deleted, 103507 files and directories
+/orcd/data/dandi/001/dandi-compute/work/bazel/install: deleted, 591 files and directories
+/orcd/data/dandi/001/dandi-compute/work/bazel/cache: deleted, 138 files and directories
