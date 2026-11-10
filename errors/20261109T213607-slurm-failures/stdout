@@ -1,0 +1,151 @@
+## Jobs of the runner's user since 2026-11-02 that did not complete
+2131 of the 2167 jobs and tasks since 2026-11-02 did not complete.
+
+### By job name, state and exit code (most frequent first)
+   968  dandicompute-dispatch-aind-ephys | FAILED | exit 1:0 | last ended 2026-11-09T21:36:02
+   838  dandicompute-dispatch-lfp | FAILED | exit 1:0 | last ended 2026-11-09T13:05:37
+   245  dandicompute-dispatch-aind-ephys-lupin | FAILED | exit 1:0 | last ended 2026-11-09T12:21:59
+    64  DANDI-Backup-Blobs | FAILED | exit 1:0 | last ended 2026-11-08T22:00:56
+     9  DANDI-Compute-Submitter | TIMEOUT | exit 0:0 | last ended 2026-11-09T21:14:11
+     4  dandicompute-dispatch-aind-ephys | OUT_OF_MEMORY | exit 0:125 | last ended 2026-11-09T17:15:21
+     2  DANDI-Backup-Blobs-Diagnose | FAILED | exit 1:0 | last ended 2026-11-09T21:36:01
+     1  DANDI-Compute-Submitter | CANCELLED | exit 0:0 | last ended 2026-11-06T08:48:25
+
+### The errors failed jobs ended with
+Found the output of 500 of the newest 500 failed jobs.
+
+486 x OSError: [Errno <n>] Disk quota exceeded: '<path>'
+  from: dandicompute-dispatch-aind-ephys (253), dandicompute-dispatch-lfp (148), dandicompute-dispatch-aind-ephys-lupin (85)
+  e.g. OSError: [Errno 122] Disk quota exceeded: '~/.local/state/dandi-cli/log/2026.11.10-02.36.01Z-2209441.log'
+  the end of /orcd/data/dandi/001/dandi-compute/processing/derivatives/logs/dandicompute-dispatch-aind-ephys/20261109-213212-dispatch-1-28545650_2.log:
+    |     return ctx.invoke(self.callback, **ctx.params)
+    |            ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/core.py", line 907, in invoke
+    |     return callback(*args, **kwargs)
+    |   File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/click/decorators.py", line 34, in new_func
+    |     return f(get_current_context(), *args, **kwargs)
+    |   File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/site-packages/dandi/cli/command.py", line 106, in main
+    |     handler = logging.FileHandler(logfile, encoding="utf-8")
+    |   File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/logging/__init__.py", line 1219, in __init__
+    |     StreamHandler.__init__(self, self._open())
+    |                                  ~~~~~~~~~~^^
+    |   File "/orcd/data/dandi/001/environments/name-dandi+compute_env/lib/python3.13/logging/__init__.py", line 1248, in _open
+    |     return open_func(self.baseFilename, self.mode,
+    |                      encoding=self.encoding, errors=self.errors)
+    | OSError: [Errno 122] Disk quota exceeded: '~/.local/state/dandi-cli/log/2026.11.10-02.36.01Z-2209441.log'
+
+10 x PATH SIZE ERRORS PROGRESS STATUS MESSAGE
+  from: dandicompute-dispatch-lfp (10)
+  e.g. PATH                                                                                                                         SIZE      ERRORS   PROGRESS STATUS                MESSAGE                  
+  the end of /orcd/data/dandi/001/dandi-compute/processing/derivatives/logs/dandicompute-dispatch-lfp/20261109-130050-dispatch-1-28480395_2.log:
+    | Claimed derivatives/dandisets-000/dandiset-000953/sub-MonkeyN-held-in-minival/sub-MonkeyN-held-in-minival_ses-2020-10-27-Run2_behavior+ecephys/pipeline-lfp/job-26110942b927/code with marker submitted_date-2026+11+09_time-13+05+32.
+    | 2026-11-09 13:05:34,629 [    INFO] Found 4 files to consider
+    | 2026-11-09 13:05:35,801 [    INFO] Logs saved in ~/.local/state/dandi-cli/log/2026.11.09-18.05.33Z-295554.log
+    | PATH                                                                                                                         SIZE      ERRORS   PROGRESS STATUS                MESSAGE                  
+    | dandiset.yaml                                                                                                                2.5 kB                      skipped               should be edited online  
+    | ...val/sub-MonkeyN-held-in-minival_ses-2020-10-27-Run2_behavior+ecephys/pipeline-lfp/job-26110942b927/code/name-default.json 255 Bytes   0               skipped               file exists              
+    | ...-in-minival/sub-MonkeyN-held-in-minival_ses-2020-10-27-Run2_behavior+ecephys/pipeline-lfp/job-26110942b927/code/submit.sh 4.3 kB      0               skipped               file exists              
+    | ...n-minival_ses-2020-10-27-Run2_behavior+ecephys/pipeline-lfp/job-26110942b927/code/submitted_date-2026+11+09_time-13+05+32 11 Bytes    0          100% done                                           
+    | Summary:                                                                                                                     7.1 kB            9 Bytes/s 3 skipped             1 should be edited online
+    |                                                                                                                                                          1 done                2 file exists            
+    | Writing the capsule's SLURM log to /orcd/data/dandi/001/dandi-compute/processing/prepare-job-kz5mqxhx/001697/derivatives/dandisets-000/dandiset-000953/sub-MonkeyN-held-in-minival/sub-MonkeyN-held-in-minival_ses-2020-10-27-Run2_behavior+ecephys/pipeline-lfp/job-26110942b927/logs/job-28480395_slurm.lo
+    | 
+    | EnvironmentLocationNotFound: Not a conda environment: /orcd/data/dandi/001/environments/name-lfp_environment
+    | 
+    | Capsule derivatives/dandisets-000/dandiset-000953/sub-MonkeyN-held-in-minival/sub-MonkeyN-held-in-minival_ses-2020-10-27-Run2_behavior+ecephys/pipeline-lfp/job-26110942b927/code exited with status 1.
+
+2 x <path>: line <n>: MODULEPATH: unbound variable
+  from: DANDI-Backup-Blobs-Diagnose (2)
+  e.g. /etc/profile.d/00-modulepath.sh: line 1: MODULEPATH: unbound variable
+  the end of /orcd/data/dandi/001/backup/logs/DANDI-Backup-Blobs-Diagnose-28545817_4.log:
+    | + set -uo pipefail
+    | + source /etc/profile.d/modules.sh
+    | ++ . /etc/profile.d/00-modulepath.sh
+    | /etc/profile.d/00-modulepath.sh: line 1: MODULEPATH: unbound variable
+
+1 x [<n>-<n>-<n>T<n>:<n>:<n>.<n>] error: Detected <n> oom_kill event in StepId=<n>.batch. Some of the step tasks have been OOM Killed.
+  from: dandicompute-dispatch-aind-ephys (1)
+  e.g. [2026-11-09T17:15:20.140] error: Detected 1 oom_kill event in StepId=28477996.batch. Some of the step tasks have been OOM Killed.
+  the end of /orcd/data/dandi/001/dandi-compute/processing/derivatives/logs/dandicompute-dispatch-aind-ephys/20261109-123104-dispatch-1-28477702_14.log:
+    | ...biophy-npx-spont-disconnected/sub-biophy-npx-spont-disconnected_ecephys/pipeline-aind+ephys/job-261109f246cc/code/main.nf 43.3 kB                     skipped               file exists              
+    | ...cted/sub-biophy-npx-spont-disconnected_ecephys/pipeline-aind+ephys/job-261109f246cc/code/name-dartsort_version-1+5+0.json 21.0 kB                     skipped               file exists              
+    | ...d/sub-biophy-npx-spont-disconnected_ecephys/pipeline-aind+ephys/job-261109f246cc/code/name-mit+engaging_revision-7.config 3.9 kB                      skipped               file exists              
+    | ...ont-disconnected/sub-biophy-npx-spont-disconnected_ecephys/pipeline-aind+ephys/job-261109f246cc/code/process_versions.env 2.3 kB                      skipped               file exists              
+    | ...ophy-npx-spont-disconnected/sub-biophy-npx-spont-disconnected_ecephys/pipeline-aind+ephys/job-261109f246cc/code/submit.sh 5.3 kB                      skipped               file exists              
+    | ...pont-disconnected/sub-biophy-npx-spont-disconnected_ecephys/pipeline-aind+ephys/job-261109f246cc/dataset_description.json 1.3 kB                      skipped               file exists              
+    | ...iophy-npx-spont-disconnected/sub-biophy-npx-spont-disconnected_ecephys/pipeline-aind+ephys/job-261109f246cc/logs/dag.html 1.4 kB                      done                                           
+    | ...t-disconnected/sub-biophy-npx-spont-disconnected_ecephys/pipeline-aind+ephys/job-261109f246cc/logs/job-28477996_slurm.log 157.9 kB               100% done                                           
+    | ...y-npx-spont-disconnected/sub-biophy-npx-spont-disconnected_ecephys/pipeline-aind+ephys/job-261109f246cc/logs/nextflow.log 13.7 kB                100% done                                           
+    | ...hy-npx-spont-disconnected/sub-biophy-npx-spont-disconnected_ecephys/pipeline-aind+ephys/job-261109f246cc/logs/report.html 2.9 MB                 100% done                                           
+    | ...-npx-spont-disconnected/sub-biophy-npx-spont-disconnected_ecephys/pipeline-aind+ephys/job-261109f246cc/logs/timeline.html 251.6 kB               100% done                                           
+    | ...ophy-npx-spont-disconnected/sub-biophy-npx-spont-disconnected_ecephys/pipeline-aind+ephys/job-261109f246cc/logs/trace.txt 101 Bytes                   done                                           
+    | Summary:                                                                                                                     3.4 MB             1.2 MB/s 7 skipped             1 should be edited online
+    |                                                                                                                                                          6 done                6 file exists            
+    | [2026-11-09T17:15:20.140] error: Detected 1 oom_kill event in StepId=28477996.batch. Some of the step tasks have been OOM Killed.
+
+1 x (empty)
+  from: DANDI-Backup-Blobs-Diagnose (1)
+  e.g. (empty)
+  the end of /orcd/data/dandi/001/backup/logs/DANDI-Backup-Blobs-Diagnose-28545285_4.log:
+
+### The other failed jobs, newest first
+28545817_4 DANDI-Backup-Blobs-Diagnose FAILED exit 1:0 ended 2026-11-09T21:36:01 after 00:00:01 in /orcd/data/dandi/001/dandi-compute/runners/submitter/actions-runner/_work/dandi-compute-runner/dandi-compute-runner
+28545650_2 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T21:36:02 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28545650_1 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T21:36:02 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28545285_4 DANDI-Backup-Blobs-Diagnose FAILED exit 1:0 ended 2026-11-09T21:30:05 after 00:00:01 in /orcd/data/dandi/001/dandi-compute/runners/submitter/actions-runner/_work/dandi-compute-runner/dandi-compute-runner
+28542565_6 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T21:17:36 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28542565_5 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T21:17:36 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28542565_4 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T21:14:02 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28542565_3 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T21:14:02 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28542565_2 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T21:10:48 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28542565_1 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T21:10:48 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28540651_6 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:55:39 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28540651_5 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:55:39 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28540651_4 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:51:21 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28540651_3 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:51:21 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28540651_2 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:48:46 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28540651_1 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:48:46 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28538889_6 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:39:45 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28538889_5 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:39:45 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28538889_4 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:37:16 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28538889_3 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:37:16 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28538889_2 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:32:19 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28538889_1 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:32:21 after 00:00:04 in /orcd/data/dandi/001/dandi-compute
+28536168_6 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:16:36 after 00:00:03 in /orcd/data/dandi/001/dandi-compute
+28536168_5 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:16:35 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28536168_4 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:10:39 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28536168_3 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:10:39 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28536168_2 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:06:39 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28536168_1 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:06:39 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28534838_6 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:00:07 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28534838_5 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:00:06 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28534838_4 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:57:19 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28534838_3 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:57:18 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28534838_2 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:50:34 after 00:00:04 in /orcd/data/dandi/001/dandi-compute
+28534838_1 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:50:32 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28533758_6 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:36:50 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28533758_5 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:40:43 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28533758_4 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:40:43 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28533758_3 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:36:50 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28533758_2 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:34:34 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28533758_1 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:34:47 after 00:00:14 in /orcd/data/dandi/001/dandi-compute
+28532772_6 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:26:09 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28532772_5 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:26:17 after 00:00:10 in /orcd/data/dandi/001/dandi-compute
+28532772_4 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:21:43 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28532772_3 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:21:45 after 00:00:03 in /orcd/data/dandi/001/dandi-compute
+28532772_2 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:18:05 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28532772_1 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:18:05 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28529980_6 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:02:48 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28529980_5 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:02:48 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28529980_4 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:58:23 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28529980_3 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:58:23 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28529980_2 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:51:18 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28529980_1 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:51:19 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28528374_6 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:43:18 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28528374_5 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:43:18 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28528374_4 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:36:38 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28528374_3 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:36:38 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28528374_2 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:33:50 after 00:00:09 in /orcd/data/dandi/001/dandi-compute
+28528374_1 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:33:50 after 00:00:09 in /orcd/data/dandi/001/dandi-compute
+28525018_8 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:23:59 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28525018_7 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:23:59 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
