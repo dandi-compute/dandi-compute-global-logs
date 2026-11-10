@@ -1,0 +1,6 @@
+Pulling ./dandi-compute-core/
+HEAD is now at 23066a3 Pointed capsules at the blob mirror partition that holds the blob (#379)
+Pulling ./dandi-compute-runner/
+HEAD is now at 83dc757 Emailed when the S3 backup fails, kept the backup jobs' logs and recorded a daily error report (#111)
+Pulling ./aind-ephys-pipeline/
+./aind-ephys-pipeline/ is on a detached HEAD; fetched new tags without resetting.
