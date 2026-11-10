@@ -1,0 +1,865 @@
+## The simple-s3-backup checkout the backup jobs run from: /orcd/data/dandi/001/backup/simple-s3-backup
+
+### Branch and state
+$ git -C /orcd/data/dandi/001/backup/simple-s3-backup status --short --branch
+## claude/pensive-goodall-moaac0...origin/claude/pensive-goodall-moaac0
+[exit 0]
+
+### Recent commits
+$ git -C /orcd/data/dandi/001/backup/simple-s3-backup log --oneline --decorate -5
+c8973dc (HEAD -> claude/pensive-goodall-moaac0, origin/claude/pensive-goodall-moaac0) Detect and clean up blob heads stranded on the wrong partition
+86324b3 Harden blob-backup SLURM array so all 16 tasks run and are verified
+ccddad4 (origin/main, origin/HEAD, main) Add dashboard documentation and blob partition separation details (#47)
+082d586 Update backup_blobs_batch_deployment.sh
+fce62e6 Update backup_nonblobs_deployment.sh
+[exit 0]
+
+### Against GitHub
+HEAD is c8973dc4b4b2cdad4f5f218c8d6b1bc0fa941c30; main on GitHub is 02a8df61ca8dbaa7470434d47b6043e0e1a46832.
+The checkout's HEAD is not on GitHub's main as far as this checkout knows (it is behind, or has commits of its own).
+Changed files against HEAD: 0. Untracked files: 0.
+
+### Commits with dates
+$ git -C /orcd/data/dandi/001/backup/simple-s3-backup log --format=%h\ %ad\ %s --date=iso -10
+c8973dc 2026-06-25 19:00:18 +0000 Detect and clean up blob heads stranded on the wrong partition
+86324b3 2026-06-25 18:47:07 +0000 Harden blob-backup SLURM array so all 16 tasks run and are verified
+ccddad4 2026-06-24 14:54:21 -0400 Add dashboard documentation and blob partition separation details (#47)
+082d586 2026-06-24 14:35:34 -0400 Update backup_blobs_batch_deployment.sh
+fce62e6 2026-06-24 14:35:17 -0400 Update backup_nonblobs_deployment.sh
+18ec3c7 2026-06-24 14:35:09 -0400 Update backup_zarr_batch_deployment.sh
+38bfb2e 2026-06-24 14:26:35 -0400 Fix backup location (#46)
+dcc795a 2026-06-24 14:23:23 -0400 Update _display.py
+a0075c7 2026-06-19 16:35:47 -0400 Delete scripts/update_manifest.sh
+7721958 2026-06-19 16:34:25 -0400 Update conda environment activation path in script (#44)
+[exit 0]
+
+### When the checkout moved (reflog)
+$ git -C /orcd/data/dandi/001/backup/simple-s3-backup reflog --date=iso -20
+c8973dc HEAD@{2026-06-25 15:03:23 -0400}: checkout: moving from main to claude/pensive-goodall-moaac0
+ccddad4 HEAD@{2026-06-24 14:54:33 -0400}: pull: Fast-forward
+38bfb2e HEAD@{2026-06-24 14:27:08 -0400}: pull: Fast-forward
+7721958 HEAD@{2026-06-19 16:34:33 -0400}: pull: Fast-forward
+dd711d7 HEAD@{2026-06-19 16:18:24 -0400}: reset: moving to HEAD
+dd711d7 HEAD@{2026-06-19 16:02:14 -0400}: pull: Fast-forward
+e664cb9 HEAD@{2026-06-19 16:02:13 -0400}: reset: moving to HEAD
+e664cb9 HEAD@{2026-06-19 15:44:42 -0400}: pull: Fast-forward
+e80bf4c HEAD@{2026-06-19 15:34:17 -0400}: clone: from https://github.com/dandi/simple-s3-backup
+[exit 0]
+
+### Commits of HEAD that are not on main, in full
+$ git -C /orcd/data/dandi/001/backup/simple-s3-backup log -p --format=commit\ %H%nDate:\ %ad%n%n%B --date=iso ccddad452b345683ace3452aca8378097d0dda6e..HEAD
+commit c8973dc4b4b2cdad4f5f218c8d6b1bc0fa941c30
+Date: 2026-06-25 19:00:18 +0000
+
+Detect and clean up blob heads stranded on the wrong partition
+
+The real problem was not that array tasks 10-15 failed to run (the flocks
+confirm all 16 ran) but that partition 001 still physically holds the a-f
+head directories. Until commit 7dc01fb (2026-05-13), BLOBS_HEAD_TO_PARTITION
+mapped heads 10-15 -> 001, so every a-f blob was backed up there. After the
+mapping changed, new writes correctly go to 002, but `s5cmd cp` never deletes,
+so the stale a-f copies remain stranded in 001. (Earlier churn on heads 7 and
+9 may likewise have left stale copies in 002.)
+
+- verify-blobs: now flags a head present on a partition it is not assigned to
+  (MISPLACED), in addition to missing writes. This is the check that actually
+  catches the a-f-in-001 condition.
+- Add `s3backup dandi cleanup-misplaced-blobs [--apply]`: removes misplaced
+  head sub-directories from the wrong partition. Safe by default - dry run
+  unless --apply, and a directory is deleted only once the correct partition
+  holds a byte-for-byte complete copy, so no data is lost; incomplete copies
+  are reported and skipped.
+- README: document the cleanup workflow.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_014ghVXHdtk6giLcSAwQU83k
+
+
+diff --git a/README.md b/README.md
+index 224ed7d..5b1e91a 100644
+--- a/README.md
++++ b/README.md
+@@ -35,3 +35,24 @@ You can also run the partition check by hand at any time:
+ ```bash
+ s3backup dandi verify-blobs
+ ```
++
++
++# Fixing blob heads stranded on the wrong partition
++
++Before the 001/002 split, heads a-f were backed up into partition `001`; they now route to `002`,
++but `s5cmd cp` never deletes, so the old a-f copies stay behind in `001`. `verify-blobs` reports
++these as `MISPLACED`. To clean them up safely:
++
++```bash
++# 1. Make sure the correct partition holds the data (the nightly backup already does this):
++s3backup dandi blobs <task_id>        # for the affected heads, or just let the array run
++
++# 2. Preview what would be deleted (dry run - deletes nothing):
++s3backup dandi cleanup-misplaced-blobs
++
++# 3. Actually delete the misplaced copies:
++s3backup dandi cleanup-misplaced-blobs --apply
++```
++
++The cleanup only deletes a misplaced sub-directory once the correct partition holds a byte-for-byte
++complete copy, so no data is lost; anything not yet fully copied is reported and skipped.
+diff --git a/src/simple_s3_backup/_base/__init__.py b/src/simple_s3_backup/_base/__init__.py
+index 40d0d1c..44f5aab 100644
+--- a/src/simple_s3_backup/_base/__init__.py
++++ b/src/simple_s3_backup/_base/__init__.py
+@@ -1,4 +1,10 @@
+-from ._dandi import backup_dandi_blobs, backup_dandi_nonblobs, backup_dandi_zarr, verify_dandi_blobs
++from ._dandi import (
++    backup_dandi_blobs,
++    backup_dandi_nonblobs,
++    backup_dandi_zarr,
++    cleanup_misplaced_dandi_blobs,
++    verify_dandi_blobs,
++)
+ from ._display import update_display
+ from ._update_manifest import update_manifest
+ 
+@@ -7,6 +13,7 @@ __all__ = [
+     "backup_dandi_zarr",
+     "backup_dandi_nonblobs",
+     "verify_dandi_blobs",
++    "cleanup_misplaced_dandi_blobs",
+     "update_display",
+     "update_manifest",
+ ]
+diff --git a/src/simple_s3_backup/_base/_dandi.py b/src/simple_s3_backup/_base/_dandi.py
+index 12463b6..09d9cc2 100644
+--- a/src/simple_s3_backup/_base/_dandi.py
++++ b/src/simple_s3_backup/_base/_dandi.py
+@@ -1,4 +1,5 @@
+ import pathlib
++import shutil
+ 
+ from ._globals import BLOBS_HEAD_TO_PARTITION, ZARR_HEAD_TO_PARTITION
+ from ._utils import _deploy_subprocess
+@@ -38,65 +39,168 @@ def backup_dandi_blobs(task_id: int) -> None:
+             _deploy_subprocess(command=command, ignore_errors=True)
+ 
+ 
++_ALL_PARTITIONS = ("001", "002")
++_BLOBS_SUBPATH = "s3dandiarchive/blobs"
++
++
++def _blobs_directory(partition: str) -> pathlib.Path:
++    return pathlib.Path(f"/orcd/data/dandi/{partition}/{_BLOBS_SUBPATH}")
++
++
++def _head_subdirectories(partition: str, head_hexcode: str) -> list[pathlib.Path]:
++    """All blob sub-directories on `partition` whose name starts with the single-hex `head_hexcode`."""
++    directory = _blobs_directory(partition)
++    if not directory.exists():
++        return []
++    return sorted(path for path in directory.glob(f"{head_hexcode}*") if path.is_dir())
++
++
+ def verify_dandi_blobs() -> None:
+     """
+-    Verify that *both* storage partitions received blob writes after a backup run.
++    Verify that every blob head lives on its assigned partition, and only there.
+ 
+-    Each SLURM array task ``task_id`` in 0-15 maps to a single top-level hash head (0-f) and to a
+-    storage partition via ``BLOBS_HEAD_TO_PARTITION`` (heads 0-9 -> 001, heads a-f -> 002). This guard
+-    inspects the on-disk backup directories and alerts loudly if an entire partition received zero
+-    writes - the exact failure mode where array tasks 10-15 (which map to partition 002) never ran.
++    Each top-level hash head (0-f) maps to a storage partition via ``BLOBS_HEAD_TO_PARTITION``
++    (heads 0-9 -> 001, heads a-f -> 002). This guard inspects the on-disk backup directories and
++    alerts loudly if either:
++
++    * a partition received zero writes for the heads assigned to it, or
++    * a head is *misplaced* - i.e. present on a partition it is not assigned to. This is the failure
++      that left every a-f head stranded in 001: those heads used to route to 001 before the split,
++      and ``s5cmd cp`` never deletes, so the stale copies remained after the mapping changed.
+ 
+     Raises
+     ------
+     RuntimeError
+-        If any partition received zero blob sub-directories, i.e. its array tasks did not run.
++        If any partition is missing its assigned heads, or holds heads that belong elsewhere.
+     """
+-    per_head_subdirectory_counts: dict[int, int] = {}
+-    per_partition_subdirectory_counts: dict[str, int] = {}
++    expected_present: dict[str, int] = {partition: 0 for partition in _ALL_PARTITIONS}
++    misplaced: list[tuple[str, str, str]] = []  # (head, wrong_partition, correct_partition)
+ 
+     for task_id in range(16):
+-        partition = BLOBS_HEAD_TO_PARTITION[task_id]
+-        per_partition_subdirectory_counts.setdefault(partition, 0)
++        correct_partition = BLOBS_HEAD_TO_PARTITION[task_id]
++        head_hexcode = f"{task_id:01x}"
++
++        for partition in _ALL_PARTITIONS:
++            count = len(_head_subdirectories(partition=partition, head_hexcode=head_hexcode))
++            if partition == correct_partition:
++                expected_present[partition] += count
++                status = "OK" if count > 0 else "MISSING"
++                print(f"[{status}] head {head_hexcode} -> partition {partition}: {count} sub-directories")
++            elif count > 0:
++                misplaced.append((head_hexcode, partition, correct_partition))
++                print(
++                    f"[MISPLACED] head {head_hexcode} found on partition {partition} "
++                    f"({count} sub-directories) but belongs on {correct_partition}"
++                )
++
++    print("")
++    for partition in _ALL_PARTITIONS:
++        print(f"Partition {partition}: {expected_present[partition]} correctly-placed blob sub-directories")
+ 
+-        blobs_backup_directory = pathlib.Path(f"/orcd/data/dandi/{partition}/s3dandiarchive/blobs")
+-        top_blob_hexcode = f"{task_id:01x}"
++    empty_partitions = [partition for partition in _ALL_PARTITIONS if expected_present[partition] == 0]
+ 
+-        matching_subdirectories = (
+-            [path for path in blobs_backup_directory.glob(f"{top_blob_hexcode}*") if path.is_dir()]
+-            if blobs_backup_directory.exists()
+-            else []
++    problems = []
++    if empty_partitions:
++        problems.append(f"partition(s) received zero of their assigned blob writes: {', '.join(empty_partitions)}")
++    if misplaced:
++        details = ", ".join(f"head {head} on {wrong} (belongs on {correct})" for head, wrong, correct in misplaced)
++        problems.append(f"misplaced heads found: {details}")
++
++    if problems:
++        message = "\nALERT: " + "; ".join(problems) + (
++            "\nRun `s3backup dandi cleanup-misplaced-blobs` to remove misplaced copies once the correct "
++            "partition holds them."
++            if misplaced
++            else ""
+         )
+-        count = len(matching_subdirectories)
+-        per_head_subdirectory_counts[task_id] = count
+-        per_partition_subdirectory_counts[partition] += count
++        raise RuntimeError(message)
+ 
+-        status = "OK" if count > 0 else "MISSING"
+-        print(f"[{status}] head {top_blob_hexcode} -> partition {partition}: {count} sub-directories")
++    print("\nVerification passed: every head is on its assigned partition, and nowhere else.")
+ 
+-    print("")
+-    for partition, count in sorted(per_partition_subdirectory_counts.items()):
+-        print(f"Partition {partition}: {count} total blob sub-directories")
+ 
+-    empty_partitions = sorted(
+-        partition for partition, count in per_partition_subdirectory_counts.items() if count == 0
+-    )
+-    empty_heads = [f"{task_id:01x}" for task_id in range(16) if per_head_subdirectory_counts[task_id] == 0]
++def cleanup_misplaced_dandi_blobs(apply: bool = False) -> None:
++    """
++    Remove blob sub-directories stranded on the wrong storage partition.
++
++    Before the 001/002 split, all heads were backed up to 001; heads a-f now route to 002, but the
++    old copies remain in 001 because ``s5cmd cp`` never deletes (and earlier mapping churn on heads
++    7 and 9 may have left stale copies in 002 too). This deletes each misplaced head's
++    sub-directories from the partition it does not belong to - but only when the correct partition
++    already holds a byte-for-byte complete copy, so no data is lost.
++
++    Parameters
++    ----------
++    apply : bool, default False
++        When False (the default) this is a dry run that only reports what would be removed. Pass
++        True to actually delete the misplaced directories.
++    """
++    removed = 0
++    reclaimed_bytes = 0
++    skipped: list[str] = []
++
++    for task_id in range(16):
++        correct_partition = BLOBS_HEAD_TO_PARTITION[task_id]
++        head_hexcode = f"{task_id:01x}"
++        correct_directory = _blobs_directory(partition=correct_partition)
++
++        for partition in _ALL_PARTITIONS:
++            if partition == correct_partition:
++                continue
++            for misplaced_subdirectory in _head_subdirectories(partition=partition, head_hexcode=head_hexcode):
++                correct_copy = correct_directory / misplaced_subdirectory.name
++                is_safe, reason = _blob_subdirectory_is_fully_copied(
++                    source=misplaced_subdirectory, target=correct_copy
++                )
++                if not is_safe:
++                    skipped.append(str(misplaced_subdirectory))
++                    print(
++                        f"[SKIP] {misplaced_subdirectory} (head {head_hexcode} belongs on "
++                        f"{correct_partition}): {reason}"
++                    )
++                    continue
++
++                size = sum(path.stat().st_size for path in misplaced_subdirectory.rglob("*") if path.is_file())
++                if apply:
++                    shutil.rmtree(misplaced_subdirectory)
++                    print(f"[REMOVED] {misplaced_subdirectory} ({size} bytes reclaimed)")
++                else:
++                    print(f"[DRY-RUN] would remove {misplaced_subdirectory} ({size} bytes)")
++                removed += 1
++                reclaimed_bytes += size
+ 
+-    if empty_partitions:
+-        message = (
+-            f"\nALERT: the following partition(s) received zero blob writes: {', '.join(empty_partitions)}.\n"
+-            f"Heads with no sub-directories: {empty_heads}.\n"
+-            "This almost always means the corresponding SLURM array tasks did not run."
++    print("")
++    if apply:
++        print(f"Removed {removed} misplaced blob sub-directories; {reclaimed_bytes} bytes reclaimed.")
++    else:
++        print(f"Would remove {removed} misplaced blob sub-directories; {reclaimed_bytes} bytes would be reclaimed.")
++    if skipped:
++        print(
++            f"\n{len(skipped)} sub-directories were NOT removed because the correct partition does not yet "
++            "hold a complete copy. Run the blob backup so the correct partition is fully populated, then "
++            "re-run this cleanup."
+         )
+-        raise RuntimeError(message)
++    if not apply:
++        print("\nThis was a DRY RUN. Re-run with `--apply` to actually delete the misplaced directories.")
++
++
++def _blob_subdirectory_is_fully_copied(source: pathlib.Path, target: pathlib.Path) -> tuple[bool, str]:
++    """Return (True, "") only if every file under `source` exists under `target` with the same size."""
++    if not target.exists():
++        return False, f"no copy on the correct partition ({target})"
++
++    source_files = [path for path in source.rglob("*") if path.is_file()]
++    if not source_files:
++        return True, ""  # An empty stray directory is safe to remove.
+ 
+-    if empty_heads:
+-        # An individual empty head is suspicious but may be legitimate (no blobs with that prefix yet),
+-        # so it is only a warning as long as the partition as a whole received writes.
+-        print(f"\nWARNING: the following heads have zero sub-directories: {empty_heads}")
++    for source_file in source_files:
++        relative_path = source_file.relative_to(source)
++        target_file = target / relative_path
++        if not target_file.exists():
++            return False, f"missing on correct partition: {relative_path}"
++        if target_file.stat().st_size != source_file.stat().st_size:
++            return False, f"size mismatch on correct partition: {relative_path}"
+ 
+-    print("\nVerification passed: every partition received blob writes.")
++    return True, ""
+ 
+ 
+ def backup_dandi_zarr(task_id: int) -> None:
+diff --git a/src/simple_s3_backup/_command_line_interface/_cli.py b/src/simple_s3_backup/_command_line_interface/_cli.py
+index cfe5766..82096c7 100644
+--- a/src/simple_s3_backup/_command_line_interface/_cli.py
++++ b/src/simple_s3_backup/_command_line_interface/_cli.py
+@@ -4,6 +4,7 @@ from .._base import (
+     backup_dandi_blobs,
+     backup_dandi_nonblobs,
+     backup_dandi_zarr,
++    cleanup_misplaced_dandi_blobs,
+     update_display,
+     update_manifest,
+     verify_dandi_blobs,
+@@ -73,11 +74,28 @@ def _s3backup_dandi_zarr(task_id: int) -> None:
+ @_s3backup_dandi.command(name="verify-blobs")
+ def _s3backup_dandi_verify_blobs() -> None:
+     """
+-    Verify that both storage partitions received blob writes; exit non-zero if any did not.
++    Verify each blob head is on its assigned partition and nowhere else; exit non-zero otherwise.
+     """
+     verify_dandi_blobs()
+ 
+ 
++# s3backup dandi cleanup-misplaced-blobs
++@_s3backup_dandi.command(name="cleanup-misplaced-blobs")
++@click.option(
++    "--apply",
++    is_flag=True,
++    default=False,
++    help="Actually delete the misplaced directories. Without this flag the command is a dry run.",
++)
++def _s3backup_dandi_cleanup_misplaced_blobs(apply: bool = False) -> None:
++    """
++    Remove blob heads stranded on the wrong partition (e.g. a-f left in 001 before the 001/002 split).
++
++    Safe by default: a directory is only deleted once the correct partition holds a complete copy.
++    """
++    cleanup_misplaced_dandi_blobs(apply=apply)
++
++
+ # s3backup dandi dashboard
+ @_s3backup_dandi.command(name="dashboard")
+ def _s3backup_dandi_dashboard() -> None:
+commit 86324b3b4fa658b7d37cf813732f2231e19605fb
+Date: 2026-06-25 18:47:07 +0000
+
+Harden blob-backup SLURM array so all 16 tasks run and are verified
+
+Array tasks 10-15 (which map to storage partition 002) were silently not
+running, so nothing was ever written to /orcd/data/dandi/002/... The routing
+logic in _dandi.py and BLOBS_HEAD_TO_PARTITION are correct; the failure was in
+the SLURM/deployment layer.
+
+Root cause: the job ran on mit_preemptable without --requeue. SLURM schedules
+array tasks in ascending index order, so the high-index tasks (10-15) are
+placed last; on the contended preemptable partition they either never won a
+slot or were preempted and killed outright (no requeue). The old per-task
+`flock -n <cmd>` form then skipped work silently, and there was no per-task
+logging, so the loss was invisible. The outer cron-level flock only guards
+sbatch submission and is not implicated.
+
+Changes:
+- backup_blobs_batch_deployment.sh: add --requeue so preempted tasks come back;
+  add per-task --output/--error logs; acquire the per-task lock on an fd and
+  FAIL LOUDLY (logged error + non-zero exit) instead of silently skipping;
+  propagate the s3backup exit code. Quote SLURM_ARRAY_TASK_ID throughout.
+- Add `s3backup dandi verify-blobs` and verify_blobs_backup_deployment.sh: a
+  post-run guard that checks both partitions received writes and alerts (exit
+  non-zero) if any partition got zero sub-directories, which would have caught
+  this bug.
+- README: chain the verify job after the array via --dependency=afterany,
+  document the one-time logs directory setup, and note the manual check.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_014ghVXHdtk6giLcSAwQU83k
+
+
+diff --git a/README.md b/README.md
+index dd0d870..224ed7d 100644
+--- a/README.md
++++ b/README.md
+@@ -11,8 +11,27 @@ See also https://github.com/dandi/s3invsync for a more complicated approach that
+ # Crontab
+ 
+ ```bash
+-0 22 * * * flock -n /orcd/data/dandi/001/backup/flocks/backup_blobs_batch.lock sbatch /orcd/data/dandi/001/backup/simple-s3-backup/scripts/backup_blobs_batch_deployment.sh
++0 22 * * * flock -n /orcd/data/dandi/001/backup/flocks/backup_blobs_batch.lock bash -c 'jid=$(sbatch --parsable /orcd/data/dandi/001/backup/simple-s3-backup/scripts/backup_blobs_batch_deployment.sh) && sbatch --dependency=afterany:${jid} /orcd/data/dandi/001/backup/simple-s3-backup/scripts/verify_blobs_backup_deployment.sh'
+ #0 19 * * 0,3 flock -n /orcd/data/dandi/001/backup/flocks/backup_zarr_batch.lock sbatch /orcd/data/dandi/001/backup/simple-s3-backup/scripts/backup_zarr_batch_deployment.sh  # Zarr was disabled in May 2026
+ 0 18 * * * flock -n /orcd/data/dandi/001/backup/flocks/backup_nonblobs.lock sbatch /orcd/data/dandi/001/backup/simple-s3-backup/scripts/backup_nonblobs_deployment.sh
+ 0 6 * * * flock -n /orcd/data/dandi/001/backup/flocks/update_dashboard.lock sbatch /orcd/data/dandi/001/backup/simple-s3-backup/scripts/update_dashboard.sh
+ ```
++
++The blob-backup line submits the 16-task array job and then queues `verify_blobs_backup_deployment.sh`
++with a `afterany` dependency, so verification runs once every array task has finished and alerts (via a
++non-zero exit and a logged `ALERT`) if either storage partition received zero writes. Note the outer
++`flock` only guards the *submission* (`sbatch` returns as soon as the array is queued); it does not
++constrain how many of the 16 array tasks actually run.
++
++One-time setup on the cluster (the per-task `--output`/`--error` log directory must exist before jobs
++are submitted):
++
++```bash
++mkdir -p /orcd/data/dandi/001/backup/logs
++```
++
++You can also run the partition check by hand at any time:
++
++```bash
++s3backup dandi verify-blobs
++```
+diff --git a/scripts/backup_blobs_batch_deployment.sh b/scripts/backup_blobs_batch_deployment.sh
+index 2fa33c9..733fb43 100755
+--- a/scripts/backup_blobs_batch_deployment.sh
++++ b/scripts/backup_blobs_batch_deployment.sh
+@@ -1,12 +1,54 @@
+ #!/bin/bash
++#SBATCH --job-name=DANDI-Backup-Blobs
+ #SBATCH --partition mit_preemptable
++#SBATCH --requeue
+ #SBATCH --array 0-15
+ #SBATCH --mem=1GB
+ #SBATCH --cpus-per-task 1
+ #SBATCH --time=12:00:00
++#SBATCH --open-mode=append
++#SBATCH --output=/orcd/data/dandi/001/backup/logs/backup_blobs_batch_%A_%a.out
++#SBATCH --error=/orcd/data/dandi/001/backup/logs/backup_blobs_batch_%A_%a.err
++
++# NOTE on partition choice and reliability:
++#   `mit_preemptable` is cheap but jobs can be preempted (killed) at any time, and SLURM places
++#   array tasks in ascending index order. Previously this job ran without `--requeue`, so any task
++#   that was preempted - or that never won a slot on the contended preemptable partition - was lost
++#   silently. The high-index tasks (10-15, which map to storage partition 002) are scheduled last
++#   and were the ones that never ran. The `--requeue` directive above now resubmits preempted tasks
++#   automatically. If preemption keeps causing misses, move this job to a non-preemptable partition.
++#
++#   The per-task `--output`/`--error` logs (one file per array task) make any future failure visible.
++#   The log directory must exist before submission; create it once with:
++#       mkdir -p /orcd/data/dandi/001/backup/logs
++
++set -uo pipefail
+ 
+ source /etc/profile.d/modules.sh  # When run via crontab, this is needed to load the modules
+ module load miniforge
+ conda activate /orcd/data/dandi/001/environments/name-s3+backup_env
+ 
+-flock -n /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_$SLURM_ARRAY_TASK_ID.lock s3backup dandi blobs $SLURM_ARRAY_TASK_ID
++task_id="${SLURM_ARRAY_TASK_ID}"
++echo "$(date --iso-8601=seconds) starting backup_blobs task ${task_id} (job ${SLURM_ARRAY_JOB_ID:-?} on $(hostname))"
++
++lock_file="/orcd/data/dandi/001/backup/flocks/backup_blobs_batch_${task_id}.lock"
++
++# Acquire the per-task lock on a dedicated file descriptor. We still use non-blocking `flock`, but
++# unlike the previous `flock -n <cmd>` form (which silently skipped the work when the lock was held),
++# we now FAIL LOUDLY with a logged error and a non-zero exit code if the lock cannot be acquired.
++exec {lock_fd}>"${lock_file}"
++if ! flock --nonblocking "${lock_fd}"; then
++    echo "$(date --iso-8601=seconds) ERROR task ${task_id}: could not acquire lock ${lock_file}; another run is still active. Refusing to skip silently." >&2
++    exit 1
++fi
++
++s3backup dandi blobs "${task_id}"
++status=$?
++
++if [ "${status}" -ne 0 ]; then
++    echo "$(date --iso-8601=seconds) ERROR task ${task_id}: 's3backup dandi blobs ${task_id}' exited with status ${status}" >&2
++else
++    echo "$(date --iso-8601=seconds) completed backup_blobs task ${task_id}"
++fi
++
++exit "${status}"
+diff --git a/scripts/verify_blobs_backup_deployment.sh b/scripts/verify_blobs_backup_deployment.sh
+new file mode 100755
+index 0000000..a5524a7
+--- /dev/null
++++ b/scripts/verify_blobs_backup_deployment.sh
+@@ -0,0 +1,33 @@
++#!/bin/bash
++#SBATCH --job-name=DANDI-Verify-Blobs-Backup
++#SBATCH --partition mit_preemptable
++#SBATCH --requeue
++#SBATCH --mem=1GB
++#SBATCH --cpus-per-task 1
++#SBATCH --time=1:00:00
++#SBATCH --open-mode=append
++#SBATCH --output=/orcd/data/dandi/001/backup/logs/verify_blobs_backup_%j.out
++#SBATCH --error=/orcd/data/dandi/001/backup/logs/verify_blobs_backup_%j.err
++
++# Post-run guard for the blob backup array job. Checks that BOTH storage partitions (001 and 002)
++# received blob writes and exits non-zero (with a loud ALERT) if any partition got zero - the exact
++# bug where array tasks 10-15 (partition 002) never ran. Intended to be submitted with a SLURM
++# dependency on the backup array job so it runs only after every task has finished; see README.
++#
++# The log directory must exist before submission; create it once with:
++#     mkdir -p /orcd/data/dandi/001/backup/logs
++
++set -uo pipefail
++
++source /etc/profile.d/modules.sh  # When run via crontab, this is needed to load the modules
++module load miniforge
++conda activate /orcd/data/dandi/001/environments/name-s3+backup_env
++
++flock -n /orcd/data/dandi/001/backup/flocks/verify_blobs_backup.lock s3backup dandi verify-blobs
++status=$?
++
++if [ "${status}" -ne 0 ]; then
++    echo "$(date --iso-8601=seconds) ALERT: blob backup verification FAILED with status ${status}; at least one partition received zero writes." >&2
++fi
++
++exit "${status}"
+diff --git a/src/simple_s3_backup/_base/__init__.py b/src/simple_s3_backup/_base/__init__.py
+index 436416d..40d0d1c 100644
+--- a/src/simple_s3_backup/_base/__init__.py
++++ b/src/simple_s3_backup/_base/__init__.py
+@@ -1,4 +1,4 @@
+-from ._dandi import backup_dandi_blobs, backup_dandi_nonblobs, backup_dandi_zarr
++from ._dandi import backup_dandi_blobs, backup_dandi_nonblobs, backup_dandi_zarr, verify_dandi_blobs
+ from ._display import update_display
+ from ._update_manifest import update_manifest
+ 
+@@ -6,6 +6,7 @@ __all__ = [
+     "backup_dandi_blobs",
+     "backup_dandi_zarr",
+     "backup_dandi_nonblobs",
++    "verify_dandi_blobs",
+     "update_display",
+     "update_manifest",
+ ]
+diff --git a/src/simple_s3_backup/_base/_dandi.py b/src/simple_s3_backup/_base/_dandi.py
+index e3885ce..12463b6 100644
+--- a/src/simple_s3_backup/_base/_dandi.py
++++ b/src/simple_s3_backup/_base/_dandi.py
+@@ -38,6 +38,67 @@ def backup_dandi_blobs(task_id: int) -> None:
+             _deploy_subprocess(command=command, ignore_errors=True)
+ 
+ 
++def verify_dandi_blobs() -> None:
++    """
++    Verify that *both* storage partitions received blob writes after a backup run.
++
++    Each SLURM array task ``task_id`` in 0-15 maps to a single top-level hash head (0-f) and to a
++    storage partition via ``BLOBS_HEAD_TO_PARTITION`` (heads 0-9 -> 001, heads a-f -> 002). This guard
++    inspects the on-disk backup directories and alerts loudly if an entire partition received zero
++    writes - the exact failure mode where array tasks 10-15 (which map to partition 002) never ran.
++
++    Raises
++    ------
++    RuntimeError
++        If any partition received zero blob sub-directories, i.e. its array tasks did not run.
++    """
++    per_head_subdirectory_counts: dict[int, int] = {}
++    per_partition_subdirectory_counts: dict[str, int] = {}
++
++    for task_id in range(16):
++        partition = BLOBS_HEAD_TO_PARTITION[task_id]
++        per_partition_subdirectory_counts.setdefault(partition, 0)
++
++        blobs_backup_directory = pathlib.Path(f"/orcd/data/dandi/{partition}/s3dandiarchive/blobs")
++        top_blob_hexcode = f"{task_id:01x}"
++
++        matching_subdirectories = (
++            [path for path in blobs_backup_directory.glob(f"{top_blob_hexcode}*") if path.is_dir()]
++            if blobs_backup_directory.exists()
++            else []
++        )
++        count = len(matching_subdirectories)
++        per_head_subdirectory_counts[task_id] = count
++        per_partition_subdirectory_counts[partition] += count
++
++        status = "OK" if count > 0 else "MISSING"
++        print(f"[{status}] head {top_blob_hexcode} -> partition {partition}: {count} sub-directories")
++
++    print("")
++    for partition, count in sorted(per_partition_subdirectory_counts.items()):
++        print(f"Partition {partition}: {count} total blob sub-directories")
++
++    empty_partitions = sorted(
++        partition for partition, count in per_partition_subdirectory_counts.items() if count == 0
++    )
++    empty_heads = [f"{task_id:01x}" for task_id in range(16) if per_head_subdirectory_counts[task_id] == 0]
++
++    if empty_partitions:
++        message = (
++            f"\nALERT: the following partition(s) received zero blob writes: {', '.join(empty_partitions)}.\n"
++            f"Heads with no sub-directories: {empty_heads}.\n"
++            "This almost always means the corresponding SLURM array tasks did not run."
++        )
++        raise RuntimeError(message)
++
++    if empty_heads:
++        # An individual empty head is suspicious but may be legitimate (no blobs with that prefix yet),
++        # so it is only a warning as long as the partition as a whole received writes.
++        print(f"\nWARNING: the following heads have zero sub-directories: {empty_heads}")
++
++    print("\nVerification passed: every partition received blob writes.")
++
++
+ def backup_dandi_zarr(task_id: int) -> None:
+     top_zarr_hexcode = f"{task_id:02x}"
+     partition_key = int(top_zarr_hexcode[0], 16)
+diff --git a/src/simple_s3_backup/_command_line_interface/_cli.py b/src/simple_s3_backup/_command_line_interface/_cli.py
+index 8d7616c..cfe5766 100644
+--- a/src/simple_s3_backup/_command_line_interface/_cli.py
++++ b/src/simple_s3_backup/_command_line_interface/_cli.py
+@@ -1,6 +1,13 @@
+ import click
+ 
+-from .._base import backup_dandi_blobs, backup_dandi_nonblobs, backup_dandi_zarr, update_display, update_manifest
++from .._base import (
++    backup_dandi_blobs,
++    backup_dandi_nonblobs,
++    backup_dandi_zarr,
++    update_display,
++    update_manifest,
++    verify_dandi_blobs,
++)
+ 
+ 
+ # s3backup
+@@ -62,6 +69,15 @@ def _s3backup_dandi_zarr(task_id: int) -> None:
+     backup_dandi_zarr(task_id=task_id)
+ 
+ 
++# s3backup dandi verify-blobs
++@_s3backup_dandi.command(name="verify-blobs")
++def _s3backup_dandi_verify_blobs() -> None:
++    """
++    Verify that both storage partitions received blob writes; exit non-zero if any did not.
++    """
++    verify_dandi_blobs()
++
++
+ # s3backup dandi dashboard
+ @_s3backup_dandi.command(name="dashboard")
+ def _s3backup_dandi_dashboard() -> None:
+[exit 0]
+
+### Changes against HEAD
+$ git -C /orcd/data/dandi/001/backup/simple-s3-backup diff HEAD
+[exit 0]
+
+### Untracked files
+$ git -C /orcd/data/dandi/001/backup/simple-s3-backup ls-files --others --exclude-standard
+[exit 0]
+
+### Deployed backup_blobs_batch_deployment.sh
+$ cat /orcd/data/dandi/001/backup/simple-s3-backup/scripts/backup_blobs_batch_deployment.sh
+#!/bin/bash
+#SBATCH --job-name=DANDI-Backup-Blobs
+#SBATCH --partition mit_preemptable
+#SBATCH --requeue
+#SBATCH --array 0-15
+#SBATCH --mem=1GB
+#SBATCH --cpus-per-task 1
+#SBATCH --time=12:00:00
+#SBATCH --open-mode=append
+#SBATCH --output=/orcd/data/dandi/001/backup/logs/backup_blobs_batch_%A_%a.out
+#SBATCH --error=/orcd/data/dandi/001/backup/logs/backup_blobs_batch_%A_%a.err
+
+# NOTE on partition choice and reliability:
+#   `mit_preemptable` is cheap but jobs can be preempted (killed) at any time, and SLURM places
+#   array tasks in ascending index order. Previously this job ran without `--requeue`, so any task
+#   that was preempted - or that never won a slot on the contended preemptable partition - was lost
+#   silently. The high-index tasks (10-15, which map to storage partition 002) are scheduled last
+#   and were the ones that never ran. The `--requeue` directive above now resubmits preempted tasks
+#   automatically. If preemption keeps causing misses, move this job to a non-preemptable partition.
+#
+#   The per-task `--output`/`--error` logs (one file per array task) make any future failure visible.
+#   The log directory must exist before submission; create it once with:
+#       mkdir -p /orcd/data/dandi/001/backup/logs
+
+set -uo pipefail
+
+source /etc/profile.d/modules.sh  # When run via crontab, this is needed to load the modules
+module load miniforge
+conda activate /orcd/data/dandi/001/environments/name-s3+backup_env
+
+task_id="${SLURM_ARRAY_TASK_ID}"
+echo "$(date --iso-8601=seconds) starting backup_blobs task ${task_id} (job ${SLURM_ARRAY_JOB_ID:-?} on $(hostname))"
+
+lock_file="/orcd/data/dandi/001/backup/flocks/backup_blobs_batch_${task_id}.lock"
+
+# Acquire the per-task lock on a dedicated file descriptor. We still use non-blocking `flock`, but
+# unlike the previous `flock -n <cmd>` form (which silently skipped the work when the lock was held),
+# we now FAIL LOUDLY with a logged error and a non-zero exit code if the lock cannot be acquired.
+exec {lock_fd}>"${lock_file}"
+if ! flock --nonblocking "${lock_fd}"; then
+    echo "$(date --iso-8601=seconds) ERROR task ${task_id}: could not acquire lock ${lock_file}; another run is still active. Refusing to skip silently." >&2
+    exit 1
+fi
+
+s3backup dandi blobs "${task_id}"
+status=$?
+
+if [ "${status}" -ne 0 ]; then
+    echo "$(date --iso-8601=seconds) ERROR task ${task_id}: 's3backup dandi blobs ${task_id}' exited with status ${status}" >&2
+else
+    echo "$(date --iso-8601=seconds) completed backup_blobs task ${task_id}"
+fi
+
+exit "${status}"
+[exit 0]
+
+### Deployed backup_nonblobs_deployment.sh
+$ cat /orcd/data/dandi/001/backup/simple-s3-backup/scripts/backup_nonblobs_deployment.sh
+#!/bin/bash
+#SBATCH --partition mit_preemptable
+#SBATCH --mem=100MB
+#SBATCH --cpus-per-task 1
+#SBATCH --time=12:00:00
+
+source /etc/profile.d/modules.sh  # When run via crontab, this is needed to load the modules
+module load miniforge
+conda activate /orcd/data/dandi/001/environments/name-s3+backup_env
+
+flock -n /orcd/data/dandi/001/backup/flocks/backup_nonblobs_batch.lock s3backup dandi nonblobs $SLURM_ARRAY_TASK_ID
+[exit 0]
+
+### Deployed backup_zarr_batch_deployment.sh
+$ cat /orcd/data/dandi/001/backup/simple-s3-backup/scripts/backup_zarr_batch_deployment.sh
+#!/bin/bash
+#SBATCH --partition mit_preemptable
+#SBATCH --array 0-255
+#SBATCH --mem=1GB
+#SBATCH --cpus-per-task 1
+#SBATCH --time=12:00:00
+
+source /etc/profile.d/modules.sh  # When run via crontab, this is needed to load the modules
+module load miniforge
+conda activate /orcd/data/dandi/001/environments/name-s3+backup_env
+
+flock -n /orcd/data/dandi/001/backup/flocks/backup_zarr_batch_$SLURM_ARRAY_TASK_ID.lock s3backup dandi zarr $SLURM_ARRAY_TASK_ID
+[exit 0]
+
+### Deployed update_dashboard.sh
+$ cat /orcd/data/dandi/001/backup/simple-s3-backup/scripts/update_dashboard.sh
+#!/bin/bash
+#SBATCH --job-name=DANDI-Update-Backup-Dashboard
+#SBATCH --mem=1GB
+#SBATCH --cpus-per-task 1
+#SBATCH --partition=mit_preemptable
+#SBATCH --time=12:00:00
+
+source /etc/profile.d/modules.sh  # When run via crontab, this is needed to load the modules
+module load miniforge
+conda activate /orcd/data/dandi/001/environments/name-s3+backup_env
+
+cd /orcd/data/dandi/001/backup/backup-status
+git pull
+flock -n /orcd/data/dandi/001/backup/flocks/update_dashboard.lock s3backup dandi dashboard
+git add .
+git commit --message "update"
+git push
+[exit 0]
+
+### Deployed verify_blobs_backup_deployment.sh
+$ cat /orcd/data/dandi/001/backup/simple-s3-backup/scripts/verify_blobs_backup_deployment.sh
+#!/bin/bash
+#SBATCH --job-name=DANDI-Verify-Blobs-Backup
+#SBATCH --partition mit_preemptable
+#SBATCH --requeue
+#SBATCH --mem=1GB
+#SBATCH --cpus-per-task 1
+#SBATCH --time=1:00:00
+#SBATCH --open-mode=append
+#SBATCH --output=/orcd/data/dandi/001/backup/logs/verify_blobs_backup_%j.out
+#SBATCH --error=/orcd/data/dandi/001/backup/logs/verify_blobs_backup_%j.err
+
+# Post-run guard for the blob backup array job. Checks that BOTH storage partitions (001 and 002)
+# received blob writes and exits non-zero (with a loud ALERT) if any partition got zero - the exact
+# bug where array tasks 10-15 (partition 002) never ran. Intended to be submitted with a SLURM
+# dependency on the backup array job so it runs only after every task has finished; see README.
+#
+# The log directory must exist before submission; create it once with:
+#     mkdir -p /orcd/data/dandi/001/backup/logs
+
+set -uo pipefail
+
+source /etc/profile.d/modules.sh  # When run via crontab, this is needed to load the modules
+module load miniforge
+conda activate /orcd/data/dandi/001/environments/name-s3+backup_env
+
+flock -n /orcd/data/dandi/001/backup/flocks/verify_blobs_backup.lock s3backup dandi verify-blobs
+status=$?
+
+if [ "${status}" -ne 0 ]; then
+    echo "$(date --iso-8601=seconds) ALERT: blob backup verification FAILED with status ${status}; at least one partition received zero writes." >&2
+fi
+
+exit "${status}"
+[exit 0]
+
+## The crontab installed on login007
+
+### Installed crontab
+$ ssh -o BatchMode=yes -o ConnectTimeout=15 login007 crontab -l
+# The workflow triggers and the squeue snapshot record themselves in the global logs repository
+# (/orcd/data/dandi/001/dandi-compute/dandi-compute-global-logs, see launcher/record.sh).
+# Each trigger checks for work from this login node and starts its GitHub workflow only when there
+# is some (see launcher/trigger_github_action_cron.sh).
+*/15 * * * * /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/record.sh logs dispatch-trigger -- /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/dispatch_github_action_cron.sh > /dev/null 2>&1
+0 0 * * * /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/record.sh logs create-trigger -- /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/create_github_action_cron.sh > /dev/null 2>&1
+
+# For whatever reason, this particular job is sensitive to the usage of `/bin/bash -l` in order to 'behave properly'. Otherwise the SLURM job does run, the self-hosted runner is active, but the conda init does not trigger and so no environment is found.
+*/1 * * * * /bin/bash -l -c 'flock -n /orcd/data/dandi/001/dandi-compute/flocks/submitter.lock -c "/orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/guarded-submit -N DANDI-Compute-Submitter -- sbatch --output /dev/null --error=/dev/null /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/launch_submitter.sh" || echo "$(date): lock held, skipping submit"' > /dev/null 2>&1
+
+# A squeue snapshot every 5 minutes, recorded under monitor/ (see launcher/monitor.sh).
+*/5 * * * * /bin/bash -l -c '/orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/monitor.sh' > /dev/null 2>&1
+
+# A disk usage snapshot every 30 minutes, recorded under disk/ (see launcher/disk.sh).
+*/30 * * * * /bin/bash -l -c '/orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/disk.sh' > /dev/null 2>&1
+
+# Backup processes
+0 22 * * * flock -n /orcd/data/dandi/001/backup/flocks/backup_blobs_batch.lock sbatch --output /dev/null --error=/dev/null /orcd/data/dandi/001/backup/simple-s3-backup/scripts/backup_blobs_batch_deployment.sh
+#0 19 * * 0,3 flock -n /orcd/data/dandi/001/backup/flocks/backup_zarr_batch.lock sbatch --output /dev/null --error=/dev/null /orcd/data/dandi/001/backup/simple-s3-backup/scripts/backup_zarr_batch_deployment.sh  # Zarr was disabled in May 2026
+0 18 * * * flock -n /orcd/data/dandi/001/backup/flocks/backup_nonblobs.lock sbatch --output /dev/null --error=/dev/null /orcd/data/dandi/001/backup/simple-s3-backup/scripts/backup_nonblobs_deployment.sh
+0 6 * * * flock -n /orcd/data/dandi/001/backup/flocks/update_dashboard.lock sbatch --output /dev/null --error=/dev/null /orcd/data/dandi/001/backup/simple-s3-backup/scripts/update_dashboard.sh
+[exit 0]
+It matches /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/crontab.
