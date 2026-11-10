@@ -1,0 +1,7 @@
+From https://github.com/dandi-compute/dandi-compute-core
+   23066a3..c4ef26f  main       -> origin/main
+From https://github.com/dandi-compute/dandi-compute-runner
+   514dbc2..d3aca03  main       -> origin/main
+From https://github.com/dandi/simple-s3-backup
+   2a152b1..4dd2eae  main       -> origin/main
+Reset branch 'main'
