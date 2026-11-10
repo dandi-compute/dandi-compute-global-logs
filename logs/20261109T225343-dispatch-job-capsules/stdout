@@ -1,0 +1,9 @@
+Running: dandicompute jobs dispatch --base /orcd/data/dandi/001/dandi-compute
+
+aind+ephys/lupin: no capsules are waiting to be submitted.
+
+aind+ephys: dispatched 6 capsules as array job 28552057.
+  array 28552057: 6 capsules requesting 1GB / 1 CPU / mit_preemptable / 48:00:00, at most 2 at a time
+  logs, manifests and scripts: /orcd/data/dandi/001/dandi-compute/processing/derivatives/logs/dandicompute-dispatch-aind-ephys
+
+lfp: no capsules are waiting to be submitted.
