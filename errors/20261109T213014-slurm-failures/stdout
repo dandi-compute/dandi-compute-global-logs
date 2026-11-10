@@ -1,0 +1,77 @@
+## Jobs of the runner's user since 2026-11-02 that did not complete
+2128 of the 2164 jobs and tasks since 2026-11-02 did not complete.
+
+### By job name, state and exit code (most frequent first)
+   966  dandicompute-dispatch-aind-ephys | FAILED | exit 1:0 | last ended 2026-11-09T21:17:36
+   838  dandicompute-dispatch-lfp | FAILED | exit 1:0 | last ended 2026-11-09T13:05:37
+   245  dandicompute-dispatch-aind-ephys-lupin | FAILED | exit 1:0 | last ended 2026-11-09T12:21:59
+    64  DANDI-Backup-Blobs | FAILED | exit 1:0 | last ended 2026-11-08T22:00:56
+     9  DANDI-Compute-Submitter | TIMEOUT | exit 0:0 | last ended 2026-11-09T21:14:11
+     4  dandicompute-dispatch-aind-ephys | OUT_OF_MEMORY | exit 0:125 | last ended 2026-11-09T17:15:21
+     1  DANDI-Compute-Submitter | CANCELLED | exit 0:0 | last ended 2026-11-06T08:48:25
+     1  DANDI-Backup-Blobs-Diagnose | FAILED | exit 1:0 | last ended 2026-11-09T21:30:05
+
+### The errors failed Nextflow tasks ended with
+Read the .command.err of 0 failed Nextflow tasks (newest first, at most 500).
+
+### The other failed jobs, newest first
+28545285_4 DANDI-Backup-Blobs-Diagnose FAILED exit 1:0 ended 2026-11-09T21:30:05 after 00:00:01 in /orcd/data/dandi/001/dandi-compute/runners/submitter/actions-runner/_work/dandi-compute-runner/dandi-compute-runner
+28542565_6 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T21:17:36 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28542565_5 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T21:17:36 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28542565_4 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T21:14:02 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28542565_3 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T21:14:02 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28542565_2 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T21:10:48 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28542565_1 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T21:10:48 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28540651_6 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:55:39 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28540651_5 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:55:39 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28540651_4 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:51:21 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28540651_3 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:51:21 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28540651_2 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:48:46 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28540651_1 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:48:46 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28538889_6 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:39:45 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28538889_5 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:39:45 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28538889_4 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:37:16 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28538889_3 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:37:16 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28538889_2 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:32:19 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28538889_1 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:32:21 after 00:00:04 in /orcd/data/dandi/001/dandi-compute
+28536168_6 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:16:36 after 00:00:03 in /orcd/data/dandi/001/dandi-compute
+28536168_5 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:16:35 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28536168_4 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:10:39 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28536168_3 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:10:39 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28536168_2 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:06:39 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28536168_1 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:06:39 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28534838_6 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:00:07 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28534838_5 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T20:00:06 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28534838_4 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:57:19 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28534838_3 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:57:18 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28534838_2 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:50:34 after 00:00:04 in /orcd/data/dandi/001/dandi-compute
+28534838_1 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:50:32 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28533758_6 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:36:50 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28533758_5 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:40:43 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28533758_4 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:40:43 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28533758_3 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:36:50 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28533758_2 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:34:34 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28533758_1 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:34:47 after 00:00:14 in /orcd/data/dandi/001/dandi-compute
+28532772_6 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:26:09 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28532772_5 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:26:17 after 00:00:10 in /orcd/data/dandi/001/dandi-compute
+28532772_4 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:21:43 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28532772_3 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:21:45 after 00:00:03 in /orcd/data/dandi/001/dandi-compute
+28532772_2 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:18:05 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28532772_1 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:18:05 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28529980_6 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:02:48 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28529980_5 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T19:02:48 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28529980_4 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:58:23 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28529980_3 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:58:23 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28529980_2 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:51:18 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28529980_1 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:51:19 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28528374_6 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:43:18 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28528374_5 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:43:18 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28528374_4 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:36:38 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28528374_3 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:36:38 after 00:00:01 in /orcd/data/dandi/001/dandi-compute
+28528374_2 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:33:50 after 00:00:09 in /orcd/data/dandi/001/dandi-compute
+28528374_1 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:33:50 after 00:00:09 in /orcd/data/dandi/001/dandi-compute
+28525018_8 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:23:59 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28525018_7 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:23:59 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28525018_6 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:17:48 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28525018_5 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:17:48 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
+28525018_4 dandicompute-dispatch-aind-ephys FAILED exit 1:0 ended 2026-11-09T18:13:30 after 00:00:02 in /orcd/data/dandi/001/dandi-compute
