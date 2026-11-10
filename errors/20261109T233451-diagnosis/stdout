@@ -1,0 +1,46 @@
+## Diagnosis
+
+### The blob backup
+- Checkout: HEAD c8973dc4b4b2cdad4f5f218c8d6b1bc0fa941c30, GitHub main 02a8df61ca8dbaa7470434d47b6043e0e1a46832, changed files: 0, untracked files: 0
+- Crontab: installed, matches the runner checkout
+- Locks held: none
+- Mirror writable: 001:yes 002:yes
+- Setup steps that failed when replayed in cron's environment:
+    the replay itself exited 1: /etc/profile.d/00-modulepath.sh: line 1: MODULEPATH: unbound variable
+- Setup steps that failed when replayed again without the script's set -e and set -u:
+    none
+- Reproduction: job 28552486_4: FAILED (exit 1:0) after 130 seconds of watching
+- Likely cause, from the reproduced task's log: The script runs with `set -u`, and a file it sources reads a variable cron does not set, so bash stops the job at once: /etc/profile.d/00-modulepath.sh: line 1: MODULEPATH: unbound variable
+- The checkout runs commits that are not on GitHub's main (in full in backup-checkout):
+    c8973dc 2026-06-25 Detect and clean up blob heads stranded on the wrong partition
+    86324b3 2026-06-25 Harden blob-backup SLURM array so all 16 tasks run and are verified
+
+### The home directory
+- Quota: space 31.29% used, files 100.20% used
+- dandi-cli log files: 200
+- Directories holding the most files:
+    106942	~/.conda
+    73299	~/.cache (at least; counting stopped after 300 seconds)
+    37146	~/.local
+    1374	~/.kachery
+    180	~/.nextflow
+
+### Job capsules
+- Inputs: 1024 capsules on the cluster: 921 with their blob, 6 pointing at the wrong partition, 97 whose blob is not mirrored
+- Nextflow tasks that failed on a missing input: 0
+- SLURM: 2159 of 2195 jobs and tasks since 2026-11-02 did not complete
+- Most frequent failures:
+    978  dandicompute-dispatch-aind-ephys (FAILED, exit 1:0)
+    838  dandicompute-dispatch-lfp (FAILED, exit 1:0)
+    245  dandicompute-dispatch-aind-ephys-lupin (FAILED, exit 1:0)
+    80  DANDI-Backup-Blobs (FAILED, exit 1:0)
+    9  DANDI-Compute-Submitter (TIMEOUT, exit 0:0)
+    4  dandicompute-dispatch-aind-ephys (OUT_OF_MEMORY, exit 0:125)
+    4  DANDI-Backup-Blobs-Diagnose (FAILED, exit 1:0)
+    1  DANDI-Compute-Submitter (CANCELLED, exit 0:0)
+- Most frequent errors of failed jobs:
+        468 OSError: [Errno <n>] Disk quota exceeded: '<path>'
+         10 EnvironmentLocationNotFound: Not a conda environment: <path>
+          4 <path>: line <n>: MODULEPATH: unbound variable
+          1 [<n>-<n>-<n>T<n>:<n>:<n>.<n>] error: Detected <n> oom_kill event in StepId=<n>.batch. Some of the step tasks have been OOM Killed.
+          1 (empty)
