@@ -1,0 +1,138 @@
+## The blob backup job's setup, replayed in cron's environment on node2639
+
+### SBATCH directives of /orcd/data/dandi/001/backup/simple-s3-backup/scripts/backup_blobs_batch_deployment.sh
+$ grep \^#SBATCH /orcd/data/dandi/001/backup/simple-s3-backup/scripts/backup_blobs_batch_deployment.sh
+#SBATCH --job-name=DANDI-Backup-Blobs
+#SBATCH --partition mit_preemptable
+#SBATCH --requeue
+#SBATCH --array 0-15
+#SBATCH --mem=1GB
+#SBATCH --cpus-per-task 1
+#SBATCH --time=12:00:00
+#SBATCH --open-mode=append
+#SBATCH --output=/orcd/data/dandi/001/backup/logs/backup_blobs_batch_%A_%a.out
+#SBATCH --error=/orcd/data/dandi/001/backup/logs/backup_blobs_batch_%A_%a.err
+[exit 0]
+
+### Commands replayed (from /orcd/data/dandi/001/backup/simple-s3-backup/scripts/backup_blobs_batch_deployment.sh, without its backup line)
+$ cat /tmp/tmp.oCuzWboFq4
+trap 'echo "!!! exit $? from: $BASH_COMMAND" >&2' ERR
+set -x
+set -uo pipefail
+source /etc/profile.d/modules.sh  # When run via crontab, this is needed to load the modules
+module load miniforge
+conda activate /orcd/data/dandi/001/environments/name-s3+backup_env
+task_id="${SLURM_ARRAY_TASK_ID}"
+echo "$(date --iso-8601=seconds) starting backup_blobs task ${task_id} (job ${SLURM_ARRAY_JOB_ID:-?} on $(hostname))"
+lock_file="/orcd/data/dandi/001/backup/flocks/backup_blobs_batch_${task_id}.lock"
+exec {lock_fd}>"${lock_file}"
+if ! flock --nonblocking "${lock_fd}"; then
+    echo "$(date --iso-8601=seconds) ERROR task ${task_id}: could not acquire lock ${lock_file}; another run is still active. Refusing to skip silently." >&2
+    exit 1
+fi
+status=$?
+if [ "${status}" -ne 0 ]; then
+else
+    echo "$(date --iso-8601=seconds) completed backup_blobs task ${task_id}"
+fi
+exit "${status}"
+set +x
+echo "--- after the setup"
+echo "CONDA_PREFIX=${CONDA_PREFIX:-}"
+echo "PATH=$PATH"
+type s3backup s5cmd python flock
+echo "--- s3backup dandi blobs --help"
+s3backup dandi blobs --help
+echo "--- the package s3backup runs"
+python -c 'import simple_s3_backup._base as base, simple_s3_backup; print(simple_s3_backup.__file__)'
+echo "--- s5cmd"
+s5cmd version
+echo "--- listing a blob prefix with the job's credentials"
+s5cmd ls 's3://dandiarchive/blobs/482/5cf/*'
+echo "--- the same without signing"
+s5cmd --no-sign-request ls 's3://dandiarchive/blobs/482/5cf/*'
+[exit 0]
+
+### Replayed in cron's environment (only HOME, LOGNAME, USER, SHELL=/bin/sh and PATH=/usr/bin:/bin set)
++ set -uo pipefail
++ source /etc/profile.d/modules.sh
+++ . /etc/profile.d/00-modulepath.sh
+/etc/profile.d/00-modulepath.sh: line 1: MODULEPATH: unbound variable
+[exit 1]
+
+## Lock files
+
+### Lock directory
+$ bash -c stat\ -c\ \'%A\ %y\ %n\'\ \'/orcd/data/dandi/001/backup/flocks\'\ \'/orcd/data/dandi/001/backup\'/flocks/\*
+drwxrwsr-x 2026-06-21 22:00:02.701765227 -0400 /orcd/data/dandi/001/backup/flocks
+-rw-rw-r-- 2026-02-18 23:40:30.772822220 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_0.lock
+-rw-rw-r-- 2026-02-18 23:40:30.856822685 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_10.lock
+-rw-rw-r-- 2026-02-18 23:40:30.856822685 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_11.lock
+-rw-rw-r-- 2026-02-18 23:40:35.860850403 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_12.lock
+-rw-rw-r-- 2026-02-18 23:40:30.908822973 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_13.lock
+-rw-rw-r-- 2026-02-18 23:40:30.929823089 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_14.lock
+-rw-rw-r-- 2026-10-27 22:01:58.613770004 -0400 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_15.lock
+-rw-rw-r-- 2026-02-18 23:40:30.743822059 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_1.lock
+-rw-rw-r-- 2026-02-18 23:40:30.743822059 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_2.lock
+-rw-rw-r-- 2026-02-18 23:40:30.769822203 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_3.lock
+-rw-rw-r-- 2026-02-18 23:40:30.769822203 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_4.lock
+-rw-rw-r-- 2026-02-18 23:40:30.769822203 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_5.lock
+-rw-rw-r-- 2026-02-18 23:40:30.769822203 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_6.lock
+-rw-rw-r-- 2026-02-18 23:40:30.854822674 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_7.lock
+-rw-rw-r-- 2026-02-18 23:40:30.859822702 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_8.lock
+-rw-rw-r-- 2026-02-18 23:40:30.862822718 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_9.lock
+-rw-r--r-- 2026-06-21 22:00:02.701765227 -0400 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch.lock
+-rw-r--r-- 2026-02-21 18:00:36.276320656 -0500 /orcd/data/dandi/001/backup/flocks/backup_nonblobs_batch.lock
+-rw-r--r-- 2025-08-21 00:00:01.748228669 -0400 /orcd/data/dandi/001/backup/flocks/backup_nonblobs.lock
+-rw-r--r-- 2025-08-21 06:00:01.920456731 -0400 /orcd/data/dandi/001/backup/flocks/update_dashboard.lock
+[exit 0]
+Held right now: none
+
+## The blob mirror
+
+### Space on the partitions
+$ df -h /orcd/data/dandi/001 /orcd/data/dandi/002
+Filesystem                    Size  Used Avail Use% Mounted on
+hstor004-n1:/group/dandi/001  880T  720T  161T  82% /orcd/data/dandi/001
+hstor004-n2:/group/dandi/002  620T  379T  242T  62% /orcd/data/dandi/002
+[exit 0]
+
+### /orcd/data/dandi/001/s3dandiarchive/blobs
+$ stat -c %A\ group\ %G\,\ changed\ %y /orcd/data/dandi/001/s3dandiarchive/blobs
+drwxrwsr-x group orcd_rg_hstor004_pg_dandi, changed 2026-06-25 15:04:32.616257329 -0400
+[exit 0]
+Owned by the runner's user.
+Writable by the runner's user.
+Top-level prefixes: 2560
+
+### Most recently changed prefixes of 001
+$ bash -c ls\ -dt\ \'/orcd/data/dandi/001/s3dandiarchive/blobs\'/\*/\ \|\ head\ -n\ 5\ \|\ xargs\ -r\ stat\ -c\ \'%y\ %n\'
+2026-06-25 09:52:53.837682458 -0400 /orcd/data/dandi/001/s3dandiarchive/blobs/1be/
+2026-06-25 08:48:42.596127474 -0400 /orcd/data/dandi/001/s3dandiarchive/blobs/2fc/
+2026-06-25 08:22:41.241229497 -0400 /orcd/data/dandi/001/s3dandiarchive/blobs/1bd/
+2026-06-25 08:22:12.212027891 -0400 /orcd/data/dandi/001/s3dandiarchive/blobs/2f6/
+2026-06-25 07:45:12.424549201 -0400 /orcd/data/dandi/001/s3dandiarchive/blobs/2f0/
+[exit 0]
+
+### /orcd/data/dandi/002/s3dandiarchive/blobs
+$ stat -c %A\ group\ %G\,\ changed\ %y /orcd/data/dandi/002/s3dandiarchive/blobs
+drwxrwsr-x group orcd_rg_hstor004_pg_dandi, changed 2026-06-25 15:24:34.799639405 -0400
+[exit 0]
+Owned by the runner's user.
+Writable by the runner's user.
+Top-level prefixes: 1536
+
+### Most recently changed prefixes of 002
+$ bash -c ls\ -dt\ \'/orcd/data/dandi/002/s3dandiarchive/blobs\'/\*/\ \|\ head\ -n\ 5\ \|\ xargs\ -r\ stat\ -c\ \'%y\ %n\'
+2026-06-25 09:54:16.599460973 -0400 /orcd/data/dandi/002/s3dandiarchive/blobs/abe/
+2026-06-25 09:44:54.238572961 -0400 /orcd/data/dandi/002/s3dandiarchive/blobs/abd/
+2026-06-25 09:31:20.764142243 -0400 /orcd/data/dandi/002/s3dandiarchive/blobs/abc/
+2026-06-25 09:22:23.216997560 -0400 /orcd/data/dandi/002/s3dandiarchive/blobs/abb/
+2026-06-25 09:14:34.800927928 -0400 /orcd/data/dandi/002/s3dandiarchive/blobs/aba/
+[exit 0]
+
+### AWS configuration in the home directory (file names only)
+$ bash -c ls\ -A\ ~/.aws
+config
+credentials
+[exit 0]
