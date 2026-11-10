@@ -1,0 +1,9 @@
+ln: failed to create symbolic link '/home/cb239/.bazelrc': Disk quota exceeded
+find: ‘/home/cb239/.cache/bazel/_bazel_cb239/1ef0b6d9c054078041e6f68fb027ba76/sandbox/inaccessibleHelperDir’: Permission denied
+find: ‘/home/cb239/.cache/bazel/_bazel_cb239/1ef0b6d9c054078041e6f68fb027ba76/sandbox/inaccessibleHelperDir’: Permission denied
+find: cannot delete ‘/home/cb239/.cache/bazel/_bazel_cb239/1ef0b6d9c054078041e6f68fb027ba76/sandbox’: Directory not empty
+find: cannot delete ‘/home/cb239/.cache/bazel/_bazel_cb239/1ef0b6d9c054078041e6f68fb027ba76’: Directory not empty
+find: ‘/home/cb239/.cache/bazel/_bazel_cb239/985f85b15894ee0afbd26f8f59242ffa/sandbox/inaccessibleHelperDir’: Permission denied
+find: ‘/home/cb239/.cache/bazel/_bazel_cb239/985f85b15894ee0afbd26f8f59242ffa/sandbox/inaccessibleHelperDir’: Permission denied
+find: cannot delete ‘/home/cb239/.cache/bazel/_bazel_cb239/985f85b15894ee0afbd26f8f59242ffa/sandbox’: Directory not empty
+find: cannot delete ‘/home/cb239/.cache/bazel/_bazel_cb239/985f85b15894ee0afbd26f8f59242ffa’: Directory not empty

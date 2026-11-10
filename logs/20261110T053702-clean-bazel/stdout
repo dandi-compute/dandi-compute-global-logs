@@ -1,0 +1,21 @@
+/home/cb239/.cache/bazel/_bazel_cb239/1ef0b6d9c054078041e6f68fb027ba76: the output base of workspace /tmp/pip-install-lkw_ahxj/tensorstore_d4eccaecbf674085a59121191a361e6f
+/home/cb239/.cache/bazel/_bazel_cb239/1ef0b6d9c054078041e6f68fb027ba76: not all deleted, 87003 files and directories were
+/home/cb239/.cache/bazel/_bazel_cb239/4b500fc651421cc862f68124be56f2f8: the output base of workspace /tmp/pip-install-zf6s7lvd/tensorstore_592627bbab6648cfa537495b04fa8234
+/home/cb239/.cache/bazel/_bazel_cb239/4b500fc651421cc862f68124be56f2f8: deleted, 80786 files and directories
+/home/cb239/.cache/bazel/_bazel_cb239/689897bb7181b32caa41326f7df4c9c9: the output base of workspace /tmp/pip-install-_47diadw/tensorstore_c76380b1f5f8483184f29c174cd90f44
+/home/cb239/.cache/bazel/_bazel_cb239/689897bb7181b32caa41326f7df4c9c9: deleted, 95923 files and directories
+/home/cb239/.cache/bazel/_bazel_cb239/79429508fbfc302833de7b832737bca6: the output base of workspace /tmp/pip-install-tm7m8ukm/tensorstore_2a001fddc3bd4638a82951a02ecce6c2
+/home/cb239/.cache/bazel/_bazel_cb239/79429508fbfc302833de7b832737bca6: deleted, 1853 files and directories
+/home/cb239/.cache/bazel/_bazel_cb239/7af06dba88c957484a3338a0cd90e669: the output base of workspace /tmp/pip-install-r0gcjgvz/tensorstore_47923ee3981d4b21a0660278d609ad83
+/home/cb239/.cache/bazel/_bazel_cb239/7af06dba88c957484a3338a0cd90e669: deleted, 103507 files and directories
+/home/cb239/.cache/bazel/_bazel_cb239/7ee26e98dc419bc754c5ba7e91072de7: the output base of workspace /tmp/pip-install-g80fesct/tensorstore_88fbc65ed9a54cbcb8812f0b69bb32e4
+/home/cb239/.cache/bazel/_bazel_cb239/7ee26e98dc419bc754c5ba7e91072de7: deleted, 1853 files and directories
+/home/cb239/.cache/bazel/_bazel_cb239/985f85b15894ee0afbd26f8f59242ffa: the output base of workspace /tmp/pip-install-eil2hcfj/tensorstore_bcb03115785d4eadbd7cdf86157ab979
+/home/cb239/.cache/bazel/_bazel_cb239/985f85b15894ee0afbd26f8f59242ffa: not all deleted, 86847 files and directories were
+/home/cb239/.cache/bazel/_bazel_cb239/c89ae18306b22d79b3f0246a5f2a6a88: the output base of workspace /tmp/pip-install-ej2c1pqi/tensorstore_a9a8696683364f6ba3c44eaa3df4ccc1
+/home/cb239/.cache/bazel/_bazel_cb239/c89ae18306b22d79b3f0246a5f2a6a88: deleted, 100557 files and directories
+/home/cb239/.cache/bazel/_bazel_cb239/e12bc5c605e43b44241029365f2386df: the output base of workspace /tmp/pip-install-1avbdaf4/tensorstore_7ea3f863bf354b4fa3993ca36f7166a1
+/home/cb239/.cache/bazel/_bazel_cb239/e12bc5c605e43b44241029365f2386df: deleted, 51268 files and directories
+/home/cb239/.cache/bazel/_bazel_cb239/install: deleted, 591 files and directories
+/home/cb239/.cache/bazel/_bazel_cb239/cache: deleted, 138 files and directories
+/orcd/data/dandi/001/dandi-compute/work/bazel: not there, skipped
