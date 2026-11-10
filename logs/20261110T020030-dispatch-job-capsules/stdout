@@ -1,0 +1,13 @@
+Running: dandicompute jobs dispatch --base /orcd/data/dandi/001/dandi-compute
+
+aind+ephys/lupin: dispatched 5 capsules as array job 28567342.
+  array 28567342: 5 capsules requesting 1GB / 1 CPU / mit_preemptable / 48:00:00, at most 10 at a time
+  logs, manifests and scripts: /orcd/data/dandi/001/dandi-compute/processing/derivatives/logs/dandicompute-dispatch-aind-ephys-lupin
+
+aind+ephys: dispatched 16 capsules as array job 28567416.
+  array 28567416: 16 capsules requesting 1GB / 1 CPU / mit_preemptable / 48:00:00, at most 2 at a time
+  logs, manifests and scripts: /orcd/data/dandi/001/dandi-compute/processing/derivatives/logs/dandicompute-dispatch-aind-ephys
+
+lfp: dispatched 5 capsules as array job 28567418.
+  array 28567418: 5 capsules requesting 16GB / 1 CPU / mit_preemptable / 48:00:00, at most 2 at a time
+  logs, manifests and scripts: /orcd/data/dandi/001/dandi-compute/processing/derivatives/logs/dandicompute-dispatch-lfp
