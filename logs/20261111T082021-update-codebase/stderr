@@ -1,0 +1,8 @@
+From https://github.com/dandi-compute/dandi-compute-core
+   c4ef26f..fd17510  main       -> origin/main
+From https://github.com/dandi-compute/dandi-compute-runner
+   d3aca03..4527033  main       -> origin/main
+From https://github.com/AllenNeuralDynamics/aind-ephys-pipeline
+   198a448..9fc06c4  dev        -> origin/dev
+ * [new branch]      sparse-nwb-unit-waveforms -> origin/sparse-nwb-unit-waveforms
+Reset branch 'main'
