@@ -1,0 +1,531 @@
+## The blob backup job's setup, replayed in cron's environment on node4103
+
+### SBATCH directives of /orcd/data/dandi/001/backup/simple-s3-backup/scripts/backup_blobs_batch_deployment.sh
+$ grep \^#SBATCH /orcd/data/dandi/001/backup/simple-s3-backup/scripts/backup_blobs_batch_deployment.sh
+#SBATCH --job-name=DANDI-Backup-Blobs
+#SBATCH --partition mit_preemptable
+#SBATCH --requeue
+#SBATCH --array 0-15
+#SBATCH --mem=1GB
+#SBATCH --cpus-per-task 1
+#SBATCH --time=12:00:00
+#SBATCH --open-mode=append
+#SBATCH --output=/orcd/data/dandi/001/backup/logs/backup_blobs_batch_%A_%a.out
+#SBATCH --error=/orcd/data/dandi/001/backup/logs/backup_blobs_batch_%A_%a.err
+[exit 0]
+
+### Commands replayed (from /orcd/data/dandi/001/backup/simple-s3-backup/scripts/backup_blobs_batch_deployment.sh, up to its first line that runs s3backup)
+$ cat /tmp/tmp.MQiBXta4YQ
+trap 'echo "!!! exit $? from: $BASH_COMMAND" >&2' ERR
+set -x
+source /etc/profile.d/modules.sh  # When run via crontab, this is needed to load the modules
+module load miniforge
+conda activate /orcd/data/dandi/001/environments/name-s3+backup_env
+set -uo pipefail
+task_id="${SLURM_ARRAY_TASK_ID}"
+echo "$(date --iso-8601=seconds) starting backup_blobs task ${task_id} (job ${SLURM_ARRAY_JOB_ID:-?} on $(hostname))"
+lock_file="/orcd/data/dandi/001/backup/flocks/backup_blobs_batch_${task_id}.lock"
+exec {lock_fd}>"${lock_file}"
+if ! flock --nonblocking "${lock_fd}"; then
+    echo "$(date --iso-8601=seconds) ERROR task ${task_id}: could not acquire lock ${lock_file}; another run is still active. Refusing to skip silently." >&2
+    exit 1
+fi
+set +x
+echo "--- after the setup"
+echo "CONDA_PREFIX=${CONDA_PREFIX:-}"
+echo "PATH=$PATH"
+type s3backup s5cmd python flock
+echo "--- s3backup dandi blobs --help"
+s3backup dandi blobs --help
+echo "--- the package s3backup runs"
+python -c 'import simple_s3_backup._base as base, simple_s3_backup; print(simple_s3_backup.__file__)'
+echo "--- s5cmd"
+s5cmd version
+echo "--- listing a blob prefix with the job's credentials"
+s5cmd ls 's3://dandiarchive/blobs/482/5cf/*'
+echo "--- the same without signing"
+s5cmd --no-sign-request ls 's3://dandiarchive/blobs/482/5cf/*'
+[exit 0]
+
+### Replayed in cron's environment (only HOME, LOGNAME, USER, SHELL=/bin/sh and PATH=/usr/bin:/bin set), as array task 4
++ source /etc/profile.d/modules.sh
+++ . /etc/profile.d/00-modulepath.sh
++++ '[' -z '' ']'
+++++ readlink /etc/alternatives/modules.sh
++++ '[' /usr/share/lmod/lmod/init/profile = /usr/share/lmod/lmod/init/profile -o -f /etc/profile.d/z00_lmod.sh ']'
++++ export MODULEPATH=/etc/modulefiles:/usr/share/modulefiles
++++ MODULEPATH=/etc/modulefiles:/usr/share/modulefiles
+++ '[' -z '' ']'
+++ LMOD_ALLOW_ROOT_USE=yes
+++ '[' -n '' ']'
+++ '[' yes '!=' yes ']'
+++ '[' -z '' ']'
+++ export MODULEPATH_ROOT=/usr/share/modulefiles
+++ MODULEPATH_ROOT=/usr/share/modulefiles
+++ export USER=<user>
+++ USER=<user>
++++ uname
+++ export LMOD_sys=Linux
+++ LMOD_sys=Linux
+++ '[' -z '' ']'
+++ '[' -f /etc/lmod/.modulespath ']'
+++ LMOD_MODULEPATH_INIT=/usr/share/lmod/lmod/init/.modulespath
+++ '[' -f /usr/share/lmod/lmod/init/.modulespath ']'
++++ sed 's/#.*$//'
++++ cat /usr/share/lmod/lmod/init/.modulespath
+++ for str in $(cat ${LMOD_MODULEPATH_INIT} | sed 's/#.*$//')
+++ for dir in $str
+++ '[' -d /orcd/software/core/001/modulefiles ']'
++++ /usr/share/lmod/lmod/libexec/addto --append MODULEPATH /orcd/software/core/001/modulefiles
+++ export MODULEPATH=/etc/modulefiles:/usr/share/modulefiles:/orcd/software/core/001/modulefiles
+++ MODULEPATH=/etc/modulefiles:/usr/share/modulefiles:/orcd/software/core/001/modulefiles
+++ '[' -n '' ']'
+++ export BASH_ENV=/usr/share/lmod/lmod/init/bash
+++ BASH_ENV=/usr/share/lmod/lmod/init/bash
+++ '[' -z '' ']'
+++ export MANPATH=:
+++ MANPATH=:
++++ /usr/share/lmod/lmod/libexec/addto MANPATH /usr/share/lmod/lmod/share/man
+++ export MANPATH=/usr/share/lmod/lmod/share/man:
+++ MANPATH=/usr/share/lmod/lmod/share/man:
+++ findExec READLINK_CMD /usr/bin/readlink readlink
+++ Nm=READLINK_CMD
+++ confPath=/usr/bin/readlink
+++ execNm=readlink
+++ eval READLINK_CMD=/usr/bin/readlink
++++ READLINK_CMD=/usr/bin/readlink
+++ '[' '!' -x /usr/bin/readlink ']'
+++ unset Nm confPath execNm
+++ findExec PS_CMD /usr/bin/ps ps
+++ Nm=PS_CMD
+++ confPath=/usr/bin/ps
+++ execNm=ps
+++ eval PS_CMD=/usr/bin/ps
++++ PS_CMD=/usr/bin/ps
+++ '[' '!' -x /usr/bin/ps ']'
+++ unset Nm confPath execNm
+++ findExec EXPR_CMD /usr/bin/expr expr
+++ Nm=EXPR_CMD
+++ confPath=/usr/bin/expr
+++ execNm=expr
+++ eval EXPR_CMD=/usr/bin/expr
++++ EXPR_CMD=/usr/bin/expr
+++ '[' '!' -x /usr/bin/expr ']'
+++ unset Nm confPath execNm
+++ findExec BASENAME_CMD /usr/bin/basename basename
+++ Nm=BASENAME_CMD
+++ confPath=/usr/bin/basename
+++ execNm=basename
+++ eval BASENAME_CMD=/usr/bin/basename
++++ BASENAME_CMD=/usr/bin/basename
+++ '[' '!' -x /usr/bin/basename ']'
+++ unset Nm confPath execNm
+++ unset -f findExec
+++ '[' -f /proc/2686103/exe ']'
++++ /usr/bin/readlink /proc/2686103/exe
+++ my_shell=/usr/bin/bash
++++ /usr/bin/expr /usr/bin/bash : '-*\(.*\)'
+++ my_shell=/usr/bin/bash
++++ /usr/bin/basename /usr/bin/bash
+++ my_shell=bash
+++ case ${my_shell} in
+++ '[' -f /usr/share/lmod/lmod/init/bash ']'
+++ . /usr/share/lmod/lmod/init/bash
++++ '[' -z '' ']'
++++ case "$-" in
++++ __lmod_vx=x
++++ '[' -n x ']'
++++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for this output (/usr/share/lmod/lmod/init/bash)
+Shell debugging restarted
++++ unset __lmod_vx
+++ unset my_shell PS_CMD EXPR_CMD BASENAME_CMD MODULEPATH_INIT LMOD_ALLOW_ROOT_USE READLINK_CMD
++ module load miniforge
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_sh_dbg=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output
+Shell debugging restarted
++ unset __lmod_sh_dbg
++ return 0
++ conda activate /orcd/data/dandi/001/environments/name-s3+backup_env
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate /orcd/data/dandi/001/environments/name-s3+backup_env
++ '[' -n '' ']'
++ local ask_conda
+++ PS1=
+++ __conda_exe shell.posix activate /orcd/data/dandi/001/environments/name-s3+backup_env
+++ '[' -n '' ']'
+++ /orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/conda shell.posix activate /orcd/data/dandi/001/environments/name-s3+backup_env
++ ask_conda='export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+PS1='\''(/orcd/data/dandi/001/environments/name-s3+backup_env) '\''
+export PATH='\''/orcd/data/dandi/001/environments/name-s3+backup_env/bin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/condabin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin:/usr/bin:/bin'\''
+export CONDA_PREFIX='\''/orcd/data/dandi/001/environments/name-s3+backup_env'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''/orcd/data/dandi/001/environments/name-s3+backup_env'\''
+export CONDA_PROMPT_MODIFIER='\''(/orcd/data/dandi/001/environments/name-s3+backup_env) '\''
+export CONDA_EXE='\''/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/conda'\''
+export _CONDA_EXE='\''/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/python'\''
+export _CONDA_ROOT='\''/orcd/software/core/001/pkg/miniforge/26.7.2-0'\'''
++ eval 'export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+PS1='\''(/orcd/data/dandi/001/environments/name-s3+backup_env) '\''
+export PATH='\''/orcd/data/dandi/001/environments/name-s3+backup_env/bin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/condabin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin:/usr/bin:/bin'\''
+export CONDA_PREFIX='\''/orcd/data/dandi/001/environments/name-s3+backup_env'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''/orcd/data/dandi/001/environments/name-s3+backup_env'\''
+export CONDA_PROMPT_MODIFIER='\''(/orcd/data/dandi/001/environments/name-s3+backup_env) '\''
+export CONDA_EXE='\''/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/conda'\''
+export _CONDA_EXE='\''/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/python'\''
+export _CONDA_ROOT='\''/orcd/software/core/001/pkg/miniforge/26.7.2-0'\'''
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ PS1='(/orcd/data/dandi/001/environments/name-s3+backup_env) '
+++ export PATH=/orcd/data/dandi/001/environments/name-s3+backup_env/bin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/condabin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin:/usr/bin:/bin
+++ PATH=/orcd/data/dandi/001/environments/name-s3+backup_env/bin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/condabin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin:/usr/bin:/bin
+++ export CONDA_PREFIX=/orcd/data/dandi/001/environments/name-s3+backup_env
+++ CONDA_PREFIX=/orcd/data/dandi/001/environments/name-s3+backup_env
+++ export CONDA_SHLVL=1
+++ CONDA_SHLVL=1
+++ export CONDA_DEFAULT_ENV=/orcd/data/dandi/001/environments/name-s3+backup_env
+++ CONDA_DEFAULT_ENV=/orcd/data/dandi/001/environments/name-s3+backup_env
+++ export 'CONDA_PROMPT_MODIFIER=(/orcd/data/dandi/001/environments/name-s3+backup_env) '
+++ CONDA_PROMPT_MODIFIER='(/orcd/data/dandi/001/environments/name-s3+backup_env) '
+++ export CONDA_EXE=/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/conda
+++ CONDA_EXE=/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/conda
+++ export _CONDA_EXE=/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/conda
+++ _CONDA_EXE=/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/conda
+++ export CONDA_PYTHON_EXE=/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/python
+++ CONDA_PYTHON_EXE=/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/python
+++ export _CONDA_ROOT=/orcd/software/core/001/pkg/miniforge/26.7.2-0
+++ _CONDA_ROOT=/orcd/software/core/001/pkg/miniforge/26.7.2-0
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ set -uo pipefail
++ task_id=4
+++ date --iso-8601=seconds
+++ hostname
++ echo '2026-11-11T16:52:56-05:00 starting backup_blobs task 4 (job replay on node4103)'
+2026-11-11T16:52:56-05:00 starting backup_blobs task 4 (job replay on node4103)
++ lock_file=/orcd/data/dandi/001/backup/flocks/backup_blobs_batch_4.lock
++ exec
++ flock --nonblocking 10
++ set +x
+--- after the setup
+CONDA_PREFIX=/orcd/data/dandi/001/environments/name-s3+backup_env
+PATH=/orcd/data/dandi/001/environments/name-s3+backup_env/bin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/condabin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin:/usr/bin:/bin
+s3backup is /orcd/data/dandi/001/environments/name-s3+backup_env/bin/s3backup
+s5cmd is /orcd/data/dandi/001/environments/name-s3+backup_env/bin/s5cmd
+python is /orcd/data/dandi/001/environments/name-s3+backup_env/bin/python
+flock is hashed (/usr/bin/flock)
+--- s3backup dandi blobs --help
+Usage: s3backup dandi blobs [OPTIONS] TASK_ID
+
+  Backup DANDI blob directories correspond to the `task_id`.
+
+Options:
+  --help  Show this message and exit.
+--- the package s3backup runs
+/orcd/data/dandi/001/backup/simple-s3-backup/src/simple_s3_backup/__init__.py
+--- s5cmd
+v2.3.0-991c9fb
+--- listing a blob prefix with the job's credentials
+2026/07/10 20:47:04       16693984475  4825cfd1-bc75-4dd2-b4b7-77995ab57e0a
+--- the same without signing
+2026/07/10 20:47:04       16693984475  4825cfd1-bc75-4dd2-b4b7-77995ab57e0a
+[exit 0]
+
+### Replayed again without the script's own set -e and set -u
++ source /etc/profile.d/modules.sh
+++ . /etc/profile.d/00-modulepath.sh
++++ '[' -z '' ']'
+++++ readlink /etc/alternatives/modules.sh
++++ '[' /usr/share/lmod/lmod/init/profile = /usr/share/lmod/lmod/init/profile -o -f /etc/profile.d/z00_lmod.sh ']'
++++ export MODULEPATH=/etc/modulefiles:/usr/share/modulefiles
++++ MODULEPATH=/etc/modulefiles:/usr/share/modulefiles
+++ '[' -z '' ']'
+++ LMOD_ALLOW_ROOT_USE=yes
+++ '[' -n '' ']'
+++ '[' yes '!=' yes ']'
+++ '[' -z '' ']'
+++ export MODULEPATH_ROOT=/usr/share/modulefiles
+++ MODULEPATH_ROOT=/usr/share/modulefiles
+++ export USER=<user>
+++ USER=<user>
++++ uname
+++ export LMOD_sys=Linux
+++ LMOD_sys=Linux
+++ '[' -z '' ']'
+++ '[' -f /etc/lmod/.modulespath ']'
+++ LMOD_MODULEPATH_INIT=/usr/share/lmod/lmod/init/.modulespath
+++ '[' -f /usr/share/lmod/lmod/init/.modulespath ']'
++++ cat /usr/share/lmod/lmod/init/.modulespath
++++ sed 's/#.*$//'
+++ for str in $(cat ${LMOD_MODULEPATH_INIT} | sed 's/#.*$//')
+++ for dir in $str
+++ '[' -d /orcd/software/core/001/modulefiles ']'
++++ /usr/share/lmod/lmod/libexec/addto --append MODULEPATH /orcd/software/core/001/modulefiles
+++ export MODULEPATH=/etc/modulefiles:/usr/share/modulefiles:/orcd/software/core/001/modulefiles
+++ MODULEPATH=/etc/modulefiles:/usr/share/modulefiles:/orcd/software/core/001/modulefiles
+++ '[' -n '' ']'
+++ export BASH_ENV=/usr/share/lmod/lmod/init/bash
+++ BASH_ENV=/usr/share/lmod/lmod/init/bash
+++ '[' -z '' ']'
+++ export MANPATH=:
+++ MANPATH=:
++++ /usr/share/lmod/lmod/libexec/addto MANPATH /usr/share/lmod/lmod/share/man
+++ export MANPATH=/usr/share/lmod/lmod/share/man:
+++ MANPATH=/usr/share/lmod/lmod/share/man:
+++ findExec READLINK_CMD /usr/bin/readlink readlink
+++ Nm=READLINK_CMD
+++ confPath=/usr/bin/readlink
+++ execNm=readlink
+++ eval READLINK_CMD=/usr/bin/readlink
++++ READLINK_CMD=/usr/bin/readlink
+++ '[' '!' -x /usr/bin/readlink ']'
+++ unset Nm confPath execNm
+++ findExec PS_CMD /usr/bin/ps ps
+++ Nm=PS_CMD
+++ confPath=/usr/bin/ps
+++ execNm=ps
+++ eval PS_CMD=/usr/bin/ps
++++ PS_CMD=/usr/bin/ps
+++ '[' '!' -x /usr/bin/ps ']'
+++ unset Nm confPath execNm
+++ findExec EXPR_CMD /usr/bin/expr expr
+++ Nm=EXPR_CMD
+++ confPath=/usr/bin/expr
+++ execNm=expr
+++ eval EXPR_CMD=/usr/bin/expr
++++ EXPR_CMD=/usr/bin/expr
+++ '[' '!' -x /usr/bin/expr ']'
+++ unset Nm confPath execNm
+++ findExec BASENAME_CMD /usr/bin/basename basename
+++ Nm=BASENAME_CMD
+++ confPath=/usr/bin/basename
+++ execNm=basename
+++ eval BASENAME_CMD=/usr/bin/basename
++++ BASENAME_CMD=/usr/bin/basename
+++ '[' '!' -x /usr/bin/basename ']'
+++ unset Nm confPath execNm
+++ unset -f findExec
+++ '[' -f /proc/2686249/exe ']'
++++ /usr/bin/readlink /proc/2686249/exe
+++ my_shell=/usr/bin/bash
++++ /usr/bin/expr /usr/bin/bash : '-*\(.*\)'
+++ my_shell=/usr/bin/bash
++++ /usr/bin/basename /usr/bin/bash
+++ my_shell=bash
+++ case ${my_shell} in
+++ '[' -f /usr/share/lmod/lmod/init/bash ']'
+++ . /usr/share/lmod/lmod/init/bash
++++ '[' -z '' ']'
++++ case "$-" in
++++ __lmod_vx=x
++++ '[' -n x ']'
++++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for this output (/usr/share/lmod/lmod/init/bash)
+Shell debugging restarted
++++ unset __lmod_vx
+++ unset my_shell PS_CMD EXPR_CMD BASENAME_CMD MODULEPATH_INIT LMOD_ALLOW_ROOT_USE READLINK_CMD
++ module load miniforge
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_sh_dbg=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output
+Shell debugging restarted
++ unset __lmod_sh_dbg
++ return 0
++ conda activate /orcd/data/dandi/001/environments/name-s3+backup_env
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate /orcd/data/dandi/001/environments/name-s3+backup_env
++ '[' -n '' ']'
++ local ask_conda
+++ PS1=
+++ __conda_exe shell.posix activate /orcd/data/dandi/001/environments/name-s3+backup_env
+++ '[' -n '' ']'
+++ /orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/conda shell.posix activate /orcd/data/dandi/001/environments/name-s3+backup_env
++ ask_conda='export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+PS1='\''(/orcd/data/dandi/001/environments/name-s3+backup_env) '\''
+export PATH='\''/orcd/data/dandi/001/environments/name-s3+backup_env/bin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/condabin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin:/usr/bin:/bin'\''
+export CONDA_PREFIX='\''/orcd/data/dandi/001/environments/name-s3+backup_env'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''/orcd/data/dandi/001/environments/name-s3+backup_env'\''
+export CONDA_PROMPT_MODIFIER='\''(/orcd/data/dandi/001/environments/name-s3+backup_env) '\''
+export CONDA_EXE='\''/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/conda'\''
+export _CONDA_EXE='\''/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/python'\''
+export _CONDA_ROOT='\''/orcd/software/core/001/pkg/miniforge/26.7.2-0'\'''
++ eval 'export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+PS1='\''(/orcd/data/dandi/001/environments/name-s3+backup_env) '\''
+export PATH='\''/orcd/data/dandi/001/environments/name-s3+backup_env/bin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/condabin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin:/usr/bin:/bin'\''
+export CONDA_PREFIX='\''/orcd/data/dandi/001/environments/name-s3+backup_env'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''/orcd/data/dandi/001/environments/name-s3+backup_env'\''
+export CONDA_PROMPT_MODIFIER='\''(/orcd/data/dandi/001/environments/name-s3+backup_env) '\''
+export CONDA_EXE='\''/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/conda'\''
+export _CONDA_EXE='\''/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/python'\''
+export _CONDA_ROOT='\''/orcd/software/core/001/pkg/miniforge/26.7.2-0'\'''
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ PS1='(/orcd/data/dandi/001/environments/name-s3+backup_env) '
+++ export PATH=/orcd/data/dandi/001/environments/name-s3+backup_env/bin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/condabin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin:/usr/bin:/bin
+++ PATH=/orcd/data/dandi/001/environments/name-s3+backup_env/bin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/condabin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin:/usr/bin:/bin
+++ export CONDA_PREFIX=/orcd/data/dandi/001/environments/name-s3+backup_env
+++ CONDA_PREFIX=/orcd/data/dandi/001/environments/name-s3+backup_env
+++ export CONDA_SHLVL=1
+++ CONDA_SHLVL=1
+++ export CONDA_DEFAULT_ENV=/orcd/data/dandi/001/environments/name-s3+backup_env
+++ CONDA_DEFAULT_ENV=/orcd/data/dandi/001/environments/name-s3+backup_env
+++ export 'CONDA_PROMPT_MODIFIER=(/orcd/data/dandi/001/environments/name-s3+backup_env) '
+++ CONDA_PROMPT_MODIFIER='(/orcd/data/dandi/001/environments/name-s3+backup_env) '
+++ export CONDA_EXE=/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/conda
+++ CONDA_EXE=/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/conda
+++ export _CONDA_EXE=/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/conda
+++ _CONDA_EXE=/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/conda
+++ export CONDA_PYTHON_EXE=/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/python
+++ CONDA_PYTHON_EXE=/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin/python
+++ export _CONDA_ROOT=/orcd/software/core/001/pkg/miniforge/26.7.2-0
+++ _CONDA_ROOT=/orcd/software/core/001/pkg/miniforge/26.7.2-0
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ : removed for this replay
++ task_id=4
+++ date --iso-8601=seconds
+++ hostname
++ echo '2026-11-11T16:53:04-05:00 starting backup_blobs task 4 (job replay on node4103)'
+2026-11-11T16:53:04-05:00 starting backup_blobs task 4 (job replay on node4103)
++ lock_file=/orcd/data/dandi/001/backup/flocks/backup_blobs_batch_4.lock
++ exec
++ flock --nonblocking 10
++ set +x
+--- after the setup
+CONDA_PREFIX=/orcd/data/dandi/001/environments/name-s3+backup_env
+PATH=/orcd/data/dandi/001/environments/name-s3+backup_env/bin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/condabin:/orcd/software/core/001/pkg/miniforge/26.7.2-0/bin:/usr/bin:/bin
+s3backup is /orcd/data/dandi/001/environments/name-s3+backup_env/bin/s3backup
+s5cmd is /orcd/data/dandi/001/environments/name-s3+backup_env/bin/s5cmd
+python is /orcd/data/dandi/001/environments/name-s3+backup_env/bin/python
+flock is hashed (/usr/bin/flock)
+--- s3backup dandi blobs --help
+Usage: s3backup dandi blobs [OPTIONS] TASK_ID
+
+  Backup DANDI blob directories correspond to the `task_id`.
+
+Options:
+  --help  Show this message and exit.
+--- the package s3backup runs
+/orcd/data/dandi/001/backup/simple-s3-backup/src/simple_s3_backup/__init__.py
+--- s5cmd
+v2.3.0-991c9fb
+--- listing a blob prefix with the job's credentials
+2026/07/10 20:47:04       16693984475  4825cfd1-bc75-4dd2-b4b7-77995ab57e0a
+--- the same without signing
+2026/07/10 20:47:04       16693984475  4825cfd1-bc75-4dd2-b4b7-77995ab57e0a
+[exit 0]
+
+## Lock files
+
+### Lock directory
+$ bash -c stat\ -c\ \'%A\ %y\ %n\'\ \'/orcd/data/dandi/001/backup/flocks\'\ \'/orcd/data/dandi/001/backup\'/flocks/\*
+drwxrwsr-x 2026-11-10 22:08:30.920060865 -0500 /orcd/data/dandi/001/backup/flocks
+-rw-rw-r-- 2026-11-10 22:03:39.483384800 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_0.lock
+-rw-rw-r-- 2026-11-10 22:03:39.520385013 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_10.lock
+-rw-rw-r-- 2026-11-10 22:03:39.523385030 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_11.lock
+-rw-rw-r-- 2026-11-10 22:03:39.515384984 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_12.lock
+-rw-rw-r-- 2026-11-10 22:03:39.532385082 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_13.lock
+-rw-rw-r-- 2026-11-10 22:43:34.029155940 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_14.lock
+-rw-rw-r-- 2026-11-10 22:43:34.228157085 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_15.lock
+-rw-rw-r-- 2026-11-10 22:03:39.385384236 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_1.lock
+-rw-rw-r-- 2026-11-10 22:03:39.385384236 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_2.lock
+-rw-rw-r-- 2026-11-10 22:03:39.400384323 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_3.lock
+-rw-rw-r-- 2026-11-11 16:52:56.025583194 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_4.lock
+-rw-rw-r-- 2026-11-10 22:03:39.404384346 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_5.lock
+-rw-rw-r-- 2026-11-10 22:03:39.624385611 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_6.lock
+-rw-rw-r-- 2026-11-10 22:03:39.578385346 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_7.lock
+-rw-rw-r-- 2026-11-10 22:03:39.491384846 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_8.lock
+-rw-rw-r-- 2026-11-10 22:03:39.494384863 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_9.lock
+-rw-r--r-- 2026-06-21 22:00:02.701765227 -0400 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch.lock
+-rw-rw-r-- 2026-11-09 21:34:46.821499851 -0500 /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_.lock
+-rw-r--r-- 2026-02-21 18:00:36.276320656 -0500 /orcd/data/dandi/001/backup/flocks/backup_nonblobs_batch.lock
+-rw-r--r-- 2025-08-21 00:00:01.748228669 -0400 /orcd/data/dandi/001/backup/flocks/backup_nonblobs.lock
+-rw-r--r-- 2025-08-21 06:00:01.920456731 -0400 /orcd/data/dandi/001/backup/flocks/update_dashboard.lock
+-rw-r--r-- 2026-11-11 10:00:57.456123917 -0500 /orcd/data/dandi/001/backup/flocks/verify_checksums_batch_0.lock
+-rw-r--r-- 2026-11-11 10:00:57.459123935 -0500 /orcd/data/dandi/001/backup/flocks/verify_checksums_batch_1.lock
+-rw-r--r-- 2026-11-11 10:00:57.506124218 -0500 /orcd/data/dandi/001/backup/flocks/verify_checksums_batch_2.lock
+-rw-r--r-- 2026-11-11 10:00:57.451123887 -0500 /orcd/data/dandi/001/backup/flocks/verify_checksums_batch_3.lock
+-rw-r--r-- 2026-11-10 22:08:30.698059588 -0500 /orcd/data/dandi/001/backup/flocks/verify_checksums_batch_4.lock
+-rw-r--r-- 2026-11-10 22:08:30.579058904 -0500 /orcd/data/dandi/001/backup/flocks/verify_checksums_batch_5.lock
+-rw-r--r-- 2026-11-10 22:08:30.515058536 -0500 /orcd/data/dandi/001/backup/flocks/verify_checksums_batch_6.lock
+-rw-r--r-- 2026-11-10 22:08:30.920060865 -0500 /orcd/data/dandi/001/backup/flocks/verify_checksums_batch_7.lock
+-rw-r--r-- 2026-11-10 10:00:22.909810267 -0500 /orcd/data/dandi/001/backup/flocks/verify_checksums_batch.lock
+[exit 0]
+Held right now: verify_checksums_batch_0.lock verify_checksums_batch_1.lock verify_checksums_batch_2.lock verify_checksums_batch_3.lock
+
+## The blob mirror
+
+### Space on the partitions
+$ df -h /orcd/data/dandi/001 /orcd/data/dandi/002
+Filesystem                    Size  Used Avail Use% Mounted on
+hstor004-n1:/group/dandi/001  880T  728T  153T  83% /orcd/data/dandi/001
+hstor004-n2:/group/dandi/002  620T  384T  237T  62% /orcd/data/dandi/002
+[exit 0]
+
+### /orcd/data/dandi/001/s3dandiarchive/blobs
+$ stat -c %A\ group\ %G\,\ changed\ %y /orcd/data/dandi/001/s3dandiarchive/blobs
+drwxrwsr-x group orcd_rg_hstor004_pg_dandi, changed 2026-11-09 22:58:32.001761447 -0500
+[exit 0]
+Owned by the runner's user.
+Writable by the runner's user.
+Top-level prefixes: 2560
+
+### Most recently changed prefixes of 001
+$ bash -c ls\ -dt\ \'/orcd/data/dandi/001/s3dandiarchive/blobs\'/\*/\ \|\ head\ -n\ 5\ \|\ xargs\ -r\ stat\ -c\ \'%y\ %n\'
+2026-11-11 08:19:32.216299428 -0500 /orcd/data/dandi/001/s3dandiarchive/blobs/418/
+2026-11-11 08:16:34.172266258 -0500 /orcd/data/dandi/001/s3dandiarchive/blobs/21e/
+2026-11-11 08:15:35.550926086 -0500 /orcd/data/dandi/001/s3dandiarchive/blobs/113/
+2026-11-11 08:11:49.994617211 -0500 /orcd/data/dandi/001/s3dandiarchive/blobs/417/
+2026-11-11 08:08:37.567500580 -0500 /orcd/data/dandi/001/s3dandiarchive/blobs/609/
+[exit 0]
+
+### /orcd/data/dandi/002/s3dandiarchive/blobs
+$ stat -c %A\ group\ %G\,\ changed\ %y /orcd/data/dandi/002/s3dandiarchive/blobs
+drwxrwsr-x group orcd_rg_hstor004_pg_dandi, changed 2026-11-09 22:58:33.356399836 -0500
+[exit 0]
+Owned by the runner's user.
+Writable by the runner's user.
+Top-level prefixes: 1536
+
+### Most recently changed prefixes of 002
+$ bash -c ls\ -dt\ \'/orcd/data/dandi/002/s3dandiarchive/blobs\'/\*/\ \|\ head\ -n\ 5\ \|\ xargs\ -r\ stat\ -c\ \'%y\ %n\'
+2026-11-11 08:19:53.914919779 -0500 /orcd/data/dandi/002/s3dandiarchive/blobs/d20/
+2026-11-11 08:19:06.827605049 -0500 /orcd/data/dandi/002/s3dandiarchive/blobs/a22/
+2026-11-11 08:16:03.870496685 -0500 /orcd/data/dandi/002/s3dandiarchive/blobs/b1f/
+2026-11-11 08:13:54.180875608 -0500 /orcd/data/dandi/002/s3dandiarchive/blobs/a21/
+2026-11-11 08:11:46.170301413 -0500 /orcd/data/dandi/002/s3dandiarchive/blobs/d1f/
+[exit 0]
+
+### AWS configuration in the home directory (file names only)
+$ bash -c ls\ -A\ ~/.aws
+config
+credentials
+[exit 0]
