@@ -1,0 +1,2 @@
+sbatch: error: Batch job submission failed: Unable to contact slurm controller (connect failure)
+Submitting DANDI-Update-Backup-Dashboard failed (exit 1).
