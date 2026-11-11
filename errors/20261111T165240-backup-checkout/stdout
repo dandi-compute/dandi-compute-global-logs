@@ -1,0 +1,321 @@
+## The simple-s3-backup checkout the backup jobs run from: /orcd/data/dandi/001/backup/simple-s3-backup
+
+### Branch and state
+$ git -C /orcd/data/dandi/001/backup/simple-s3-backup status --short --branch
+## main...origin/main
+[exit 0]
+
+### Recent commits
+$ git -C /orcd/data/dandi/001/backup/simple-s3-backup log --oneline --decorate -5
+4dd2eae (HEAD -> main, origin/main, origin/HEAD) Added a verification of the blob mirror's content against the bucket (#52)
+2a152b1 Fixed the blob backup failing on the unset MODULEPATH, and recovered the cluster's unpushed commits (#51)
+02a8df6 [pre-commit.ci] pre-commit autoupdate (#50)
+f2c7313 Disabled Dependabot rebases (#49)
+e1e99f6 [pre-commit.ci] pre-commit autoupdate (#48)
+[exit 0]
+
+### Against GitHub
+HEAD is 4dd2eaefa49e7dc519ea8008167e95997cea77f9; main on GitHub is 4dd2eaefa49e7dc519ea8008167e95997cea77f9.
+Changed files against HEAD: 0. Untracked files: 0.
+
+### Commits with dates
+$ git -C /orcd/data/dandi/001/backup/simple-s3-backup log --format=%h\ %ad\ %s --date=iso -10
+4dd2eae 2026-11-10 00:49:05 -0500 Added a verification of the blob mirror's content against the bucket (#52)
+2a152b1 2026-11-09 23:39:03 -0500 Fixed the blob backup failing on the unset MODULEPATH, and recovered the cluster's unpushed commits (#51)
+02a8df6 2026-10-06 16:45:12 -0400 [pre-commit.ci] pre-commit autoupdate (#50)
+f2c7313 2026-10-05 13:39:50 -0400 Disabled Dependabot rebases (#49)
+e1e99f6 2026-07-06 17:37:12 -0400 [pre-commit.ci] pre-commit autoupdate (#48)
+ccddad4 2026-06-24 14:54:21 -0400 Add dashboard documentation and blob partition separation details (#47)
+082d586 2026-06-24 14:35:34 -0400 Update backup_blobs_batch_deployment.sh
+fce62e6 2026-06-24 14:35:17 -0400 Update backup_nonblobs_deployment.sh
+18ec3c7 2026-06-24 14:35:09 -0400 Update backup_zarr_batch_deployment.sh
+38bfb2e 2026-06-24 14:26:35 -0400 Fix backup location (#46)
+[exit 0]
+
+### When the checkout moved (reflog)
+$ git -C /orcd/data/dandi/001/backup/simple-s3-backup reflog --date=iso -20
+4dd2eae HEAD@{2026-11-11 08:20:36 -0500}: checkout: moving from main to main
+4dd2eae HEAD@{2026-11-11 08:20:36 -0500}: branch: Reset to origin/main
+4dd2eae HEAD@{2026-11-10 01:18:11 -0500}: checkout: moving from main to main
+4dd2eae HEAD@{2026-11-10 01:18:11 -0500}: branch: Reset to origin/main
+2a152b1 HEAD@{2026-11-09 23:49:00 -0500}: checkout: moving from claude/pensive-goodall-moaac0 to main
+c8973dc HEAD@{2026-06-25 15:03:23 -0400}: checkout: moving from main to claude/pensive-goodall-moaac0
+ccddad4 HEAD@{2026-06-24 14:54:33 -0400}: pull: Fast-forward
+38bfb2e HEAD@{2026-06-24 14:27:08 -0400}: pull: Fast-forward
+7721958 HEAD@{2026-06-19 16:34:33 -0400}: pull: Fast-forward
+dd711d7 HEAD@{2026-06-19 16:18:24 -0400}: reset: moving to HEAD
+dd711d7 HEAD@{2026-06-19 16:02:14 -0400}: pull: Fast-forward
+e664cb9 HEAD@{2026-06-19 16:02:13 -0400}: reset: moving to HEAD
+e664cb9 HEAD@{2026-06-19 15:44:42 -0400}: pull: Fast-forward
+e80bf4c HEAD@{2026-06-19 15:34:17 -0400}: clone: from https://github.com/dandi/simple-s3-backup
+[exit 0]
+
+### Changes against HEAD
+$ git -C /orcd/data/dandi/001/backup/simple-s3-backup diff HEAD
+[exit 0]
+
+### Untracked files
+$ git -C /orcd/data/dandi/001/backup/simple-s3-backup ls-files --others --exclude-standard
+[exit 0]
+
+### Deployed backup_blobs_batch_deployment.sh
+$ cat /orcd/data/dandi/001/backup/simple-s3-backup/scripts/backup_blobs_batch_deployment.sh
+#!/bin/bash
+#SBATCH --job-name=DANDI-Backup-Blobs
+#SBATCH --partition mit_preemptable
+#SBATCH --requeue
+#SBATCH --array 0-15
+#SBATCH --mem=1GB
+#SBATCH --cpus-per-task 1
+#SBATCH --time=12:00:00
+#SBATCH --open-mode=append
+#SBATCH --output=/orcd/data/dandi/001/backup/logs/backup_blobs_batch_%A_%a.out
+#SBATCH --error=/orcd/data/dandi/001/backup/logs/backup_blobs_batch_%A_%a.err
+
+# NOTE on partition choice and reliability:
+#   `mit_preemptable` is cheap but jobs can be preempted (killed) at any time, and SLURM places
+#   array tasks in ascending index order. Previously this job ran without `--requeue`, so any task
+#   that was preempted - or that never won a slot on the contended `mit_preemptable` partition - was lost
+#   silently. The high-index tasks (10-15, which map to storage partition 002) are scheduled last
+#   and were the ones that never ran. The `--requeue` directive above now resubmits preempted tasks
+#   automatically. If preemption keeps causing misses, move this job to a non-preemptable partition.
+#
+#   The per-task `--output`/`--error` logs (one file per array task) make any future failure visible.
+#   The log directory must exist before submission; create it once with:
+#       mkdir -p /orcd/data/dandi/001/backup/logs
+
+source /etc/profile.d/modules.sh  # When run via crontab, this is needed to load the modules
+module load miniforge
+conda activate /orcd/data/dandi/001/environments/name-s3+backup_env
+
+# Only after the setup above: the cluster's module scripts read MODULEPATH, which cron does not
+# set, and under `set -u` bash stops the job at the first such read. With `set -u` first, every
+# task exited with status 1 within a second, from 2026-06-25 until this was moved.
+set -uo pipefail
+
+task_id="${SLURM_ARRAY_TASK_ID}"
+echo "$(date --iso-8601=seconds) starting backup_blobs task ${task_id} (job ${SLURM_ARRAY_JOB_ID:-?} on $(hostname))"
+
+lock_file="/orcd/data/dandi/001/backup/flocks/backup_blobs_batch_${task_id}.lock"
+
+# Acquire the per-task lock on a dedicated file descriptor. We still use non-blocking `flock`, but
+# unlike the previous `flock -n <cmd>` form (which silently skipped the work when the lock was held),
+# we now FAIL LOUDLY with a logged error and a non-zero exit code if the lock cannot be acquired.
+exec {lock_fd}>"${lock_file}"
+if ! flock --nonblocking "${lock_fd}"; then
+    echo "$(date --iso-8601=seconds) ERROR task ${task_id}: could not acquire lock ${lock_file}; another run is still active. Refusing to skip silently." >&2
+    exit 1
+fi
+
+s3backup dandi blobs "${task_id}"
+status=$?
+
+if [ "${status}" -ne 0 ]; then
+    echo "$(date --iso-8601=seconds) ERROR task ${task_id}: 's3backup dandi blobs ${task_id}' exited with status ${status}" >&2
+else
+    echo "$(date --iso-8601=seconds) completed backup_blobs task ${task_id}"
+fi
+
+exit "${status}"
+[exit 0]
+
+### Deployed backup_nonblobs_deployment.sh
+$ cat /orcd/data/dandi/001/backup/simple-s3-backup/scripts/backup_nonblobs_deployment.sh
+#!/bin/bash
+#SBATCH --partition mit_preemptable
+#SBATCH --mem=100MB
+#SBATCH --cpus-per-task 1
+#SBATCH --time=12:00:00
+
+source /etc/profile.d/modules.sh  # When run via crontab, this is needed to load the modules
+module load miniforge
+conda activate /orcd/data/dandi/001/environments/name-s3+backup_env
+
+flock -n /orcd/data/dandi/001/backup/flocks/backup_nonblobs_batch.lock s3backup dandi nonblobs $SLURM_ARRAY_TASK_ID
+[exit 0]
+
+### Deployed backup_zarr_batch_deployment.sh
+$ cat /orcd/data/dandi/001/backup/simple-s3-backup/scripts/backup_zarr_batch_deployment.sh
+#!/bin/bash
+#SBATCH --partition mit_preemptable
+#SBATCH --array 0-255
+#SBATCH --mem=1GB
+#SBATCH --cpus-per-task 1
+#SBATCH --time=12:00:00
+
+source /etc/profile.d/modules.sh  # When run via crontab, this is needed to load the modules
+module load miniforge
+conda activate /orcd/data/dandi/001/environments/name-s3+backup_env
+
+flock -n /orcd/data/dandi/001/backup/flocks/backup_zarr_batch_$SLURM_ARRAY_TASK_ID.lock s3backup dandi zarr $SLURM_ARRAY_TASK_ID
+[exit 0]
+
+### Deployed update_dashboard.sh
+$ cat /orcd/data/dandi/001/backup/simple-s3-backup/scripts/update_dashboard.sh
+#!/bin/bash
+#SBATCH --job-name=DANDI-Update-Backup-Dashboard
+#SBATCH --mem=1GB
+#SBATCH --cpus-per-task 1
+#SBATCH --partition=mit_preemptable
+#SBATCH --time=12:00:00
+
+source /etc/profile.d/modules.sh  # When run via crontab, this is needed to load the modules
+module load miniforge
+conda activate /orcd/data/dandi/001/environments/name-s3+backup_env
+
+cd /orcd/data/dandi/001/backup/backup-status
+git pull
+flock -n /orcd/data/dandi/001/backup/flocks/update_dashboard.lock s3backup dandi dashboard
+git add .
+git commit --message "update"
+git push
+[exit 0]
+
+### Deployed verify_blobs_backup_deployment.sh
+$ cat /orcd/data/dandi/001/backup/simple-s3-backup/scripts/verify_blobs_backup_deployment.sh
+#!/bin/bash
+#SBATCH --job-name=DANDI-Verify-Blobs-Backup
+#SBATCH --partition mit_preemptable
+#SBATCH --requeue
+#SBATCH --mem=1GB
+#SBATCH --cpus-per-task 1
+#SBATCH --time=1:00:00
+#SBATCH --open-mode=append
+#SBATCH --output=/orcd/data/dandi/001/backup/logs/verify_blobs_backup_%j.out
+#SBATCH --error=/orcd/data/dandi/001/backup/logs/verify_blobs_backup_%j.err
+
+# Post-run guard for the blob backup array job. Checks that BOTH storage partitions (001 and 002)
+# received blob writes and exits non-zero (with a loud ALERT) if any partition got zero - the exact
+# bug where array tasks 10-15 (partition 002) never ran. Intended to be submitted with a SLURM
+# dependency on the backup array job so it runs only after every task has finished; see README.
+#
+# The log directory must exist before submission; create it once with:
+#     mkdir -p /orcd/data/dandi/001/backup/logs
+
+source /etc/profile.d/modules.sh  # When run via crontab, this is needed to load the modules
+module load miniforge
+conda activate /orcd/data/dandi/001/environments/name-s3+backup_env
+
+# Only after the setup above, which reads variables cron does not set (see
+# backup_blobs_batch_deployment.sh).
+set -uo pipefail
+
+flock -n /orcd/data/dandi/001/backup/flocks/verify_blobs_backup.lock s3backup dandi verify-blobs
+status=$?
+
+if [ "${status}" -ne 0 ]; then
+    echo "$(date --iso-8601=seconds) ALERT: blob backup verification FAILED with status ${status}; at least one partition received zero writes." >&2
+fi
+
+exit "${status}"
+[exit 0]
+
+### Deployed verify_checksums_batch_deployment.sh
+$ cat /orcd/data/dandi/001/backup/simple-s3-backup/scripts/verify_checksums_batch_deployment.sh
+#!/bin/bash
+#SBATCH --job-name=DANDI-Verify-Checksums
+#SBATCH --partition mit_preemptable
+#SBATCH --requeue
+#SBATCH --array 0-15%4
+#SBATCH --mem=1GB
+#SBATCH --cpus-per-task 1
+#SBATCH --time=12:00:00
+#SBATCH --open-mode=append
+#SBATCH --output=/orcd/data/dandi/001/backup/logs/verify_checksums_batch_%A_%a.out
+#SBATCH --error=/orcd/data/dandi/001/backup/logs/verify_checksums_batch_%A_%a.err
+
+# Verifies the content of the blob mirror against the bucket, one task per first hex digit of the
+# content ID, as the blob backup copies it (see `s3backup dandi verify-checksums --help`). Each blob's
+# checksum is cached beside it, so a task that times out or is preempted loses nothing: the next run
+# reads only what is left. The first run reads the whole mirror and takes several; later ones read
+# only the blobs copied since. At most 4 tasks run at once, so as not to take the partitions' whole
+# read bandwidth from the jobs that use them.
+#
+# The task exits non-zero when a blob does not match the bucket, which the runner's Check backup
+# workflow reports. To copy those blobs again from the bucket:
+#     s3backup dandi verify-checksums <task_id> --repair
+#
+# The log directory must exist before submission; create it once with:
+#     mkdir -p /orcd/data/dandi/001/backup/logs
+
+source /etc/profile.d/modules.sh  # When run via crontab, this is needed to load the modules
+module load miniforge
+conda activate /orcd/data/dandi/001/environments/name-s3+backup_env
+
+# Only after the setup above, which reads variables cron does not set (see
+# backup_blobs_batch_deployment.sh).
+set -uo pipefail
+
+task_id="${SLURM_ARRAY_TASK_ID}"
+echo "$(date --iso-8601=seconds) starting verify_checksums task ${task_id} (job ${SLURM_ARRAY_JOB_ID:-?} on $(hostname))"
+
+# A task of the previous day's array can still be verifying the same head, during the first runs
+# especially. Two would only read the same files, so this one leaves it to that one.
+lock_file="/orcd/data/dandi/001/backup/flocks/verify_checksums_batch_${task_id}.lock"
+exec {lock_fd}>"${lock_file}"
+if ! flock --nonblocking "${lock_fd}"; then
+    echo "$(date --iso-8601=seconds) task ${task_id}: another run still holds ${lock_file} and is verifying this head; leaving it to that one."
+    exit 0
+fi
+
+s3backup dandi verify-checksums "${task_id}"
+status=$?
+
+if [ "${status}" -ne 0 ]; then
+    echo "$(date --iso-8601=seconds) ERROR task ${task_id}: 's3backup dandi verify-checksums ${task_id}' exited with status ${status}; the summary above names each blob that does not match." >&2
+else
+    echo "$(date --iso-8601=seconds) completed verify_checksums task ${task_id}"
+fi
+
+exit "${status}"
+[exit 0]
+
+## The crontab installed on login007
+
+### Installed crontab
+$ ssh -o BatchMode=yes -o ConnectTimeout=15 login007 crontab -l
+# The workflow triggers and the squeue snapshot record themselves in the global logs repository
+# (/orcd/data/dandi/001/dandi-compute/dandi-compute-global-logs, see launcher/record.sh).
+# Each trigger checks for work from this login node and starts its GitHub workflow only when there
+# is some (see launcher/trigger_github_action_cron.sh).
+*/15 * * * * /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/record.sh logs dispatch-trigger -- /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/dispatch_github_action_cron.sh > /dev/null 2>&1
+0 0 * * * /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/record.sh logs create-trigger -- /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/create_github_action_cron.sh > /dev/null 2>&1
+
+# For whatever reason, this particular job is sensitive to the usage of `/bin/bash -l` in order to 'behave properly'. Otherwise the SLURM job does run, the self-hosted runner is active, but the conda init does not trigger and so no environment is found.
+# -N alone keeps it from queueing a second runner job; -n 0 turns off guarded-submit's limit of 10
+# pending jobs of this user, which the job capsules waiting on priority and the throttled tasks of
+# DANDI-Verify-Checksums reach on their own. With it, the runner reached its 12-hour limit at 09:08
+# on 2026-11-10 and was not relaunched, and with the runner went the Refresh crontab workflow.
+*/1 * * * * /bin/bash -l -c 'flock -n /orcd/data/dandi/001/dandi-compute/flocks/submitter.lock -c "/orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/guarded-submit -n 0 -N DANDI-Compute-Submitter -- sbatch --output /dev/null --error=/dev/null /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/launch_submitter.sh" || echo "$(date): lock held, skipping submit"' > /dev/null 2>&1
+
+# A squeue snapshot every 5 minutes, recorded under monitor/ (see launcher/monitor.sh).
+*/5 * * * * /bin/bash -l -c '/orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/monitor.sh' > /dev/null 2>&1
+
+# A disk usage snapshot every 30 minutes, recorded under disk/ (see launcher/disk.sh).
+*/30 * * * * /bin/bash -l -c '/orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/disk.sh' > /dev/null 2>&1
+
+# Every Sunday at 04:00, clear the Apptainer blobs older than a week and the dandi-cli logs from the
+# home directory, recorded under logs/ (see launcher/clean_home.sh).
+0 4 * * 0 /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/clean_home.sh > /dev/null 2>&1
+
+# Every 15 minutes, keep ~/.bazelrc pointing Bazel's cache out of the home directory and clear what
+# Bazel is no longer using from it, recorded under logs/ (see launcher/clean_bazel.sh). A run still
+# deleting when the next is due holds the lock, and the next is skipped.
+7-59/15 * * * * flock -n /orcd/data/dandi/001/dandi-compute/flocks/clean_bazel.lock /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/clean_bazel.sh > /dev/null 2>&1
+
+# The S3 backup jobs of simple-s3-backup, each submission recorded under logs/ and each job's own
+# output kept in /orcd/data/dandi/001/backup/logs/ (see launcher/backup.sh). The Check backup
+# workflow emails when one of them fails or the blob mirror stops growing. The checksums job runs
+# once the blob backup's 12 hours are up, and fails when a mirrored blob does not match the bucket.
+0 22 * * * /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/backup.sh blobs > /dev/null 2>&1
+#0 19 * * 0,3 /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/backup.sh zarr > /dev/null 2>&1  # Zarr was disabled in May 2026
+0 18 * * * /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/backup.sh nonblobs > /dev/null 2>&1
+0 6 * * * /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/backup.sh dashboard > /dev/null 2>&1
+0 10 * * * /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/backup.sh checksums > /dev/null 2>&1
+
+# Every hour, the ledger of blobs whose checksum did not match the bucket, kept by the checksums job,
+# is copied to the checksum-mismatches branch of the global logs when it has changed (see
+# launcher/publish_checksum_mismatches.sh).
+17 * * * * /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/publish_checksum_mismatches.sh > /dev/null 2>&1
+[exit 0]
+It matches /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/crontab.
