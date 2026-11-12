@@ -1,0 +1,11 @@
+Mounted               Size  Used Avail Use%
+/orcd/data/dandi/001  880T  734T  147T  84%
+/orcd/data/dandi/002  620T  389T  232T  63%
+
+                               QUOTA REPORT
+ Space   | Usage (GB) | Limit (GB) | % Used |  Files | Limit | % Used
+---------+------------+------------+--------+--------+-------+--------
+ HOME    |       54.7 |      200.0 |  27.37 | 394.4K |  1.0M |  39.44
+ SCRATCH |        0.0 |     1024.0 |   0.00 |      1 |  1.0M |   0.00
+ POOL    |        0.0 |     1024.0 |   0.00 |      1 |  1.1M |   0.00
+Last updated: Thu Nov 12 03:35:56 EST 2026
