@@ -1,0 +1,69 @@
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for aind+ephys/1.5.0/default/75120f3c-c476-4eae-99e5-e8567beb2d6f.
+WARNING:dandi_compute_code.dandiset._blob_mirror:Blob 75120f3c-c476-4eae-99e5-e8567beb2d6f is not in the cluster's mirror yet. It is expected at /orcd/data/dandi/001/s3dandiarchive/blobs/751/20f/75120f3c-c476-4eae-99e5-e8567beb2d6f.
+INFO:dandi_compute_code.aind_ephys_pipeline._prepare_job:Writing job files to /orcd/data/dandi/001/dandi-compute/aind-ephys-pipeline/pipeline
+INFO:dandi:Found 7 files to consider
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for aind+ephys/1.5.0/dartsort/75120f3c-c476-4eae-99e5-e8567beb2d6f.
+WARNING:dandi_compute_code.dandiset._blob_mirror:Blob 75120f3c-c476-4eae-99e5-e8567beb2d6f is not in the cluster's mirror yet. It is expected at /orcd/data/dandi/001/s3dandiarchive/blobs/751/20f/75120f3c-c476-4eae-99e5-e8567beb2d6f.
+INFO:dandi_compute_code.aind_ephys_pipeline._prepare_job:Writing job files to /orcd/data/dandi/001/dandi-compute/aind-ephys-pipeline/pipeline
+INFO:dandi:Found 7 files to consider
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for aind+ephys/1.5.0/lupin/75120f3c-c476-4eae-99e5-e8567beb2d6f.
+WARNING:dandi_compute_code.dandiset._blob_mirror:Blob 75120f3c-c476-4eae-99e5-e8567beb2d6f is not in the cluster's mirror yet. It is expected at /orcd/data/dandi/001/s3dandiarchive/blobs/751/20f/75120f3c-c476-4eae-99e5-e8567beb2d6f.
+INFO:dandi_compute_code.aind_ephys_pipeline._prepare_job:Writing job files to /orcd/data/dandi/001/dandi-compute/aind-ephys-pipeline/pipeline
+INFO:dandi:Found 7 files to consider
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for aind+ephys/1.5.0/default/0b34330d-2c83-4f10-b294-9aabe6004bb9.
+INFO:dandi_compute_code.aind_ephys_pipeline._prepare_job:Writing job files to /orcd/data/dandi/001/dandi-compute/aind-ephys-pipeline/pipeline
+INFO:dandi:Found 7 files to consider
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for aind+ephys/1.5.0/dartsort/0b34330d-2c83-4f10-b294-9aabe6004bb9.
+INFO:dandi_compute_code.aind_ephys_pipeline._prepare_job:Writing job files to /orcd/data/dandi/001/dandi-compute/aind-ephys-pipeline/pipeline
+INFO:dandi:Found 7 files to consider
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for aind+ephys/1.5.0/lupin/0b34330d-2c83-4f10-b294-9aabe6004bb9.
+INFO:dandi_compute_code.aind_ephys_pipeline._prepare_job:Writing job files to /orcd/data/dandi/001/dandi-compute/aind-ephys-pipeline/pipeline
+INFO:dandi:Found 7 files to consider
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for aind+ephys/1.5.0/default/842e6712-8bea-4e74-9348-0400c513cb2f.
+INFO:dandi_compute_code.aind_ephys_pipeline._prepare_job:Writing job files to /orcd/data/dandi/001/dandi-compute/aind-ephys-pipeline/pipeline
+INFO:dandi:Found 7 files to consider
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for aind+ephys/1.5.0/dartsort/842e6712-8bea-4e74-9348-0400c513cb2f.
+INFO:dandi_compute_code.aind_ephys_pipeline._prepare_job:Writing job files to /orcd/data/dandi/001/dandi-compute/aind-ephys-pipeline/pipeline
+INFO:dandi:Found 7 files to consider
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for aind+ephys/1.5.0/lupin/842e6712-8bea-4e74-9348-0400c513cb2f.
+INFO:dandi_compute_code.aind_ephys_pipeline._prepare_job:Writing job files to /orcd/data/dandi/001/dandi-compute/aind-ephys-pipeline/pipeline
+INFO:dandi:Found 7 files to consider
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for aind+ephys/1.5.0/default/985bad23-821c-46b5-bf9a-e505c2aa2bd3.
+WARNING:dandi_compute_code.dandiset._blob_mirror:Blob 985bad23-821c-46b5-bf9a-e505c2aa2bd3 is not in the cluster's mirror yet. It is expected at /orcd/data/dandi/001/s3dandiarchive/blobs/985/bad/985bad23-821c-46b5-bf9a-e505c2aa2bd3.
+INFO:dandi_compute_code.aind_ephys_pipeline._prepare_job:Writing job files to /orcd/data/dandi/001/dandi-compute/aind-ephys-pipeline/pipeline
+INFO:dandi:Found 7 files to consider
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for aind+ephys/1.5.0/dartsort/985bad23-821c-46b5-bf9a-e505c2aa2bd3.
+WARNING:dandi_compute_code.dandiset._blob_mirror:Blob 985bad23-821c-46b5-bf9a-e505c2aa2bd3 is not in the cluster's mirror yet. It is expected at /orcd/data/dandi/001/s3dandiarchive/blobs/985/bad/985bad23-821c-46b5-bf9a-e505c2aa2bd3.
+INFO:dandi_compute_code.aind_ephys_pipeline._prepare_job:Writing job files to /orcd/data/dandi/001/dandi-compute/aind-ephys-pipeline/pipeline
+INFO:dandi:Found 7 files to consider
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for aind+ephys/1.5.0/lupin/985bad23-821c-46b5-bf9a-e505c2aa2bd3.
+WARNING:dandi_compute_code.dandiset._blob_mirror:Blob 985bad23-821c-46b5-bf9a-e505c2aa2bd3 is not in the cluster's mirror yet. It is expected at /orcd/data/dandi/001/s3dandiarchive/blobs/985/bad/985bad23-821c-46b5-bf9a-e505c2aa2bd3.
+INFO:dandi_compute_code.aind_ephys_pipeline._prepare_job:Writing job files to /orcd/data/dandi/001/dandi-compute/aind-ephys-pipeline/pipeline
+INFO:dandi:Found 7 files to consider
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for aind+ephys/1.5.0/default/e8679ad5-884e-4e4c-b5c6-9ce9249c3b78.
+INFO:dandi_compute_code.aind_ephys_pipeline._prepare_job:Writing job files to /orcd/data/dandi/001/dandi-compute/aind-ephys-pipeline/pipeline
+INFO:dandi:Found 7 files to consider
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for aind+ephys/1.5.0/dartsort/e8679ad5-884e-4e4c-b5c6-9ce9249c3b78.
+INFO:dandi_compute_code.aind_ephys_pipeline._prepare_job:Writing job files to /orcd/data/dandi/001/dandi-compute/aind-ephys-pipeline/pipeline
+INFO:dandi:Found 7 files to consider
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for aind+ephys/1.5.0/lupin/e8679ad5-884e-4e4c-b5c6-9ce9249c3b78.
+INFO:dandi_compute_code.aind_ephys_pipeline._prepare_job:Writing job files to /orcd/data/dandi/001/dandi-compute/aind-ephys-pipeline/pipeline
+INFO:dandi:Found 7 files to consider
+INFO:dandi_compute_code.queue._pipeline_queue:Reached the creation limit of 15 job capsules.
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for lfp/v0.12.6/default/da8d0160-9233-4bc2-ac18-bcf24df83d6d.
+WARNING:dandi_compute_code.dandiset._blob_mirror:Blob da8d0160-9233-4bc2-ac18-bcf24df83d6d is not in the cluster's mirror yet. It is expected at /orcd/data/dandi/002/s3dandiarchive/blobs/da8/d01/da8d0160-9233-4bc2-ac18-bcf24df83d6d.
+INFO:dandi_compute_code.lfp_pipeline._prepare_job:Writing LFP job files to /orcd/data/dandi/001/dandi-compute/processing/prepare-job-hja76enw/001697/derivatives/dandisets-002/dandiset-002044/sub-Wallie/sub-Wallie_ses-Wallie-20220912_behavior+ecephys+image/pipeline-lfp/job-26111212a0f6
+INFO:dandi:Found 4 files to consider
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for lfp/v0.12.6/default/c1f8817a-bc7c-4a2e-93f0-9ce461509343.
+INFO:dandi_compute_code.lfp_pipeline._prepare_job:Writing LFP job files to /orcd/data/dandi/001/dandi-compute/processing/prepare-job-5p29lvy3/001697/derivatives/dandisets-001/dandiset-001280/sub-arthur/sub-arthur_behavior+ecephys+image/pipeline-lfp/job-2611129454cb
+INFO:dandi:Found 4 files to consider
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for lfp/v0.12.6/default/8bda0452-4d6e-40c8-aea7-bb746cc137a3.
+INFO:dandi_compute_code.lfp_pipeline._prepare_job:Writing LFP job files to /orcd/data/dandi/001/dandi-compute/processing/prepare-job-0d5s1n41/001697/derivatives/dandisets-000/dandiset-000710/sub-VR36/sub-VR36_ecephys/pipeline-lfp/job-261112eaacbc
+INFO:dandi:Found 4 files to consider
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for lfp/v0.12.6/default/184665ff-0d2a-4ac5-b50a-21210f7372c4.
+INFO:dandi_compute_code.lfp_pipeline._prepare_job:Writing LFP job files to /orcd/data/dandi/001/dandi-compute/processing/prepare-job-un0b05mc/001697/derivatives/dandisets-001/dandiset-001678/sub-2023-04-28/sub-2023-04-28_ses-20230428T122513_ecephys/pipeline-lfp/job-261112d729ce
+INFO:dandi:Found 4 files to consider
+INFO:dandi_compute_code.queue._pipeline_queue:Creating a job capsule for lfp/v0.12.6/default/08585448-e905-44f6-a315-bdbd868b0db1.
+INFO:dandi_compute_code.lfp_pipeline._prepare_job:Writing LFP job files to /orcd/data/dandi/001/dandi-compute/processing/prepare-job-v32v48ld/001697/derivatives/dandisets-001/dandiset-001640/sub-Albert/Albert2021-09-16_21-28-12/pipeline-lfp/job-261112dd60b3
+INFO:dandi:Found 4 files to consider
+INFO:dandi_compute_code.queue._pipeline_queue:Reached the creation limit of 5 job capsules.
