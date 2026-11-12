@@ -1,0 +1,51 @@
+## Diagnosis
+
+### The blob backup
+- Checkout: HEAD 4dd2eaefa49e7dc519ea8008167e95997cea77f9, GitHub main 4dd2eaefa49e7dc519ea8008167e95997cea77f9, changed files: 0, untracked files: 0
+- Crontab: installed, matches the runner checkout
+- Locks held: verify_checksums_batch_0.lock verify_checksums_batch_10.lock verify_checksums_batch_11.lock verify_checksums_batch_1.lock verify_checksums_batch_2.lock verify_checksums_batch_3.lock verify_checksums_batch_8.lock verify_checksums_batch_9.lock
+- Mirror writable: 001:yes 002:yes
+- Setup steps that failed when replayed in cron's environment:
+    none
+- Setup steps that failed when replayed again without the script's set -e and set -u:
+    none
+- Reproduction: skipped
+- No known message matched. The end of the reproduced task's log:
+    (none)
+
+### The home directory
+- Quota: space 27.37% used, files 39.44% used
+- dandi-cli log files: 302
+- Directories holding the most files:
+    248533	~/.cache
+    106942	~/.conda
+    37248	~/.local
+    1374	~/.kachery
+    180	~/.nextflow
+
+### Job capsules
+- Inputs: 1064 capsules on the cluster: 955 with their blob, 6 pointing at the wrong partition, 103 whose blob is not mirrored
+- Nextflow tasks that failed on a missing input: 0
+- SLURM: 2630 of 2710 jobs and tasks since 2026-11-05 did not complete
+- Most frequent failures:
+    1158  dandicompute-dispatch-aind-ephys (FAILED, exit 1:0)
+    948  dandicompute-dispatch-lfp (FAILED, exit 1:0)
+    355  dandicompute-dispatch-aind-ephys-lupin (FAILED, exit 1:0)
+    80  DANDI-Backup-Blobs (FAILED, exit 1:0)
+    16  DANDI-Backup-Blobs (TIMEOUT, exit 0:0)
+    16  DANDI-Backup-Blobs (CANCELLED, exit 0:0)
+    12  DANDI-Verify-Checksums (TIMEOUT, exit 0:0)
+    11  DANDI-Compute-Submitter (TIMEOUT, exit 0:0)
+    10  nf-job_dispatch_(job-dispatch) (CANCELLED, exit 0:0)
+    6  dandicompute-dispatch-aind-ephys (OUT_OF_MEMORY, exit 0:125)
+- Most frequent errors of failed jobs:
+        400 OSError: [Errno <n>] Disk quota exceeded: '<path>'
+         28 [<n>-<n>-<n>T<n>:<n>:<n>.<n>] error: *** JOB <n> ON node<n> CANCELLED AT <n>-<n>-<n>T<n>:<n>:<n> DUE TO TIME LIMIT ***
+         14 <n>-<n>-<n>T<n>:<n>:<n>-<n>:<n> starting backup_blobs task <n> (job <n> on node<n>)
+          5 FATAL: While making image from oci registry: error fetching image to cache: failed to get checksum for docker:<path>:v<n>.<n>.<n>: reading manifest v<n>.<n>.<n> in ghcr.io<path>: manifest unknown
+          5 EnvironmentLocationNotFound: Not a conda environment: <path>
+          4 slurm_load_jobs error: Connection reset by peer
+          4 <n>-<n>-<n> <n>:<n>:<n> through <n>f: <n> match, <n> do not; <n> read, <n> from their cached checksum
+          3 slurm_load_jobs error: Socket timed out on send<path> operation
+          3 <path>: line <n>: MODULEPATH: unbound variable
+          3 [<n>-<n>-<n>T<n>:<n>:<n>.<n>] error: *** JOB <n> ON node<n> CANCELLED AT <n>-<n>-<n>T<n>:<n>:<n> DUE TO PREEMPTION ***
