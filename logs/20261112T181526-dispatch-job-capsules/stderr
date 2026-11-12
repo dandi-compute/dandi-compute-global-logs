@@ -1,0 +1,7 @@
+INFO:dandi_compute_code.queue._pipeline_queue:Sleeping 10.46 seconds (jitter) before dispatching jobs
+INFO:dandi_compute_code.queue._pipeline_queue:Found 15 pending queue entries
+WARNING:dandi_compute_code.queue._queue_utils:Unable to read a text asset from https://dandiarchive.s3.amazonaws.com/blobs/44b/f08/44bf08b2-1262-45b1-92a5-8f38a3ca37d4: <urlopen error _ssl.c:1015: The handshake operation timed out>
+INFO:dandi_compute_code.queue._capsule_resources:Could not read requested resources for 1 capsule(s); they fall back to pipeline defaults
+INFO:dandi_compute_code.queue._dispatch:No pending capsules for aind+ephys/lupin
+INFO:dandi_compute_code.queue._dispatch:Dispatcher dandicompute-dispatch-aind-ephys is still active as job(s) 28682239_13, 28682239_12, 28682239_11, 28682239_10, 28682239_9, 28682239_8, 28682239_7; leaving its array to be exhausted
+INFO:dandi_compute_code.queue._dispatch:No pending capsules for lfp
