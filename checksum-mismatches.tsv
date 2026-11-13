@@ -1,3 +1,4 @@
 time	event	key	path	observed	expected	job
 2026-11-12T20:41:31+00:00	etag-mismatch	blobs/16b/2af/16b2af52-e3fc-4045-909e-d31a8e137f32	/orcd/data/dandi/001/s3dandiarchive/blobs/16b/2af/16b2af52-e3fc-4045-909e-d31a8e137f32	11aa239a5dbebd16fab2ea8b2c7d424d-11	7231ffc41d0ca4c36ba1585fac9e2dc1-11	28821139_1
 2026-11-13T05:08:22+00:00	size-mismatch	blobs/d02/5f0/d025f065-8f3b-43f9-a0e7-3386ed1008d7	/orcd/data/dandi/002/s3dandiarchive/blobs/d02/5f0/d025f065-8f3b-43f9-a0e7-3386ed1008d7	54317285376	164673151493	28690745_13
+2026-11-13T06:26:49+00:00	size-mismatch	blobs/f06/21f/f0621f4d-2de5-4800-b751-b5bc14b0b526	/orcd/data/dandi/002/s3dandiarchive/blobs/f06/21f/f0621f4d-2de5-4800-b751-b5bc14b0b526	3752853504	57357025658	28690745_15
