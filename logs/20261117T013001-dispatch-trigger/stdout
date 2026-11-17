@@ -1,0 +1,4 @@
+[2026-11-17 01:30:03] [dispatch] === dispatch run starting (pid 3092080) ===
+[2026-11-17 01:30:03] [dispatch] Sourcing /home/cb239/.dandi_env
+[2026-11-17 01:30:04] [dispatch] Maintenance-held pending jobs: 20 (threshold 5)
+[2026-11-17 01:30:04] [dispatch] At/over maintenance threshold; skipping dispatch.
