@@ -1,0 +1,18 @@
+                         JOBID PARTITION       NAME                                     ST       TIME  NODES CP MIN_MEMORY NODELIST(REASON)              
+                    29153493_5 mit_preemptable dandicompute-dispatch-lfp                PD       0:00      1  1        16G (ReqNodeNotAvail)             
+                    29153493_4 mit_preemptable dandicompute-dispatch-lfp                PD       0:00      1  1        16G (ReqNodeNotAvail)             
+                    29153493_3 mit_preemptable dandicompute-dispatch-lfp                PD       0:00      1  1        16G (ReqNodeNotAvail)             
+                    29153493_2 mit_preemptable dandicompute-dispatch-lfp                PD       0:00      1  1        16G (ReqNodeNotAvail)             
+                    29153493_1 mit_preemptable dandicompute-dispatch-lfp                PD       0:00      1  1        16G (ReqNodeNotAvail, Reserved for
+                    29047609_5 mit_preemptable dandicompute-dispatch-aind-ephys-lupin   PD       0:00      1  1         1G (ReqNodeNotAvail, Reserved for
+                   28682239_13 mit_preemptable dandicompute-dispatch-aind-ephys         PD       0:00      1  1         1G (ReqNodeNotAvail)             
+                   28682239_12 mit_preemptable dandicompute-dispatch-aind-ephys         PD       0:00      1  1         1G (ReqNodeNotAvail)             
+                   28682239_11 mit_preemptable dandicompute-dispatch-aind-ephys         PD       0:00      1  1         1G (ReqNodeNotAvail, Reserved for
+                    29199664_7 mit_preemptable DANDI-Verify-Checksums                   PD       0:00      1  1         1G (JobArrayTaskLimit)           
+                    29199664_6 mit_preemptable DANDI-Verify-Checksums                   PD       0:00      1  1         1G (JobArrayTaskLimit)           
+                   29199664_10 mit_preemptable DANDI-Verify-Checksums                   PD       0:00      1  1         1G (JobArrayTaskLimit)           
+                   29199664_13 mit_preemptable DANDI-Verify-Checksums                   PD       0:00      1  1         1G (JobArrayTaskLimit)           
+                   29199664_15 mit_preemptable DANDI-Verify-Checksums                    R    9:50:41      1  1         1G node1310                      
+                   29199664_14 mit_preemptable DANDI-Verify-Checksums                    R   10:30:20      1  1         1G node1320                      
+                   29199664_11 mit_preemptable DANDI-Verify-Checksums                    R   11:22:28      1  1         1G node1297                      
+                   29199664_12 mit_preemptable DANDI-Verify-Checksums                    R   11:22:28      1  1         1G node1320                      
