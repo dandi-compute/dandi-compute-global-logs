@@ -1,0 +1,51 @@
+## Diagnosis
+
+### The blob backup
+- Checkout: HEAD 4dd2eaefa49e7dc519ea8008167e95997cea77f9, GitHub main 4dd2eaefa49e7dc519ea8008167e95997cea77f9, changed files: 0, untracked files: 0
+- Crontab: installed, matches the runner checkout
+- Locks held: backup_blobs_batch_0.lock backup_blobs_batch_10.lock backup_blobs_batch_11.lock backup_blobs_batch_12.lock backup_blobs_batch_13.lock backup_blobs_batch_14.lock backup_blobs_batch_15.lock backup_blobs_batch_1.lock backup_blobs_batch_2.lock backup_blobs_batch_3.lock backup_blobs_batch_4.lock backup_blobs_batch_5.lock backup_blobs_batch_6.lock backup_blobs_batch_7.lock backup_blobs_batch_8.lock backup_blobs_batch_9.lock verify_checksums_batch_10.lock verify_checksums_batch_13.lock verify_checksums_batch_6.lock verify_checksums_batch_7.lock
+- Mirror writable: 001:yes 002:yes
+- Setup steps that failed when replayed in cron's environment:
+    the replay itself exited 1: 2026-11-17T17:51:50-05:00 ERROR task 4: could not acquire lock /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_4.lock; another run is still active. Refusing to skip silently.
+- Setup steps that failed when replayed again without the script's set -e and set -u:
+    the replay itself exited 1: 2026-11-17T17:51:51-05:00 ERROR task 4: could not acquire lock /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_4.lock; another run is still active. Refusing to skip silently.
+- Reproduction: skipped
+- No known message matched. The end of the reproduced task's log:
+    (none)
+
+### The home directory
+- Quota: space 23.01% used, files 39.84% used
+- dandi-cli log files: 36
+- Directories holding the most files:
+    106942	~/.conda
+    38243	~/.cache (at least; counting stopped after 300 seconds)
+    36982	~/.local
+    1374	~/.kachery
+    180	~/.nextflow
+
+### Job capsules
+- Inputs: 1144 capsules on the cluster: 1053 with their blob, 6 pointing at the wrong partition, 85 whose blob is not mirrored
+- Nextflow tasks that failed on a missing input: 1
+- SLURM: 670 of 771 jobs and tasks since 2026-11-10 did not complete
+- Most frequent failures:
+    173  dandicompute-dispatch-aind-ephys (FAILED, exit 1:0)
+    130  dandicompute-dispatch-lfp (FAILED, exit 1:0)
+    115  dandicompute-dispatch-aind-ephys-lupin (FAILED, exit 1:0)
+    80  DANDI-Backup-Blobs (TIMEOUT, exit 0:0)
+    71  DANDI-Verify-Checksums (TIMEOUT, exit 0:0)
+    20  nf-job_dispatch_(job-dispatch) (CANCELLED, exit 0:0)
+    19  nf-preprocessing_(preprocessing) (CANCELLED, exit 0:0)
+    16  DANDI-Backup-Blobs (CANCELLED, exit 0:0)
+    11  DANDI-Compute-Submitter (TIMEOUT, exit 0:0)
+    9  nf-nwb_ecephys_(nwb-ecephys) (CANCELLED, exit 0:0)
+- Most frequent errors of failed jobs:
+        211 OSError: [Errno <n>] Disk quota exceeded: '<path>'
+        152 [<n>-<n>-<n>T<n>:<n>:<n>.<n>] error: *** JOB <n> ON node<n> CANCELLED AT <n>-<n>-<n>T<n>:<n>:<n> DUE TO TIME LIMIT ***
+         25 FATAL: While making image from oci registry: error fetching image to cache: failed to get checksum for docker:<path>:v<n>.<n>.<n>: reading manifest v<n>.<n>.<n> in ghcr.io<path>: manifest unknown
+         14 <n>-<n>-<n>T<n>:<n>:<n>-<n>:<n> starting backup_blobs task <n> (job <n> on node<n>)
+         11 [<n>-<n>-<n>T<n>:<n>:<n>.<n>] error: Detected <n> oom_kill event in StepId=<n>.batch. Some of the step tasks have been OOM Killed.
+          8 error: failed-wheel-build-for-install
+          5 EnvironmentLocationNotFound: Not a conda environment: <path>
+          4 slurm_load_jobs error: Connection reset by peer
+          4 <n>-<n>-<n> <n>:<n>:<n> through <n>f: <n> match, <n> do not; <n> read, <n> from their cached checksum
+          3 slurm_load_jobs error: Socket timed out on send<path> operation
