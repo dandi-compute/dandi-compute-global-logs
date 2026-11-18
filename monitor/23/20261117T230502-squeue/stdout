@@ -1,0 +1,15 @@
+                         JOBID PARTITION       NAME                                     ST       TIME  NODES CP MIN_MEMORY NODELIST(REASON)              
+                      29436024 mit_normal      nf-job_dispatch_(job-dispatch)           PD       0:00      1  4        32G (Priority)                    
+                      29441302 mit_normal      nf-job_dispatch_(job-dispatch)           PD       0:00      1  4        32G (Priority)                    
+                      29443863 mit_normal      nf-job_dispatch_(job-dispatch)           PD       0:00      1  4        32G (Priority)                    
+                   28682239_13 mit_preemptable dandicompute-dispatch-aind-ephys         PD       0:00      1  1         1G (JobArrayTaskLimit)           
+                    29047609_5 mit_preemptable dandicompute-dispatch-aind-ephys-lupin    R   12:07:58      1  1         1G node1633                      
+                   28682239_11 mit_preemptable dandicompute-dispatch-aind-ephys          R   12:07:58      1  1         1G node1633                      
+                   28682239_12 mit_preemptable dandicompute-dispatch-aind-ephys          R   12:07:58      1  1         1G node2640                      
+                    29418712_8 mit_preemptable DANDI-Backup-Blobs                        R   11:47:18      1  1         1G node1461                      
+                   29199664_10 mit_preemptable DANDI-Verify-Checksums                    R    6:45:18      1  1         1G node1459                      
+                      29459167 mit_preemptable DANDI-Compute-Submitter                   R    7:14:06      1  1         4G node2635                      
+                    29199664_7 mit_preemptable DANDI-Verify-Checksums                    R    7:39:19      1  1         1G node1408                      
+                    29418712_9 mit_preemptable DANDI-Backup-Blobs                        R    4:13:43      1  1         1G node1621                      
+                   29418712_10 mit_preemptable DANDI-Backup-Blobs                        R    4:13:43      1  1         1G node4202                      
+                   29418712_13 mit_preemptable DANDI-Backup-Blobs                        R    1:52:35      1  1         1G node1295                      
