@@ -1,0 +1,29 @@
+::warning title=DANDI-Backup-Blobs ended early::16 of its tasks timed out, were preempted or were cancelled in the last 24 hours.
+::error title=DANDI-Backup-Blobs failed::16 of its tasks failed in the last 24 hours.
+::warning title=DANDI-Verify-Checksums ended early::6 of its tasks timed out, were preempted or were cancelled in the last 24 hours.
+DANDI-Backup-Blobs: 0 completed, 16 failed, 16 ended otherwise in the last 24 hours; 0 still pending or running.
+  29418712_0 TIMEOUT (exit 0:0 after 12:00:22)
+  29418712_1 TIMEOUT (exit 0:0 after 12:00:22)
+  29418712_2 TIMEOUT (exit 0:0 after 12:00:22)
+  29418712_3 TIMEOUT (exit 0:0 after 12:00:22)
+  29418712_4 TIMEOUT (exit 0:0 after 12:00:22)
+  29490239_0 FAILED (exit 1:0 after 00:00:01)
+  29490239_1 FAILED (exit 1:0 after 00:00:01)
+  29490239_2 FAILED (exit 1:0 after 00:00:01)
+  29490239_3 FAILED (exit 1:0 after 00:00:01)
+  29490239_4 FAILED (exit 1:0 after 00:00:08)
+  ... and 11 more
+  End of /orcd/data/dandi/001/backup/logs/DANDI-Backup-Blobs-29490239_0.log:
+    | 2026-11-17T22:05:09-05:00 starting backup_blobs task 0 (job 29490239 on node4110)
+    | 2026-11-17T22:05:09-05:00 ERROR task 0: could not acquire lock /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_0.lock; another run is still active. Refusing to skip silently.
+  End of /orcd/data/dandi/001/backup/logs/DANDI-Backup-Blobs-29490239_1.log:
+    | 2026-11-17T22:05:09-05:00 starting backup_blobs task 1 (job 29490239 on node4110)
+    | 2026-11-17T22:05:09-05:00 ERROR task 1: could not acquire lock /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_1.lock; another run is still active. Refusing to skip silently.
+DANDI-Backup-Nonblobs: 2 completed, 0 failed, 0 ended otherwise in the last 24 hours; 0 still pending or running.
+DANDI-Update-Backup-Dashboard: 1 completed, 0 failed, 0 ended otherwise in the last 24 hours; 0 still pending or running.
+DANDI-Verify-Checksums: 0 completed, 0 failed, 6 ended otherwise in the last 24 hours; 5 still pending or running.
+  29199664_6 TIMEOUT (exit 0:0 after 12:00:24)
+  29199664_13 TIMEOUT (exit 0:0 after 12:00:21)
+  29199664_7 TIMEOUT (exit 0:0 after 12:00:09)
+  29199664_10 TIMEOUT (exit 0:0 after 12:00:26)
+  29541930_2 PREEMPTED (exit 0:0 after 00:27:52)
