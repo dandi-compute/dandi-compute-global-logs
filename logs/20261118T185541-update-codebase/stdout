@@ -1,0 +1,10 @@
+Pulling ./dandi-compute-core/
+HEAD is now at ce47553 Named the Python 3.13 Nextflow environment for new AIND capsules (#382)
+Pulling ./dandi-compute-runner/
+HEAD is now at 8975211 Skipped a backup submission while a job of the same name is still pending or running (#118)
+Pulling ./aind-ephys-pipeline/
+./aind-ephys-pipeline/ is on a detached HEAD; fetched new tags without resetting.
+Putting /orcd/data/dandi/001/backup/simple-s3-backup on main
+branch 'main' set up to track 'origin/main'.
+Your branch is up to date with 'origin/main'.
+Was on main; now on main at 4dd2eae Added a verification of the blob mirror's content against the bucket (#52).

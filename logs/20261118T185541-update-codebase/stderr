@@ -1,0 +1,11 @@
+From https://github.com/dandi-compute/dandi-compute-core
+   fd17510..ce47553  main       -> origin/main
+From https://github.com/dandi-compute/dandi-compute-runner
+   4527033..8975211  main       -> origin/main
+From https://github.com/AllenNeuralDynamics/aind-ephys-pipeline
+ + 9fc06c4...579d008 dev            -> origin/dev  (forced update)
+   0563ab8..f2ef798  main           -> origin/main
+ * [new branch]      more-fixes     -> origin/more-fixes
+ * [new branch]      support-zarrv3 -> origin/support-zarrv3
+ * [new tag]         1.5.1          -> 1.5.1
+Reset branch 'main'
