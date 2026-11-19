@@ -1,0 +1,39 @@
+::warning title=DANDI-Backup-Blobs ended early::16 of its tasks timed out, were preempted or were cancelled in the last 24 hours.
+::warning title=DANDI-Verify-Checksums ended early::8 of its tasks timed out, were preempted or were cancelled in the last 24 hours.
+::error title=DANDI-Verify-Checksums failed::1 of its tasks failed in the last 24 hours.
+DANDI-Backup-Blobs: 0 completed, 0 failed, 16 ended otherwise in the last 24 hours; 0 still pending or running.
+  29600718_0 TIMEOUT (exit 0:0 after 12:00:17)
+  29600718_1 TIMEOUT (exit 0:0 after 12:00:17)
+  29600718_2 TIMEOUT (exit 0:0 after 12:00:17)
+  29600718_3 TIMEOUT (exit 0:0 after 12:00:17)
+  29600718_4 TIMEOUT (exit 0:0 after 12:00:17)
+DANDI-Backup-Nonblobs: 1 completed, 0 failed, 0 ended otherwise in the last 24 hours; 0 still pending or running.
+DANDI-Update-Backup-Dashboard: 1 completed, 0 failed, 0 ended otherwise in the last 24 hours; 0 still pending or running.
+DANDI-Verify-Checksums: 2 completed, 1 failed, 8 ended otherwise in the last 24 hours; 4 still pending or running.
+  29541930_4 TIMEOUT (exit 0:0 after 12:00:25)
+  29541930_5 TIMEOUT (exit 0:0 after 12:00:25)
+  29541930_6 TIMEOUT (exit 0:0 after 12:00:02)
+  29541930_8 TIMEOUT (exit 0:0 after 12:00:21)
+  29541930_10 PREEMPTED (exit 0:0 after 01:15:10)
+  29541930_1 FAILED (exit 1:0 after 10:36:03)
+  End of /orcd/data/dandi/001/backup/logs/DANDI-Verify-Checksums-29541930_1.log:
+    |   [NOT IN BUCKET] blobs/100/516/1005164c-862f-4941-b2c5-8c20f562731b2887375472
+    |   [NOT IN BUCKET] blobs/100/5cf/1005cf74-03c8-4f61-8b20-087a8475ab90741949637
+    |   [NOT IN BUCKET] blobs/100/5ff/1005ffbb-f28c-4e1b-b9e5-4f17efd981e62878821252
+    |   [NOT IN BUCKET] blobs/100/6c0/1006c0dc-f6b3-4ecb-8bce-467d36cdc17e3446563629
+    |   [NOT IN BUCKET] blobs/100/759/100759b3-4928-48a0-84fc-8b8aecba185f610874350
+    |   [NOT IN BUCKET] blobs/100/7c2/1007c267-6ddd-4baa-a3cb-dd6645636bf52541212239
+    |   [NOT IN BUCKET] blobs/100/816/1008169f-b25b-4cec-b5a5-f0dd952751fa3040613035
+    |   [NOT IN BUCKET] blobs/100/99a/10099a1e-d5b3-4505-9ac2-a20e081df54b1244279514
+    |   [NOT IN BUCKET] blobs/100/a96/100a96bd-58af-4b56-b51e-4c55f89ebdc01039370078
+    |   [NOT IN BUCKET] blobs/100/b5f/100b5fff-7bc6-48da-a0e0-d85ec1fd0407557351667
+    |   [NOT IN BUCKET] blobs/100/c2b/100c2b3a-ead8-4728-8b20-23708bc652924216571409
+    |   [NOT IN BUCKET] blobs/100/d02/100d02a6-d0bd-43ad-ad05-81dddf9b6a163760031218
+    |   [NOT IN BUCKET] blobs/100/dda/100ddadf-ca2f-4dba-b985-47d5c9b4c5bd2332244197
+    |   [NOT IN BUCKET] blobs/100/e73/100e73ed-7e56-4ccd-8134-a19d487075bf4215168967
+    |   [NOT IN BUCKET] blobs/103/290/103290b8-150f-4e45-83f1-db8e5e7cf6682037104944
+    |   [NOT IN BUCKET] ... and 744 more
+    | 
+    | 1 blobs do not match the bucket:
+    |   blobs/16b/2af/16b2af52-e3fc-4045-909e-d31a8e137f32: ETag 11aa239a5dbebd16fab2ea8b2c7d424d-11, expected 7231ffc41d0ca4c36ba1585fac9e2dc1-11
+    | 2026-11-18T20:38:01-05:00 ERROR task 1: 's3backup dandi verify-checksums 1' exited with status 1; the summary above names each blob that does not match.
