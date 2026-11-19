@@ -1,0 +1,16 @@
+                         JOBID PARTITION       NAME                                     ST       TIME  NODES CP MIN_MEMORY NODELIST(REASON)              
+                      29506270 mit_normal      nf-job_dispatch_(job-dispatch)           PD       0:00      1  4        32G (Priority)                    
+                      29514234 mit_normal      nf-job_dispatch_(job-dispatch)           PD       0:00      1  4        32G (Priority)                    
+                      29608142 mit_normal      nf-job_dispatch_(job-dispatch)           PD       0:00      1  4        32G (Priority)                    
+                   29541930_10 mit_preemptable DANDI-Verify-Checksums                   PD       0:00      1  1         1G (JobArrayTaskLimit)           
+                    29541930_3 mit_preemptable DANDI-Verify-Checksums                   PD       0:00      1  1         1G (JobArrayTaskLimit)           
+                    29541930_0 mit_preemptable DANDI-Verify-Checksums                   PD       0:00      1  1         1G (JobArrayTaskLimit)           
+                   28682239_12 mit_preemptable dandicompute-dispatch-aind-ephys         PD       0:00      1  1         1G (JobArrayTaskLimit)           
+                   28682239_13 mit_preemptable dandicompute-dispatch-aind-ephys          R 1-15:19:58      1  1         1G node2008                      
+                   29541930_13 mit_preemptable DANDI-Verify-Checksums                    R   10:03:43      1  1         1G node2405                      
+                    29541930_2 mit_preemptable DANDI-Verify-Checksums                    R      25:28      1  1         1G node1364                      
+                   29541930_15 mit_preemptable DANDI-Verify-Checksums                    R    1:35:35      1  1         1G node4113                      
+                   28682239_11 mit_preemptable dandicompute-dispatch-aind-ephys          R   18:02:00      1  1         1G node2418                      
+                      29625846 mit_preemptable DANDI-Compute-Submitter                   R   11:20:04      1  1         4G node3504                      
+                    29047609_5 mit_preemptable dandicompute-dispatch-aind-ephys-lupin    R 1-15:19:55      1  1         1G node1705                      
+                   29541930_14 mit_preemptable DANDI-Verify-Checksums                    R    4:52:16      1  1         1G node1704                      
