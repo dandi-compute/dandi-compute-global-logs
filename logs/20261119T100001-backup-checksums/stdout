@@ -1,0 +1,2 @@
+Deleted 0 backup logs older than 30 days from /orcd/data/dandi/001/backup/logs.
+Thu Nov 19 10:00:03 EST 2026: 10 DANDI-Verify-Checksums job(s) already pending or running, skipping: sbatch --job-name=DANDI-Verify-Checksums --output=/orcd/data/dandi/001/backup/logs/%x-%A_%a.log --error=/orcd/data/dandi/001/backup/logs/%x-%A_%a.log /orcd/data/dandi/001/backup/simple-s3-backup/scripts/verify_checksums_batch_deployment.sh
