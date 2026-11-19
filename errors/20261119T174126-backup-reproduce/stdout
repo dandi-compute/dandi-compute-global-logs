@@ -1,0 +1,2 @@
+## One task of the blob backup, submitted the way cron submits it
+Skipped: REPRODUCE is not true (scheduled runs do not submit a backup task).
