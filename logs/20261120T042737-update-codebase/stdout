@@ -1,0 +1,2 @@
+Pulling ./dandi-compute-runner/
+HEAD is now at ce95224 Validated blob placement daily against partitions.json, and added a workflow to clean up misplaced heads (#121)
