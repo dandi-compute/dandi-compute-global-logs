@@ -1,0 +1,29 @@
+/home/cb239/.bazelrc: links to /orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/bazelrc
+/home/cb239/.cache/bazel/_bazel_cb239/1ef0b6d9c054078041e6f68fb027ba76: not all deleted, 0 files and directories were
+/home/cb239/.cache/bazel/_bazel_cb239/4bcf28567648b14c004ca43669bac1a7: not all deleted, 0 files and directories were
+/home/cb239/.cache/bazel/_bazel_cb239/985f85b15894ee0afbd26f8f59242ffa: not all deleted, 0 files and directories were
+/home/cb239/.cache/bazel/_bazel_cb239/daf9c5b39a0d77204a01a33c3c8e5d3c: not all deleted, 0 files and directories were
+/home/cb239/.cache/bazel/_bazel_cb239/e150c95285d52b80110b024b12da9ed2: not all deleted, 0 files and directories were
+/orcd/data/dandi/001/dandi-compute/work/bazel/22badbd3e454e4bf04c2854cb96b0919: not all deleted, 0 files and directories were
+/orcd/data/dandi/001/dandi-compute/work/bazel/325ac2dbb110c49ed7daae1989f3a783: the output base of workspace /tmp/pip-install-wtg1y4o3/tensorstore_3772b772a1ba45c4ab65bd4ee7f97ec4
+/orcd/data/dandi/001/dandi-compute/work/bazel/325ac2dbb110c49ed7daae1989f3a783: deleted, 80326 files and directories
+/orcd/data/dandi/001/dandi-compute/work/bazel/592b482b0a75b764821aa06c2c71f830: the output base of workspace /tmp/pip-install-bp7zyaih/tensorstore_22f601f20c684647b6ada18a2b88ac78
+/orcd/data/dandi/001/dandi-compute/work/bazel/592b482b0a75b764821aa06c2c71f830: kept, in use in the last 60 minutes
+/orcd/data/dandi/001/dandi-compute/work/bazel/686f775ca2bd9ee9a36d66f68277f1fb: not all deleted, 0 files and directories were
+/orcd/data/dandi/001/dandi-compute/work/bazel/6ed44838e29c68aedb9505e4a9dda584: not all deleted, 0 files and directories were
+/orcd/data/dandi/001/dandi-compute/work/bazel/71097f127b39cf846b74eb2e26887a1a: the output base of workspace /tmp/pip-install-1_q_ta95/tensorstore_3341403cc23f46e7827e4e815771cb31
+/orcd/data/dandi/001/dandi-compute/work/bazel/71097f127b39cf846b74eb2e26887a1a: kept, in use in the last 60 minutes
+/orcd/data/dandi/001/dandi-compute/work/bazel/7d7e8f5642deb076e2e03dce05f090f6: not all deleted, 0 files and directories were
+/orcd/data/dandi/001/dandi-compute/work/bazel/8aa1bd357a9ed4a38fde552779fc75ea: not all deleted, 0 files and directories were
+/orcd/data/dandi/001/dandi-compute/work/bazel/9b916589dc0146982344af4267d9b53f: the output base of workspace /tmp/pip-install-xfeuttnh/tensorstore_ef48f210e55040a388adb4f9e511349c
+/orcd/data/dandi/001/dandi-compute/work/bazel/9b916589dc0146982344af4267d9b53f: kept, in use in the last 60 minutes
+/orcd/data/dandi/001/dandi-compute/work/bazel/9f9138ed4140e6b45ead2786d12942b8: not all deleted, 0 files and directories were
+/orcd/data/dandi/001/dandi-compute/work/bazel/a15f6d717c58a8a78b16d89265a32855: the output base of workspace /tmp/pip-install-ffaw9860/tensorstore_281a0967d0f84f98802bd3f37da03c7a
+/orcd/data/dandi/001/dandi-compute/work/bazel/a15f6d717c58a8a78b16d89265a32855: deleted, 80326 files and directories
+/orcd/data/dandi/001/dandi-compute/work/bazel/a75807e62dbce53c3f5aa930c1ec8d6f: not all deleted, 0 files and directories were
+/orcd/data/dandi/001/dandi-compute/work/bazel/bafde9d50b81095e3d307522bcef3598: the output base of workspace /tmp/pip-install-7wh96433/tensorstore_a78dd5974b904d61b05ed3a727810875
+/orcd/data/dandi/001/dandi-compute/work/bazel/bafde9d50b81095e3d307522bcef3598: kept, in use in the last 60 minutes
+/orcd/data/dandi/001/dandi-compute/work/bazel/d3a1eac9049cb9a789eee42d7e8b44f3: the output base of workspace /tmp/pip-install-6x1rdo4q/tensorstore_0325d51b8b2a4185b1a2c99496fd6b5e
+/orcd/data/dandi/001/dandi-compute/work/bazel/d3a1eac9049cb9a789eee42d7e8b44f3: kept, in use in the last 60 minutes
+/orcd/data/dandi/001/dandi-compute/work/bazel/install: kept, an output base is in use
+/orcd/data/dandi/001/dandi-compute/work/bazel/cache: kept, an output base is in use
