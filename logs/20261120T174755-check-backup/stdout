@@ -1,0 +1,42 @@
+::warning title=DANDI-Backup-Blobs ended early::14 of its tasks timed out, were preempted or were cancelled in the last 24 hours.
+::warning title=DANDI-Verify-Checksums ended early::4 of its tasks timed out, were preempted or were cancelled in the last 24 hours.
+::error title=DANDI-Verify-Checksums failed::1 of its tasks failed in the last 24 hours.
+::error title=DANDI-Verify-Blobs not submitted::No DANDI-Verify-Blobs job was submitted in the last 24 hours.
+DANDI-Backup-Blobs: 0 completed, 0 failed, 14 ended otherwise in the last 24 hours; 2 still pending or running.
+  29720640_0 TIMEOUT (exit 0:0 after 12:00:13)
+  29720640_1 TIMEOUT (exit 0:0 after 12:00:13)
+  29720640_2 TIMEOUT (exit 0:0 after 12:00:13)
+  29720640_3 TIMEOUT (exit 0:0 after 12:00:13)
+  29720640_4 TIMEOUT (exit 0:0 after 12:00:13)
+DANDI-Backup-Nonblobs: 1 completed, 0 failed, 0 ended otherwise in the last 24 hours; 0 still pending or running.
+DANDI-Update-Backup-Dashboard: 1 completed, 0 failed, 0 ended otherwise in the last 24 hours; 0 still pending or running.
+DANDI-Verify-Checksums: 1 completed, 0 found checksum mismatches, 1 failed, 4 ended otherwise in the last 24 hours; 0 still pending or running.
+  29541930_14 TIMEOUT (exit 0:0 after 12:00:20)
+  29541930_2 TIMEOUT (exit 0:0 after 12:00:15)
+  29541930_3 TIMEOUT (exit 0:0 after 12:00:26)
+  29541930_10 TIMEOUT (exit 0:0 after 12:00:25)
+  29541930_15 FAILED (exit 1:0 after 09:01:31)
+  End of /orcd/data/dandi/001/backup/logs/DANDI-Verify-Checksums-29541930_15.log:
+    |   [NOT IN BUCKET] blobs/f00/fd5/f00fd5ee-8b5c-418d-89a3-202a617fdf1f2402490155
+    |   [NOT IN BUCKET] blobs/f03/18e/f0318e30-4f4f-466d-a8e9-a962863e3081525385618
+    |   [NOT IN BUCKET] blobs/f03/c04/f03c04ad-f42c-48ef-a623-0babf2b1b46e558512847
+    |   [NOT IN BUCKET] blobs/f06/ca0/f06ca0dc-fb44-4f9a-b7d7-84091b4ed2e52008629856
+    |   [NOT IN BUCKET] blobs/f08/78b/f0878bb4-d9ae-4d2c-825f-bd8e1c34cd322402039327
+    |   [NOT IN BUCKET] blobs/f08/78b/f0878bb4-d9ae-4d2c-825f-bd8e1c34cd324243224855
+    |   [NOT IN BUCKET] blobs/f08/c5f/f08c5fe8-503e-4f36-b536-075ef4d6dfd01644602613
+    |   [NOT IN BUCKET] blobs/f08/c5f/f08c5fe8-503e-4f36-b536-075ef4d6dfd03686731781
+    |   [NOT IN BUCKET] blobs/f09/472/f094721e-cc48-45e3-bbe6-62b45197f41761669564
+    |   [NOT IN BUCKET] blobs/f0d/085/f0d085a8-883a-4b44-9b18-b6ed95e9bb563513489217
+    |   [NOT IN BUCKET] blobs/f18/507/f18507ee-8544-44ae-b332-2cce66694b5b1232068509
+    |   [NOT IN BUCKET] blobs/f24/db5/f24db59a-9aa2-46ac-9440-bb0de9f9bb111270737646
+    |   [NOT IN BUCKET] blobs/f2a/1ec/f2a1ecf8-8791-4b0d-b22c-ca92836178e4713254251
+    |   [NOT IN BUCKET] blobs/f2a/959/f2a95959-7778-43b7-a1ab-9c21d10139691218381065
+    |   [NOT IN BUCKET] blobs/f39/eaf/f39eaf1e-95cd-48a7-b669-76a31d65cf88789665811
+    |   [NOT IN BUCKET] ... and 151 more
+    | 
+    | 1 blobs do not match the bucket:
+    |   blobs/f06/21f/f0621f4d-2de5-4800-b751-b5bc14b0b526: 3752853504 bytes, expected 57357025658
+    | 2026-11-20T12:10:16-05:00 ERROR task 15: 's3backup dandi verify-checksums 15' exited with status 1; the summary above names each blob that does not match.
+DANDI-Verify-Blobs: no job was submitted in the last 24 hours.
+  The crontab submits it through launcher/backup.sh, which records each submission in the
+  global logs under logs/. Check that the crontab is installed and what the last submission printed.
