@@ -1,0 +1,50 @@
+## Diagnosis
+
+### The blob backup
+- Checkout: HEAD d75347244dd6cde971954713e9599a97159e9c81, GitHub main d75347244dd6cde971954713e9599a97159e9c81, changed files: 0, untracked files: 0
+- Crontab: installed, matches the runner checkout
+- Locks held: backup_blobs_batch_12.lock backup_blobs_batch_9.lock
+- Mirror writable: 001:yes 002:yes
+- Setup steps that failed when replayed in cron's environment:
+    none
+- Setup steps that failed when replayed again without the script's set -e and set -u:
+    none
+- Reproduction: skipped
+- No known message matched. The end of the reproduced task's log:
+    (none)
+
+### The home directory
+- Quota: space 31.79% used, files 40.58% used
+- dandi-cli log files: 114
+- Directories holding the most files:
+    256228	~/.cache
+    110804	~/.conda
+    37060	~/.local
+    1374	~/.kachery
+    180	~/.nextflow
+
+### Job capsules
+- Inputs: 1204 capsules on the cluster: 1118 with their blob, 6 pointing at the wrong partition, 80 whose blob is not mirrored
+- Nextflow tasks that failed on a missing input: 3
+- SLURM: 316 of 455 jobs and tasks since 2026-11-13 did not complete
+- Most frequent failures:
+    109  DANDI-Backup-Blobs (TIMEOUT, exit 0:0)
+    66  DANDI-Verify-Checksums (TIMEOUT, exit 0:0)
+    35  dandicompute-dispatch-lfp (FAILED, exit 1:0)
+    21  nf-preprocessing_(preprocessing) (CANCELLED, exit 0:0)
+    16  nf-job_dispatch_(job-dispatch) (CANCELLED, exit 0:0)
+    16  DANDI-Backup-Blobs (FAILED, exit 1:0)
+    13  DANDI-Compute-Submitter (TIMEOUT, exit 0:0)
+    10  nf-nwb_ecephys_(nwb-ecephys) (CANCELLED, exit 0:0)
+    8  dandicompute-dispatch-aind-ephys-lupin (OUT_OF_MEMORY, exit 0:125)
+    6  dandicompute-dispatch-aind-ephys-lupin (FAILED, exit 1:0)
+- Most frequent errors of failed jobs:
+        177 [<n>-<n>-<n>T<n>:<n>:<n>.<n>] error: *** JOB <n> ON node<n> CANCELLED AT <n>-<n>-<n>T<n>:<n>:<n> DUE TO TIME LIMIT ***
+         35 FATAL: While making image from oci registry: error fetching image to cache: failed to get checksum for docker:<path>:v<n>.<n>.<n>: reading manifest v<n>.<n>.<n> in ghcr.io<path>: manifest unknown
+         16 <n>-<n>-<n>T<n>:<n>:<n>-<n>:<n> ERROR task <n>: could not acquire lock <path> another run is still active. Refusing to skip silently.
+         10 error: failed-wheel-build-for-install
+          9 [<n>-<n>-<n>T<n>:<n>:<n>.<n>] error: Detected <n> oom_kill event in StepId=<n>.batch. Some of the step tasks have been OOM Killed.
+          3 RuntimeError: File <path> is not an existing file or folder!
+          2 <n>-<n>-<n>T<n>:<n>:<n>-<n>:<n> ERROR task <n>: 's<n>backup dandi verify-checksums <n>' exited with status <n>; the summary above names each blob that does not match.
+          2 [<n>-<n>-<n>T<n>:<n>:<n>.<n>] error: *** JOB <n> ON node<n> CANCELLED AT <n>-<n>-<n>T<n>:<n>:<n> DUE TO PREEMPTION ***
+          1 ValueError: Resampling produced nonfinite values. Check the input traces and resampling parameters.
