@@ -1,0 +1,7 @@
+INFO:dandi_compute_code.queue._pipeline_queue:Sleeping 12.92 seconds (jitter) before dispatching jobs
+INFO:dandi_compute_code.queue._pipeline_queue:Found 90 pending queue entries
+INFO:dandi_compute_code.queue._dispatch:Dispatching 20 capsule(s) for aind+ephys/lupin as array dandicompute-dispatch-aind-ephys-lupin requesting 1GB / 1 CPU / mit_preemptable / 48:00:00 (at most 10 at a time)
+INFO:dandi_compute_code.queue._dispatch:sbatch returned code 0; stdout: Submitted batch job 29752740
+
+INFO:dandi_compute_code.queue._dispatch:Dispatcher dandicompute-dispatch-aind-ephys is still active as job(s) 28682239_11, 28682239_12; leaving its array to be exhausted
+INFO:dandi_compute_code.queue._dispatch:No pending capsules for lfp
