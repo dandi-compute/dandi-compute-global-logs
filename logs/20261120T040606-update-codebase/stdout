@@ -1,0 +1,28 @@
+Obtaining file:///orcd/data/dandi/001/backup/simple-s3-backup
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Installing backend dependencies: started
+  Installing backend dependencies: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: click in /home/cb239/.local/lib/python3.14/site-packages (from simple-s3-backup==0.0.2) (8.5.0)
+Requirement already satisfied: pyyaml in /home/cb239/.local/lib/python3.14/site-packages (from simple-s3-backup==0.0.2) (6.0.3)
+Requirement already satisfied: s5cmd in /orcd/data/dandi/001/environments/name-s3+backup_env/lib/python3.14/site-packages (from simple-s3-backup==0.0.2) (0.3.3)
+Requirement already satisfied: tabulate2 in /orcd/data/dandi/001/environments/name-s3+backup_env/lib/python3.14/site-packages (from simple-s3-backup==0.0.2) (1.10.2)
+Requirement already satisfied: wcwidth>=0.2.13 in /home/cb239/.local/lib/python3.14/site-packages (from tabulate2->simple-s3-backup==0.0.2) (0.9.1)
+Building wheels for collected packages: simple-s3-backup
+  Building editable for simple-s3-backup (pyproject.toml): started
+  Building editable for simple-s3-backup (pyproject.toml): finished with status 'done'
+  Created wheel for simple-s3-backup: filename=simple_s3_backup-0.0.2-py3-none-any.whl size=7505 sha256=ae932e79c4f2919a516c1e05b1e935ce995fa653f411d4a62cdd56f2c1556147
+  Stored in directory: /tmp/pip-ephem-wheel-cache-rf4rik3e/wheels/f5/ad/9e/852e94a307372a643459e835f409f707316dafdb0608b6b309
+Successfully built simple-s3-backup
+Installing collected packages: simple-s3-backup
+  Attempting uninstall: simple-s3-backup
+    Found existing installation: simple-s3-backup 0.0.2
+    Uninstalling simple-s3-backup-0.0.2:
+      Successfully uninstalled simple-s3-backup-0.0.2
+Successfully installed simple-s3-backup-0.0.2
