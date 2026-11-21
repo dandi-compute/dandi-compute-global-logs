@@ -1,0 +1,10 @@
+Pulling ./dandi-compute-core/
+HEAD is now at a72f364 Supported AIND ephys pipeline 1.5.2 (#384)
+Pulling ./dandi-compute-runner/
+HEAD is now at ce95224 Validated blob placement daily against partitions.json, and added a workflow to clean up misplaced heads (#121)
+Pulling ./aind-ephys-pipeline/
+./aind-ephys-pipeline/ is on a detached HEAD; fetched new tags without resetting.
+Putting /orcd/data/dandi/001/backup/simple-s3-backup on main
+branch 'main' set up to track 'origin/main'.
+Your branch is up to date with 'origin/main'.
+Was on main; now on main at d753472 Moved the head-to-partition map into partitions.json, published each blob head's bucket size and placement, and stopped walking the mirror's blobs (#56).

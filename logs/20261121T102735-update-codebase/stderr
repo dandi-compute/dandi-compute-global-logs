@@ -1,0 +1,15 @@
+From https://github.com/dandi-compute/dandi-compute-core
+   ce47553..a72f364  main       -> origin/main
+From https://github.com/dandi-compute/dandi-compute-runner
+ * [new branch]      count-blob-copies -> origin/count-blob-copies
+ * [new branch]      update-container-images-preemptable -> origin/update-container-images-preemptable
+From https://github.com/AllenNeuralDynamics/aind-ephys-pipeline
+ * [new branch]      cap-pools              -> origin/cap-pools
+ * [new branch]      dartsort-0.5.34        -> origin/dartsort-0.5.34
+   579d008..66c7533  dev                    -> origin/dev
+ * [new branch]      fix/qc-curation-labels -> origin/fix/qc-curation-labels
+   f2ef798..2fb0f5b  main                   -> origin/main
+ * [new tag]         1.5.2                  -> 1.5.2
+From https://github.com/dandi/simple-s3-backup
+ * [new branch]      log-blob-copies -> origin/log-blob-copies
+Reset branch 'main'
