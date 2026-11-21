@@ -1,0 +1,11 @@
+::warning title=DANDI-Backup-Blobs ended early::2 of its tasks timed out, were preempted or were cancelled in the last 24 hours.
+::error title=Checksum mismatch::1 mirrored blobs did not match the bucket; their copies were deleted for the next blob backup to copy again.
+DANDI-Backup-Blobs: 0 completed, 0 failed, 2 ended otherwise in the last 24 hours; 0 still pending or running.
+  29720640_9 TIMEOUT (exit 0:0 after 12:00:25)
+  29720640_12 TIMEOUT (exit 0:0 after 12:00:15)
+DANDI-Backup-Nonblobs: 1 completed, 0 failed, 0 ended otherwise in the last 24 hours; 0 still pending or running.
+DANDI-Update-Backup-Dashboard: 1 completed, 0 failed, 0 ended otherwise in the last 24 hours; 0 still pending or running.
+DANDI-Verify-Checksums: 3 completed, 1 found checksum mismatches, 0 failed, 0 ended otherwise in the last 24 hours; 4 still pending or running.
+DANDI-Verify-Blobs: 1 completed, 0 failed, 0 ended otherwise in the last 24 hours; 0 still pending or running.
+Checksum mismatches: 1 mirrored blobs did not match the bucket, and their copies were deleted for the next blob backup to copy again:
+  blobs/16b/2af/16b2af52-e3fc-4045-909e-d31a8e137f32: ETag 11aa239a5dbebd16fab2ea8b2c7d424d-11, expected 7231ffc41d0ca4c36ba1585fac9e2dc1-11
