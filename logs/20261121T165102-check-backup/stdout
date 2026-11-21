@@ -1,0 +1,5 @@
+::error title=Blob mirror not growing::No blob was copied in 3 days while the bucket gained 27893.
+The blob mirror has not grown in 3 days. The 32 task logs of the 2 DANDI-Backup-Blobs array jobs that wrote in the last 3 days show 0 blobs copied, 0 distinct.
+Between 2026-11-18T06:17:45-05:00 and 2026-11-21T06:03:16-05:00 the bucket went from 930142 to 958035 blobs (27893).
+If the logs have no "cp s3://" line at all, the simple-s3-backup checkout at /orcd/data/dandi/001/backup/simple-s3-backup
+may predate https://github.com/dandi/simple-s3-backup/pull/57, from which s5cmd's output reaches them.
