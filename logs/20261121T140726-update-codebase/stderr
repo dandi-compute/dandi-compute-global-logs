@@ -1,0 +1,7 @@
+From https://github.com/dandi-compute/dandi-compute-runner
+   ce95224..6035a29  main       -> origin/main
+Updating files:  83% (15/18)Updating files:  88% (16/18)Updating files:  94% (17/18)Updating files: 100% (18/18)Updating files: 100% (18/18), done.
+From https://github.com/dandi/simple-s3-backup
+ - [deleted]         (none)     -> origin/log-blob-copies
+   d753472..3807291  main       -> origin/main
+Reset branch 'main'
