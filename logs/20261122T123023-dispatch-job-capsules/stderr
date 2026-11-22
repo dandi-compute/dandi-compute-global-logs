@@ -1,0 +1,7 @@
+INFO:dandi_compute_code.queue._pipeline_queue:Sleeping 12.56 seconds (jitter) before dispatching jobs
+INFO:dandi_compute_code.queue._pipeline_queue:Found 111 pending queue entries
+WARNING:dandi_compute_code.queue._queue_utils:Unable to read a text asset from https://dandiarchive.s3.amazonaws.com/blobs/c07/9ca/c079cac0-d547-421d-a1e7-164d9f6acf27: <urlopen error [Errno 104] Connection reset by peer>
+INFO:dandi_compute_code.queue._capsule_resources:Could not read requested resources for 1 capsule(s); they fall back to pipeline defaults
+INFO:dandi_compute_code.queue._dispatch:Dispatcher dandicompute-dispatch-aind-ephys-lupin is still active as job(s) 29752740_9, 29752740_15, 29752740_20, 29752740_6; leaving its array to be exhausted
+INFO:dandi_compute_code.queue._dispatch:Dispatcher dandicompute-dispatch-aind-ephys is still active as job(s) 30033346_[5-101], 30033346_4, 30033346_3; leaving its array to be exhausted
+INFO:dandi_compute_code.queue._dispatch:No pending capsules for lfp
