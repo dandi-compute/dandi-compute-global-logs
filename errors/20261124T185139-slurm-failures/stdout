@@ -1,0 +1,452 @@
+## Jobs of the runner's user since 2026-11-17 that did not complete
+273 of the 589 jobs and tasks since 2026-11-17 did not complete.
+
+### By job name, state and exit code (most frequent first)
+    94  DANDI-Backup-Blobs | TIMEOUT | exit 0:0 | last ended 2026-11-24T13:48:29
+    45  dandicompute-dispatch-lfp | FAILED | exit 1:0 | last ended 2026-11-24T00:21:06
+    20  DANDI-Verify-Checksums | TIMEOUT | exit 0:0 | last ended 2026-11-22T16:54:02
+    16  nf-preprocessing_(preprocessing) | CANCELLED | exit 0:0 | last ended 2026-11-24T18:38:47
+    16  DANDI-Backup-Blobs | FAILED | exit 1:0 | last ended 2026-11-17T22:05:16
+    14  DANDI-Compute-Submitter | TIMEOUT | exit 0:0 | last ended 2026-11-24T16:31:35
+     9  nf-job_dispatch_(job-dispatch) | CANCELLED | exit 0:0 | last ended 2026-11-23T18:23:17
+     8  nf-nwb_ecephys_(nwb-ecephys) | CANCELLED | exit 0:0 | last ended 2026-11-24T18:38:47
+     7  dandicompute-dispatch-aind-ephys-lupin | OUT_OF_MEMORY | exit 0:125 | last ended 2026-11-23T05:06:52
+     5  nf-quality_control_(quality-control) | FAILED | exit 1:0 | last ended 2026-11-22T04:49:11
+     5  nf-job_dispatch_(job-dispatch) | FAILED | exit 1:0 | last ended 2026-11-23T21:49:53
+     4  nf-preprocessing_(preprocessing) | FAILED | exit 1:0 | last ended 2026-11-22T04:54:53
+     3  nf-spikesort_lupin_(spikesort-lupin) | CANCELLED | exit 0:0 | last ended 2026-11-22T18:14:30
+     3  nf-nwb_ecephys_(nwb-ecephys) | FAILED | exit 1:0 | last ended 2026-11-23T05:06:11
+     3  dandicompute-dispatch-aind-ephys | FAILED | exit 1:0 | last ended 2026-11-21T23:55:04
+     2  nf-spikesort_lupin_(spikesort-lupin) | OUT_OF_MEMORY | exit 0:125 | last ended 2026-11-22T23:15:41
+     2  nf-spikesort_dartsort_(spikesort-dartsort) | FAILED | exit 140:0 | last ended 2026-11-23T13:06:53
+     2  nf-results_collector_(result-collector) | CANCELLED | exit 0:0 | last ended 2026-11-22T04:42:41
+     2  nf-nwb_ecephys_(nwb-ecephys) | OUT_OF_MEMORY | exit 0:125 | last ended 2026-11-22T04:59:55
+     2  nf-curation_(curation) | CANCELLED | exit 0:0 | last ended 2026-11-22T02:27:07
+     2  DANDI-Verify-Checksums | FAILED | exit 1:0 | last ended 2026-11-20T12:10:16
+     2  dandicompute-dispatch-aind-ephys | OUT_OF_MEMORY | exit 0:125 | last ended 2026-11-23T03:44:50
+     1  nf-visualization_(visualization) | CANCELLED | exit 0:0 | last ended 2026-11-22T02:27:07
+     1  nf-save_provenance_(provenance) | CANCELLED | exit 0:0 | last ended 2026-11-20T10:30:53
+     1  nf-postprocessing_(postprocessing) | CANCELLED | exit 0:0 | last ended 2026-11-21T23:54:32
+     1  DANDI-Verify-Checksums | PREEMPTED | exit 0:0 | last ended 2026-11-24T13:00:29
+     1  DANDI-Verify-Checksums | FAILED | exit 3:0 | last ended 2026-11-21T11:07:38
+     1  dandicompute-dispatch-aind-ephys-lupin | FAILED | exit 1:0 | last ended 2026-11-20T00:00:24
+     1  DANDI-Backup-Blobs | TIMEOUT | exit 0:15 | last ended 2026-11-20T10:01:57
+
+### The errors failed jobs ended with
+Found the output of 219 of the newest 273 failed jobs.
+
+115 x [<n>-<n>-<n>T<n>:<n>:<n>.<n>] error: *** JOB <n> ON node<n> CANCELLED AT <n>-<n>-<n>T<n>:<n>:<n> DUE TO TIME LIMIT ***
+  from: DANDI-Backup-Blobs (95), DANDI-Verify-Checksums (20)
+  e.g. [2026-11-24T13:48:29.057] error: *** JOB 30281255 ON node1396 CANCELLED AT 2026-11-24T13:48:29 DUE TO TIME LIMIT ***
+  the end of /orcd/data/dandi/001/backup/logs/DANDI-Backup-Blobs-30281249_5.log:
+    | cp s3://dandiarchive/blobs/5b9/1a8/5b91a88d-fabd-4fd0-ae86-5bebbb95d849 /orcd/data/dandi/001/s3dandiarchive/blobs/5b9/1a8/5b91a88d-fabd-4fd0-ae86-5bebbb95d849
+    | cp s3://dandiarchive/blobs/5b9/9f5/5b99f556-a97b-4ea0-88af-3794467f630f /orcd/data/dandi/001/s3dandiarchive/blobs/5b9/9f5/5b99f556-a97b-4ea0-88af-3794467f630f
+    | cp s3://dandiarchive/blobs/5b9/d73/5b9d732e-7183-4e2f-b44a-8ad8d01de96d /orcd/data/dandi/001/s3dandiarchive/blobs/5b9/d73/5b9d732e-7183-4e2f-b44a-8ad8d01de96d
+    | cp s3://dandiarchive/blobs/5b9/253/5b9253ee-51b7-4849-bcd5-6c13fe869cc5 /orcd/data/dandi/001/s3dandiarchive/blobs/5b9/253/5b9253ee-51b7-4849-bcd5-6c13fe869cc5
+    | cp s3://dandiarchive/blobs/5b9/77a/5b977ae0-3c12-434f-a791-1f290eea6061 /orcd/data/dandi/001/s3dandiarchive/blobs/5b9/77a/5b977ae0-3c12-434f-a791-1f290eea6061
+    | cp s3://dandiarchive/blobs/5b9/3a7/5b93a749-6069-45e8-9eee-228073fd6ad6 /orcd/data/dandi/001/s3dandiarchive/blobs/5b9/3a7/5b93a749-6069-45e8-9eee-228073fd6ad6
+    | cp s3://dandiarchive/blobs/5b9/150/5b91509a-7327-46b0-851f-4777d9d5bf39 /orcd/data/dandi/001/s3dandiarchive/blobs/5b9/150/5b91509a-7327-46b0-851f-4777d9d5bf39
+    | cp s3://dandiarchive/blobs/5b9/29d/5b929d2a-232a-45ad-9633-19757949252b /orcd/data/dandi/001/s3dandiarchive/blobs/5b9/29d/5b929d2a-232a-45ad-9633-19757949252b
+    | cp s3://dandiarchive/blobs/5b9/789/5b97897c-d0d3-4064-9eaf-4169c9c8d391 /orcd/data/dandi/001/s3dandiarchive/blobs/5b9/789/5b97897c-d0d3-4064-9eaf-4169c9c8d391
+    | cp s3://dandiarchive/blobs/5b9/383/5b938357-47c8-4d33-9e58-eb7313be6435 /orcd/data/dandi/001/s3dandiarchive/blobs/5b9/383/5b938357-47c8-4d33-9e58-eb7313be6435
+    | cp s3://dandiarchive/blobs/5b9/99c/5b999c6a-eada-4e2d-9ee5-16ceab5176a4 /orcd/data/dandi/001/s3dandiarchive/blobs/5b9/99c/5b999c6a-eada-4e2d-9ee5-16ceab5176a4
+    | cp s3://dandiarchive/blobs/5b9/1e9/5b91e9ae-3e39-4231-82cd-73cce4119334 /orcd/data/dandi/001/s3dandiarchive/blobs/5b9/1e9/5b91e9ae-3e39-4231-82cd-73cce4119334
+    | cp s3://dandiarchive/blobs/5b9/902/5b9902fd-844f-4b50-af76-ba203a34603a /orcd/data/dandi/001/s3dandiarchive/blobs/5b9/902/5b9902fd-844f-4b50-af76-ba203a34603a
+    | cp s3://dandiarchive/blobs/5b9/e91/5b9e917a-b1bf-46d6-86da-b91b0689d19e /orcd/data/dandi/001/s3dandiarchive/blobs/5b9/e91/5b9e917a-b1bf-46d6-86da-b91b0689d19e
+    | [2026-11-24T13:48:29.057] error: *** JOB 30281255 ON node1396 CANCELLED AT 2026-11-24T13:48:29 DUE TO TIME LIMIT ***
+
+45 x FATAL: While making image from oci registry: error fetching image to cache: failed to get checksum for docker:<path>:v<n>.<n>.<n>: reading manifest v<n>.<n>.<n> in ghcr.io<path>: manifest unknown
+  from: dandicompute-dispatch-lfp (45)
+  e.g. FATAL:   While making image from oci registry: error fetching image to cache: failed to get checksum for docker://ghcr.io/dandi-compute/dandi-compute-lfp:v0.12.9: reading manifest v0.12.9 in ghcr.io/dandi-compute/dandi-compute-lfp: manifest unknown
+  the end of /orcd/data/dandi/001/dandi-compute/processing/derivatives/logs/dandicompute-dispatch-lfp/20261124-001605-dispatch-1-30297612_5.log:
+    | Claimed derivatives/dandisets-001/dandiset-001939/sub-480nm-3/sub-480nm-3_ses-s3_ecephys/pipeline-lfp/job-261124274e31/code with marker submitted_date-2026+11+24_time-00+21+02.
+    | 2026-11-24 00:21:04,077 [    INFO] Found 4 files to consider
+    | 2026-11-24 00:21:05,586 [    INFO] Logs saved in ~/.local/state/dandi-cli/log/2026.11.24-05.21.02Z-4102487.log
+    | PATH                                                                                                                         SIZE      ERRORS   PROGRESS STATUS                MESSAGE                  
+    | dandiset.yaml                                                                                                                2.5 kB                      skipped               should be edited online  
+    | ...dandisets-001/dandiset-001939/sub-480nm-3/sub-480nm-3_ses-s3_ecephys/pipeline-lfp/job-261124274e31/code/name-default.json 255 Bytes   0               skipped               file exists              
+    | ...vatives/dandisets-001/dandiset-001939/sub-480nm-3/sub-480nm-3_ses-s3_ecephys/pipeline-lfp/job-261124274e31/code/submit.sh 5.2 kB      0               skipped               file exists              
+    | ...-001939/sub-480nm-3/sub-480nm-3_ses-s3_ecephys/pipeline-lfp/job-261124274e31/code/submitted_date-2026+11+24_time-00+21+02 11 Bytes    0          100% done                                           
+    | Summary:                                                                                                                     7.9 kB            7 Bytes/s 3 skipped             1 should be edited online
+    |                                                                                                                                                          1 done                2 file exists            
+    | Writing the capsule's SLURM log to /orcd/data/dandi/001/dandi-compute/processing/prepare-job-jgb8jmiz/001697/derivatives/dandisets-001/dandiset-001939/sub-480nm-3/sub-480nm-3_ses-s3_ecephys/pipeline-lfp/job-261124274e31/logs/job-30297612_slurm.log.
+    | FATAL:   While making image from oci registry: error fetching image to cache: failed to get checksum for docker://ghcr.io/dandi-compute/dandi-compute-lfp:v0.12.9: reading manifest v0.12.9 in ghcr.io/dandi-compute/dandi-compute-lfp: manifest unknown
+    | === The run ended with status 1; uploading its logs ===
+    | === The image is not at /orcd/data/dandi/001/dandi-compute/work/apptainer_cache/ghcr.io-dandi-compute-dandi-compute-lfp-v0.12.9.img, so the capsule cannot be uploaded ===
+    | Capsule derivatives/dandisets-001/dandiset-001939/sub-480nm-3/sub-480nm-3_ses-s3_ecephys/pipeline-lfp/job-261124274e31/code exited with status 1.
+
+16 x <n>-<n>-<n>T<n>:<n>:<n>-<n>:<n> ERROR task <n>: could not acquire lock <path> another run is still active. Refusing to skip silently.
+  from: DANDI-Backup-Blobs (16)
+  e.g. 2026-11-17T22:05:09-05:00 ERROR task 15: could not acquire lock /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_15.lock; another run is still active. Refusing to skip silently.
+  the end of /orcd/data/dandi/001/backup/logs/DANDI-Backup-Blobs-29490239_15.log:
+    | 2026-11-17T22:05:09-05:00 starting backup_blobs task 15 (job 29490239 on node2626)
+    | 2026-11-17T22:05:09-05:00 ERROR task 15: could not acquire lock /orcd/data/dandi/001/backup/flocks/backup_blobs_batch_15.lock; another run is still active. Refusing to skip silently.
+
+9 x [<n>-<n>-<n>T<n>:<n>:<n>.<n>] error: Detected <n> oom_kill event in StepId=<n>.batch. Some of the step tasks have been OOM Killed.
+  from: dandicompute-dispatch-aind-ephys-lupin (7), dandicompute-dispatch-aind-ephys (2)
+  e.g. [2026-11-23T00:10:39.482] error: Detected 1 oom_kill event in StepId=29752986.batch. Some of the step tasks have been OOM Killed.
+  the end of /orcd/data/dandi/001/dandi-compute/processing/derivatives/logs/dandicompute-dispatch-aind-ephys-lupin/20261120-035418-dispatch-1-29752740_9.log:
+    | ...s/pipeline-aind+ephys/job-261118c7899a/derivatives/af0d90f9-049e-4371-8b0d-4e57929ef987_block0_recording1.nwb 328.6 MB              100% done                                                        
+    | ...ine-aind+ephys/job-261118c7899a/derivatives/postprocessed/block0_acquisition-ElectricalSeries_recording1.zarr 47.7 MB               100% done                                                        
+    | ...ndiset-001177/sub-D0/sub-D0_ses-SalineopenField-DO_ecephys/pipeline-aind+ephys/job-261118c7899a/logs/dag.html 3.7 kB                     done                                                        
+    | ...sub-D0/sub-D0_ses-SalineopenField-DO_ecephys/pipeline-aind+ephys/job-261118c7899a/logs/job-29752986_slurm.log 982.6 kB              100% done                          exists (older) - reuploading  
+    | ...et-001177/sub-D0/sub-D0_ses-SalineopenField-DO_ecephys/pipeline-aind+ephys/job-261118c7899a/logs/nextflow.log 55.8 kB               100% done                          exists (older) - reuploading  
+    | ...-001177/sub-D0/sub-D0_ses-SalineopenField-DO_ecephys/pipeline-aind+ephys/job-261118c7899a/logs/nextflow.log.1 113.8 kB                   done                          exists (older) - reuploading  
+    | ...-001177/sub-D0/sub-D0_ses-SalineopenField-DO_ecephys/pipeline-aind+ephys/job-261118c7899a/logs/nextflow.log.2 256.9 kB                   done                                                        
+    | ...001177/sub-D0/sub-D0_ses-SalineopenField-DO_ecephys/pipeline-aind+ephys/job-261118c7899a/logs/provenance.json 63.9 kB               100% done                                                        
+    | ...set-001177/sub-D0/sub-D0_ses-SalineopenField-DO_ecephys/pipeline-aind+ephys/job-261118c7899a/logs/report.html 3.1 MB                100% done                                                        
+    | ...t-001177/sub-D0/sub-D0_ses-SalineopenField-DO_ecephys/pipeline-aind+ephys/job-261118c7899a/logs/timeline.html 255.3 kB              100% done                                                        
+    | ...diset-001177/sub-D0/sub-D0_ses-SalineopenField-DO_ecephys/pipeline-aind+ephys/job-261118c7899a/logs/trace.txt 1.7 kB                100% done                                                        
+    | Summary:                                                                                                         381.2 MB         18.3 MB/s 7 skipped                     1 should be edited online     
+    |                                                                                                                                             11 done                       6 file exists                 
+    |                                                                                                                                                                           3 exists (older) - reuploading
+    | [2026-11-23T00:10:39.482] error: Detected 1 oom_kill event in StepId=29752986.batch. Some of the step tasks have been OOM Killed.
+
+5 x RuntimeError: File <path> is not an existing file or folder!
+  from: nf-job_dispatch (5)
+  e.g. RuntimeError: File /orcd/data/dandi/001/dandi-compute/work/job-261122957b7c/89/ecb2a0ce7b368f35c28bd3736ceeae/capsule/code/../data/ecephys_session/985bad23-821c-46b5-bf9a-e505c2aa2bd3.nwb is not an existing file or folder!
+  the end of /orcd/data/dandi/001/dandi-compute/work/job-261122957b7c/89/ecb2a0ce7b368f35c28bd3736ceeae/.command.err:
+    |   File "/orcd/data/dandi/001/dandi-compute/work/job-261122957b7c/89/ecb2a0ce7b368f35c28bd3736ceeae/capsule/code/run_capsule.py", line 372, in run
+    |     electrical_series_paths = NwbRecordingExtractor.fetch_available_electrical_series_paths(nwb_file)
+    |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/opt/conda/lib/python3.11/site-packages/spikeinterface/extractors/nwbextractors.py", line 1167, in fetch_available_electrical_series_paths
+    |     return _NWBReader.available_electrical_series(
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/opt/conda/lib/python3.11/site-packages/spikeinterface/extractors/nwbextractors.py", line 508, in available_electrical_series
+    |     backend = _NWBReader._storage_backend(file_path, stream_mode=stream_mode)
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/opt/conda/lib/python3.11/site-packages/spikeinterface/extractors/nwbextractors.py", line 402, in _storage_backend
+    |     return _get_backend_from_local_file(file_path)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/opt/conda/lib/python3.11/site-packages/spikeinterface/extractors/nwbextractors.py", line 315, in _get_backend_from_local_file
+    |     raise RuntimeError(f"File {file_path} is not an existing file or folder!")
+    | RuntimeError: File /orcd/data/dandi/001/dandi-compute/work/job-261122957b7c/89/ecb2a0ce7b368f35c28bd3736ceeae/capsule/code/../data/ecephys_session/985bad23-821c-46b5-bf9a-e505c2aa2bd3.nwb is not an existing file or folder!
+
+5 x AttributeError: 'NoneType' object has no attribute 'displacement'
+  from: nf-quality_control (5)
+  e.g. AttributeError: 'NoneType' object has no attribute 'displacement'
+  the end of /orcd/data/dandi/001/dandi-compute/work/job-2611194520a1/35/cf492bbc3da8915da89089707a92e2/.command.err:
+    |   warnings.warn(
+    | /opt/conda/lib/python3.11/site-packages/spikeinterface/preprocessing/average_across_direction.py:73: FutureWarning: set_channel_locations() is deprecated and will be removed in version 0.106.0. If you want to set probe information, use `set_dummy_probe_from_locations()`.
+    |   self.set_channel_locations(channel_locations)
+    | /opt/conda/lib/python3.11/site-packages/spikeinterface/preprocessing/motion.py:665: UserWarning: No `motion` object in folder. `motion_info` is loaded with `motion` equal to `None`.
+    |   warnings.warn("No `motion` object in folder. `motion_info` is loaded with `motion` equal to `None`.")
+    | Traceback (most recent call last):
+    |   File "/orcd/data/dandi/001/dandi-compute/work/job-2611194520a1/35/cf492bbc3da8915da89089707a92e2/capsule/code/run_capsule.py", line 383, in <module>
+    |     run()
+    |   File "/orcd/data/dandi/001/dandi-compute/work/job-2611194520a1/35/cf492bbc3da8915da89089707a92e2/capsule/code/run_capsule.py", line 303, in run
+    |     metrics_drift = generate_drift_qc(
+    |                     ^^^^^^^^^^^^^^^^^^
+    |   File "/orcd/data/dandi/001/dandi-compute/work/job-2611194520a1/35/cf492bbc3da8915da89089707a92e2/capsule/code/qc_utils.py", line 650, in generate_drift_qc
+    |     displacement_arr = motion.displacement[0]
+    |                        ^^^^^^^^^^^^^^^^^^^
+    | AttributeError: 'NoneType' object has no attribute 'displacement'
+
+4 x ZeroDivisionError: division by zero
+  from: nf-preprocessing (4)
+  e.g. ZeroDivisionError: division by zero
+  the end of /orcd/data/dandi/001/dandi-compute/work/job-2611160e458a/b3/82eb265f171ed876dc33678e4a71ba/.command.err:
+    |     run()
+    |   File "/orcd/data/dandi/001/dandi-compute/work/job-2611160e458a/b3/82eb265f171ed876dc33678e4a71ba/capsule/code/run_capsule.py", line 424, in run
+    |     motion = spre.compute_motion(
+    |              ^^^^^^^^^^^^^^^^^^^^
+    |   File "/opt/conda/lib/python3.11/site-packages/spikeinterface/preprocessing/motion.py", line 402, in compute_motion
+    |     peaks, peak_locations = run_node_pipeline(
+    |                             ^^^^^^^^^^^^^^^^^^
+    |   File "/opt/conda/lib/python3.11/site-packages/spikeinterface/core/node_pipeline.py", line 733, in run_node_pipeline
+    |     node0._first_call_before_pipeline()
+    |   File "/opt/conda/lib/python3.11/site-packages/spikeinterface/core/node_pipeline.py", line 101, in _first_call_before_pipeline
+    |     self.compute(traces, margin, margin + 1, 0, margin)
+    |   File "/opt/conda/lib/python3.11/site-packages/spikeinterface/sortingcomponents/peak_detection/locally_exclusive.py", line 93, in compute
+    |     peak_sample_ind, peak_chan_ind = detect_peaks_numba_locally_exclusive_on_chunk(
+    |                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    | ZeroDivisionError: division by zero
+
+4 x + python -u run_capsule.py
+  from: nf-spikesort_lupin (3), nf-results_collector (1)
+  e.g. + python -u run_capsule.py
+  the end of /orcd/data/dandi/001/dandi-compute/work/job-261118583571/60/f82e44b4e117a0534f8057ab525f20/.command.err:
+    | Cloning into 'capsule-repo'...
+    | + python -u run_capsule.py
+
+2 x ValueError: Resampling produced nonfinite values. Check the input traces and resampling parameters.
+  from: nf-nwb_ecephys (2)
+  e.g. ValueError: Resampling produced nonfinite values. Check the input traces and resampling parameters.
+  the end of /orcd/data/dandi/001/dandi-compute/work/job-261115802824/44/480c82a08079d658b3a7a9faa9ace0/.command.err:
+    |     for res in results:
+    |   File "/opt/conda/lib/python3.11/concurrent/futures/process.py", line 606, in _chain_from_iterable_of_lists
+    |     for element in iterable:
+    |   File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 619, in result_iterator
+    |     yield _result_or_cancel(fs.pop())
+    |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 317, in _result_or_cancel
+    |     return fut.result(timeout)
+    |            ^^^^^^^^^^^^^^^^^^^
+    |   File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 456, in result
+    |     return self.__get_result()
+    |            ^^^^^^^^^^^^^^^^^^^
+    |   File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    |     raise self._exception
+    | ValueError: Resampling produced nonfinite values. Check the input traces and resampling parameters.
+
+2 x ValueError: No threading layer could be loaded.
+  from: nf-spikesort_dartsort (2)
+  e.g. ValueError: No threading layer could be loaded.
+  the end of /orcd/data/dandi/001/dandi-compute/work/job-261114273805/88/2b7d6de1cb3eae2ffb8a33f036a261/.command.err:
+    |   File "/usr/local/lib/python3.12/dist-packages/numba/parfors/parfor_lowering.py", line 68, in _lower_parfor_parallel
+    |     return _lower_parfor_parallel_std(lowerer, parfor)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/lib/python3.12/dist-packages/numba/parfors/parfor_lowering.py", line 382, in _lower_parfor_parallel_std
+    |     call_parallel_gufunc(
+    |   File "/usr/local/lib/python3.12/dist-packages/numba/parfors/parfor_lowering.py", line 1693, in call_parallel_gufunc
+    |     _launch_threads()
+    |   File "/usr/local/lib/python3.12/dist-packages/numba/np/ufunc/parallel.py", line 515, in _launch_threads
+    |     raise_with_hint(requirements)
+    |   File "/usr/local/lib/python3.12/dist-packages/numba/np/ufunc/parallel.py", line 460, in raise_with_hint
+    |     raise ValueError(errmsg % hint)
+    | ValueError: No threading layer could be loaded.
+    | HINT:
+    | Intel TBB is required, try:
+    | $ conda/pip install tbb
+
+2 x <n>-<n>-<n>T<n>:<n>:<n>-<n>:<n> ERROR task <n>: 's<n>backup dandi verify-checksums <n>' exited with status <n>; the summary above names each blob that does not match.
+  from: DANDI-Verify-Checksums (2)
+  e.g. 2026-11-20T12:10:16-05:00 ERROR task 15: 's3backup dandi verify-checksums 15' exited with status 1; the summary above names each blob that does not match.
+  the end of /orcd/data/dandi/001/backup/logs/DANDI-Verify-Checksums-29541930_15.log:
+    |   [NOT IN BUCKET] blobs/f08/78b/f0878bb4-d9ae-4d2c-825f-bd8e1c34cd324243224855
+    |   [NOT IN BUCKET] blobs/f08/c5f/f08c5fe8-503e-4f36-b536-075ef4d6dfd01644602613
+    |   [NOT IN BUCKET] blobs/f08/c5f/f08c5fe8-503e-4f36-b536-075ef4d6dfd03686731781
+    |   [NOT IN BUCKET] blobs/f09/472/f094721e-cc48-45e3-bbe6-62b45197f41761669564
+    |   [NOT IN BUCKET] blobs/f0d/085/f0d085a8-883a-4b44-9b18-b6ed95e9bb563513489217
+    |   [NOT IN BUCKET] blobs/f18/507/f18507ee-8544-44ae-b332-2cce66694b5b1232068509
+    |   [NOT IN BUCKET] blobs/f24/db5/f24db59a-9aa2-46ac-9440-bb0de9f9bb111270737646
+    |   [NOT IN BUCKET] blobs/f2a/1ec/f2a1ecf8-8791-4b0d-b22c-ca92836178e4713254251
+    |   [NOT IN BUCKET] blobs/f2a/959/f2a95959-7778-43b7-a1ab-9c21d10139691218381065
+    |   [NOT IN BUCKET] blobs/f39/eaf/f39eaf1e-95cd-48a7-b669-76a31d65cf88789665811
+    |   [NOT IN BUCKET] ... and 151 more
+    | 
+    | 1 blobs do not match the bucket:
+    |   blobs/f06/21f/f0621f4d-2de5-4800-b751-b5bc14b0b526: 3752853504 bytes, expected 57357025658
+    | 2026-11-20T12:10:16-05:00 ERROR task 15: 's3backup dandi verify-checksums 15' exited with status 1; the summary above names each blob that does not match.
+
+2 x error: failed-wheel-build-for-install
+  from: dandicompute-dispatch-aind-ephys-lupin (1), dandicompute-dispatch-aind-ephys (1)
+  e.g. error: failed-wheel-build-for-install
+  the end of /orcd/data/dandi/001/dandi-compute/processing/derivatives/logs/dandicompute-dispatch-aind-ephys-lupin/20261114-001530-dispatch-1-29047609_5.log:
+    | dandiset.yaml                                                                                                            2.5 kB                     skipped               should be edited online       
+    | ...-001/dandiset-001177/sub-K1/sub-K1_ses-PPXopenField-K1-day3_ecephys/pipeline-aind+ephys/job-2611136da2ff/code/main.nf 43.3 kB                    skipped               file exists                   
+    | ...ub-K1/sub-K1_ses-PPXopenField-K1-day3_ecephys/pipeline-aind+ephys/job-2611136da2ff/code/name-lupin_version-1+5+0.json 21.0 kB                    skipped               file exists                   
+    | ...sub-K1_ses-PPXopenField-K1-day3_ecephys/pipeline-aind+ephys/job-2611136da2ff/code/name-mit+engaging_revision-8.config 4.1 kB                     skipped               file exists                   
+    | ...-001177/sub-K1/sub-K1_ses-PPXopenField-K1-day3_ecephys/pipeline-aind+ephys/job-2611136da2ff/code/process_versions.env 2.3 kB                     skipped               file exists                   
+    | ...01/dandiset-001177/sub-K1/sub-K1_ses-PPXopenField-K1-day3_ecephys/pipeline-aind+ephys/job-2611136da2ff/code/submit.sh 5.6 kB                     skipped               file exists                   
+    | ...t-001177/sub-K1/sub-K1_ses-PPXopenField-K1-day3_ecephys/pipeline-aind+ephys/job-2611136da2ff/dataset_description.json 1.2 kB                     skipped               file exists                   
+    | ...01177/sub-K1/sub-K1_ses-PPXopenField-K1-day3_ecephys/pipeline-aind+ephys/job-2611136da2ff/logs/job-29047662_slurm.log 1.1 MB                100% done                  exists (older) - reuploading  
+    | ...dandiset-001177/sub-K1/sub-K1_ses-PPXopenField-K1-day3_ecephys/pipeline-aind+ephys/job-2611136da2ff/logs/nextflow.log 247.0 kB              100% done                  exists (older) - reuploading  
+    | ...ndiset-001177/sub-K1/sub-K1_ses-PPXopenField-K1-day3_ecephys/pipeline-aind+ephys/job-2611136da2ff/logs/nextflow.log.1 84.9 kB                    done                  exists (older) - reuploading  
+    | ...ndiset-001177/sub-K1/sub-K1_ses-PPXopenField-K1-day3_ecephys/pipeline-aind+ephys/job-2611136da2ff/logs/nextflow.log.2 148.5 kB                   done                                                
+    | Summary:                                                                                                                 1.7 MB          735.7 kB/s 7 skipped             1 should be edited online     
+    |                                                                                                                                                     4 done                6 file exists                 
+    |                                                                                                                                                                           3 exists (older) - reuploading
+    | Capsule derivatives/dandisets-001/dandiset-001177/sub-K1/sub-K1_ses-PPXopenField-K1-day3_ecephys/pipeline-aind+ephys/job-2611136da2ff/code exited with status 1.
+
+2 x concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.
+  from: nf-nwb_ecephys (2)
+  e.g. concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.
+  the end of /orcd/data/dandi/001/dandi-compute/work/job-26111254272e/3a/35e09da9c6283407dc840de0e7ffd9/.command.err:
+    |     for res in results:
+    |   File "/opt/conda/lib/python3.11/concurrent/futures/process.py", line 606, in _chain_from_iterable_of_lists
+    |     for element in iterable:
+    |   File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 619, in result_iterator
+    |     yield _result_or_cancel(fs.pop())
+    |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 317, in _result_or_cancel
+    |     return fut.result(timeout)
+    |            ^^^^^^^^^^^^^^^^^^^
+    |   File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 456, in result
+    |     return self.__get_result()
+    |            ^^^^^^^^^^^^^^^^^^^
+    |   File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    |     raise self._exception
+    | concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.
+
+1 x slurm_load_jobs error: Socket timed out on send<path> operation
+  from: dandicompute-dispatch-aind-ephys (1)
+  e.g.   slurm_load_jobs error: Socket timed out on send/recv operation
+  the end of /orcd/data/dandi/001/dandi-compute/processing/derivatives/logs/dandicompute-dispatch-aind-ephys/20261111-083039-dispatch-1-28682239_11.log:
+    | PATH                                                                                                                     SIZE     ERRORS   PROGRESS STATUS                MESSAGE                       
+    | dandiset.yaml                                                                                                            2.5 kB                     skipped               should be edited online       
+    | ...s-001/dandiset-001428/sub-aged-mice/sub-aged-mice_ses-after_ecephys/pipeline-aind+ephys/job-2611107677d7/code/main.nf 43.3 kB                    skipped               file exists                   
+    | ...-aged-mice/sub-aged-mice_ses-after_ecephys/pipeline-aind+ephys/job-2611107677d7/code/name-dartsort_version-1+5+0.json 21.0 kB                    skipped               file exists                   
+    | ...ed-mice/sub-aged-mice_ses-after_ecephys/pipeline-aind+ephys/job-2611107677d7/code/name-mit+engaging_revision-8.config 4.1 kB                     skipped               file exists                   
+    | ...t-001428/sub-aged-mice/sub-aged-mice_ses-after_ecephys/pipeline-aind+ephys/job-2611107677d7/code/process_versions.env 2.3 kB                     skipped               file exists                   
+    | ...001/dandiset-001428/sub-aged-mice/sub-aged-mice_ses-after_ecephys/pipeline-aind+ephys/job-2611107677d7/code/submit.sh 5.6 kB                     skipped               file exists                   
+    | ...et-001428/sub-aged-mice/sub-aged-mice_ses-after_ecephys/pipeline-aind+ephys/job-2611107677d7/dataset_description.json 1.2 kB                     skipped               file exists                   
+    | ...001428/sub-aged-mice/sub-aged-mice_ses-after_ecephys/pipeline-aind+ephys/job-2611107677d7/logs/job-28682345_slurm.log 1.1 MB                100% done                  exists (older) - reuploading  
+    | .../dandiset-001428/sub-aged-mice/sub-aged-mice_ses-after_ecephys/pipeline-aind+ephys/job-2611107677d7/logs/nextflow.log 402.0 kB              100% done                  exists (older) - reuploading  
+    | ...andiset-001428/sub-aged-mice/sub-aged-mice_ses-after_ecephys/pipeline-aind+ephys/job-2611107677d7/logs/nextflow.log.1 81.2 kB                    done                                                
+    | Summary:                                                                                                                 1.6 MB          590.7 kB/s 7 skipped             1 should be edited online     
+    |                                                                                                                                                     3 done                6 file exists                 
+    |                                                                                                                                                                           2 exists (older) - reuploading
+    | Capsule derivatives/dandisets-001/dandiset-001428/sub-aged-mice/sub-aged-mice_ses-after_ecephys/pipeline-aind+ephys/job-2611107677d7/code exited with status 1.
+
+1 x <n>-<n>-<n>T<n>:<n>:<n>-<n>:<n> task <n>: deleted the copies that do not match the bucket, named in the [MISMATCH DELETED] lines above; the next blob backup copies them again.
+  from: DANDI-Verify-Checksums (1)
+  e.g. 2026-11-21T11:07:35-05:00 task 1: deleted the copies that do not match the bucket, named in the [MISMATCH DELETED] lines above; the next blob backup copies them again.
+  the end of /orcd/data/dandi/001/backup/logs/DANDI-Verify-Checksums-29951895_1.log:
+    |   0 changed in the last hour, left for the next run
+    |   0 were uploaded in other parts than DANDI's, so cannot be verified
+    |   8336 are in the bucket but not mirrored yet
+    |   0 are mirrored but no longer in the bucket
+    |   0 of 256 prefixes could not be listed
+    |   1360 files were read in this run, 50311 checked from their cached checksum
+    |   0 blobs no longer in the bucket are kept for 183 days from when they were first found missing (0 first found in this run, 0 back in the bucket and forgotten)
+    |   0 blobs no longer in the bucket for 183 days were deleted from the mirror
+    |   767 partial downloads left by killed backup tasks were removed, 0 changed in the last day left for now
+    | 
+    | 1 new events recorded in the ledger /orcd/data/dandi/001/backup/checksum_mismatches.tsv
+    | 
+    | 1 blobs do not match the bucket:
+    |   blobs/16b/2af/16b2af52-e3fc-4045-909e-d31a8e137f32: ETag 11aa239a5dbebd16fab2ea8b2c7d424d-11, expected 7231ffc41d0ca4c36ba1585fac9e2dc1-11
+    | 2026-11-21T11:07:35-05:00 task 1: deleted the copies that do not match the bucket, named in the [MISMATCH DELETED] lines above; the next blob backup copies them again.
+
+1 x [<n>-<n>-<n>T<n>:<n>:<n>.<n>] error: *** JOB <n> ON node<n> CANCELLED AT <n>-<n>-<n>T<n>:<n>:<n> DUE TO PREEMPTION ***
+  from: DANDI-Verify-Checksums (1)
+  e.g. [2026-11-24T13:00:29.619] error: *** JOB 30347606 ON node2603 CANCELLED AT 2026-11-24T13:00:29 DUE TO PREEMPTION ***
+  the end of /orcd/data/dandi/001/backup/logs/DANDI-Verify-Checksums-30347602_1.log:
+    | 2026-11-24 10:18:33 listed through 1bf: 42704 match from their cached checksum or need no reading, 0 do not; 2412 never read or changed since and 0 overdue are to be read
+    | 2026-11-24 10:19:34 listed through 1cf: 44965 match from their cached checksum or need no reading, 0 do not; 3909 never read or changed since and 0 overdue are to be read
+    | 2026-11-24 10:20:30 listed through 1df: 47184 match from their cached checksum or need no reading, 0 do not; 5419 never read or changed since and 0 overdue are to be read
+    | 2026-11-24 10:21:34 listed through 1ef: 49451 match from their cached checksum or need no reading, 0 do not; 6975 never read or changed since and 0 overdue are to be read
+    | 2026-11-24 10:22:36 listed through 1ff: 51670 match from their cached checksum or need no reading, 0 do not; 7835 never read or changed since and 0 overdue are to be read
+    | 2026-11-24 10:22:36 reading 7835 blobs (8.87 TB): 7835 never read or changed since, then 0 overdue, oldest first
+    | 2026-11-24 10:33:00 read 22 of 7835 blobs, 169.70 GB at 272.3 MB/s; 0 still overdue
+    | 2026-11-24 10:43:27 read 42 of 7835 blobs, 342.39 GB at 273.8 MB/s; 0 still overdue
+    | 2026-11-24 10:53:53 read 71 of 7835 blobs, 510.47 GB at 272.3 MB/s; 0 still overdue
+    | 2026-11-24 11:07:07 read 81 of 7835 blobs, 741.29 GB at 277.7 MB/s; 0 still overdue
+    | 2026-11-24 11:23:16 read 95 of 7835 blobs, 950.55 GB at 261.3 MB/s; 0 still overdue
+    | 2026-11-24 12:31:13 read 109 of 7835 blobs, 1.80 TB at 232.8 MB/s; 0 still overdue
+    | 2026-11-24 12:41:25 read 353 of 7835 blobs, 1.92 TB at 230.3 MB/s; 0 still overdue
+    | 2026-11-24 12:51:59 read 585 of 7835 blobs, 2.04 TB at 228.0 MB/s; 0 still overdue
+    | [2026-11-24T13:00:29.619] error: *** JOB 30347606 ON node2603 CANCELLED AT 2026-11-24T13:00:29 DUE TO PREEMPTION ***
+
+1 x Exception: Spike sorting error trace:
+  from: nf-spikesort_lupin (1)
+  e.g. Exception: Spike sorting error trace:
+  the end of /orcd/data/dandi/001/dandi-compute/work/job-2611153ee055/80/98e5a3a9e8cd2b2b0b98bb8c350cab/.command.err:
+    |     for element in iterable:
+    |   File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 619, in result_iterator
+    |     yield _result_or_cancel(fs.pop())
+    |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 317, in _result_or_cancel
+    |     return fut.result(timeout)
+    |            ^^^^^^^^^^^^^^^^^^^
+    |   File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 456, in result
+    |     return self.__get_result()
+    |            ^^^^^^^^^^^^^^^^^^^
+    |   File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    |     raise self._exception
+    | concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.
+    | 
+    | Spike sorting failed. You can inspect the runtime trace in /orcd/data/dandi/001/dandi-compute/work/job-2611153ee055/80/98e5a3a9e8cd2b2b0b98bb8c350cab/capsule/code/../scratch/spikesorted_raw/block0_acquisition-ElectricalSeriesAP_recording1/spikeinterface_log.json.
+
+1 x Exception: could not resolve dtype for VectorData 'x': data type 'float<n>' not understood
+  from: nf-nwb_ecephys (1)
+  e.g. Exception: could not resolve dtype for VectorData 'x': data type 'float96' not understood
+  the end of /orcd/data/dandi/001/dandi-compute/work/job-2611190aae4b/82/3184edc27479fec3b1999080b2d77e/.command.err:
+    |   File "/opt/conda/lib/python3.11/site-packages/hdmf/build/manager.py", line 185, in build
+    |     result = self.__type_map.build(container, self, source=source, matched_spec=matched_spec)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/opt/conda/lib/python3.11/site-packages/hdmf/utils.py", line 641, in func_call
+    |     return func(args[0], **pargs)
+    |            ^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/opt/conda/lib/python3.11/site-packages/hdmf/build/manager.py", line 883, in build
+    |     builder = obj_mapper.build(container, manager, builder=builder, source=source, matched_spec=matched_spec)
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/opt/conda/lib/python3.11/site-packages/hdmf/utils.py", line 641, in func_call
+    |     return func(args[0], **pargs)
+    |            ^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/opt/conda/lib/python3.11/site-packages/hdmf/build/objectmapper.py", line 928, in build
+    |     raise Exception(full_msg) from ex
+    | Exception: could not resolve dtype for VectorData 'x': data type 'float96' not understood
+
+1 x Application of preprocessing pipeline failed with error:ProbeGroup.get_slice() with empty selection is not handled.
+  from: dandicompute-dispatch-aind-ephys (1)
+  e.g. 
+  the end of /orcd/data/dandi/001/dandi-compute/processing/derivatives/logs/dandicompute-dispatch-aind-ephys/20261111-083039-dispatch-1-28682239_12.log:
+    | PATH                                                                                                                     SIZE     ERRORS   PROGRESS STATUS                MESSAGE                       
+    | dandiset.yaml                                                                                                            2.5 kB                     skipped               should be edited online       
+    | ...ts-001/dandiset-001765/sourcedata/sub-NP04/ecephys/sub-NP04_ecephys/pipeline-aind+ephys/job-26111025949e/code/main.nf 43.3 kB                    skipped               file exists                   
+    | ...ourcedata/sub-NP04/ecephys/sub-NP04_ecephys/pipeline-aind+ephys/job-26111025949e/code/name-default_version-1+5+0.json 21.0 kB                    skipped               file exists                   
+    | ...edata/sub-NP04/ecephys/sub-NP04_ecephys/pipeline-aind+ephys/job-26111025949e/code/name-mit+engaging_revision-8.config 4.1 kB                     skipped               file exists                   
+    | ...et-001765/sourcedata/sub-NP04/ecephys/sub-NP04_ecephys/pipeline-aind+ephys/job-26111025949e/code/process_versions.env 2.3 kB                     skipped               file exists                   
+    | ...-001/dandiset-001765/sourcedata/sub-NP04/ecephys/sub-NP04_ecephys/pipeline-aind+ephys/job-26111025949e/code/submit.sh 5.6 kB                     skipped               file exists                   
+    | ...set-001765/sourcedata/sub-NP04/ecephys/sub-NP04_ecephys/pipeline-aind+ephys/job-26111025949e/dataset_description.json 1.2 kB                     skipped               file exists                   
+    | ...-001765/sourcedata/sub-NP04/ecephys/sub-NP04_ecephys/pipeline-aind+ephys/job-26111025949e/logs/job-28682346_slurm.log 1.2 MB                100% done                  exists (older) - reuploading  
+    | ...1/dandiset-001765/sourcedata/sub-NP04/ecephys/sub-NP04_ecephys/pipeline-aind+ephys/job-26111025949e/logs/nextflow.log 315.6 kB              100% done                  exists (older) - reuploading  
+    | ...dandiset-001765/sourcedata/sub-NP04/ecephys/sub-NP04_ecephys/pipeline-aind+ephys/job-26111025949e/logs/nextflow.log.1 182.6 kB                   done                                                
+    | Summary:                                                                                                                 1.8 MB          648.7 kB/s 7 skipped             1 should be edited online     
+    |                                                                                                                                                     3 done                6 file exists                 
+    |                                                                                                                                                                           2 exists (older) - reuploading
+    | Capsule derivatives/dandisets-001/dandiset-001765/sourcedata/sub-NP04/ecephys/sub-NP04_ecephys/pipeline-aind+ephys/job-26111025949e/code exited with status 1.
+
+### The other failed jobs, newest first
+30347602_1 DANDI-Verify-Checksums PREEMPTED exit 0:0 ended 2026-11-24T13:00:29 after 02:58:22 in ~
+30321774 DANDI-Compute-Submitter TIMEOUT exit 0:0 ended 2026-11-24T16:31:35 after 12:00:04 in ~
+30281249_5 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-24T13:48:29 after 12:00:23 in ~
+30297612_5 dandicompute-dispatch-lfp FAILED exit 1:0 ended 2026-11-24T00:21:06 after 00:00:08 in /orcd/data/dandi/001/dandi-compute
+30297612_4 dandicompute-dispatch-lfp FAILED exit 1:0 ended 2026-11-24T00:19:14 after 00:00:07 in /orcd/data/dandi/001/dandi-compute
+30297612_3 dandicompute-dispatch-lfp FAILED exit 1:0 ended 2026-11-24T00:19:18 after 00:00:11 in /orcd/data/dandi/001/dandi-compute
+30297612_2 dandicompute-dispatch-lfp FAILED exit 1:0 ended 2026-11-24T00:18:08 after 00:00:11 in /orcd/data/dandi/001/dandi-compute
+30297612_1 dandicompute-dispatch-lfp FAILED exit 1:0 ended 2026-11-24T00:18:11 after 00:00:14 in /orcd/data/dandi/001/dandi-compute
+30281249_15 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-24T10:00:58 after 12:00:17 in ~
+30281249_14 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-24T10:00:58 after 12:00:17 in ~
+30281249_13 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-24T10:00:58 after 12:00:17 in ~
+30281249_12 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-24T10:00:58 after 12:00:17 in ~
+30281249_11 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-24T10:00:58 after 12:00:17 in ~
+30281249_10 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-24T10:00:58 after 12:00:17 in ~
+30281249_9 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-24T10:00:58 after 12:00:17 in ~
+30281249_8 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-24T10:00:58 after 12:00:17 in ~
+30281249_7 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-24T10:00:58 after 12:00:17 in ~
+30281249_6 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-24T10:00:58 after 12:00:17 in ~
+30281249_3 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-24T10:00:58 after 12:00:17 in ~
+30281249_2 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-24T10:00:58 after 12:00:17 in ~
+30281249_1 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-24T10:00:58 after 12:00:17 in ~
+30281249_0 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-24T10:00:58 after 12:00:17 in ~
+30246891 DANDI-Compute-Submitter TIMEOUT exit 0:0 ended 2026-11-24T04:30:39 after 12:00:27 in ~
+30134913_15 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-23T21:38:07 after 12:00:05 in ~
+30134913_14 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-23T21:38:07 after 12:00:05 in ~
+30134913_13 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-23T21:38:07 after 12:00:05 in ~
+30134913_12 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-23T21:38:07 after 12:00:05 in ~
+30174987 DANDI-Compute-Submitter TIMEOUT exit 0:0 ended 2026-11-23T16:28:18 after 12:00:15 in ~
+30150800_5 dandicompute-dispatch-lfp FAILED exit 1:0 ended 2026-11-23T00:20:22 after 00:00:09 in /orcd/data/dandi/001/dandi-compute
+30150800_4 dandicompute-dispatch-lfp FAILED exit 1:0 ended 2026-11-23T00:19:06 after 00:00:09 in /orcd/data/dandi/001/dandi-compute
+30150800_3 dandicompute-dispatch-lfp FAILED exit 1:0 ended 2026-11-23T00:19:22 after 00:00:25 in /orcd/data/dandi/001/dandi-compute
+30150800_2 dandicompute-dispatch-lfp FAILED exit 1:0 ended 2026-11-23T00:17:53 after 00:00:13 in /orcd/data/dandi/001/dandi-compute
+30150800_1 dandicompute-dispatch-lfp FAILED exit 1:0 ended 2026-11-23T00:17:51 after 00:00:11 in /orcd/data/dandi/001/dandi-compute
+30134913_1 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-23T10:28:14 after 12:00:26 in ~
+30134913_11 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-23T10:01:21 after 12:00:06 in ~
+30134913_10 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-23T10:01:21 after 12:00:06 in ~
+30134913_9 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-23T10:01:21 after 12:00:06 in ~
+30134913_8 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-23T10:01:21 after 12:00:06 in ~
+30134913_7 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-23T10:01:21 after 12:00:06 in ~
+30134913_6 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-23T10:01:21 after 12:00:06 in ~
+30134913_5 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-23T10:01:21 after 12:00:06 in ~
+30134913_4 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-23T10:01:21 after 12:00:06 in ~
+30134913_3 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-23T10:01:21 after 12:00:06 in ~
+30134913_2 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-23T10:01:21 after 12:00:06 in ~
+30134913_0 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-23T10:01:21 after 12:00:06 in ~
+29752740_9 dandicompute-dispatch-aind-ephys-lupin OUT_OF_MEMORY exit 0:125 ended 2026-11-23T00:10:40 after 05:53:11 in /orcd/data/dandi/001/dandi-compute
+30099086 DANDI-Compute-Submitter TIMEOUT exit 0:0 ended 2026-11-23T04:26:44 after 12:00:26 in ~
+29752740_6 dandicompute-dispatch-aind-ephys-lupin OUT_OF_MEMORY exit 0:125 ended 2026-11-23T05:06:52 after 16:40:49 in /orcd/data/dandi/001/dandi-compute
+30053117 DANDI-Compute-Submitter TIMEOUT exit 0:0 ended 2026-11-22T16:25:17 after 12:00:25 in ~
+30034738_5 dandicompute-dispatch-lfp FAILED exit 1:0 ended 2026-11-22T00:21:32 after 00:00:09 in /orcd/data/dandi/001/dandi-compute
+30034738_4 dandicompute-dispatch-lfp FAILED exit 1:0 ended 2026-11-22T00:19:42 after 00:00:09 in /orcd/data/dandi/001/dandi-compute
+30034738_3 dandicompute-dispatch-lfp FAILED exit 1:0 ended 2026-11-22T00:19:42 after 00:00:09 in /orcd/data/dandi/001/dandi-compute
+30034738_2 dandicompute-dispatch-lfp FAILED exit 1:0 ended 2026-11-22T00:18:18 after 00:00:14 in /orcd/data/dandi/001/dandi-compute
+30034738_1 dandicompute-dispatch-lfp FAILED exit 1:0 ended 2026-11-22T00:18:16 after 00:00:12 in /orcd/data/dandi/001/dandi-compute
+30033346_3 dandicompute-dispatch-aind-ephys OUT_OF_MEMORY exit 0:125 ended 2026-11-23T03:44:50 after 22:50:16 in /orcd/data/dandi/001/dandi-compute
+30033346_2 dandicompute-dispatch-aind-ephys OUT_OF_MEMORY exit 0:125 ended 2026-11-22T04:54:21 after 04:51:34 in /orcd/data/dandi/001/dandi-compute
+30024571_15 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-22T10:01:35 after 12:00:08 in ~
+30024571_14 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-22T10:01:35 after 12:00:08 in ~
+30024571_13 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-22T10:01:35 after 12:00:08 in ~
+30024571_12 DANDI-Backup-Blobs TIMEOUT exit 0:0 ended 2026-11-22T10:01:35 after 12:00:08 in ~
