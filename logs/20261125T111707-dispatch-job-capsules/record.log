@@ -1,0 +1,5 @@
+remote: fatal error in commit_refs_rules        
+To https://github.com/dandi-compute/dandi-compute-global-logs.git
+ ! [remote rejected]     logs/2026-11-25 -> logs/2026-11-25 (fatal error in commit_refs_rules
+)
+error: failed to push some refs to 'https://github.com/dandi-compute/dandi-compute-global-logs.git'
