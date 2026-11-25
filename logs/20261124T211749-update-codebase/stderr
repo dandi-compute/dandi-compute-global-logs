@@ -1,0 +1,9 @@
+From https://github.com/dandi-compute/dandi-compute-core
+   a72f364..3a68d05  main                -> origin/main
+ * [new branch]      end-to-end-lupin-ci -> origin/end-to-end-lupin-ci
+From https://github.com/dandi-compute/dandi-compute-runner
+   6035a29..938e285  main                 -> origin/main
+ * [new branch]      blob-backup-48-hours -> origin/blob-backup-48-hours
+From https://github.com/dandi/simple-s3-backup
+ * [new branch]      blob-backup-48-hours -> origin/blob-backup-48-hours
+Reset branch 'main'

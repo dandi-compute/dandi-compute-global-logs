@@ -1,0 +1,10 @@
+Pulling ./dandi-compute-core/
+HEAD is now at 3a68d05 Keep the whole visualization and quality control trees in derivatives (#386)
+Pulling ./dandi-compute-runner/
+HEAD is now at 938e285 Recorded pending jobs' priority, fair-share and limits with the squeue snapshot (#126)
+Pulling ./aind-ephys-pipeline/
+./aind-ephys-pipeline/ is on a detached HEAD; fetched new tags without resetting.
+Putting /orcd/data/dandi/001/backup/simple-s3-backup on main
+branch 'main' set up to track 'origin/main'.
+Your branch is up to date with 'origin/main'.
+Was on main; now on main at 3807291 Wrote the blob backup's s5cmd output to the task log, a line per blob copied (#57).
