@@ -1,0 +1,51 @@
+## Diagnosis
+
+### The blob backup
+- Checkout: HEAD 38072913934baa67bd85fc894c8ee6e455f060df, GitHub main 38072913934baa67bd85fc894c8ee6e455f060df, changed files: 0, untracked files: 0
+- Crontab: installed, matches the runner checkout
+- Locks held: verify_checksums_batch_5.lock verify_checksums_batch_7.lock verify_checksums_batch_8.lock verify_checksums_batch_9.lock
+- Mirror writable: 001:yes 002:yes
+- Setup steps that failed when replayed in cron's environment:
+    none
+- Setup steps that failed when replayed again without the script's set -e and set -u:
+    none
+- Reproduction: skipped
+- No known message matched. The end of the reproduced task's log:
+    (none)
+
+### The home directory
+- Quota: space 39.00% used, files 41.08% used
+- dandi-cli log files: 91
+- Directories holding the most files:
+    261240	~/.cache
+    110804	~/.conda
+    37037	~/.local
+    1374	~/.kachery
+    180	~/.nextflow
+
+### Job capsules
+- Inputs: 1284 capsules on the cluster: 1206 with their blob, 9 pointing at the wrong partition, 69 whose blob is not mirrored
+- Nextflow tasks that failed on a missing input: 5
+- SLURM: 273 of 589 jobs and tasks since 2026-11-17 did not complete
+- Most frequent failures:
+    94  DANDI-Backup-Blobs (TIMEOUT, exit 0:0)
+    45  dandicompute-dispatch-lfp (FAILED, exit 1:0)
+    20  DANDI-Verify-Checksums (TIMEOUT, exit 0:0)
+    16  nf-preprocessing_(preprocessing) (CANCELLED, exit 0:0)
+    16  DANDI-Backup-Blobs (FAILED, exit 1:0)
+    14  DANDI-Compute-Submitter (TIMEOUT, exit 0:0)
+    9  nf-job_dispatch_(job-dispatch) (CANCELLED, exit 0:0)
+    8  nf-nwb_ecephys_(nwb-ecephys) (CANCELLED, exit 0:0)
+    7  dandicompute-dispatch-aind-ephys-lupin (OUT_OF_MEMORY, exit 0:125)
+    5  nf-quality_control_(quality-control) (FAILED, exit 1:0)
+- Most frequent errors of failed jobs:
+        115 [<n>-<n>-<n>T<n>:<n>:<n>.<n>] error: *** JOB <n> ON node<n> CANCELLED AT <n>-<n>-<n>T<n>:<n>:<n> DUE TO TIME LIMIT ***
+         45 FATAL: While making image from oci registry: error fetching image to cache: failed to get checksum for docker:<path>:v<n>.<n>.<n>: reading manifest v<n>.<n>.<n> in ghcr.io<path>: manifest unknown
+         16 <n>-<n>-<n>T<n>:<n>:<n>-<n>:<n> ERROR task <n>: could not acquire lock <path> another run is still active. Refusing to skip silently.
+          9 [<n>-<n>-<n>T<n>:<n>:<n>.<n>] error: Detected <n> oom_kill event in StepId=<n>.batch. Some of the step tasks have been OOM Killed.
+          5 RuntimeError: File <path> is not an existing file or folder!
+          5 AttributeError: 'NoneType' object has no attribute 'displacement'
+          4 ZeroDivisionError: division by zero
+          4 + python -u run_capsule.py
+          2 ValueError: Resampling produced nonfinite values. Check the input traces and resampling parameters.
+          2 ValueError: No threading layer could be loaded.
