@@ -1,0 +1,151 @@
+PIPELINE_DIRECTORY=aind-ephys-pipeline
+CACHE_DIRECTORY="$PWD/work/apptainer_cache"
+LOG_DIRECTORY=processing/derivatives/logs/dandicompute-images
+# Where each submission extracts the release its pull job runs the script of.
+RELEASES_DIRECTORY="$PWD/processing/dandicompute-images-releases"
+JOB_NAME=DANDI-Compute-Image-Cache
+
+# The latest local tag is what new job capsules are formed against. Its files are read
+# with `git show`, since the shared checkout is on whatever tag the last capsule used.
+TAG="${VERSION:-$(python -c "from dandi_compute_code.queue import PipelineQueue; print(PipelineQueue.resolve_latest_pipeline_version(pipeline='aind+ephys'))")}"
+# Releases from 1.4.0 tag the images with the release itself, as written in
+# pipeline/pipeline_version.txt, which upstream's Nextflow file and pull script read too.
+# Earlier ones tag them by the SpikeInterface version in pipeline/capsule_versions.env, a
+# file 1.4.1 renamed.
+if CONTAINER_TAG=$(git -C "$PIPELINE_DIRECTORY" show "${TAG}:pipeline/pipeline_version.txt" 2> /dev/null); then
+  CONTAINER_TAG=$(tr -d "[:space:]" <<< "$CONTAINER_TAG")
+elif VERSIONS=$(git -C "$PIPELINE_DIRECTORY" show "${TAG}:pipeline/capsule_versions.env" 2> /dev/null); then
+  # `|| true` since a key the release lacks makes grep fail, which under pipefail would
+  # end the step silently.
+  SPIKEINTERFACE_VERSION=$(grep -E "^SPIKEINTERFACE_VERSION=" <<< "$VERSIONS" | cut -d= -f2 | tr -d "[:space:]\"'" || true)
+  CONTAINER_TAG="${SPIKEINTERFACE_VERSION:+si-${SPIKEINTERFACE_VERSION}}"
+fi
+if [ -z "$CONTAINER_TAG" ]; then
+  echo "Pipeline ${TAG} names no image tag: no pipeline/pipeline_version.txt, and no SPIKEINTERFACE_VERSION in pipeline/capsule_versions.env."
+  exit 1
+fi
+echo "Pipeline ${TAG} uses image tag ${CONTAINER_TAG}"
+
+# The images upstream's pull_pipeline_images.sh pulls by default (--sorter kilosort4),
+# under the file names Nextflow looks for. Lupin and Spyking Circus 2 run in the base
+# image. DARTsort, which 1.5.0 added, has an image of its own that the upstream script
+# does not know how to pull, so it is pulled here directly when the release names it.
+REPOSITORIES=(aind-ephys-pipeline-base aind-ephys-pipeline-nwb aind-ephys-spikesort-kilosort4)
+DARTSORT_REPOSITORY=""
+if IMAGES_JSON=$(git -C "$PIPELINE_DIRECTORY" show "${TAG}:environment/images.json" 2> /dev/null); then
+  DARTSORT_REPOSITORY=$(python -c "import json, sys; print(json.load(sys.stdin).get('dartsort', {}).get('image_name', ''))" <<< "$IMAGES_JSON")
+fi
+if [ -n "$DARTSORT_REPOSITORY" ]; then
+  REPOSITORIES+=("$DARTSORT_REPOSITORY")
+fi
+missing=()
+for repository in "${REPOSITORIES[@]}"; do
+  file_name="ghcr.io-allenneuraldynamics-${repository}-${CONTAINER_TAG}.img"
+  [ -f "${CACHE_DIRECTORY}/${file_name}" ] || missing+=("$file_name")
+done
+if [ "${#missing[@]}" -eq 0 ]; then
+  echo "Every image is already cached."
+  exit 0
+fi
+printf 'Not cached yet: %s\n' "${missing[@]}"
+
+# A pull job still in the queue or running will cache them, and the next run checks that
+# it did. This run neither waits for it (a job on mit_normal waited 6 to 13 hours for its
+# ~10 minutes in November 2026, holding the runner from every other workflow meanwhile)
+# nor queues another beside it.
+active=$(squeue --me -h -n "$JOB_NAME" -t PD,CF,R,CG,S,RQ -o "%i %T %M %R")
+if [ -n "$active" ]; then
+  echo "A ${JOB_NAME} job is already queued or running (ID, state, time used, reason or node):"
+  echo "$active"
+  echo "Nothing is submitted. The next run checks whether it cached the images."
+  exit 0
+fi
+# Nor is any job left to use the releases earlier runs extracted for it.
+rm -rf "$RELEASES_DIRECTORY"
+
+# A job that ended between the first check and squeue may have cached them meanwhile.
+still_missing=()
+for file_name in "${missing[@]}"; do
+  [ -f "${CACHE_DIRECTORY}/${file_name}" ] || still_missing+=("$file_name")
+done
+if [ "${#still_missing[@]}" -eq 0 ]; then
+  echo "Every image is cached now, by a pull job that has just ended."
+  exit 0
+fi
+missing=("${still_missing[@]}")
+
+# Each pull job prints this line after the date, so a run can tell whether the last pull was of
+# these images. If it was, and no job is left in the queue, that pull ended without caching
+# them all: this run fails, with the end of its log, and submits another pull. A missing
+# image of a tag no pull has tried yet is simply submitted.
+PULL_HEADER="Pulling the images tagged ${CONTAINER_TAG}"
+mkdir -p "$LOG_DIRECTORY"
+last_log=$(find "$LOG_DIRECTORY" -maxdepth 1 -type f -name "job-*_slurm.log" -printf "%T@ %p\n" | sort -n | tail -n 1 | cut -d " " -f 2-)
+previous_pull_failed=0
+if [ -n "$last_log" ] && grep -qxF "$PULL_HEADER" "$last_log"; then
+  previous_pull_failed=1
+  echo "The last pull of these images ended without caching them all. The end of its log, ${last_log}:"
+  tail -n 50 "$last_log"
+fi
+
+# The whole release is extracted (about 1 MB) rather than the script alone, since from
+# 1.4.1 the script reads the image names from environment/images.json beside it. Releases
+# from 1.4.0 keep the script under scripts/, earlier ones at the top level. The job runs
+# after this step has ended, so it deletes the extraction itself once its pulls are done.
+# One it never finishes (cancelled, or out of time) is deleted above by a later run.
+RELEASE_DIRECTORY="${RELEASES_DIRECTORY}/aind-ephys-pipeline-${TAG}-${GITHUB_RUN_ID}"
+mkdir -p "$RELEASE_DIRECTORY"
+trap 'rm -rf "$RELEASE_DIRECTORY"' EXIT
+git -C "$PIPELINE_DIRECTORY" archive "$TAG" | tar -x -C "$RELEASE_DIRECTORY"
+SCRIPT_FILE_PATH="${RELEASE_DIRECTORY}/scripts/pull_pipeline_images.sh"
+[ -f "$SCRIPT_FILE_PATH" ] || SCRIPT_FILE_PATH="${RELEASE_DIRECTORY}/pull_pipeline_images.sh"
+if [ ! -f "$SCRIPT_FILE_PATH" ]; then
+  echo "The pipeline has no pull_pipeline_images.sh at ${TAG}."
+  exit 1
+fi
+
+# The DARTsort image is pulled the way the upstream script pulls the others, with a
+# failed pull ignored there too, so success is judged by the next run by the file being
+# in place.
+DARTSORT_PULL=""
+if [ -n "$DARTSORT_REPOSITORY" ]; then
+  DARTSORT_IMAGE="ghcr.io/allenneuraldynamics/${DARTSORT_REPOSITORY}:${CONTAINER_TAG}"
+  DARTSORT_FILE_NAME="ghcr.io-allenneuraldynamics-${DARTSORT_REPOSITORY}-${CONTAINER_TAG}.img"
+  DARTSORT_PULL=" && (apptainer pull --name '${DARTSORT_FILE_NAME}' --dir '${CACHE_DIRECTORY}' 'docker://${DARTSORT_IMAGE}' || true)"
+fi
+
+# sbatch rather than srun or salloc: this runner lives inside its own SLURM job, where
+# srun would start a step in that 1 GB allocation instead of requesting a new one.
+#
+# mit_preemptable rather than mit_normal, whose queue kept the pull waiting for hours. A
+# preempted job goes back in the queue (--requeue) and appends to the same log
+# (--open-mode=append). The pulls take about 10 minutes, so an hour leaves plenty of room.
+#
+# A pull killed partway, by preemption or its time limit, leaves no partial image under the
+# final name: with Apptainer's cache on, `apptainer pull` (from 1.0) builds the image in its
+# cache and copies it beside the destination under a temporary name, then renames it into
+# place. With the cache off (APPTAINER_DISABLE_CACHE) it writes the destination directly,
+# so the job turns the cache back on should the variable reach it. A requeued job finds the
+# images its first attempt finished already in place and pulls only the rest.
+#
+# guarded-submit -N submits nothing while a job of the same name is pending, configuring
+# or running; -n 0 turns off its limit on the account's pending jobs, which the job
+# capsules reach on their own, and -j 0 its random wait before submitting.
+submission=$(/orcd/data/dandi/001/dandi-compute/dandi-compute-runner/launcher/guarded-submit \
+  -n 0 -N "$JOB_NAME" -j 0 -- \
+  sbatch --parsable \
+  --job-name="$JOB_NAME" \
+  --partition=mit_preemptable --requeue --open-mode=append \
+  --mem=32GB --cpus-per-task=8 --time=01:00:00 \
+  --output="${LOG_DIRECTORY}/job-%j_slurm.log" \
+  --wrap "date && echo '${PULL_HEADER}' && unset APPTAINER_DISABLE_CACHE SINGULARITY_DISABLE_CACHE && source /etc/profile.d/modules.sh && module load apptainer && bash '${SCRIPT_FILE_PATH}' --cache '${CACHE_DIRECTORY}' --tag '${CONTAINER_TAG}'${DARTSORT_PULL}; status=\$?; rm -rf '${RELEASE_DIRECTORY}'; exit \$status")
+job_id=$(sed -n "s/^\([0-9][0-9]*\)\(;.*\)\{0,1\}$/\1/p" <<< "$submission" | tail -n 1)
+if [ -n "$job_id" ]; then
+  trap - EXIT
+  echo "Submitted ${JOB_NAME} job ${job_id} to pull: ${missing[*]}"
+  echo "Its log will be ${LOG_DIRECTORY}/job-${job_id}_slurm.log. The next run checks whether it cached the images."
+else
+  # guarded-submit found a job of the name after all, submitted since the check above.
+  echo "$submission"
+fi
+exit "$previous_pull_failed"
