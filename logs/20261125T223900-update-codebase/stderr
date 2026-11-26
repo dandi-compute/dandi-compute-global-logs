@@ -1,0 +1,6 @@
+From https://github.com/dandi-compute/dandi-compute-runner
+   938e285..c589339  main       -> origin/main
+From https://github.com/dandi/simple-s3-backup
+ - [deleted]         (none)     -> origin/blob-backup-48-hours
+   3807291..02aedc6  main       -> origin/main
+Reset branch 'main'
