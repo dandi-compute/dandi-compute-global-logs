@@ -1,0 +1,13 @@
+::warning title=DANDI-Backup-Blobs ended early::10 of its tasks timed out, were preempted or were cancelled in the last 24 hours.
+::warning title=DANDI-Verify-Checksums ended early::1 of its tasks timed out, were preempted or were cancelled in the last 24 hours.
+DANDI-Backup-Blobs: 6 completed, 0 failed, 10 ended otherwise in the last 24 hours; 0 still pending or running.
+  30554347_0 TIMEOUT (exit 0:0 after 12:00:23)
+  30554347_2 TIMEOUT (exit 0:0 after 12:00:23)
+  30554347_5 TIMEOUT (exit 0:0 after 12:00:23)
+  30554347_6 TIMEOUT (exit 0:0 after 12:00:23)
+  30554347_7 TIMEOUT (exit 0:0 after 12:00:23)
+DANDI-Backup-Nonblobs: 1 completed, 0 failed, 0 ended otherwise in the last 24 hours; 0 still pending or running.
+DANDI-Update-Backup-Dashboard: 1 completed, 0 failed, 0 ended otherwise in the last 24 hours; 0 still pending or running.
+DANDI-Verify-Checksums: 11 completed, 0 found checksum mismatches, 0 failed, 1 ended otherwise in the last 24 hours; 4 still pending or running.
+  30597092_12 PREEMPTED (exit 0:0 after 01:30:37)
+DANDI-Verify-Blobs: 1 completed, 0 failed, 0 ended otherwise in the last 24 hours; 0 still pending or running.
