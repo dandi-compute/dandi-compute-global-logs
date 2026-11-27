@@ -1,0 +1,2 @@
+Account|User|RawShares|NormShares|RawUsage|NormUsage|EffectvUsage|FairShare|LevelFS
+mit_general|cb239|1|0.000093|15071728|0.000335|0.000383|0.030185|0.243056
