@@ -1,0 +1,10 @@
+PARTITION|QOS|MAXTIME|MAXNODES|MAXMEMPERNODE|MAXCPUSPERNODE|DEFMEMPERCPU|TRES
+mit_normal|mit_normal|12:00:00|UNLIMITED|UNLIMITED|UNLIMITED||cpu=6272,mem=28051603M,node=62,billing=6272
+mit_normal_gpu|mit_normal_gpu|06:00:00|UNLIMITED|UNLIMITED|UNLIMITED||cpu=8304,mem=105951315M,node=79,billing=8304,gres/gpu=416,gres/gpu:b200=96,gres/gpu:h100=4,gres/gpu:h200=104,gres/gpu:l40s=212
+mit_preemptable|mit_preemptable|2-00:00:00|UNLIMITED|UNLIMITED|UNLIMITED||cpu=61128,mem=487216237M,node=677,billing=61128,gres/gpu=1262,gres/gpu:a100=295,gres/gpu:b200=96,gres/gpu:h100=130,gres/gpu:h200=274,gres/gpu:l4=2,gres/gpu:l40s=354,gres/gpu:rtx_a6000=27,gres/gpu:rtx_pro_6000=72
+
+Name|Priority|MaxTRESPU|MaxJobsPU|MaxSubmitPU|MaxTRES|MaxWall|GrpTRES|GrpJobs
+mit_normal|0|cpu=96,mem=386G||448||||
+mit_normal_gpu|0|cpu=32,gres/gpu=2,mem=515G||64||||
+mit_preemptable|0|cpu=1024,gres/gpu=4,mem=4T||256||||
+normal|0|||||||
