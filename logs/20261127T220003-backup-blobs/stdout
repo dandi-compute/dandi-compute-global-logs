@@ -1,0 +1,2 @@
+Deleted 0 backup logs older than 30 days from /orcd/data/dandi/001/backup/logs.
+Fri Nov 27 22:00:06 EST 2026: 4 DANDI-Backup-Blobs job(s) already pending or running, skipping: sbatch --job-name=DANDI-Backup-Blobs --output=/orcd/data/dandi/001/backup/logs/%x-%A_%a.log --error=/orcd/data/dandi/001/backup/logs/%x-%A_%a.log /orcd/data/dandi/001/backup/simple-s3-backup/scripts/backup_blobs_batch_deployment.sh
